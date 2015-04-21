@@ -1,5 +1,8 @@
 package uk.jamierocks.lexteam.ygd.core;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * The main game object
  *
@@ -7,6 +10,16 @@ package uk.jamierocks.lexteam.ygd.core;
  *
  * @author Jamie Mansfield
  */
-public interface Game {
+public abstract class Game {
 
+    private final Logger logger = LoggerFactory.getLogger("lex-game");
+
+    /**
+     * The game's main {@link Logger}
+     *
+     * @return the main {@link Logger}
+     */
+    public Logger getLogger() {
+        return logger;
+    }
 }
