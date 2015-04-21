@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '1.2.1'
+}
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.12'
+    compile 'com.google.guava:guava:18.0'
+    compile 'com.google.code.gson:gson:2.3.1'
+}
+
+shadowJar {
+    dependencies {
+        include dependency('org.slf4j:slf4j-api')
+        include dependency('com.google.guava:guava')
+        include dependency('com.google.code.gson:gson')
+    }
+}

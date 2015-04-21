@@ -1,16 +1,6 @@
-plugins {
-    id 'java'
-    id 'idea'
-    id 'eclipse'
-}
+allprojects {
+    version = '1.0-SNAPSHOT'
 
-group = 'uk.jamierocks.lexteam'
-archivesBaseName = 'lexgame'
-version = '1.0-SNAPSHOT'
-
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
 }

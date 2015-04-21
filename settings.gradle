@@ -1,2 +1,2 @@
-rootProject.name = 'lex-game'
-
+rootProject.name = 'lexgame'
+include 'Core'
