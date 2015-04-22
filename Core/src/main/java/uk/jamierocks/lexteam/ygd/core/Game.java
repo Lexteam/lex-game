@@ -10,16 +10,14 @@ import org.slf4j.LoggerFactory;
  *
  * @author Jamie Mansfield
  */
-public abstract class Game {
-
-    private final Logger logger = LoggerFactory.getLogger("lex-game");
+public interface Game {
 
     /**
      * The game's main {@link Logger}
      *
      * @return the main {@link Logger}
      */
-    public Logger getLogger() {
-        return logger;
+    default Logger getLogger() {
+        return LoggerFactory.getLogger("lex-game");
     }
 }
