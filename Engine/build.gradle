@@ -2,6 +2,9 @@ apply plugin: 'cpp'
 
 libraries {
     gui {}
-    level {}
+    level {
+		puzzle{}
+	}
     scene {}
+	thread {}
 }
