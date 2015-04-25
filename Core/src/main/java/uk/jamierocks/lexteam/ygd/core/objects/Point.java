@@ -6,5 +6,6 @@ package uk.jamierocks.lexteam.ygd.core.objects;
  * @author Tom Drever
  */
 public class Point {
+
     public int ID;
 }

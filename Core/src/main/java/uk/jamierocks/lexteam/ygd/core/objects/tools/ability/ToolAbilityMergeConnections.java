@@ -6,4 +6,5 @@ package uk.jamierocks.lexteam.ygd.core.objects.tools.ability;
  * @author Tom Drever
  */
 public class ToolAbilityMergeConnections implements ToolAbility {
+
 }

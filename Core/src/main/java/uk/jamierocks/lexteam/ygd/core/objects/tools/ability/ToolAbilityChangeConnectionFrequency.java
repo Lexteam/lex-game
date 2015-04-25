@@ -5,5 +5,6 @@ package uk.jamierocks.lexteam.ygd.core.objects.tools.ability;
  *
  * @author Tom Drever
  */
-public class ToolAbilityChangeConnectionFrequency implements ToolAbility{
+public class ToolAbilityChangeConnectionFrequency implements ToolAbility {
+
 }

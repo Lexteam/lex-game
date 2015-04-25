@@ -10,7 +10,7 @@ public class Connection extends GameObject {
     public Point pointTo;
     public Point pointFrom;
 
-    public Connection(Point PointTo, Point PointFrom){
+    public Connection(Point PointTo, Point PointFrom) {
         this.pointTo = PointTo;
         this.pointFrom = PointFrom;
     }
