@@ -15,7 +15,7 @@ class Tile{
 
 		//for Java
 		Tile(float x, float y, float z):
-			pos(x, y, z)
+			pos(x, y, z) 
 		{
 			
 		}
