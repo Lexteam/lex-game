@@ -2,6 +2,7 @@ package uk.jamierocks.lexteam.ygd.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.jamierocks.lexteam.ygd.core.section.SectionManager;
 
 /**
  * The main game object
@@ -11,6 +12,13 @@ import org.slf4j.LoggerFactory;
  * @author Jamie Mansfield
  */
 public interface Game {
+
+    /**
+     * The game's {@link SectionManager}
+     *
+     * @return the game's {@link SectionManager}
+     */
+    SectionManager getSectionManager();
 
     /**
      * The game's main {@link Logger}

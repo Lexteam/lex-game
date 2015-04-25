@@ -13,16 +13,16 @@ import java.util.Set;
 public interface Section {
 
     /**
-     * Collection of levels
+     * Collection of {@link Level}s
      *
-     * @return all levels
+     * @return all {@link Level}s
      */
     Set<Level> getLevels();
 
     /**
-     * Adds a level/multiple levels to the Levels collection
+     * Adds a {@link Level}/multiple {@link Level}s to the {@link Level}s collection
      *
-     * @param levels the level/s to be added
+     * @param levels the {@link Level}/s to be added
      */
     void addLevel(Level... levels);
 }

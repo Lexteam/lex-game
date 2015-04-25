@@ -19,7 +19,7 @@ public class SectionFactory {
      * @param levels the initial levels
      * @return the created {@link Section}
      */
-    public Section createPopulatedSection(Set<Level> levels) {
+    public static Section createPopulatedSection(Set<Level> levels) {
         return new CreatedSection(levels);
     }
 
@@ -28,7 +28,7 @@ public class SectionFactory {
      *
      * @return an empty {@link Section}
      */
-    public Section createEmptySection() {
+    public static Section createEmptySection() {
         return new CreatedSection();
     }
 
@@ -37,14 +37,22 @@ public class SectionFactory {
      *
      * @author Jamie Mansfield
      */
-    private class CreatedSection implements Section {
+    private static class CreatedSection implements Section {
 
-        private Set<Level> levels;
+        private final Set<Level> levels;
 
+        /**
+         * Creates an empty {@link Section}
+         */
         public CreatedSection() {
             levels = new HashSet<>();
         }
 
+        /**
+         * Creates a populated {@link Section}
+         *
+         * @param levels the initial levels
+         */
         public CreatedSection(Set<Level> levels) {
             this.levels = levels;
         }
