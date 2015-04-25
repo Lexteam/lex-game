@@ -1,9 +1,9 @@
 package uk.jamierocks.lexteam.ygd.core.objects.tools.ability;
 
 /**
- * An interface for the ToolAbility to split a connection into two new connections
+ * A class representing for the ToolAbility to split a connection into two new connections
  *
  * @author Tom Drever
  */
-public interface ToolAbilitySplitConnection extends ToolAbility {
+public class ToolAbilitySplitConnection implements ToolAbility {
 }
