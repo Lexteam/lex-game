@@ -8,7 +8,7 @@ import java.util.Set;
  * Represents a section
  *
  * @author Jamie Mansfield
- * @author Tom Dreverz
+ * @author Tom Drever
  */
 public interface Section {
 
