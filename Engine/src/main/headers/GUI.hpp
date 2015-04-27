@@ -1,8 +1,8 @@
 #ifndef _GUI_HPP
 #define _GUI_HPP
 
-#include"GUI\Menu.h"
-#include"GUI\PushButton.h"
-#include"GUI\ScrollMenu.h"
+#include"..\..\gui\headers\Menu.h"
+#include"..\..\gui\headers\ScrollMenu.h"
+#include"..\..\gui\headers\PushButton.h"
 
 #endif //_GUI_HPP
