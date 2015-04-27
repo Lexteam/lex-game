@@ -1,11 +1,7 @@
-#include <SFML\OpenGL.hpp>
 #include <SFML\Window.hpp>
 #include <SFML\Graphics.hpp>
 #include <SFML\OpenGL.hpp>
 
-
-#include <time.h>
-#include <random>
 #include <iostream>
 
 int main() {
@@ -76,16 +72,15 @@ int main() {
 	glVertexPointer(3, GL_FLOAT, 6 * sizeof(GLfloat), ObjectBufferData);
 	glEnableClientState(GL_COLOR_ARRAY);
 	glColorPointer(3, GL_FLOAT, 6 * sizeof(GLfloat), ObjectBufferData + 3);
-	
-
-
-	
 
 	sf::Event e;
 	static float xpos = 0.f;
 	static float zpos = 0.f;
 	static float xRot = 0.f;
 	static float yRot = 0.f;
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 	while (OpenglWindow.isOpen()) {
 		while (OpenglWindow.pollEvent(e)) {
 			if (e.type == sf::Event::Closed) {
@@ -134,8 +129,7 @@ int main() {
 
 		std::cout << zpos << std::endl;
 
-		glMatrixMode(GL_MODELVIEW);
-		glLoadIdentity();
+
 		glTranslatef(xpos, 0, zpos);
 		glTranslatef(0.f, 0.f, -100.f);
 		glRotatef(xRot, 1.f, 0.f, 0.f);

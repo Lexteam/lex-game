@@ -1,8 +1,12 @@
+#include <SFML\Window.hpp>
+#include <SFML\Graphics.hpp>
+#include <SFML\OpenGL.hpp>
+
+#include<string>
+
 #ifndef _H_PUSHBUTTON_H_
 #define _H_PUSHBUTTON_H_
 
-#include<string>
-#include<SFML\Graphics.hpp>
 
 namespace Engine {
 	class PushButton : sf::Drawable{
@@ -10,9 +14,8 @@ namespace Engine {
 
 			PushButton(std::string Text, sf::Font &font,sf::Texture &ButtonTex) :
 			text(Text,font),
-			BackgroundButton()
+			BackgroundButton(ButtonTex)
 			{
-				BackgroundButton.setTexture(ButtonTex);
 				padding = 2;
 			}
 
@@ -45,13 +48,8 @@ namespace Engine {
 			bool setposition(sf::Vector2f pos);
 
 			//sets padding for the text
-			bool setpadding(int pixels);
+			bool setpadding(float pixels);
 
-			// Supposed to be added to the SFML Render thread
-			//draws the button
-			bool draw(sf::RenderWindow &window);
-
-			//disables button events
 			bool disableButton(bool enable = true){}
 
 			//Use theese for working with the Label
@@ -64,6 +62,15 @@ namespace Engine {
 			bool SetFont(sf::Font &font) { text.setFont(font); return true; };
 
 		private:
+
+			//Supposed to be added to the SFML Render thread
+			//draws the text & the sprite
+			void draw(sf::RenderTarget& target, sf::RenderStates states)
+			{	
+				target.draw(BackgroundButton, states);
+				target.draw(text, states);	
+			}
+
 			//Supposed to be added to the SFML Render thread
 			//checks collision events between the mouse & the button  
 			bool CheckEvents(sf::RenderWindow &window);

@@ -14,12 +14,13 @@ class Model{
 		
 	}
 	
-	bool setMaterial(aiMaterial material)
-	{
-		
-	}
+	bool setMaterial(aiMaterial &material);
 
 	bool setModelPos(float x,float y,float z);
+
+	bool setModelPos(sf::Vector3f pos);
+
+	sf::Vector3f getModelPos();
 
 	private:
 		aiMesh Mesh;

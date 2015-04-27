@@ -1,8 +1,11 @@
-#include "PushButton.h"
+#include<SFML\System.hpp>
+#include<SFML\Graphics.hpp>
 
-bool Engine::PushButton::setpadding(int pixels)
+#include "..\headers\PushButton.h"
+
+bool Engine::PushButton::setpadding(float pixels)
 {
-	int ratio = pixels/padding;
+	float ratio = pixels/padding;
 	BackgroundButton.setScale(sf::Vector2f(ratio,ratio));
 	return true;
 }
@@ -11,16 +14,18 @@ bool Engine::PushButton::setposition(sf::Vector2f pos)
 {
 	BackgroundButton.setPosition(pos);
 
-	pos.x = (pos.x / 2) - (text.getGlobalBounds.getPosition().x/4);//midpoint - midpoint / 2
-	pos.y = (pos.y / 2) + (text.getGlobalBounds.getPosition().y/4);
+	pos.x = (pos.x / 2) - (text.getPosition().x/4);//midpoint - midpoint / 2
+	pos.y = (pos.y / 2) + (text.getPosition().y/4);
 
 	text.setPosition(pos);
+
+	return true;
 }
 
 bool Engine::PushButton::SetButtonSize(sf::Vector2u size)
 {
 	sf::Vector2u oSize = BackgroundButton.getTexture()->getSize();
-	BackgroundButton.setScale((oSize.x / size.x), (oSize.y / size.y));
+	BackgroundButton.setScale(static_cast<float>((oSize.x / size.x)), static_cast<float>(oSize.y / size.y));
 	text.setScale(BackgroundButton.getScale());
 	return true;
 }
