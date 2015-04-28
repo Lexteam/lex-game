@@ -32,6 +32,7 @@ namespace Engine {
 		protected:
 
 			friend Scene;
+			sf::Vector3<float> pos;
 		
 		private:
 
@@ -68,6 +69,10 @@ namespace Engine {
 			virtual bool setScale(Engine::Tile Scale) = 0;
 			virtual bool setScale(float x, float y, float z) = 0;
 
+		protected:
+			sf::Vector3<float> Scale;
+			sf::Vector3<unsigned> Size;
+			sf::Vector3<float> Rotation;
 	};
 }
 

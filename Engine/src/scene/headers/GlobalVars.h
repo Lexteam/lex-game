@@ -4,8 +4,6 @@
 
 namespace Engine
 {
-	//the size of the cube hardcoded!
-	const static sf::Vector3<unsigned> TileSize(20,20,20);
 
 }
 

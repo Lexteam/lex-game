@@ -18,6 +18,8 @@ namespace Engine {
 			//loads scene class
 			virtual bool loadFromScene(Engine::Scene &scene);
 
+			sf::Vector3f getModelSize();
+
 			///sets///
 			//keep material
 			bool setMaterial(aiMaterial &material);
@@ -48,5 +50,6 @@ namespace Engine {
 
 		private:
 			aiMesh mesh;
+
 	};
 };
