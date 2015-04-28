@@ -1,10 +1,10 @@
 #ifndef _LEVEL_HPP
 #define _LEVEL_HPP
 
-#include"Level\LevelDesign.h"
-#include"Level\LevelGenrator.h"
-#include"Level\LevelScene.h"
-#include"Level\TileManager.h"
-#include"Level\Puzzle\Puzzle.h"
+#include "..\..\level\headers\LevelDesign.h"
+#include "..\..\level\headers\LevelGenrator.h"
+#include "..\..\level\headers\LevelScene.h"
+#include "..\..\level\headers\TileManager.h"
+#include "..\..\level\Puzzle\headers\Puzzle.h"
 
 #endif //_LEVEL_HPP

@@ -8,8 +8,18 @@ namespace Engine {
 	class PushButton : Engine::Button{
 		public:
 
-			PushButton(std::string Text, sf::Font &font,sf::Texture &ButtonTex) 
+			PushButton(std::string Text, sf::Font &font, sf::Texture &ButtonTex) 
 			{
+				setTexture(ButtonTex);
+				setFont(font);
+				setText(Text);
+				padding = 2;
+			}
+
+			//For a texture based button (No text)
+			PushButton(sf::Texture &ButtonTex)
+			{
+				setTexture(ButtonTex);
 				padding = 2;
 			}
 

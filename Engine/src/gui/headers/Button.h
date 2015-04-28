@@ -20,7 +20,7 @@ namespace Engine {
 		}
 
 		//set function to a the buttons event slot do not delete the function!(if thats possible)
-		bool setsignal(void(*Func)())
+		bool setSignal(void(*Func)())
 		{
 			SignalFunc = *Func;
 		}
@@ -32,20 +32,29 @@ namespace Engine {
 			return true;
 		}
 
-		//sets LH corner of the Background
-		bool setposition(sf::Vector2f pos);
+		//sets LH corner of the Background 
+		bool setPosition(sf::Vector2f pos);
 
-		bool setpadding(float pixels);
+		//rotates All via orgin see Set orgin
+		bool setRotation(sf::Vector2f rot);
+
+		//rotates text via buttons orgin
+		bool setTextRotation(sf::Vector2f rot);
+
+		bool setPadding(float pixels);
 
 		bool disableButton(bool enable = true) { Enabled = enable; return true; }
 
 		///Use theese for working with the Label///
-		bool SetButtonSize(sf::Vector2u size);
+		bool setButtonSize(sf::Vector2u size);
 
-		bool SetTextColour(sf::Color Colour) { text.setColor(Colour); return true; }
+		bool setTextColour(sf::Color Colour) { text.setColor(Colour); return true; }
 
 		//keep font  
-		bool SetFont(sf::Font &font) { text.setFont(font); return true; };
+		bool setFont(sf::Font &font) { text.setFont(font); return true; };
+
+		//keep string
+		bool setText(std::string txt) { text.setString(txt); return true; }
 
 	private:
 

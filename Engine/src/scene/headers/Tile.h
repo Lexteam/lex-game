@@ -3,31 +3,32 @@
 #ifndef _H_TILE_H_
 #define _H_TILE_H_
 
-//Utilty class for positions in the game
-class Tile{
-	public:
+namespace Engine {
+	
+	//Utilty class for positions vectors in the game
+	class Tile {
+		public:
+			Tile(sf::Vector3<int> Tilepos) :
+				TilePos(Tilepos)
+			{}
 
-		//for C++
-		Tile(sf::Vector3f Pos)
-		{
-			pos = Pos;
-		}
+			~Tile() {};
 
-		//for Java
-		Tile(float x, float y, float z):
-			pos(x, y, z) 
-		{
+			///gets///
+
+			sf::Vector3<int> getTile() { return TilePos; }
 			
-		}
+			sf::Vector3<int> getPos() 
+			{
+				return sf::Vector3<int>(TilePos.x * TileSize.x,
+					TilePos.y * TileSize.y, TilePos.z * TileSize.z);
+			}
 
-		//default constructor
-		Tile()
-		{
+			///sets///
+			bool setTile(sf::Vector3<int> Tilepos) { TilePos = Tilepos; return true; }
 
-		}
-
-	private:
-		sf::Vector3f pos;
-};
-
+		private:
+			sf::Vector3<int> TilePos;
+	};
+}
 #endif //H_TILE_H_
