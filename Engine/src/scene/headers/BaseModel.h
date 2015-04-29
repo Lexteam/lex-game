@@ -1,7 +1,7 @@
 #include "Tile.h"
-#include "Scenegraph.h"
 #include <assimp\mesh.h>
 #include <assimp\material.h>
+#include <assimp\scene.h>
 #include <vector>
 
 
@@ -10,10 +10,8 @@
 
 namespace Engine {
 
-	class BaseModel :public sf::Drawable{
+	class BaseModel : sf::Drawable{
 		public:
-
-			virtual bool loadFromScene(Engine::Scene &scene) = 0;
 
 			virtual	~BaseModel() {
 
@@ -21,9 +19,9 @@ namespace Engine {
 
 			///sets///
 			
-			virtual bool setModelPos(float x, float y, float z) = 0;
+			virtual bool setPos(float x, float y, float z) = 0;
 
-			virtual bool setModelPos(Engine::Tile pos) = 0;
+			virtual bool setPos(Engine::Tile pos) = 0;
 
 			///gets///
 
@@ -31,13 +29,15 @@ namespace Engine {
 
 		protected:
 
-			friend Scene;
+			//use Pesudo Constructor in Engine::Scene
+			BaseModel() 
+			{
+
+			}
+
 			sf::Vector3<float> pos;
 		
 		private:
-
-			//Override
-			virtual void draw(sf::RenderTarget &target, sf::RenderStates states) = 0;
 
 	};
 

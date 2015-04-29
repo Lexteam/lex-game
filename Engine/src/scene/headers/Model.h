@@ -5,18 +5,12 @@ namespace Engine {
 	class Model : public BaseModel,
 					public Transformable{
 		public:
-			Model(Engine::Scene &scene) 
-			{
-
-			}
 
 			~Model()
 			{
 
 			}
 
-			//loads scene class
-			virtual bool loadFromScene(Engine::Scene &scene);
 
 			sf::Vector3f getModelSize();
 
