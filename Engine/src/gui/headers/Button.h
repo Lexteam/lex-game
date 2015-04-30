@@ -41,9 +41,9 @@ namespace Engine {
 		//rotates text via buttons orgin
 		bool setTextRotation(sf::Vector2f rot);
 
-		bool setPadding(float pixels);
+		virtual bool setPadding(float pixels);
 
-		bool disableButton(bool enable = true) { Enabled = enable; return true; }
+		bool disable(bool disable = true) { disabled = disable; return disable; }
 
 		///Use theese for working with the Label///
 		bool setButtonSize(sf::Vector2u size);
@@ -60,7 +60,7 @@ namespace Engine {
 
 		//Supposed to be added to the SFML Render thread
 		//draws the text & the sprite
-		virtual void draw(sf::RenderTarget& target, sf::RenderStates states)
+		virtual void draw(sf::RenderTarget& target, sf::RenderStates states=sf::RenderStates::Default)
 		{
 			target.draw(BackgroundButton, states);
 			target.draw(text, states);
@@ -71,13 +71,14 @@ namespace Engine {
 		virtual bool CheckEvents(sf::RenderWindow &window) = 0;
 
 	protected:
+
 		sf::Text text;
 		sf::Sprite BackgroundButton;
 		int padding;
 		void(*SignalFunc)();
 		bool bbCollide(int x, int y);
 		
-		bool Enabled;
+		bool disabled;
 	};
 };
 #endif

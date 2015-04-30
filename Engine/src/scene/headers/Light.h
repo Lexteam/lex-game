@@ -5,7 +5,7 @@
 
 namespace Engine
 {
-	enum LightType { Sun, point, spotlight };
+	enum LightType { Sun, point, spotlight, hemisphere, area };
 	//Used as a convience class for lighting
 	class Light:public Engine::BaseModel, 
 			public Engine::Transformable

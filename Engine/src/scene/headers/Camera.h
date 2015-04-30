@@ -7,9 +7,10 @@ namespace Engine {
 		public Engine::Transformable
 	{
 		public:
-
+			Camera() {};
+			~Camera() {};
 		private:
-
+			virtual void draw(sf::RenderTarget& target, sf::RenderStates states = sf::RenderStates::Default);
 	};
 
 }

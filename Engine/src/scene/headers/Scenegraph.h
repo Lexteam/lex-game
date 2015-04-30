@@ -3,6 +3,7 @@
 #include "Camera.h"
 #include "Model.h"
 #include "Light.h"
+#include "Tile.h"
 #include <vector>
 
 #ifndef _H_ESCENEGRAPH_H_
@@ -13,11 +14,12 @@ namespace Engine {
 	class Scene :sf::Drawable {
 		public:
 			//repersents aiScene, simple loadup class
-
-				Scene(std::string Filename) {
-					//do stuff
+		
+				Scene(std::string Filename)
+				{
+	
 				}
-
+				
 				
 
 				//returns a fully loaded Class Pesudo Constructor 
@@ -25,28 +27,33 @@ namespace Engine {
 				std::vector<Engine::Camera> getCameras();
 				std::vector<Engine::Light> getLights();
 				
+				Engine::TileSize Sizeoftile;
+
 				//Data in the Scene used for rendering 
 				//Theese are placeholders to internal buffers 
 				//so you can't do any native opengl with the class
 				//But Can Do SFML! :)
-				static struct RenderData 
+				struct RenderData 
 				{
 					public:
 
 						std::vector<Engine::Model> Models;
-						std::vector<Engine::Camera> Cameras;
 						std::vector<Engine::Light>  Lights;
-						
 						std::vector<aiMaterial> materials;
+
+						Engine::Camera RenderCamera;
+						Engine::Model Room;
 
 				};
 
 
 		private:
-
+	
 			aiScene scene;
+
 			friend BaseModel;
-			
+			friend TileSize;
+
 			//just renders Everything (apart from the materials/textures) In RenderData
 			virtual void draw(sf::RenderTarget &target, sf::RenderStates states);
 	};

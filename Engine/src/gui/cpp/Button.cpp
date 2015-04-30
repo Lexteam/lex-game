@@ -1,13 +1,15 @@
 #include "..\headers\Button.h"
 
-bool Engine::Button::setpadding(float pixels)
+
+
+bool Engine::Button::setPadding(float pixels)
 {
 	float ratio = pixels / padding;
 	BackgroundButton.setScale(sf::Vector2f(ratio, ratio));
 	return true;
 }
 
-bool Engine::Button::setposition(sf::Vector2f pos)
+bool Engine::Button::setPosition(sf::Vector2f pos)
 {
 	BackgroundButton.setPosition(pos);
 
@@ -19,10 +21,10 @@ bool Engine::Button::setposition(sf::Vector2f pos)
 	return true;
 }
 
-bool Engine::Button::SetButtonSize(sf::Vector2u size)
+bool Engine::Button::setButtonSize(sf::Vector2u size)
 {
 	sf::Vector2u oSize = BackgroundButton.getTexture()->getSize();
-	BackgroundButton.setScale(static_cast<float>((oSize.x / size.x)), 
+	BackgroundButton.setScale(static_cast<float>((oSize.x / size.x)),
 		static_cast<float>(oSize.y / size.y));
 	text.setScale(BackgroundButton.getScale());
 	return true;

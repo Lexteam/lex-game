@@ -1,8 +1,9 @@
-#include "Tile.h"
+#include <SFML\Graphics.hpp>
 #include <assimp\mesh.h>
 #include <assimp\material.h>
 #include <assimp\scene.h>
 #include <vector>
+#include "Tile.h"
 
 
 #ifndef _H_BASEMODEL_H_
@@ -10,7 +11,8 @@
 
 namespace Engine {
 
-	class BaseModel : sf::Drawable{
+	class BaseModel : sf::Drawable
+	{
 		public:
 
 			virtual	~BaseModel() {
@@ -19,13 +21,12 @@ namespace Engine {
 
 			///sets///
 			
-			virtual bool setPos(float x, float y, float z) = 0;
-
-			virtual bool setPos(Engine::Tile pos) = 0;
+			bool setPos(float x, float y, float z);
+			bool setPos(Engine::Tile pos);
 
 			///gets///
 
-			virtual sf::Vector3f getModelPos() = 0;
+			sf::Vector3f getModelPos();
 
 		protected:
 
@@ -41,39 +42,7 @@ namespace Engine {
 
 	};
 
-	//3d transformable
-	class Transformable {
-		
-		public:
 
-			virtual ~Transformable() {
-
-			}
-
-			///gets///
-			
-			virtual Engine::Tile getSize() = 0;
-
-			virtual Engine::Tile getScale() = 0;
-
-			virtual sf::Vector3f getRotation() = 0;
-
-			///sets///
-
-			virtual bool setSize(Engine::Tile size) = 0;
-			virtual bool setSize(float x, float y, float z) = 0;
-
-			virtual bool setRotation(sf::Vector3f Rotation) = 0;
-			virtual bool setRotation(float x, float y, float z) = 0;
-
-			virtual bool setScale(Engine::Tile Scale) = 0;
-			virtual bool setScale(float x, float y, float z) = 0;
-
-		protected:
-			sf::Vector3<float> Scale;
-			sf::Vector3<unsigned> Size;
-			sf::Vector3<float> Rotation;
-	};
 }
 
 #endif //_H_BASEMODEL_H_

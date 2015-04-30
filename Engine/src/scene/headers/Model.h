@@ -1,6 +1,12 @@
 #include "BaseModel.h"
+#include "Transformable.h"
+
+
+#ifndef _H_MODEL_H_
+#define _H_MODEL_H_
 
 namespace Engine {
+
 	//Model class used for interacting with assimp/opengl
 	class Model : public BaseModel,
 					public Transformable{
@@ -11,6 +17,7 @@ namespace Engine {
 
 			}
 
+			
 
 			sf::Vector3f getModelSize();
 
@@ -43,7 +50,10 @@ namespace Engine {
 			aiUVTransform* getUVs();
 
 		private:
+			
+			virtual void draw(sf::RenderTarget& target, sf::RenderStates states = sf::RenderStates::Default);
 			aiMesh mesh;
 
 	};
 };
+#endif //_H_MODEL_H_
