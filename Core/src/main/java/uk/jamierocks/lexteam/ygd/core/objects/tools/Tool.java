@@ -1,15 +1,16 @@
 package uk.jamierocks.lexteam.ygd.core.objects.tools;
 
+import uk.jamierocks.lexteam.ygd.core.objects.Connection;
 import uk.jamierocks.lexteam.ygd.core.objects.GameObject;
 import uk.jamierocks.lexteam.ygd.core.objects.tools.ability.ToolAbility;
 
 /**
- * Represents a tool that can be used to affect a connection
+ * Represents a tool that can be used to affect a {@link Connection}
  *
  * @author Tom Drever
  * @author Jamie Mansfield
  */
-public abstract class Tool<T extends ToolAbility> extends GameObject {
+public class Tool<T extends ToolAbility> extends GameObject {
 
     private T toolAbility;
 

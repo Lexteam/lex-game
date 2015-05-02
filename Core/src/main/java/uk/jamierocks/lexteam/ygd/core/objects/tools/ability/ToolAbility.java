@@ -1,7 +1,9 @@
 package uk.jamierocks.lexteam.ygd.core.objects.tools.ability;
 
+import uk.jamierocks.lexteam.ygd.core.objects.tools.Tool;
+
 /**
- * The base interface for all ToolAbilities
+ * Represents a {@link Tool}'s ability
  *
  * @author Tom Drever
  */
