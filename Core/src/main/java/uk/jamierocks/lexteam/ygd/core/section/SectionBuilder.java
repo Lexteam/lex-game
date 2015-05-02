@@ -7,29 +7,25 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Factory to create a {@link Section}
+ * Builder to create a {@link Section}
  *
  * @author Jamie Mansfield
  */
-public class SectionFactory {
+public class SectionBuilder {
 
-    /**
-     * Creates a populated {@link Section}
-     *
-     * @param levels the initial levels
-     * @return the created {@link Section}
-     */
-    public static Section createPopulatedSection(Set<Level> levels) {
-        return new CreatedSection(levels);
+    private Section section;
+
+    public SectionBuilder() {
+        section = new CreatedSection();
     }
 
-    /**
-     * Creates an empty {@link Section}
-     *
-     * @return an empty {@link Section}
-     */
-    public static Section createEmptySection() {
-        return new CreatedSection();
+    public SectionBuilder addLevel(Level... levels) {
+        section.addLevel(levels);
+        return this;
+    }
+
+    public Section build() {
+        return section;
     }
 
     /**
@@ -46,15 +42,6 @@ public class SectionFactory {
          */
         public CreatedSection() {
             levels = new HashSet<>();
-        }
-
-        /**
-         * Creates a populated {@link Section}
-         *
-         * @param levels the initial levels
-         */
-        public CreatedSection(Set<Level> levels) {
-            this.levels = levels;
         }
 
         /**

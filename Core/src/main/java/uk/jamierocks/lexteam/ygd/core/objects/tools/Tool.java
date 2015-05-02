@@ -19,9 +19,9 @@ public class Tool<T extends ToolAbility> extends GameObject {
     }
 
     /**
-     * Gets the {@link T}
+     * Gets the {@link ToolAbility}
      *
-     * @return the {@link T}
+     * @return the {@link ToolAbility}
      */
     public T getAbility() {
         return toolAbility;
