@@ -3,8 +3,21 @@ apply plugin: 'cpp'
 libraries {
     gui {}
     level {
-		puzzle{}
-	}
+        libraries {
+            puzzle {}
+        }
+    }
     scene {}
 	thread {}
+}
+
+executables {
+    main {
+        binaries.all {
+            lib libraries.gui.shared
+            lib libraries.level.shared
+            lib libraries.scene.shared
+            lib libraries.thread.shared
+        }
+    }
 }
