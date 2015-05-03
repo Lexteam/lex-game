@@ -3,6 +3,7 @@
 #include <SFML\OpenGL.hpp>
 
 #include<string>
+#include "..\..\scene\headers\Scenegraph.h"
 
 #ifndef _H_BUTTON_H_
 #define _H_BUTTON_H_
@@ -58,7 +59,8 @@ namespace Engine {
 
 	private:
 
-		//Supposed to be added to the SFML Render thread
+
+				//Supposed to be added to the SFML Render thread
 		//draws the text & the sprite
 		virtual void draw(sf::RenderTarget& target, sf::RenderStates states=sf::RenderStates::Default)
 		{

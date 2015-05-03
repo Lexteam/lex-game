@@ -14,19 +14,13 @@ namespace Engine {
 	class Scene :sf::Drawable {
 		public:
 			//repersents aiScene, simple loadup class
-		
+			//puts data in render data :)
 				Scene(std::string Filename)
 				{
-	
+					Sizeoftile(12, 12, 12);
 				}
 				
-				
-
-				//returns a fully loaded Class Pesudo Constructor 
-				std::vector<Engine::Model> getModels();
-				std::vector<Engine::Camera> getCameras();
-				std::vector<Engine::Light> getLights();
-				
+							
 				Engine::TileSize Sizeoftile;
 
 				//Data in the Scene used for rendering 
@@ -50,6 +44,8 @@ namespace Engine {
 		private:
 	
 			aiScene scene;
+
+			bool readscenefile();
 
 			friend BaseModel;
 			friend TileSize;

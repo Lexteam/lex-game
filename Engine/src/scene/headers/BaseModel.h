@@ -1,7 +1,4 @@
 #include <SFML\Graphics.hpp>
-#include <assimp\mesh.h>
-#include <assimp\material.h>
-#include <assimp\scene.h>
 #include <vector>
 #include "Tile.h"
 

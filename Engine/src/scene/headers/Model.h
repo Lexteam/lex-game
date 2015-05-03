@@ -1,5 +1,10 @@
 #include "BaseModel.h"
 #include "Transformable.h"
+#include <SFML\OpenGL.hpp>
+#include <assimp\mesh.h>
+#include <assimp\material.h>
+#include <assimp\scene.h>
+#include <assimp\postprocess.h>
 
 
 #ifndef _H_MODEL_H_
@@ -50,7 +55,9 @@ namespace Engine {
 			aiUVTransform* getUVs();
 
 		private:
-			
+			//
+
+			//draws the 3D model 
 			virtual void draw(sf::RenderTarget& target, sf::RenderStates states = sf::RenderStates::Default);
 			aiMesh mesh;
 

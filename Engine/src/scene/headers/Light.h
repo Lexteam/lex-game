@@ -1,4 +1,5 @@
 #include "BaseModel.h"
+#include "Transformable.h"
 
 #ifndef _H_LIGHT_H_
 #define _H_LIGHT_H_
@@ -21,7 +22,9 @@ namespace Engine
 				}
 
 			private:
-		
+
+				//renders the light  
+				virtual void draw(sf::RenderTarget &target, sf::RenderStates = sf::RenderStates::Default);
 		};
 }
 
