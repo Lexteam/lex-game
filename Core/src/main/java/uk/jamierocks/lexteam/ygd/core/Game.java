@@ -11,21 +11,21 @@ import uk.jamierocks.lexteam.ygd.core.section.SectionManager;
  *
  * @author Jamie Mansfield
  */
-public interface Game {
+public abstract class Game {
 
     /**
      * The game's {@link SectionManager}
      *
      * @return the game's {@link SectionManager}
      */
-    SectionManager getSectionManager();
+    public abstract SectionManager getSectionManager();
 
     /**
      * The game's main {@link Logger}
      *
      * @return the main {@link Logger}
      */
-    default Logger getLogger() {
+    public Logger getLogger() {
         return LoggerFactory.getLogger("lex-game");
     }
 }
