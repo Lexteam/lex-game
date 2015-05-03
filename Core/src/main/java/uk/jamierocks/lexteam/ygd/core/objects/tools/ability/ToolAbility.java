@@ -1,5 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.objects.tools.ability;
 
+import uk.jamierocks.lexteam.ygd.core.level.Level;
+import uk.jamierocks.lexteam.ygd.core.objects.Connection;
 import uk.jamierocks.lexteam.ygd.core.objects.tools.Tool;
 
 /**
@@ -13,5 +15,5 @@ public interface ToolAbility {
     /**
      * Called when a {@link Tool} is used
      */
-    void use();
+    void use(Connection connection, Level level);
 }

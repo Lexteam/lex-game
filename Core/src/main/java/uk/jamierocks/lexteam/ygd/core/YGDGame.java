@@ -1,6 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core;
 
 import com.google.common.base.Preconditions;
+import uk.jamierocks.lexteam.ygd.core.section.SectionBuilder;
 
 /**
  * Allows static access to game internals
@@ -24,6 +25,14 @@ public class YGDGame {
             throw new UnsupportedOperationException("There is only one Game!");
         }
         YGDGame.game = Preconditions.checkNotNull(game);
+        init();
+    }
+
+    /**
+     * Initializes game components
+     */
+    private static void init() {
+        getGame().getSectionManager().registerSection(new SectionBuilder().addLevel().build());
     }
 
     /**

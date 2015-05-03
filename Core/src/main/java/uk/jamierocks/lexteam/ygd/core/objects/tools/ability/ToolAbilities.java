@@ -1,5 +1,10 @@
 package uk.jamierocks.lexteam.ygd.core.objects.tools.ability;
 
+import uk.jamierocks.lexteam.ygd.core.level.Level;
+import uk.jamierocks.lexteam.ygd.core.objects.Connection;
+import uk.jamierocks.lexteam.ygd.core.objects.Point;
+import uk.jamierocks.lexteam.ygd.core.objects.PointFactory;
+
 /**
  * The list of tool abilities
  *
@@ -12,7 +17,7 @@ public final class ToolAbilities {
      */
     public static final ToolAbility ADD_POINT = new ToolAbility() {
         @Override
-        public void use() {
+        public void use(Connection connection, Level level) {
 
         }
     };
@@ -22,7 +27,7 @@ public final class ToolAbilities {
      */
     public static final ToolAbility CHANGE_CONNECTION_FREQUENCY = new ToolAbility() {
         @Override
-        public void use() {
+        public void use(Connection connection, Level level) {
 
         }
     };
@@ -32,7 +37,7 @@ public final class ToolAbilities {
      */
     public static final ToolAbility CHANGE_DIRECTION = new ToolAbility() {
         @Override
-        public void use() {
+        public void use(Connection connection, Level level) {
 
         }
     };
@@ -42,7 +47,7 @@ public final class ToolAbilities {
      */
     public static final ToolAbility MERGE_CONNECTIONS = new ToolAbility() {
         @Override
-        public void use() {
+        public void use(Connection connection, Level level) {
 
         }
     };
@@ -52,7 +57,7 @@ public final class ToolAbilities {
      */
     public static final ToolAbility REMOVE_POINT = new ToolAbility() {
         @Override
-        public void use() {
+        public void use(Connection connection, Level level) {
 
         }
     };
@@ -62,8 +67,10 @@ public final class ToolAbilities {
      */
     public static final ToolAbility SPLIT_CONNECTION = new ToolAbility() {
         @Override
-        public void use() {
-
+        public void use(Connection oldConnection, Level level) {
+            Point newPoint = PointFactory.newPoint();
+            Connection newConnection = new Connection(newPoint, oldConnection.pointTo);
+            oldConnection.pointTo = newPoint;
         }
     };
 }
