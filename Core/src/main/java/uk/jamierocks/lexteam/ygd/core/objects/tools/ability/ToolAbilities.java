@@ -1,7 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.objects.tools.ability;
 
 import uk.jamierocks.lexteam.ygd.core.level.Level;
-import uk.jamierocks.lexteam.ygd.core.objects.Connection;
+import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
 import uk.jamierocks.lexteam.ygd.core.objects.Point;
 import uk.jamierocks.lexteam.ygd.core.objects.PointFactory;
 
@@ -71,6 +71,7 @@ public final class ToolAbilities {
             Point newPoint = PointFactory.newPoint();
             Connection newConnection = new Connection(newPoint, oldConnection.pointTo);
             oldConnection.pointTo = newPoint;
+            //Add new connection into level
         }
     };
 }
