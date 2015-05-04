@@ -33,7 +33,7 @@ public class SectionBuilder {
      *
      * @author Jamie Mansfield
      */
-    private static class CreatedSection implements Section {
+    private class CreatedSection implements Section {
 
         private final Set<Level> levels;
 
