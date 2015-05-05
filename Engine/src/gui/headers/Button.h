@@ -7,6 +7,7 @@
 
 #ifndef _H_BUTTON_H_
 #define _H_BUTTON_H_
+
 namespace Engine {
 	class Button : sf::Drawable {
 	public:
@@ -20,38 +21,43 @@ namespace Engine {
 			return true;
 		}
 
-		//set function to a the buttons event slot do not delete the function!(if thats possible)
+		//set function to a the buttons event slot do not delete the function!(if that's possible)
 		bool setSignal(void(*Func)())
 		{
-			SignalFunc = *Func;
+		    if(Func != NULL){
+                SignalFunc = *Func;
+		    }
+		    else{
+                throw("Signal function cannot be NULL");
+		    }
 		}
 
-		//resets the Texture only use with a new varible if using same see sf::Texture::update
+		//resets the Texture only use with a new variable if using same see sf::Texture::update
 		bool setTexture(sf::Texture &texture, bool resetInternalRect = false)
 		{
 			BackgroundButton.setTexture(texture, resetInternalRect);
 			return true;
 		}
 
-		//sets LH corner of the Background 
+		//sets LH corner of the Background
 		bool setPosition(sf::Vector2f pos);
 
-		//rotates All via orgin see Set orgin
+		//rotates All via origin see Set origin
 		bool setRotation(sf::Vector2f rot);
 
-		//rotates text via buttons orgin
+		//rotates text via buttons origin
 		bool setTextRotation(sf::Vector2f rot);
 
 		virtual bool setPadding(float pixels);
 
 		bool disable(bool disable = true) { disabled = disable; return disable; }
 
-		///Use theese for working with the Label///
+		///Use these for working with the Label///
 		bool setButtonSize(sf::Vector2u size);
 
 		bool setTextColour(sf::Color Colour) { text.setColor(Colour); return true; }
 
-		//keep font  
+		//keep font
 		bool setFont(sf::Font &font) { text.setFont(font); return true; };
 
 		//keep string
@@ -69,7 +75,7 @@ namespace Engine {
 		}
 
 		//Supposed to be added to the SFML Render thread
-		//checks collision events between the mouse & the button  
+		//checks collision events between the mouse & the button
 		virtual bool CheckEvents(sf::RenderWindow &window) = 0;
 
 	protected:
@@ -79,7 +85,7 @@ namespace Engine {
 		int padding;
 		void(*SignalFunc)();
 		bool bbCollide(int x, int y);
-		
+
 		bool disabled;
 	};
 };

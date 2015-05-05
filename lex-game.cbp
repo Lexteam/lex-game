@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="lex-game" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/lex-game" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/lex-game" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="Engine/build.gradle" />
+		<Unit filename="Engine/src/gui/cpp/Button.cpp" />
+		<Unit filename="Engine/src/gui/cpp/PushButton.cpp" />
+		<Unit filename="Engine/src/gui/headers/Button.h" />
+		<Unit filename="Engine/src/gui/headers/Menu.h" />
+		<Unit filename="Engine/src/gui/headers/PushButton.h" />
+		<Unit filename="Engine/src/gui/headers/ScrollMenu.h" />
+		<Unit filename="Engine/src/level/headers/LevelDesign.h" />
+		<Unit filename="Engine/src/level/headers/LevelExport.h" />
+		<Unit filename="Engine/src/level/headers/LevelGenrator.h" />
+		<Unit filename="Engine/src/level/headers/LevelImport.h" />
+		<Unit filename="Engine/src/level/headers/LevelScene.h" />
+		<Unit filename="Engine/src/level/headers/TileManager.h" />
+		<Unit filename="Engine/src/level/puzzle/headers/Puzzle.h" />
+		<Unit filename="Engine/src/level/puzzle/headers/PuzzleGenerator.h" />
+		<Unit filename="Engine/src/main/cpp/JNIMain.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Engine/src/main/cpp/Main.cpp" />
+		<Unit filename="Engine/src/main/headers/Engine.hpp" />
+		<Unit filename="Engine/src/main/headers/GUI.hpp" />
+		<Unit filename="Engine/src/main/headers/Level.hpp" />
+		<Unit filename="Engine/src/main/headers/Scene.hpp" />
+		<Unit filename="Engine/src/scene/cpp/Light.cpp" />
+		<Unit filename="Engine/src/scene/cpp/Model.cpp" />
+		<Unit filename="Engine/src/scene/cpp/Scenegraph.cpp" />
+		<Unit filename="Engine/src/scene/headers/BaseModel.h" />
+		<Unit filename="Engine/src/scene/headers/Camera.h" />
+		<Unit filename="Engine/src/scene/headers/GlobalVars.h" />
+		<Unit filename="Engine/src/scene/headers/Light.h" />
+		<Unit filename="Engine/src/scene/headers/Material.h" />
+		<Unit filename="Engine/src/scene/headers/Model.h" />
+		<Unit filename="Engine/src/scene/headers/Scenegraph.h" />
+		<Unit filename="Engine/src/scene/headers/Shader.h" />
+		<Unit filename="Engine/src/scene/headers/Texture.h" />
+		<Unit filename="Engine/src/scene/headers/Tile.h" />
+		<Unit filename="Engine/src/scene/headers/TileSize.h" />
+		<Unit filename="Engine/src/scene/headers/Transformable.h" />
+		<Unit filename="Engine/src/thread/headers/ThreadManager.h" />
+		<Extensions>
+			<code_completion>
+				<search_path add="..\..\..\RESORCES\PROGRAMMING\GLM,GLEW,GLFW\SFML-2.2-sources\SFML-2.2\include" />
+			</code_completion>
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

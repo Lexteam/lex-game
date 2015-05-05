@@ -10,7 +10,7 @@
 #define _H_ESCENEGRAPH_H_
 
 namespace Engine {
-	
+
 	class Scene :sf::Drawable {
 		public:
 			//repersents aiScene, simple loadup class
@@ -19,17 +19,20 @@ namespace Engine {
 				{
 					Sizeoftile(12, 12, 12);
 				}
-				
-							
+
+
 				Engine::TileSize Sizeoftile;
 
-				//Data in the Scene used for rendering 
-				//Theese are placeholders to internal buffers 
+				//Data in the Scene used for rendering
+				//Theese are placeholders to internal buffers
 				//so you can't do any native opengl with the class
 				//But Can Do SFML! :)
-				struct RenderData 
+				struct RenderData
 				{
 					public:
+
+						std::vector<Engine::VAO> Meshes;
+
 
 						std::vector<Engine::Model> Models;
 						std::vector<Engine::Light>  Lights;
@@ -42,13 +45,10 @@ namespace Engine {
 
 
 		private:
-	
+
 			aiScene scene;
 
 			bool readscenefile();
-
-			friend BaseModel;
-			friend TileSize;
 
 			//just renders Everything (apart from the materials/textures) In RenderData
 			virtual void draw(sf::RenderTarget &target, sf::RenderStates states);

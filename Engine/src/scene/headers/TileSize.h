@@ -12,6 +12,8 @@ namespace Engine {
 		}
 
 	private:
+        friend Scene;
+
 		TileSize() {
 
 		}

@@ -7,12 +7,12 @@
 namespace Engine
 {
 	enum LightType { Sun, point, spotlight, hemisphere, area };
-	//Used as a convience class for lighting
-	class Light:public Engine::BaseModel, 
+	//Used as a convenience class for lighting
+	class Light:public Engine::BaseModel,
 			public Engine::Transformable
 		{
 			public:
-				Light(LightType type, sf::Vector3f pos) 
+				Light(LightType type, sf::Vector3f pos)
 				{
 					//stuff
 				}
@@ -23,7 +23,7 @@ namespace Engine
 
 			private:
 
-				//renders the light  
+				//renders the light
 				virtual void draw(sf::RenderTarget &target, sf::RenderStates = sf::RenderStates::Default);
 		};
 }

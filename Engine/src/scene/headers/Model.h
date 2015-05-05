@@ -5,6 +5,8 @@
 #include <assimp\material.h>
 #include <assimp\scene.h>
 #include <assimp\postprocess.h>
+#include "Scenegraph.h"
+#include "Material.h"
 
 
 #ifndef _H_MODEL_H_
@@ -12,55 +14,72 @@
 
 namespace Engine {
 
-	//Model class used for interacting with assimp/opengl
-	class Model : public BaseModel,
-					public Transformable{
-		public:
+    //used for defining models that are(graphically) the same
+    class VAO
+    {
+        public:
+            VAO(std::string ModelName);
 
+        protected:
+              friend Model;
+              vector<float> vertcies;
+        private:
+            VAO(const &VAO)
+            VAO& operator=(const VAO Rhs);
+    };
+
+	//Model class used for interacting with Assimp/Opengl
+	class Model : public BaseModel,
+					public Transformable
+    {
+        protected:
+            Model(VAO vertexData){}
+
+		public:
+            //sets material in modelbool setUVs(sf::vector4<float> UVs);
+            Model(VAO vertexData, Engine::Material &mat)
+            {
+                setMaterial(mat);
+            }
+
+            //massive cleanup
 			~Model()
 			{
 
-			}
-
-			
-
-			sf::Vector3f getModelSize();
+            }
 
 			///sets///
 			//keep material
-			bool setMaterial(aiMaterial &material);
+			bool setMaterial(Engine::Material &Mat);
 
-			//keep texture
-			bool setTexture(aiTexture &Tex);
+			bool setUVs(sf::vector4<float> UVs);
 
-			//colour for every vertce
-			bool setColour(sf::Color* ColourArray);
-
-			bool setColour(std::vector<sf::Color> ColourVector);
-
-			//block colour
-			bool setColour(sf::Color Colour);
+			bool setNormals(sf::vector4<float> Normals);
 
 			///gets///
-			//returns a vector
-			std::vector<sf::Color> getColours();
+			//can be NULL
+			Engine::Material* getSettedMaterial();
 
 			//can be NULL
-			aiMaterial* getSettedMaterial();
+			std::vector<sf::vector4<float>>* getUVs();
 
-			//can be NULL
-			aiTexture* getSettedTexture();
-
-			//can be NULL
-			aiUVTransform* getUVs();
+            //can be NULL
+            std::vector<sf::vector3<float>>* getNormals();
 
 		private:
-			//
 
-			//draws the 3D model 
+			//draws the 3D model
 			virtual void draw(sf::RenderTarget& target, sf::RenderStates states = sf::RenderStates::Default);
-			aiMesh mesh;
 
+            Engine::Material* material;
+
+            std::vector<sf::vector4<float>>* UVs;
+
+            std::vector<sf::vector3<float>>* Normals;
+
+            GLuint VBO;
+
+            GLuint EBO;
 	};
 };
 #endif //_H_MODEL_H_

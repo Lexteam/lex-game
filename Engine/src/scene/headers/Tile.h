@@ -4,8 +4,8 @@
 #define _H_TILE_H_
 
 namespace Engine {
-	
-	//Utilty class for positions vectors in the game
+
+	//Utility class for positions vectors in the game
 	class Tile {
 		public:
 			Tile(sf::Vector3<int> Tilepos, TileSize& tilesize) :
@@ -18,8 +18,8 @@ namespace Engine {
 			///gets///
 
 			sf::Vector3<int> getTile() { return TilePos; }
-			
-			sf::Vector3<int> getPos() 
+
+			sf::Vector3<int> getPos()
 			{
 				return sf::Vector3<int>(TilePos.x * size.getTileSize().x,
 					TilePos.y * size.getTileSize().y, TilePos.z * size.getTileSize().z);

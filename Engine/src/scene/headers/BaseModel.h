@@ -1,6 +1,7 @@
 #include <SFML\Graphics.hpp>
 #include <vector>
 #include "Tile.h"
+#include "Scenegraph.h
 
 
 #ifndef _H_BASEMODEL_H_
@@ -12,29 +13,42 @@ namespace Engine {
 	{
 		public:
 
-			virtual	~BaseModel() {
-
-			}
-
-			///sets///
-			
-			bool setPos(float x, float y, float z);
-			bool setPos(Engine::Tile pos);
-
-			///gets///
-
-			sf::Vector3f getModelPos();
-
-		protected:
-
-			//use Pesudo Constructor in Engine::Scene
-			BaseModel() 
+			virtual	~BaseModel()
 			{
 
 			}
 
-			sf::Vector3<float> pos;
-		
+			///sets///
+
+            //notice not meant for heavy use see Transform instead
+			bool setPos(float x, float y, float z)
+			{
+                pos.x = x;
+                pos.y = y;
+                pos.z = z;
+                pos.w = 0;
+			}
+			bool setPos(Engine::Tile Tilepos)
+			{
+                pos = Tilepos.getpos();
+			}
+
+			///gets///
+
+			sf::Vector4f getModelPos();
+
+		protected:
+
+            friend Scene;
+
+			//use Pesudo Constructor in Engine::Scene
+			BaseModel()
+			{
+
+			}
+
+			sf::Vector4<float> pos;
+
 		private:
 
 	};

@@ -1,4 +1,5 @@
 #include "Tile.h"
+#include <SFML\Opengl.hpp>
 
 #ifndef _H_TRANSFORMABLE_H_
 #define _H_TRANSFORMABLE_H_
@@ -17,13 +18,19 @@ namespace Engine {
 
 		Engine::Tile getSize();
 
+        sf::Vector3f getModelSize();
+
 		Engine::Tile getScale();
 
 		sf::Vector3f getRotation();
 
 		///sets///
 
-		bool setSize(Engine::Tile size);
+		bool setSize(Engine::Tile size)
+		{
+            pos = size.getPos();
+
+		}
 		bool setSize(float x, float y, float z);
 
 		bool setRotation(sf::Vector3f Rotation);
@@ -32,7 +39,7 @@ namespace Engine {
 		bool setScale(Engine::Tile Scale);
 		bool setScale(float x, float y, float z);
 
-		
+
 
 	protected:
 		sf::Vector3<float> Scale;
