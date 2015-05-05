@@ -10,17 +10,12 @@ import java.util.Set;
  *
  * @author Jamie Mansfield
  */
-public interface Level {
-    /**
-     * @return Returns the level's connection
-     */
-    public Set<Connection> getConnections();
+public abstract class Level {
 
     /**
-     * Adds a connection
-     * @param connection... The connection to be added
+     * A set of connections
      */
-    public void addConnection(Connection... connection);
+    public Set<Connection> connections;
 
     /**
      * A set of available points

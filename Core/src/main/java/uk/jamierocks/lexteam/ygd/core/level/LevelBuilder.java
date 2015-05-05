@@ -1,8 +1,11 @@
 package uk.jamierocks.lexteam.ygd.core.level;
 
+import com.google.common.base.Preconditions;
 import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
 
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -14,11 +17,15 @@ public class LevelBuilder {
     private Level level;
 
     public LevelBuilder() {
-        level = new Createdlevel();
+        level = new Level() {
+        };
     }
 
     public LevelBuilder addConnection(Connection... connections) {
-        level.addConnection(connections);
+        for (Connection connection : connections){
+            level.connections.add(connection);
+        }
+
         for (Connection connection : connections){
             if (this.level.availablePoints.contains(connection.pointTo)){
                 this.level.availablePoints.remove(connection.pointTo);
@@ -31,30 +38,6 @@ public class LevelBuilder {
         return this;
     }
 
-    private class Createdlevel implements Level {
-        /**
-         * Set of connections
-         */
-        private final Set<Connection> connections;
-
-        /**
-         * Creates new level
-         */
-        public Createdlevel() {
-            this.connections = new HashSet<>();
-        }
-
-
-        @Override
-        public Set<Connection> getConnections() {
-            return connections;
-        }
-
-        @Override
-        public void addConnection(Connection... connections) {
-            for (Connection connection : Preconditions.checkNotNull(connections)) {
-                this.connections.add(Preconditions.checkNotNull(connection));
-            }
-        }
-    }
+    // currently seems a bit ood -
+    // TODO: make a "populate availablepoints method"
 }

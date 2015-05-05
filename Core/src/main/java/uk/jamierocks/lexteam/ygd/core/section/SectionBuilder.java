@@ -41,7 +41,7 @@ public class SectionBuilder {
          * Creates an empty {@link Section}
          */
         public CreatedSection() {
-            levels = new HashSet<>();
+            levels = new HashSet<Level>();
         }
 
         /**

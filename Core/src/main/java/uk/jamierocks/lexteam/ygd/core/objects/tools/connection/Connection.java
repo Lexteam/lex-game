@@ -52,8 +52,8 @@ public class Connection extends GameObject {
     /**
      * @return Returns the amount of points in this connection that are not null
      */
-    public ArrayList<Point> configuredPoints(){
-        ArrayList<Point> configuredPoints = new ArrayList<>();
+    public Set<Point> configuredPoints(){
+        Set<Point> configuredPoints = new HashSet<Point>();
 
         if (this.pointTo != null){
             configuredPoints.add(this.pointTo);
