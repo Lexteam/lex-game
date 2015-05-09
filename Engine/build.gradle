@@ -1,24 +1,2 @@
 apply plugin: 'cpp'
 apply plugin: 'visual-studio'
-
-libraries {
-    gui {}
-    level {
-        libraries {
-            puzzle {}
-        }
-    }
-    scene {}
-	thread {}
-}
-
-executables {
-    main {
-        binaries.all {
-            lib libraries.gui.shared
-            lib libraries.level.shared
-            lib libraries.scene.shared
-            lib libraries.thread.shared
-        }
-    }
-}

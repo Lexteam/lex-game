@@ -1,6 +1,6 @@
 package uk.jamierocks.lexteam.ygd.core.objects.tools;
 
-import uk.jamierocks.lexteam.ygd.core.objects.Connection;
+import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
 import uk.jamierocks.lexteam.ygd.core.objects.GameObject;
 import uk.jamierocks.lexteam.ygd.core.objects.tools.ability.ToolAbility;
 
