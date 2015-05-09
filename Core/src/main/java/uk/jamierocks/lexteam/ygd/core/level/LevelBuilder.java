@@ -2,6 +2,7 @@ package uk.jamierocks.lexteam.ygd.core.level;
 
     import com.google.common.base.Preconditions;
     import uk.jamierocks.lexteam.ygd.core.objects.Point;
+    import uk.jamierocks.lexteam.ygd.core.objects.PointFactory;
     import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
 
     import java.util.Collection;
@@ -58,12 +59,21 @@ package uk.jamierocks.lexteam.ygd.core.level;
 
             public final Set<Point> availablePoints;
 
+            public final GameTimer gameTimer;
+
+            public final Point startPoint;
+            public final Point endPoint;
+
             /**
              * Creates an completely empty {@link Level}
              */
             public CreatedLevel(){
                 connections = new HashSet<>();
                 availablePoints = new HashSet<>();
+                gameTimer = new GameTimer(this);
+
+                startPoint = PointFactory.newPoint();
+                endPoint = PointFactory.newPoint();
             }
 
             /**
@@ -116,6 +126,30 @@ package uk.jamierocks.lexteam.ygd.core.level;
             @Override
             public void removeAvailablePoint(Point point) {
                 this.availablePoints.remove(point);
+            }
+
+            /**
+             * {@inheritDoc}
+             */
+            @Override
+            public GameTimer getGameTimer() {
+                return this.gameTimer;
+            }
+
+            /**
+             * {@inheritDoc}
+             */
+            @Override
+            public Point getStartingPoint() {
+                return startPoint;
+            }
+
+            /**
+             * {@inheritDoc}
+             */
+            @Override
+            public Point getEndPoint(){
+                return endPoint;
             }
         }
 }

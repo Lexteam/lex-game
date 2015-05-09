@@ -14,6 +14,11 @@ import java.util.Set;
 public interface Level {
 
     /**
+     * Get the level's timer
+     */
+    GameTimer getGameTimer();
+
+    /**
      * Get the level's connections
      */
     Set<Connection> getConnections();
@@ -46,4 +51,14 @@ public interface Level {
      * @param point the point o be removed
      */
     void removeAvailablePoint(Point point);
+
+    /**
+     * Gets the starting point of the level
+     */
+    Point getStartingPoint();
+
+    /**
+     * Gets the end point of the level
+     */
+    Point getEndPoint();
 }
