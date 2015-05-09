@@ -8,7 +8,7 @@ import uk.jamierocks.lexteam.ygd.core.section.SectionBuilder;
  *
  * @author Jamie Mansfield
  */
-public class YGDGame {
+public final class YGDGame {
 
     private static Game game;
 

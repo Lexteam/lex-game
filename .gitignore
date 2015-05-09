@@ -134,3 +134,8 @@ Temporary Items
 *.un~
 Session.vim
 .netrwhist
+
+# Code::Blocks
+*.cbp
+*.depend
+*.layout
