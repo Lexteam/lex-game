@@ -1,13 +1,15 @@
 #include <SFML\Graphics.hpp>
 #include <vector>
+#include <glm/glm.hpp>
 #include "Tile.h"
-#include "Scenegraph.h
 
 
 #ifndef _H_BASEMODEL_H_
 #define _H_BASEMODEL_H_
 
 namespace Engine {
+
+	class Scene;
 
 	class BaseModel : sf::Drawable
 	{
@@ -26,20 +28,23 @@ namespace Engine {
                 pos.x = x;
                 pos.y = y;
                 pos.z = z;
-                pos.w = 0;
+                pos.w = 1;//tmp
 			}
 			bool setPos(Engine::Tile Tilepos)
 			{
-                pos = Tilepos.getpos();
+                pos.x = static_cast<float>(Tilepos.getPos().x);
+				pos.y = static_cast<float>(Tilepos.getPos().y);
+				pos.z = static_cast<float>(Tilepos.getPos().z);
+				pos.w = 1.0f;//temp
 			}
 
 			///gets///
 
-			sf::Vector4f getModelPos();
+			glm::vec4 getModelPos(){ return pos; }
 
 		protected:
 
-            friend Scene;
+            friend class Scene;
 
 			//use Pesudo Constructor in Engine::Scene
 			BaseModel()
@@ -47,7 +52,7 @@ namespace Engine {
 
 			}
 
-			sf::Vector4<float> pos;
+            glm::vec4 pos;
 
 		private:
 

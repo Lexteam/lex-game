@@ -35,7 +35,9 @@
 		<Unit filename="Engine/build.gradle" />
 		<Unit filename="Engine/src/gui/cpp/Button.cpp" />
 		<Unit filename="Engine/src/gui/cpp/PushButton.cpp" />
-		<Unit filename="Engine/src/gui/headers/Button.h" />
+		<Unit filename="Engine/src/gui/headers/Button.h">
+			<Option compile="1" />
+		</Unit>
 		<Unit filename="Engine/src/gui/headers/Menu.h" />
 		<Unit filename="Engine/src/gui/headers/PushButton.h" />
 		<Unit filename="Engine/src/gui/headers/ScrollMenu.h" />
@@ -58,6 +60,7 @@
 		<Unit filename="Engine/src/scene/cpp/Light.cpp" />
 		<Unit filename="Engine/src/scene/cpp/Model.cpp" />
 		<Unit filename="Engine/src/scene/cpp/Scenegraph.cpp" />
+		<Unit filename="Engine/src/scene/cpp/Texture.cpp" />
 		<Unit filename="Engine/src/scene/headers/BaseModel.h" />
 		<Unit filename="Engine/src/scene/headers/Camera.h" />
 		<Unit filename="Engine/src/scene/headers/GlobalVars.h" />
@@ -66,14 +69,20 @@
 		<Unit filename="Engine/src/scene/headers/Model.h" />
 		<Unit filename="Engine/src/scene/headers/Scenegraph.h" />
 		<Unit filename="Engine/src/scene/headers/Shader.h" />
-		<Unit filename="Engine/src/scene/headers/Texture.h" />
+		<Unit filename="Engine/src/scene/headers/Texture.h">
+			<Option compile="1" />
+		</Unit>
 		<Unit filename="Engine/src/scene/headers/Tile.h" />
-		<Unit filename="Engine/src/scene/headers/TileSize.h" />
+		<Unit filename="Engine/src/scene/headers/TileSize.h">
+			<Option compile="1" />
+		</Unit>
 		<Unit filename="Engine/src/scene/headers/Transformable.h" />
 		<Unit filename="Engine/src/thread/headers/ThreadManager.h" />
 		<Extensions>
 			<code_completion>
-				<search_path add="..\..\..\RESORCES\PROGRAMMING\GLM,GLEW,GLFW\SFML-2.2-sources\SFML-2.2\include" />
+				<search_path add="..\..\..\RESORCES\PROGRAMMING\INCLUDE" />
+				<search_path add="C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include" />
+				<search_path add="C:\Program Files (x86)\Windows Kits\8.1\Include\um" />
 			</code_completion>
 			<envvars />
 			<debugger />

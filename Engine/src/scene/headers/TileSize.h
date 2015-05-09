@@ -1,35 +1,38 @@
-#include <SFML\Graphics.hpp>
+#include <glm/glm.hpp>
 #ifndef _H_TILESIZE_H_
 #define _H_TILESIZE_H_
 
 namespace Engine {
+	class Scene;
+
 	class TileSize {
-	public:
+		public:
 
-		const sf::Vector3<unsigned> getTileSize()
-		{
-			return Size;
-		}
+			const glm::vec3 getTileSize()
+			{
+				return Size;
+			}
 
-	private:
-        friend Scene;
+		private:
+			friend class Scene;
 
-		TileSize() {
+			TileSize() 
+			{
+			}
 
-		}
-		TileSize(const unsigned x, const unsigned y, const unsigned z)
-		{
-			Size.x = x;
-			Size.y = y;
-			Size.z = z;
-		}
-		TileSize(const sf::Vector3<unsigned> size)
-		{
-			Size.x = size.x;
-			Size.y = size.y;
-			Size.z = size.z;
-		}
-		sf::Vector3<unsigned> Size;
+			TileSize(unsigned x, unsigned y, unsigned z)
+			{
+				Size.x = (float)x;
+				Size.y = (float)y;
+				Size.z = (float)z;
+			}
+
+			TileSize(glm::vec3 size)
+			{
+				Size=size;
+			}
+
+			static glm::vec3 Size;
 
 	};
 

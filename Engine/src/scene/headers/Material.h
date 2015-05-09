@@ -1,6 +1,5 @@
 #include <string>
 #include <SFML/System.hpp>
-#include <SFML/OpenGL.hpp>
 #include <SFML/Graphics.hpp>
 #include "Texture.h"
 #include "Shader.h"
@@ -10,20 +9,16 @@
 
 namespace Engine
 {
-
+    static Engine::Shader DefaultMatShader("DMatShader.glsl");
 
     //Convience class
     class Material
     {
         public:
-            // sets the material/texture via image stored in data, No lighting properties
-            Material(Engine::Texture &texture)
-            {
-
-            }
-
-            //image & shader by data
-            Material(Engine::Texture &texture, Engine::Shader &Matshader)
+            // sets the material/texture via image stored in data, Uses deafualt lighting shader
+            Material(Engine::Texture &texture, Engine::Shader &Matshader = DefaultMatShader):
+				Mat(Matshader),
+				Tex(texture)
             {
 
             }
@@ -37,13 +32,13 @@ namespace Engine
             ///sets///
 
             //sets new shader
-            bool setShader(Engine::Shader &shader);
+            bool setShader(Engine::Shader &shader){Mat=shader; return true;}
 
-            //sets new texture
+            //bind new texture to material
             bool setTexture(Engine::Texture &texture);
 
             ///wappings for shader material///
-            bool setAmbientStrength(Glfloat Ambient);
+            bool setAmbientStrength(GLfloat Ambient);
 
             bool setDiffuseIntestity(GLfloat diffuse);
 
@@ -53,11 +48,13 @@ namespace Engine
 
 
 			///gets///
+            //gets a refrence to the shader
+            Engine::Shader& getShader(){return Mat;}
 
-            Engine::Shader* getShader(){}
+            Engine::Texture& getTexture(){return Tex;}
 
             private:
-                Engine::Shader *Mat;
+                Engine::Shader &Mat;
                 Engine::Texture &Tex;
 
     };

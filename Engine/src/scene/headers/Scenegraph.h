@@ -17,7 +17,7 @@ namespace Engine {
 			//puts data in render data :)
 				Scene(std::string Filename)
 				{
-					Sizeoftile(12, 12, 12);
+					
 				}
 
 

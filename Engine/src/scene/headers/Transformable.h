@@ -1,5 +1,4 @@
 #include "Tile.h"
-#include <SFML\Opengl.hpp>
 
 #ifndef _H_TRANSFORMABLE_H_
 #define _H_TRANSFORMABLE_H_
@@ -9,6 +8,10 @@ namespace Engine {
 	class Transformable {
 
 	public:
+		Transformable()
+		{
+
+		}
 
 		virtual ~Transformable() {
 
@@ -16,24 +19,25 @@ namespace Engine {
 
 		///gets///
 
-		Engine::Tile getSize();
+		Engine::Tile getSize() {return ToTile(Scale, *Tilesize);}
 
-        sf::Vector3f getModelSize();
+        glm::vec3 getModelSize() {return Size;}
 
 		Engine::Tile getScale();
 
-		sf::Vector3f getRotation();
+		glm::vec3 getRotation();
 
 		///sets///
 
 		bool setSize(Engine::Tile size)
 		{
-            pos = size.getPos();
-
+            Size = size.getPos();
+			Tilesize = size.getTileSize();
 		}
+
 		bool setSize(float x, float y, float z);
 
-		bool setRotation(sf::Vector3f Rotation);
+		bool setRotation(glm::vec3 Rotation);
 		bool setRotation(float x, float y, float z);
 
 		bool setScale(Engine::Tile Scale);
@@ -42,9 +46,11 @@ namespace Engine {
 
 
 	protected:
-		sf::Vector3<float> Scale;
-		sf::Vector3<unsigned> Size;
-		sf::Vector3<float> Rotation;
+		Engine::TileSize* Tilesize;
+
+		glm::vec3 Scale;
+		glm::tvec3<unsigned> Size;
+		glm::vec3 Rotation;
 	};
 }
 #endif //_H_TRANSFORMABLE_H_

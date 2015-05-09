@@ -3,7 +3,7 @@
 #include <SFML\OpenGL.hpp>
 
 #include<string>
-#include "..\..\scene\headers\Scenegraph.h"
+
 
 #ifndef _H_BUTTON_H_
 #define _H_BUTTON_H_

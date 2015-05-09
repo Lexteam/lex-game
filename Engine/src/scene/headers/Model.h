@@ -1,11 +1,9 @@
 #include "BaseModel.h"
 #include "Transformable.h"
-#include <SFML\OpenGL.hpp>
 #include <assimp\mesh.h>
 #include <assimp\material.h>
 #include <assimp\scene.h>
 #include <assimp\postprocess.h>
-#include "Scenegraph.h"
 #include "Material.h"
 
 
@@ -21,10 +19,16 @@ namespace Engine {
             VAO(std::string ModelName);
 
         protected:
-              friend Model;
-              vector<float> vertcies;
+              friend class Model;
+              friend class Scene;
+
+              std::vector<float> vertcies;
+
+			  GLuint ID;
+
+			  GLuint Steps;
         private:
-            VAO(const &VAO)
+			VAO(const VAO &VAO);
             VAO& operator=(const VAO Rhs);
     };
 
@@ -32,50 +36,60 @@ namespace Engine {
 	class Model : public BaseModel,
 					public Transformable
     {
-        protected:
-            Model(VAO vertexData){}
-
 		public:
             //sets material in modelbool setUVs(sf::vector4<float> UVs);
-            Model(VAO vertexData, Engine::Material &mat)
+            Model(VAO &vertexData, Engine::Material &mat):
+				VertexArray(vertexData),
+				material(mat)
             {
-                setMaterial(mat);
+                setMaterial(material);
             }
 
             //massive cleanup
 			~Model()
 			{
-
             }
+
+            //adds additional shaders to be compiled with the material
+            bool push_backShader(Engine::Shader& shader);
+
+            //false if shader/s does not exist
+            bool remove_Shader(unsigned index)
+            {
+                if(Shaders.size() < index){
+					Shaders.erase((Shaders.begin() + index));
+                    return true;
+                }
+				else { return false; };
+            }
+
+            unsigned getShaderVectorSize() {return Shaders.size();}
 
 			///sets///
 			//keep material
 			bool setMaterial(Engine::Material &Mat);
 
-			bool setUVs(sf::vector4<float> UVs);
-
-			bool setNormals(sf::vector4<float> Normals);
+			//set UVs/normals
 
 			///gets///
 			//can be NULL
-			Engine::Material* getSettedMaterial();
+			Engine::Material getSettedMaterial() { return material; }
 
-			//can be NULL
-			std::vector<sf::vector4<float>>* getUVs();
-
-            //can be NULL
-            std::vector<sf::vector3<float>>* getNormals();
 
 		private:
+
+            bool setVBO();
+
+            bool setEBO();
 
 			//draws the 3D model
 			virtual void draw(sf::RenderTarget& target, sf::RenderStates states = sf::RenderStates::Default);
 
-            Engine::Material* material;
+            Engine::Material& material;
 
-            std::vector<sf::vector4<float>>* UVs;
+            std::vector<Engine::Shader> Shaders;
 
-            std::vector<sf::vector3<float>>* Normals;
+			Engine::VAO &VertexArray;
 
             GLuint VBO;
 

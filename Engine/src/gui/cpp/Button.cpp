@@ -40,7 +40,6 @@ bool Engine::Button::bbCollide(int x, int y)
 	{
 		return true;
 	}
-
 	else {
 		return false;
 	}
