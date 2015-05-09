@@ -1,43 +1,121 @@
 package uk.jamierocks.lexteam.ygd.core.level;
 
-import com.google.common.base.Preconditions;
-import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
+    import com.google.common.base.Preconditions;
+    import uk.jamierocks.lexteam.ygd.core.objects.Point;
+    import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+    import java.util.Collection;
+    import java.util.HashSet;
+    import java.util.Iterator;
+    import java.util.Set;
 
-/**
- * Builder for levels
- * @author  Tom Drever
- */
-public class LevelBuilder {
+    /**
+     * Builder for levels
+     * @author  Tom Drever
+     */
+    public class LevelBuilder {
 
-    private Level level;
+        /**
+         * The level built
+         */
+        private Level level;
 
-    public LevelBuilder() {
-        level = new Level() {
-        };
-    }
-
-    public LevelBuilder addConnection(Connection... connections) {
-        for (Connection connection : connections){
-            level.connections.add(connection);
+        /**
+         *  Creates a new level
+         */
+        public LevelBuilder() {
+            level = new CreatedLevel() {
+            };
         }
 
-        for (Connection connection : connections){
-            if (this.level.availablePoints.contains(connection.pointTo)){
-                this.level.availablePoints.remove(connection.pointTo);
-            }
+        /**
+         *
+         */
+        public Level build(){
+            return level;
+        }
 
-            if (this.level.availablePoints.contains(connection.pointFrom)){
-                this.level.availablePoints.remove(connection.pointFrom);
+        /**
+         * Implemented method of adding a connection that also removes the relevant points from the available points
+         * @param connections the connection/s to be added
+         */
+        public void addConnection(Connection... connections) {
+            this.level.addConnection((connections));
+
+            for (Connection connection : connections){
+                this.level.removeAvailablePoint(connection.pointFrom);
+                this.level.removeAvailablePoint(connection.pointTo);
             }
         }
-        return this;
-    }
 
-    // currently seems a bit ood -
-    // TODO: make a "populate availablepoints method"
+        public void populateAvailablePoints(){
+            //for ... this.level.addAvailablePoint();
+        }
+
+        private class CreatedLevel implements Level {
+
+            public final Set<Connection> connections;
+
+            public final Set<Point> availablePoints;
+
+            /**
+             * Creates an completely empty {@link Level}
+             */
+            public CreatedLevel(){
+                connections = new HashSet<>();
+                availablePoints = new HashSet<>();
+            }
+
+            /**
+             * {@inheritDoc}
+             */
+            @Override
+            public Set<Connection> getConnections() {
+                return this.connections;
+            }
+
+            /**
+             * {@inheritDoc}
+             */
+            @Override
+            public void addConnection(Connection... connections) {
+                for (Connection connection : connections){
+                    this.connections.add(connection);
+                }
+            }
+
+            /**
+             * {@inheritDoc}
+             */
+            @Override
+            public void removeConnection(Connection connection) {
+                this.connections.remove(connection);
+            }
+
+            /**
+             * {@inheritDoc}
+             */
+            @Override
+            public Set<Point> getAvailablePoints() {
+                return this.availablePoints;
+            }
+
+            /**
+             * {@inheritDoc}
+             */
+            @Override
+            public void addAvailablePoint(Point... points) {
+                for (Point point : points){
+                    this.availablePoints.add(point);
+                }
+            }
+
+            /**
+             * {@inheritDoc}
+             */
+            @Override
+            public void removeAvailablePoint(Point point) {
+                this.availablePoints.remove(point);
+            }
+        }
 }

@@ -9,16 +9,41 @@ import java.util.Set;
  * Represents a level
  *
  * @author Jamie Mansfield
+ * @author Tom Drever
  */
-public abstract class Level {
+public interface Level {
 
     /**
-     * A set of connections
+     * Get the level's connections
      */
-    public Set<Connection> connections;
+    Set<Connection> getConnections();
 
     /**
-     * A set of available points
+     * Add connection/s to the level's connections
+     * @param connections the connection/s to be added
      */
-    public Set<Point> availablePoints;
+    void addConnection(Connection... connections);
+
+    /**
+     * Remove a connection from the level
+     * @param connection the connection to be removed
+     */
+    void removeConnection(Connection connection);
+
+    /**
+     * Get the level's available points
+     */
+    Set<Point> getAvailablePoints();
+
+    /**
+     * Add connection/s to the level's available point
+     * @param points the point/s to be added
+     */
+    void addAvailablePoint(Point... points);
+
+    /**
+     * Removes a point from the level's available point
+     * @param point the point o be removed
+     */
+    void removeAvailablePoint(Point point);
 }

@@ -1,6 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.section;
 
 import com.google.common.base.Preconditions;
+import com.google.common.collect.Sets;
 import uk.jamierocks.lexteam.ygd.core.level.Level;
 
 import java.util.HashSet;
@@ -13,19 +14,21 @@ import java.util.Set;
  */
 public class SectionBuilder {
 
-    private Section section;
+    private final Set<Level> levels;
 
     public SectionBuilder() {
-        section = new CreatedSection();
+        levels = Sets.newHashSet();
     }
 
     public SectionBuilder addLevel(Level... levels) {
-        section.addLevel(levels);
+        for(Level level : Preconditions.checkNotNull(levels)) {
+            this.levels.add(Preconditions.checkNotNull(level));
+        }
         return this;
     }
 
     public Section build() {
-        return section;
+        return new CreatedSection(levels);
     }
 
     /**
@@ -37,11 +40,8 @@ public class SectionBuilder {
 
         private final Set<Level> levels;
 
-        /**
-         * Creates an empty {@link Section}
-         */
-        public CreatedSection() {
-            levels = new HashSet<Level>();
+        public CreatedSection(Set<Level> levels) {
+            this.levels = levels;
         }
 
         /**

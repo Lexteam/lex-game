@@ -10,9 +10,9 @@ import java.util.*;
  *
  * @author Tom Drever
  */
-public class Connection extends GameObject {
+     public class Connection extends GameObject {
 
-    /**
+     /**
      * Represents the point the connection goes to
      */
     public Point pointTo;
@@ -53,7 +53,7 @@ public class Connection extends GameObject {
      * @return Returns the amount of points in this connection that are not null
      */
     public Set<Point> configuredPoints(){
-        Set<Point> configuredPoints = new HashSet<Point>();
+        Set<Point> configuredPoints = new HashSet<>();
 
         if (this.pointTo != null){
             configuredPoints.add(this.pointTo);

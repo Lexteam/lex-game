@@ -61,7 +61,8 @@ public final class ToolAbilities {
         public void use(Level level, Connection connectionOne, Connection connectionTwo) {
             if (connectionOne.configuredPoints().size() == 2 && connectionTwo.configuredPoints().size() == 2){
                 // remove connectiontwo
-                level.connections.remove(connectionTwo);
+                level.removeConnection(connectionTwo);
+
 
                 // edit connectionone
                 connectionOne.pointTo = connectionTwo.pointTo;
@@ -77,12 +78,12 @@ public final class ToolAbilities {
         public void use(Level level, Connection connection, Point point) {
             if (connection.pointTo == point){
                 connection.pointTo = null;
-                level.availablePoints.add(point);
+                level.addAvailablePoint(point);
             }
 
             if (connection.pointFrom == point){
                 connection.pointFrom = null;
-                level.availablePoints.add(point);
+                level.addAvailablePoint(point);
             }
         }
     };
