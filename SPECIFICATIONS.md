@@ -19,4 +19,8 @@ comes from. When the pulse comes, each the game will check the list of connectio
 connection is the pointto of the next connection, and so on. If all the connection join like this, and eventually reach the end 
 point (at the door), the pulse succeeds.
 
+There will probably be a score, which is specific per "save". I don't thing we should have a "load level" screen, as in each 
+section levels are connected (in the 3d world, via the door. We'll need a way of connecting the doors - onvoling loading a new 
+"room"). We will, however, probably need a "select section" screen. And, obviously a "slect save".
+
 ...to be continued...
