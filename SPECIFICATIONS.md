@@ -29,7 +29,8 @@ section the levels are connected (in the 3d world, via the door. We'll need a wa
 "room"). We will, however, probably need a "select section" screen. And, obviously, a "select save".
 
 So, TODO - 
-    integration between engine and core
+    integration between engine and core (begun)
     the connection and level code, in terms of points, needs to be re-written (by me(tom))
-    ... tbc ...
-
+    selection of tiles (selectedTile buffer in Main)
+    CONNECTIONS (how to do?)
+    point-to-position code 
