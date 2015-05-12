@@ -1,6 +1,6 @@
 GAME SPECIFICS (basically a vague todo and completion list):
 
-The game will have the ability to create "saves". These will, in essence be "runs" of the game. 
+The game will have the ability to create "saves". These will, in essence, be "runs" of the game. 
 
 In terms of data, they will be stored as JSON code which can be read from to reveal all the details needed to 
 create the "save" in game form.
@@ -33,4 +33,4 @@ So, TODO -
     the connection and level code, in terms of points, needs to be re-written (by me(tom))
     selection of tiles (selectedTile buffer in Main)
     CONNECTIONS (how to do?)
-    point-to-position code 
+    point-to-position code
