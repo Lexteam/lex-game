@@ -2,5 +2,10 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Release" />
-	<EditorTabsLayout layout="09808b805547762a000559fc00000002=*0;@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=854;besth=372;minw=854;minh=372;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=09808b805547762a000559fc00000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<EditorTabsLayout layout="09af85985552278e0001e10b00000002=0;gameEngine:main.cpp,1;lex-game:Engine\src\scene\headers\Shader.h,2;lex-game:Engine\src\scene\cpp\Model.cpp,3;lex-game:Engine\src\scene\headers\Material.h,4;lex-game:Engine\src\level\headers\LevelDesign.h,5;lex-game:Engine\src\level\headers\LevelExport.h,6;lex-game:Engine\src\level\headers\LevelGenrator.h,7;lex-game:Engine\src\level\headers\TileManager.h,8;lex-game:Engine\src\scene\headers\Texture.h,*9;lex-game:Engine\src\scene\headers\Model.h,10;lex-game:Engine\src\scene\headers\Scenegraph.h@layout2|name=dummy;caption=;state=2098174;dir=3;layer=0;row=0;pos=0;prop=100000;bestw=547;besth=204;minw=547;minh=204;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=09af85985552278e0001e10b00000002;caption=;state=2098172;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=200;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=202|" />
 </CodeBlocks_layout_file>

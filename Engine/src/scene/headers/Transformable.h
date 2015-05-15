@@ -19,37 +19,28 @@ namespace Engine {
 
 		///gets///
 
-		Engine::Tile getSize() {return ToTile(Scale, *Tilesize);}
-
         glm::vec3 getModelSize() {return Size;}
 
-		Engine::Tile getScale();
+        //in Positions NOT Tiles!
+		glm::vec3 getScale()  {return Scale;}
 
-		glm::vec3 getRotation();
+		glm::vec3 getRotation() { return Roatation; }
 
 		///sets///
 
-		bool setSize(Engine::Tile size)
-		{
-            Size = size.getPos();
-			Tilesize = size.getTileSize();
-		}
-
-		bool setSize(float x, float y, float z);
-
-		bool setRotation(glm::vec3 Rotation);
+		bool setRotation(glm::vec3 rotation){Rotation = rotation; return true;}
 		bool setRotation(float x, float y, float z);
 
-		bool setScale(Engine::Tile Scale);
-		bool setScale(float x, float y, float z);
+		//in-game mesurements
+		bool setScale(Engine::Tile scale){Scale = scale.getPos(); return true;}
+
+        //opengl measurements
+		bool setScale(float x, float y, float z){Scale = vec3(x, y, z); return true;}
 
 
 
 	protected:
-		Engine::TileSize* Tilesize;
-
 		glm::vec3 Scale;
-		glm::tvec3<unsigned> Size;
 		glm::vec3 Rotation;
 	};
 }

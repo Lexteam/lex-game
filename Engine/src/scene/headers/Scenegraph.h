@@ -17,7 +17,7 @@ namespace Engine {
 			//puts data in render data :)
 				Scene(std::string Filename)
 				{
-					
+
 				}
 
 
@@ -25,18 +25,18 @@ namespace Engine {
 
 				//Data in the Scene used for rendering
 				//Theese are placeholders to internal buffers
-				//so you can't do any native opengl with the class
+				//so you can't do any native opengl with the classes
 				//But Can Do SFML! :)
 				struct RenderData
 				{
 					public:
 
-						std::vector<Engine::VAO> Meshes;
+						std::vector<Engine::VBO> VertexData;
 
 
 						std::vector<Engine::Model> Models;
 						std::vector<Engine::Light>  Lights;
-						std::vector<aiMaterial> materials;
+						std::vector<Engine::Material> materials;
 
 						Engine::Camera RenderCamera;
 						Engine::Model Room;
@@ -45,12 +45,9 @@ namespace Engine {
 
 
 		private:
-
-			aiScene scene;
-
 			bool readscenefile();
 
-			//just renders Everything (apart from the materials/textures) In RenderData
+			//just renders Everything In RenderData apart form unused vertexData
 			virtual void draw(sf::RenderTarget &target, sf::RenderStates states);
 	};
 

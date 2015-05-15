@@ -13,54 +13,86 @@
 namespace Engine {
 
     //used for defining models that are(graphically) the same
-    class VAO
+    class VBO
     {
         public:
-            VAO(std::string ModelName);
+            VBO(std::string ModelName);
+
+            //make the client be detered from inline-loading,but pos.
+            VBO(std::vector<float> Vertcies)
+            {
+                ++MaxID;
+                ID = MaxID;
+                vertcies = Vertcies;
+            }
+
+            const VBO& operator&(const VBO& Rhs)
+            {
+                ++MaxIndercies;
+                return &this;
+            }
 
         protected:
-              friend class Model;
-              friend class Scene;
+              friend class Mesh;
 
-              std::vector<float> vertcies;
+              //updates the values of the mesh connected to the VBO
+              bool updateIndercieStates(Engine::Mesh& MeshToUpdate);
 
-			  GLuint ID;
+              bool draw(Engine::Mesh& MeshTodraw);
 
-			  GLuint Steps;
+              GLuint getID(){return ID;}
+
         private:
-			VAO(const VAO &VAO);
-            VAO& operator=(const VAO Rhs);
+            GLuint Indercies;
+
+            std::vector<float> vertcies;
+
+            GLuint ID;
+
+            VBO& operator=(const VBO Rhs){}
+
+			VBO(const VBO &VBO){}
+
+            GLuint EBO;
+
     };
 
 	//Model class used for interacting with Assimp/Opengl
-	class Model : public BaseModel,
+	class Mesh : public BaseModel,
 					public Transformable
     {
 		public:
             //sets material in modelbool setUVs(sf::vector4<float> UVs);
-            Model(VAO &vertexData, Engine::Material &mat):
-				VertexArray(vertexData),
+            Mesh(VBO &vertexData, Engine::Material &mat):
+				VertexBuffer(vertexData),
 				material(mat)
             {
+                SetupFaces();
                 setMaterial(material);
             }
 
             //massive cleanup
-			~Model()
+			~Mesh())
 			{
             }
 
             //adds additional shaders to be compiled with the material
-            bool push_backShader(Engine::Shader& shader);
+            bool push_backShader(Engine::Shader& shader)
+            {
+                shaders.push_back(shader);
+            }
 
             //false if shader/s does not exist
-            bool remove_Shader(unsigned index)
+            bool remove_shader(Engine::Shader &shader)
             {
-                if(Shaders.size() < index){
-					Shaders.erase((Shaders.begin() + index));
-                    return true;
+                for(unsigned i = 0; i < Shaders.size(); i++){
+                    if(Shaders[i] != shader);
+                    else {
+                        Shaders.erase(i);
+                        return true;
+                    }
                 }
-				else { return false; };
+                return false;
             }
 
             unsigned getShaderVectorSize() {return Shaders.size();}
@@ -75,25 +107,32 @@ namespace Engine {
 			//can be NULL
 			Engine::Material getSettedMaterial() { return material; }
 
+        protected:
+
+            friend Engine::VBO;
+
+            GLuint getVAO(){return VAO;}
+
+            GLuint getSteps(){return Steps;}
+
+            GLuint getIndercieID(){return IndercieID;}
+
+            bool setIndercieID(GLuint Indercie){IncdercieID = Indercie; return true;}
 
 		private:
 
-            bool setVBO();
+            bool SetupFaces();
 
-            bool setEBO();
-
-			//draws the 3D model
+			//draws the 3D mesh
 			virtual void draw(sf::RenderTarget& target, sf::RenderStates states = sf::RenderStates::Default);
 
             Engine::Material& material;
 
-            std::vector<Engine::Shader> Shaders;
+            GLuint VAO;
 
-			Engine::VAO &VertexArray;
+            GLuint Steps;
 
-            GLuint VBO;
-
-            GLuint EBO;
+            GLuint IndercieID;
 	};
 };
 #endif //_H_MODEL_H_

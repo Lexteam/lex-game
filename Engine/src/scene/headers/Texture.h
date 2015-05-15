@@ -1,5 +1,6 @@
 #include <GL/glew.h>
 #include <SFML/OpenGL.hpp> //only works on MSVC
+#include <SFML/Graphics.hpp>
 #include <string>
 #include <SOIL/SOIL.h>
 #include <glm/glm.hpp>
@@ -11,6 +12,8 @@
 
 namespace Engine
 {
+    class Shader;
+
         //type of processing used when generating textures
     enum TextureFilterType{Linear = GL_LINEAR, Nearest = GL_NEAREST};
 
@@ -19,43 +22,19 @@ namespace Engine
                                 ClampToEdge = GL_CLAMP_TO_EDGE, ClampToBorder = GL_CLAMP_TO_BORDER
 						};
 
-    //conviencence class
-    class Image
-    {
-        public:
-			enum imagetype { RBG = GL_RGB, RBGA = GL_RGBA };
-
-            Image(std::string filename, imagetype Imagetype)
-            {
-                setImage(filename, Imagetype);
-            }
-			bool setImage(std::string newfilename, imagetype Imagetype)
-            {
-				if (Imagetype = RBGA)SOIL_load_image(newfilename.c_str(), &imagesize.x, &imagesize.y, 0, SOIL_LOAD_RGBA);
-				else { SOIL_load_image(newfilename.c_str(), &imagesize.x, &imagesize.y, 0, SOIL_LOAD_RGB); }
-				type = Imagetype;
-				return true;
-            }
-
-        protected:
-			friend class Texture;
-			imagetype type;
-			glm::tvec2<int> imagesize;
-            char* data;
-    };
 
 	//note can do an OR operation with x, y and z  (do x, y and z at the same time)
-    enum dimention {x = GL_TEXTURE_WRAP_S, y = GL_TEXTURE_WRAP_T, z = GL_TEXTURE_WRAP_R};
+    enum dimention {x = GL_TEXTURE_WRAP_S, y = GL_TEXTURE_WRAP_T};
 
     //3D repesentation of sf::texture
     class Texture
     {
         public:
             //keep the image can change dimentions but may prove with undifined results
-            Texture(Engine::Image &img, glm::tvec2<GLsizei> sizeofimage, unsigned Dimentions = 2):
+            Texture(sf::Image &img, glm::tvec2<GLsizei> sizeofimage):
 				Img(img)
             {
-                bind(Dimentions);
+				internalBind();
             }
 
             //cleanup
@@ -64,11 +43,9 @@ namespace Engine
             ///sets///
 
             //binds an image to the texture
-            bool bind(unsigned Dimentions = 2 );
+			bool bind(sf::Image &img) { Img = img; internalBind(); return true; }
 
-            bool setImageSize(glm::vec2 size);
-
-            glm::vec2 getImageSize() {return Img.imagesize;}
+            sf::Vector2u  getImageSize() {return Img.getSize();}
 
             //sets the Filter type for the texture /sdefualt = Nearest
 			bool setFilterType(Engine::TextureFilterType TexType, Engine::TextureFilterType MipmapType, Engine::dimention dim);
@@ -80,9 +57,11 @@ namespace Engine
 			bool setWrapping(Engine::TextureWrappingType WrappingType, Engine::dimention dim);
 
         private:
-			unsigned dimentions;
+            friend Shader;
 
-            Engine::Image &Img;
+			bool internalBind();
+
+            sf::Image &Img;
 
             GLuint texture;
     };

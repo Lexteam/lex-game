@@ -11,7 +11,7 @@ namespace Engine {
 
 	class Scene;
 
-	class BaseModel : sf::Drawable
+	class BaseModel : public sf::Drawable
 	{
 		public:
 
@@ -22,7 +22,7 @@ namespace Engine {
 
 			///sets///
 
-            //notice not meant for heavy use see Transform instead
+            //changes the position of the model instantly
 			bool setPos(float x, float y, float z)
 			{
                 pos.x = x;
@@ -43,8 +43,6 @@ namespace Engine {
 			glm::vec4 getModelPos(){ return pos; }
 
 		protected:
-
-            friend class Scene;
 
 			//use Pesudo Constructor in Engine::Scene
 			BaseModel()

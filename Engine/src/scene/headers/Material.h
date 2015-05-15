@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Texture.h"
 #include "Shader.h"
+#include <functional>
 
 #ifndef _H_MATERIAL_H_
 #define _H_MATERIAL_H_
@@ -16,9 +17,8 @@ namespace Engine
     {
         public:
             // sets the material/texture via image stored in data, Uses deafualt lighting shader
-            Material(Engine::Texture &texture, Engine::Shader &Matshader = DefaultMatShader):
-				Mat(Matshader),
-				Tex(texture)
+            Material(Engine::Shader &Matshader = DefaultMatShader):
+				Mat(Matshader)
             {
 
             }
@@ -32,30 +32,49 @@ namespace Engine
             ///sets///
 
             //sets new shader
-            bool setShader(Engine::Shader &shader){Mat=shader; return true;}
+            bool setShader(Engine::Shader &shader){shaders[0] = shader; return true;}
 
-            //bind new texture to material
+            //adds a new shader to use
+            bool PushbackShaders(Engine::Shader &shader){shaders.push_back(shader); return true;}
+
+            //can't remove 1st shader only beacuse shaders(normally) depend on each other
+            bool pop_backShaders()
+            {
+                if(shaders.size() != 1){
+                    shaders.pop_back();
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+
+            //bind new base texture to material
             bool setTexture(Engine::Texture &texture);
 
             ///wappings for shader material///
             bool setAmbientStrength(GLfloat Ambient);
 
-            bool setDiffuseIntestity(GLfloat diffuse);
+            bool setDiffuseIntestity(GLfloat Diffuse);
 
             //shinyniness
             bool setSpecular(GLfloat Gloss);
 
 
+            Engine::Shader& getShaderRef(unsigned index)
+            {
+                if(shaders.size() < index)
+                return Shaders[index];
+                else throw("not in shaders range check your code for numerical errors");
+            }
 
 			///gets///
             //gets a refrence to the shader
-            Engine::Shader& getShader(){return Mat;}
-
-            Engine::Texture& getTexture(){return Tex;}
+            Engine::Texture& getTexture(unsigned index = 0U, unsigned Texindex){return shaders[index].GetTexture(Texindex);}
 
             private:
-                Engine::Shader &Mat;
-                Engine::Texture &Tex;
+
+                std::vector<std::refrence_wrapper<Engine::Shader>> shaders;
 
     };
 

@@ -11,6 +11,8 @@ namespace Engine
 
 	static Engine::Shader DefualtLightingShader("DLightShader.glsl");
 
+
+
 	//Used as a convenience class for lighting
 	class Light :public Engine::BaseModel,
 			public Engine::Transformable
@@ -43,7 +45,12 @@ namespace Engine
                 //sets the type of algrorithm used when lighting e.g.sun
                 bool setLightingMethod(Engine::LightingMethod type);
 
+                //replaces the defualt form of the light
+                bool AddVBO(Engine::VBO &VertexData){VertexObject = VertexData;}
+
 			private:
+
+                Engine::VBO &VertexObject;
 
                 Engine::Shader& shader;
 

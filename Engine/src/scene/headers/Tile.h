@@ -30,7 +30,7 @@ namespace Engine {
 			///sets///
 			bool setTile(glm::tvec3<int> Tilepos) { TilePos = Tilepos; return true; }
 
-			TileSize* getTileSize() { return &size; }
+			TileSize& getTileSize() { return size; }
 
 		private:
 			glm::vec3 TilePos;
