@@ -1,7 +1,9 @@
-lex-game
+lex-game (title WIP)
 ========
 
-## Building
+See SPECIFICATIONS.md for gaem details.
 
-To build you will need to execute `gradlew build`.
-Currently this will not work :(
+========
+
+Currently cannot be executed.
+Engine is to be moved to differnet repository.
