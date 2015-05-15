@@ -1,7 +1,7 @@
 lex-game (title WIP)
 ========
 
-See SPECIFICATIONS.md for game details.
+See SPECIFICATIONS.md for gaem details.
 
 ========
 
