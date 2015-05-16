@@ -10,11 +10,11 @@ import uk.jamierocks.lexteam.ygd.core.objects.tools.ability.ToolAbility;
  * @author Tom Drever
  * @author Jamie Mansfield
  */
-public class Tool<T extends ToolAbility> extends GameObject {
+public class Tool extends GameObject {
 
-    private T toolAbility;
+    private ToolAbility toolAbility;
 
-    public Tool(T ability) {
+    public Tool(ToolAbility ability) {
         this.toolAbility = ability;
     }
 
@@ -23,7 +23,11 @@ public class Tool<T extends ToolAbility> extends GameObject {
      *
      * @return the {@link ToolAbility}
      */
-    public T getAbility() {
+    public ToolAbility getAbility() {
         return toolAbility;
+    }
+
+    public void Use(){
+        toolAbility.Use();
     }
 }

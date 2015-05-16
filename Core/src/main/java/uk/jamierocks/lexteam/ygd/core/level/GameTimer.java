@@ -1,5 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.level;
 
+import uk.jamierocks.lexteam.ygd.core.objects.Point;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -20,15 +22,20 @@ public class GameTimer{
         gameLevel = level;
 
         gameTimer = new Timer();
+    }
+
+    public void startGameTimer(){
         gameTimer.schedule(new TimerTask() {
             @Override
             public void run() {
                 runPulse(gameLevel);
             }
-        }, 1000);
+        }, timerPulseTime);
     }
 
     private void runPulse(Level level){
+        Point startingPoint = level.getStartingPoint();
+
 
     }
 }

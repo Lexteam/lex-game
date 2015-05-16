@@ -77,12 +77,13 @@ public final class ToolAbilities {
         public void use(Level level, Connection connection, Point point) {
             if (connection.pointTo == point){
                 connection.pointTo = null;
-                level.addAvailablePoint(point);
+                connection.availablePoints.add(point);
+
             }
 
             if (connection.pointFrom == point){
                 connection.pointFrom = null;
-                level.addAvailablePoint(point);
+                connection.availablePoints.add(point);
             }
         }
     };

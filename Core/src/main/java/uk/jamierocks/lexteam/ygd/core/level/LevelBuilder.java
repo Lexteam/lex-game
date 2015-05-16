@@ -42,11 +42,6 @@ package uk.jamierocks.lexteam.ygd.core.level;
          */
         public void addConnection(Connection... connections) {
             this.level.addConnection((connections));
-
-            for (Connection connection : connections){
-                this.level.removeAvailablePoint(connection.pointFrom);
-                this.level.removeAvailablePoint(connection.pointTo);
-            }
         }
 
         public void populateAvailablePoints(){
@@ -56,8 +51,6 @@ package uk.jamierocks.lexteam.ygd.core.level;
         private class CreatedLevel implements Level {
 
             public final Set<Connection> connections;
-
-            public final Set<Point> availablePoints;
 
             public final GameTimer gameTimer;
 
@@ -69,8 +62,7 @@ package uk.jamierocks.lexteam.ygd.core.level;
              */
             public CreatedLevel(){
                 connections = new HashSet<>();
-                availablePoints = new HashSet<>();
-                gameTimer = new GameTimer(this);
+                gameTimer = new GameTimer(this, 1000);
 
                 startPoint = PointFactory.newPoint();
                 endPoint = PointFactory.newPoint();
@@ -100,32 +92,6 @@ package uk.jamierocks.lexteam.ygd.core.level;
             @Override
             public void removeConnection(Connection connection) {
                 this.connections.remove(connection);
-            }
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public Set<Point> getAvailablePoints() {
-                return this.availablePoints;
-            }
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public void addAvailablePoint(Point... points) {
-                for (Point point : points){
-                    this.availablePoints.add(point);
-                }
-            }
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public void removeAvailablePoint(Point point) {
-                this.availablePoints.remove(point);
             }
 
             /**

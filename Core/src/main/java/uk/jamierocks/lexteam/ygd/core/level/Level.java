@@ -36,23 +36,6 @@ public interface Level {
     void removeConnection(Connection connection);
 
     /**
-     * Get the level's available points
-     */
-    Set<Point> getAvailablePoints();
-
-    /**
-     * Add connection/s to the level's available point
-     * @param points the point/s to be added
-     */
-    void addAvailablePoint(Point... points);
-
-    /**
-     * Removes a point from the level's available point
-     * @param point the point o be removed
-     */
-    void removeAvailablePoint(Point point);
-
-    /**
      * Gets the starting point of the level
      */
     Point getStartingPoint();

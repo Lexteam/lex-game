@@ -8,6 +8,9 @@ import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.ConnectionFrequen
  * Interface for toolabilities that use a connectionfrequency
  * @author Tom Drever
  */
-public interface ConnectionFrequencyToolAbility extends ToolAbility{
-    void use (Level level, Connection connection, ConnectionFrequency frequency);
+public class ConnectionFrequencyToolAbility extends ToolAbility{
+    @Override
+    void use (Level level, Connection connection, ConnectionFrequency frequency){
+
+    }
 }
