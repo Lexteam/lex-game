@@ -1,5 +1,6 @@
 #include "BaseModel.h"
 #include "Transformable.h"
+#include "Shader.h"
 
 #ifndef _H_LIGHT_H_
 #define _H_LIGHT_H_
@@ -33,12 +34,12 @@ namespace Engine
 
                 //used for setting properties of the light
                 bool setShader(Engine::Shader &shader);
-                bool setShader(GLuint ShaderProgramID);
+                bool setShader(GLfloat ShaderProgramID);
 
                 //using Defualt shader
-                bool setStrength(GLuint strength)
+                bool setStrength(GLfloat strength)
                 {
-                    shader.setparam("Strength", strength);
+                    shader.setUniformparam("Strength", strength);
 					return true;
                 }
 

@@ -5,12 +5,13 @@
 #include "Texture.h"
 #include <functional>
 
-
 #ifndef _H_SHADER_H_
 #define _H_SHADER_H_
 
 namespace Engine
 {
+	const static unsigned MaxTexUnits = 16;
+
     class Material;
     class Shader
     {
@@ -26,22 +27,23 @@ namespace Engine
 
             bool addTexRefrence(Engine::Texture &texture)
             {
-                if(index < Textures.size()){
-                    Textures.push_back(texture);
+                if(MaxTexUnits < Textures.size()){
+					Textures.push_back(texture);
                     return true;
                 }
                 else{return false;}
             }
-            bool removeTexRefrence(Engine::Texture &texture)
+            bool PopTexRefrence()
             {
-                if(index < Textures.size()){
+                if(1 <= Textures.size()){
                     Textures.pop_back();
                     return true;
                 }
                 else{return false;}
-            }
+			}
+
             //false: operation failed
-            bool Engine::Texture getTexture(unsigned index)
+            bool getTexture(unsigned index)
             {
                 if(index < Textures.size()){
                     Textures[index];
@@ -52,26 +54,29 @@ namespace Engine
 
             ///sets///
             //Uniforms only
-			bool setparam(std::string Varname, float variable);
-			bool setparam(std::string Varname, glm::vec2 vec2);
-			bool setparam(std::string Varname, glm::vec3 vec3);
-			bool setparam(std::string Varname, glm::vec4 vec4);
+			bool setUniformparam(std::string Varname, GLfloat variable);
+			bool setUniformparam(std::string Varname, glm::vec2 vec2);
+			bool setUniformparam(std::string Varname, glm::vec3 vec3);
+			bool setUniformparam(std::string Varname, glm::vec4 vec4);
 
             ///gets///
             // Uniforms only
-            float getparam(std::string Varname);
-            glm::vec2 getparam(std::string Varname);
-            glm::vec3 getparam(std::string Varname);
-            glm::vec4 getparam(std::string Varname);
+            GLfloat getUniformparam(std::string Varname);
+            glm::vec2 getUniformparam(std::string Varname);
+            glm::vec3 getUniformparam(std::string Varname);
+            glm::vec4 getUniformparam(std::string Varname);
 
         protected:
             friend Material;
-            GLint GetProgID(){return ProgID};
+
+			GLint GetProgID(){ return ProgID; };
 
         private:
-            std::vector<std::refrence_wrapper<Enigne::Texture>> Textures;
+            std::vector<std::reference_wrapper<Engine::Texture>> Textures;
 
             bool compile(std::string data);
+
+            bool updateTextures();
 
             GLint ProgID;
     };

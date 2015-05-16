@@ -21,15 +21,13 @@ namespace Engine {
             //make the client be detered from inline-loading,but pos.
             VBO(std::vector<float> Vertcies)
             {
-                ++MaxID;
-                ID = MaxID;
                 vertcies = Vertcies;
             }
 
             const VBO& operator&(const VBO& Rhs)
             {
-                ++MaxIndercies;
-                return &this;
+                ++Indercies;
+                return *this;
             }
 
         protected:
@@ -72,7 +70,7 @@ namespace Engine {
             }
 
             //massive cleanup
-			~Mesh())
+			~Mesh()
 			{
             }
 
