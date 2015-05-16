@@ -9,16 +9,39 @@ import java.util.Set;
  * Represents a level
  *
  * @author Jamie Mansfield
+ * @author Tom Drever
  */
-public abstract class Level {
+public interface Level {
 
     /**
-     * A set of connections
+     * Get the level's timer
      */
-    public Set<Connection> connections;
+    GameTimer getGameTimer();
 
     /**
-     * A set of available points
+     * Get the level's connections
      */
-    public Set<Point> availablePoints;
+    Set<Connection> getConnections();
+
+    /**
+     * Add connection/s to the level's connections
+     * @param connections the connection/s to be added
+     */
+    void addConnection(Connection... connections);
+
+    /**
+     * Remove a connection from the level
+     * @param connection the connection to be removed
+     */
+    void removeConnection(Connection connection);
+
+    /**
+     * Gets the starting point of the level
+     */
+    Point getStartingPoint();
+
+    /**
+     * Gets the end point of the level
+     */
+    Point getEndPoint();
 }

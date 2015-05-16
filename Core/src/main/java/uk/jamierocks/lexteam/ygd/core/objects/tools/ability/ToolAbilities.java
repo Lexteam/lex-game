@@ -10,13 +10,14 @@ import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.ConnectionFrequen
  * The list of tool abilities
  *
  * @author Jamie Mansfield
+ * @author Tom Drever
  */
 public final class ToolAbilities {
 
     /**
      * A class representing the ToolAbility to add points to a connection
      */
-    public static final PointToolAbility ADD_POINT = new PointToolAbility() {
+    public static final ToolAbility ADD_POINT = new PointToolAbility() {
         @Override
         public void use(Level level, Connection connection, Point point) {
             if (connection.pointTo == null){
@@ -32,7 +33,7 @@ public final class ToolAbilities {
     /**
      * A class representing for the ToolAbility to change the frequency of the connection
      */
-    public static final ConnectionFrequencyToolAbility CHANGE_CONNECTION_FREQUENCY = new ConnectionFrequencyToolAbility() {
+    public static final ToolAbility CHANGE_CONNECTION_FREQUENCY = new ConnectionFrequencyToolAbility() {
         @Override
         public void use(Level level, Connection connection, ConnectionFrequency connectionFrequency) {
             connection.connectionFrequency = connectionFrequency;
@@ -42,7 +43,7 @@ public final class ToolAbilities {
     /**
      * A class representing for the ToolAbility to change the direction of the connection
      */
-    public static final SimpleToolAbility CHANGE_DIRECTION = new SimpleToolAbility() {
+    public static final ToolAbility CHANGE_DIRECTION = new SimpleToolAbility() {
         @Override
         public void use(Level level, Connection connection) {
             Point newPointTo = connection.pointFrom;
@@ -56,33 +57,33 @@ public final class ToolAbilities {
     /**
      * A class representing for the ToolAbility to merge two connections into one
      */
-    public static final MultipleConnectionToolAbility MERGE_CONNECTIONS = new MultipleConnectionToolAbility() {
+    public static final ToolAbility MERGE_CONNECTIONS = new MultipleConnectionToolAbility() {
         @Override
         public void use(Level level, Connection connectionOne, Connection connectionTwo) {
-            if (connectionOne.configuredPoints().size() == 2 && connectionTwo.configuredPoints().size() == 2){
-                // remove connectiontwo
-                level.connections.remove(connectionTwo);
+        // remove connectiontwo
+        level.removeConnection(connectionTwo);
 
-                // edit connectionone
-                connectionOne.pointTo = connectionTwo.pointTo;
-            }
+
+        // edit connectionone
+        connectionOne.pointTo = connectionTwo.pointTo;
         }
     };
 
     /**
      * A class representing for the ToolAbility to remove a point in a connection
      */
-    public static final PointToolAbility REMOVE_POINT = new PointToolAbility() {
+    public static final ToolAbility DISCONNECT_POINT = new PointToolAbility() {
         @Override
         public void use(Level level, Connection connection, Point point) {
             if (connection.pointTo == point){
                 connection.pointTo = null;
-                level.availablePoints.add(point);
+                connection.availablePoints.add(point);
+
             }
 
             if (connection.pointFrom == point){
                 connection.pointFrom = null;
-                level.availablePoints.add(point);
+                connection.availablePoints.add(point);
             }
         }
     };

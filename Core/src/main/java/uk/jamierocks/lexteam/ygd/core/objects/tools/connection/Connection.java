@@ -2,17 +2,20 @@ package uk.jamierocks.lexteam.ygd.core.objects.tools.connection;
 
 import uk.jamierocks.lexteam.ygd.core.objects.GameObject;
 import uk.jamierocks.lexteam.ygd.core.objects.Point;
+import uk.jamierocks.lexteam.ygd.core.objects.PointFactory;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Random;
 
 /**
  * Class to represent the concept of a connection. Contains a PointFrom and PointTo
  *
  * @author Tom Drever
+ * @author Jamie Mansfield
  */
 public class Connection extends GameObject {
 
-    /**
+     /**
      * Represents the point the connection goes to
      */
     public Point pointTo;
@@ -23,45 +26,51 @@ public class Connection extends GameObject {
     public Point pointFrom;
 
     /**
+     * All the points that could possibly be selected in the connection
+     */
+    public HashSet<Point> availablePoints;
+
+    /**
      * The frequency of the connection
      */
     public ConnectionFrequency connectionFrequency;
 
-    public Connection(Point PointTo, Point PointFrom, ConnectionFrequency Frequency) {
-        this.pointTo = PointTo;
-        this.pointFrom = PointFrom;
-        this.connectionFrequency = Frequency;
+    public Connection(Point pointTo, Point pointFrom, ConnectionFrequency frequency) {
+        this.pointTo = pointTo;
+        this.pointFrom = pointFrom;
+        this.connectionFrequency = frequency;
+
+        this.availablePoints = new HashSet<>();
+        this.populateAvailablePoints();
     }
 
     /**
+     * Checks if this Connection is connected to another Connection
+     *
      * @param connection the connection to compare to
-     * @return Returns true if the connection contains a point that this connection also contains
+     * @return {@code true} if the connection contains a point that this connection also contains
      */
     public boolean isConnectedTo(Connection connection) {
         return connection.connectionFrequency == this.connectionFrequency && (connection.pointFrom == this.pointFrom || connection.pointTo == this.pointTo);
     }
 
     /**
-     * @param ID The ID of the point to be checked
-     * @return Returns true if the point is found within this connection
+     * Checks is this Connection contains a Point
+     *
+     * @param ID the ID of the point to be checked
+     * @return {@code true} if the point is found within this connection
      */
     public boolean hasPoint(int ID){
         return this.pointTo.ID == ID || this.pointFrom.ID == ID;
     }
 
     /**
-     * @return Returns the amount of points in this connection that are not null
+     * Populates the "availablepoints" with a random(ish) number of points
      */
-    public Set<Point> configuredPoints(){
-        Set<Point> configuredPoints = new HashSet<Point>();
-
-        if (this.pointTo != null){
-            configuredPoints.add(this.pointTo);
+    private void populateAvailablePoints(){
+        Random r = new Random();
+        for (int i = 0; (i < r.nextInt((4 - 2) + 1) + 2); i++) {
+            this.availablePoints.add(PointFactory.newPoint());
         }
-        if (this.pointFrom != null){
-            configuredPoints.add(this.pointFrom);
-        }
-
-        return configuredPoints;
     }
 }

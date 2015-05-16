@@ -8,6 +8,9 @@ import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
  * Interface for toolabilities that requires a point
  * @author Tom Drever
  */
-public interface PointToolAbility extends ToolAbility{
-    void use (Level level, Connection connection, Point point);
+public class PointToolAbility extends ToolAbility{
+    @Override
+    void use (Level level, Connection connection, Point point){
+
+    }
 }

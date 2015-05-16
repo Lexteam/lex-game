@@ -11,13 +11,16 @@ import uk.jamierocks.lexteam.ygd.core.objects.tools.Tool;
  * @author Tom Drever
  * @author Jamie Mansfield
  */
-public interface SimpleToolAbility extends ToolAbility{
+public class SimpleToolAbility extends ToolAbility{
 
     /**
      * Called when a {@link Tool} is used
      * @param connection The connection the tool's use applies to
      * @param level level in which the tool is being used
      */
-    void use(Level level, Connection connection);
+    @Override
+    public void Use(Level level, Connection connection){
+
+    }
 }
 
