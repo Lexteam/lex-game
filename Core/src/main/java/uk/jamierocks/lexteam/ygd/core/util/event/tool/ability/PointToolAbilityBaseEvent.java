@@ -1,4 +1,4 @@
-package uk.jamierocks.lexteam.ygd.core.event.tool.ability;
+package uk.jamierocks.lexteam.ygd.core.util.event.tool.ability;
 
 import uk.jamierocks.lexteam.ygd.core.level.Level;
 import uk.jamierocks.lexteam.ygd.core.objects.Point;
@@ -7,20 +7,20 @@ import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
 /**
  * @author Jamie Mansfield
  */
-public class CreatePointEvent {
+public class PointToolAbilityBaseEvent {
 
     private final Level level;
     private final Connection connection;
     private final Point point;
 
-    public CreatePointEvent(Level level, Connection connection, Point point) {
+    public PointToolAbilityBaseEvent(Level level, Connection connection, Point point) {
         this.level = level;
         this.connection = connection;
         this.point = point;
     }
 
     public Level getLevel() {
-        return level;
+            return level;
     }
 
     public Connection getConnection() {
