@@ -18,13 +18,10 @@ namespace Engine {
 		}
 
 		///gets///
-
-        glm::vec3 getModelSize() {return Size;}
-
         //in Positions NOT Tiles!
 		glm::vec3 getScale()  {return Scale;}
 
-		glm::vec3 getRotation() { return Roatation; }
+		glm::vec3 getRotation() { return Rotation; }
 
 		///sets///
 
@@ -35,7 +32,7 @@ namespace Engine {
 		bool setScale(Engine::Tile scale){Scale = scale.getPos(); return true;}
 
         //opengl measurements
-		bool setScale(float x, float y, float z){Scale = vec3(x, y, z); return true;}
+		bool setScale(float x, float y, float z){Scale = glm::vec3(x, y, z); return true;}
 
 
 

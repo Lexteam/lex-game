@@ -1,18 +1,9 @@
 //#include "../headers/Texture.h"
 #include "../../../PROGRAMMING/PROJECTS/lex-game/Engine/src/scene/headers/Texture.h"
 
-bool Engine::Texture::internalBind()
+bool Engine::Texture::internalBind(sf::Image &img)
 {
-    if(TexturesUsed < MaxTexUnits){
-        ++TexturesUsed;
-
-
-
-        return true;
-    }
-    else{
-        return false;
-    }
+	return true;
 }
 
 bool Engine::Texture::setFilterType(Engine::TextureFilterType MagnifyingType, Engine::TextureFilterType MinifyingType)

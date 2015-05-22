@@ -6,7 +6,6 @@
 
 namespace Engine
 {
-    class ShaderProgram;
 
         //type of processing used when generating textures
     enum TextureFilterType{Linear = GL_LINEAR, Nearest = GL_NEAREST};
@@ -25,7 +24,7 @@ namespace Engine
     {
         public:
             //keep the image can change dimentions but may prove with undifined results
-            Texture(sf::Image &img, glm::tvec2<GLsizei> sizeofimage):
+            Texture(sf::Image &img, glm::tvec2<GLsizei> sizeofimage)
             {
 
             }
@@ -41,8 +40,6 @@ namespace Engine
             //binds an image to the texture
 			bool bind(sf::Image &img, glm::tvec2<GLsizei> sizeofimage) { internalBind(img); return true; }
 
-            sf::Vector2u  getImageSize() {return Img.getSize();}
-
             //sets the Filter type for the texture /sdefualt = Nearest
 			bool setFilterType(Engine::TextureFilterType TexType, Engine::TextureFilterType MipmapType, Engine::dimention dim);
 
@@ -53,7 +50,8 @@ namespace Engine
 			bool setWrapping(Engine::TextureWrappingType WrappingType, Engine::dimention dim);
 
 		protected:
-            friend ShaderProgram GetTexID(){return texture;}
+			friend class ShaderProgram;
+			GLuint GetTexID(){return texture;}
 
             bool internalBind(sf::Image &img);
 

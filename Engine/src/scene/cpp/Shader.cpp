@@ -1,9 +1,11 @@
-#include "..\headers\ShaderProgram.h"
+//#include "..\headers\ShaderProgram.h"
+#include "..\..\..\PROGRAMMING\PROJECTS\lex-game\Engine\src\scene\headers\Shader.h"
 
 //compilation & linking
 bool Engine::Shader::compile(std::string data)
 {
-    glShaderSource(ShaderID, data.size(), data.c_str(), 1);
+	const GLchar* Sorce = data.c_str();
+    glShaderSource(ShaderID, data.size(), &Sorce, NULL);
     glCompileShader(ShaderID);
     return true;
 }
@@ -11,67 +13,41 @@ bool Engine::Shader::compile(std::string data)
 //Uniform wrappers
 bool Engine::ShaderProgram::setUniformparam(std::string Varname, GLfloat variable)
 {
-    if(!VarRefMap.find(Varname)){
-        GLuint VarRef = glGetUniformLocation(ProgID, Varname.c_str());
-        VarRefMap[Varname] =  VarRef;
-    }
+	checkVarMapAndAdd(Varname);
 	glUniform1f(VarRefMap[Varname], variable);
 	return true;
 }
 
 bool Engine::ShaderProgram::setUniformparam(std::string Varname, glm::vec2 vec)
 {
-    if(!VarRefMap.find(Varname)){
-        GLuint VarRef = glGetUniformLocation(ProgID, Varname.c_str());
-        VarRefMap[Varname] =  VarRef;
-    }
-    glUniform2f(VarRef, vec.x, vec.y);
+	checkVarMapAndAdd(Varname);
+    glUniform2f(VarRefMap[Varname], vec.x, vec.y);
     return true;
 }
 
 bool Engine::ShaderProgram::setUniformparam(std::string Varname, glm::vec3 vec)
 {
-    if(!VarRefMap.find(Varname)){
-        GLuint VarRef = glGetUniformLocation(ProgID, Varname.c_str());
-        VarRefMap[Varname] =  VarRef;
-    }
-    glUniform3f(VarRef, vec.x, vec.y, vec.z);
+	checkVarMapAndAdd(Varname);
+    glUniform3f(VarRefMap[Varname], vec.x, vec.y, vec.z);
     return true;
 }
 
-//getters
-GLfloat Engine::ShaderProgram::getUniformparam(std::string Varname)
+bool Engine::ShaderProgram::setUniformparam(std::string Varname, glm::tvec4<float> vec)
 {
-    if(!VarRefMap.find(Varname)){
+	checkVarMapAndAdd(Varname);
+	glUniform4f(VarRefMap[Varname], vec.x, vec.y, vec.z, vec.w);
+	return true;
+}
+
+
+//getters
+GLfloat* Engine::ShaderProgram::getUniformparam(std::string Varname)
+{
+    if(!VarRefMap.find(Varname)._Ptr){
         GLuint VarRef = glGetUniformLocation(ProgID, Varname.c_str());
         VarRefMap[Varname] =  VarRef;
     }
-    GLfloat value;
-    glGetUniformfv(ProgID, VarRefMap[Varname], &value);
+    GLfloat* value;
+    glGetUniformfv(ProgID, VarRefMap[Varname], value);
     return value;
-}
-
-//Texture manipulation
-bool Engine::ShaderProgram::addTexRefrence(Engine::Texture &texture)
-{
-
-    else{return false;}
-}
-
-bool Engine::ShaderProgram::PopTexRefrence()
-{
-    if(1 <= Textures.size()){
-        Textures.pop_back();
-       return true;
-    }
-    else{return false;}
-}
-
-bool Engine::ShaderProgram::getTexture(unsigned index)
-{
-    if(index < Textures.size()){
-           Textures[index];
-           return true;
-    }
-    else{return false;}
 }

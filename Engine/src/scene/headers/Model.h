@@ -4,8 +4,7 @@
 #include <assimp\material.h>
 #include <assimp\scene.h>
 #include <assimp\postprocess.h>
-#include "Material.h"
-
+#include "Shader.h"
 
 #ifndef _H_MODEL_H_
 #define _H_MODEL_H_
@@ -63,7 +62,7 @@ namespace Engine {
             //sets vertecies and shaders needed for opengl core instanation
             Mesh(VBO &vertexData, Engine::ShaderProgram Material):
 				VertexBuffer(vertexData),
-				material(mat)
+				material(Material)
             {
                 SetupFaces();
                 setMaterial(material);
@@ -74,27 +73,6 @@ namespace Engine {
 			{
             }
 
-            //adds additional shaders to be compiled with the material
-            bool push_backShader(Engine::Shader& shader)
-            {
-                shaders.push_back(shader);
-            }
-
-            //false if shader/s does not exist
-            bool remove_shader(Engine::Shader &shader)
-            {
-                for(unsigned i = 0; i < Shaders.size(); i++){
-                    if(Shaders[i] != shader);
-                    else {
-                        Shaders.erase(i);
-                        return true;
-                    }
-                }
-                return false;
-            }
-
-            unsigned getShaderVectorSize() {return Shaders.size();}
-
 			///sets///
 			//keep material
 			bool setMaterial(Engine::ShaderProgram Mat);
@@ -102,8 +80,7 @@ namespace Engine {
 			//set UVs/normals
 
 			///gets///
-			//can be NULL
-			Engine::Material getSettedMaterial() { return material; }
+			Engine::ShaderProgram getSettedMaterial() { return material; }
 
         protected:
 
@@ -115,7 +92,7 @@ namespace Engine {
 
             GLuint getIndercieID(){return IndercieID;}
 
-            bool setIndercieID(GLuint Indercie){IncdercieID = Indercie; return true;}
+            bool setIndercieID(GLuint Indercie){ IndercieID = Indercie; return true;}
 
 		private:
 
@@ -131,6 +108,8 @@ namespace Engine {
             GLuint Steps;
 
             GLuint IndercieID;
+
+			Engine::VBO VertexBuffer;
 	};
 };
 #endif //_H_MODEL_H_
