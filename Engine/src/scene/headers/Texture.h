@@ -1,10 +1,4 @@
-#include <GL/glew.h>
-#include <SFML/OpenGL.hpp> //only works on MSVC
-#include <SFML/Graphics.hpp>
-#include <string>
-#include <SOIL/SOIL.h>
-#include <glm/glm.hpp>
-
+#include "SuperSprite.h"
 
 
 #ifndef _H_TEXTURE_H_
@@ -12,7 +6,7 @@
 
 namespace Engine
 {
-    class Shader;
+    class ShaderProgram;
 
         //type of processing used when generating textures
     enum TextureFilterType{Linear = GL_LINEAR, Nearest = GL_NEAREST};
@@ -32,18 +26,20 @@ namespace Engine
         public:
             //keep the image can change dimentions but may prove with undifined results
             Texture(sf::Image &img, glm::tvec2<GLsizei> sizeofimage):
-				Img(img)
             {
-				internalBind();
+
             }
 
             //cleanup
-            ~Texture();
+            ~Texture()
+            {
+
+            }
 
             ///sets///
 
             //binds an image to the texture
-			bool bind(sf::Image &img) { Img = img; internalBind(); return true; }
+			bool bind(sf::Image &img, glm::tvec2<GLsizei> sizeofimage) { internalBind(img); return true; }
 
             sf::Vector2u  getImageSize() {return Img.getSize();}
 
@@ -56,12 +52,12 @@ namespace Engine
 			//sets the border wapping of the texture
 			bool setWrapping(Engine::TextureWrappingType WrappingType, Engine::dimention dim);
 
+		protected:
+            friend ShaderProgram GetTexID(){return texture;}
+
+            bool internalBind(sf::Image &img);
+
         private:
-            friend Shader;
-
-			bool internalBind();
-
-            sf::Image &Img;
 
             GLuint texture;
     };

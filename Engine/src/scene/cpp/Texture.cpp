@@ -3,14 +3,16 @@
 
 bool Engine::Texture::internalBind()
 {
-    glGenTextures(1, &texture);
-
-	glBindTexture(GL_TEXTURE_2D, texture);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, Img.getSize().x, Img.getSize().y,
-						0, GL_RGBA, GL_UNSIGNED_BYTE, Img.getPixelsPtr());
+    if(TexturesUsed < MaxTexUnits){
+        ++TexturesUsed;
 
 
-    return true;
+
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 bool Engine::Texture::setFilterType(Engine::TextureFilterType MagnifyingType, Engine::TextureFilterType MinifyingType)

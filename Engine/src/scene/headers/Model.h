@@ -60,8 +60,8 @@ namespace Engine {
 					public Transformable
     {
 		public:
-            //sets material in modelbool setUVs(sf::vector4<float> UVs);
-            Mesh(VBO &vertexData, Engine::Material &mat):
+            //sets vertecies and shaders needed for opengl core instanation
+            Mesh(VBO &vertexData, Engine::ShaderProgram Material):
 				VertexBuffer(vertexData),
 				material(mat)
             {
@@ -97,7 +97,7 @@ namespace Engine {
 
 			///sets///
 			//keep material
-			bool setMaterial(Engine::Material &Mat);
+			bool setMaterial(Engine::ShaderProgram Mat);
 
 			//set UVs/normals
 
@@ -124,7 +124,7 @@ namespace Engine {
 			//draws the 3D mesh
 			virtual void draw(sf::RenderTarget& target, sf::RenderStates states = sf::RenderStates::Default);
 
-            Engine::Material& material;
+            Engine::ShaderProgram& material;
 
             GLuint VAO;
 
