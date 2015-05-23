@@ -5,7 +5,32 @@ package uk.jamierocks.lexteam.ygd.core.objects.tools.connection;
  * Currently just different colours.
  *
  * @author Tom Drever
+ * @author Jamie Mansfield
  */
 public enum ConnectionFrequency {
-    RED, BLUE, GREEN, ORANGE, PURPLE
+
+    /**
+     * Represents a 'red' connection
+     */
+    RED,
+
+    /**
+     * Represents a 'blue' connection
+     */
+    BLUE,
+
+    /**
+     * Represents a 'green' connection
+     */
+    GREEN,
+
+    /**
+     * Represents a 'orange' connection
+     */
+    ORANGE,
+
+    /**
+     * Represents a 'purple' connection
+     */
+    PURPLE
 }

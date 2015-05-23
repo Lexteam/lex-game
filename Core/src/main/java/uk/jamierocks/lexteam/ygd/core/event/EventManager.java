@@ -8,7 +8,7 @@ import net.engio.mbassy.bus.config.Feature;
 import net.engio.mbassy.bus.error.IPublicationErrorHandler;
 import net.engio.mbassy.bus.error.PublicationError;
 import net.engio.mbassy.listener.Handler;
-import org.slf4j.LoggerFactory;
+import uk.jamierocks.lexteam.ygd.core.YGDGame;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -71,8 +71,7 @@ public class EventManager {
 
         @Override
         public void handleError(PublicationError publicationError) {
-            LoggerFactory.getLogger("lex-game")
-                    .error("Daim this super cool event thingy we used broke :(", publicationError);
+            YGDGame.getGame().getLogger().error("Daim this super cool event thingy we used broke :(", publicationError);
         }
     }
 }

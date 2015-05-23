@@ -16,7 +16,7 @@ public class Point {
     /**
      * Represents the point this point is next to on the cube (NOT the point it is connected to).
      */
-    protected Point FriendPoint;
+    protected Point friendPoint;
 
     protected Point(int id) {
         this.ID = id;
@@ -24,22 +24,20 @@ public class Point {
 
     protected Point(int id, Point friendPoint) {
         this.ID = id;
-        this.FriendPoint = friendPoint;
+        this.friendPoint = friendPoint;
     }
 
     /**
      * Gets the friend point
      */
-    public Point GetFriendPoint() {
-        return FriendPoint;
+    public Point getFriendPoint() {
+        return friendPoint;
     }
 
     /**
      * Sets the friend point
      */
-    public void SetFriendPoint(Point friendPoint) {
-        this.FriendPoint = friendPoint;
+    public void setFriendPoint(Point friendPoint) {
+        this.friendPoint = friendPoint;
     }
-
-
 }
