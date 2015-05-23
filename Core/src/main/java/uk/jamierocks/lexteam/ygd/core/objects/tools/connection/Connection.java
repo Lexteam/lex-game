@@ -15,7 +15,7 @@ import java.util.Random;
  */
 public class Connection extends GameObject {
 
-     /**
+    /**
      * Represents the point the connection goes to
      */
     public Point pointTo;
@@ -51,7 +51,8 @@ public class Connection extends GameObject {
      * @return {@code true} if the connection contains a point that this connection also contains
      */
     public boolean isConnectedTo(Connection connection) {
-        return connection.connectionFrequency == this.connectionFrequency && (connection.pointFrom == this.pointFrom || connection.pointTo == this.pointTo);
+        return connection.connectionFrequency == this.connectionFrequency && (connection.pointFrom == this.pointFrom
+                || connection.pointTo == this.pointTo);
     }
 
     /**
@@ -60,14 +61,14 @@ public class Connection extends GameObject {
      * @param ID the ID of the point to be checked
      * @return {@code true} if the point is found within this connection
      */
-    public boolean hasPoint(int ID){
+    public boolean hasPoint(int ID) {
         return this.pointTo.ID == ID || this.pointFrom.ID == ID;
     }
 
     /**
      * Populates the "availablepoints" with a random(ish) number of points
      */
-    private void populateAvailablePoints(){
+    private void populateAvailablePoints() {
         Random r = new Random();
         for (int i = 0; (i < r.nextInt((4 - 2) + 1) + 2); i++) {
             this.availablePoints.add(PointFactory.newPoint());

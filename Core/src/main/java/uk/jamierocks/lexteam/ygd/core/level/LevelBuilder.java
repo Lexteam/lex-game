@@ -5,7 +5,6 @@ import uk.jamierocks.lexteam.ygd.core.objects.Point;
 import uk.jamierocks.lexteam.ygd.core.objects.PointFactory;
 import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
 
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -19,7 +18,7 @@ public class LevelBuilder {
     public final Set<Connection> connections = Sets.newHashSet();
 
     public Level build() {
-       return new CreatedLevel(connections);
+        return new CreatedLevel(connections);
     }
 
     /**
@@ -38,7 +37,8 @@ public class LevelBuilder {
 
         public final Set<Connection> connections;
 
-        public final GameTimer gameTimer = new GameTimer(this, 1000);;
+        public final GameTimer gameTimer = new GameTimer(this, 1000);
+        ;
 
         public final Point startPoint = PointFactory.newPoint();
         public final Point endPoint = PointFactory.newPoint();

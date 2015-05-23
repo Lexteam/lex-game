@@ -14,19 +14,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * https://github.com/KittehOrg/KittehIRCClientLib/blob/5dd12bbafe49e1c04ee7447b366b17f365052df7/src/main/java/org/kitteh/irc/client/library/EventManager.java
+ * https://github.com/KittehOrg/KittehIRCClientLib/blob/5dd12bbafe49e1c04ee7447b366b17f365052df7/src/main/java/org
+ * /kitteh/irc/client/library/EventManager.java
  */
 public class EventManager {
 
-    private class Exceptional implements IPublicationErrorHandler {
-        @Override
-        public void handleError(PublicationError publicationError) {
-            LoggerFactory.getLogger("lex-game").error("Daim this super cool event thingy we used broke :(", publicationError);
-        }
-    }
-
-    private final SyncMessageBus<Object> bus = new SyncMessageBus<>(new BusConfiguration().addFeature(Feature.SyncPubSub.Default()).setProperty(
-            Properties.Handler.PublicationError, new Exceptional()));
+    private final SyncMessageBus<Object> bus =
+            new SyncMessageBus<>(new BusConfiguration().addFeature(Feature.SyncPubSub.Default()).setProperty(
+                    Properties.Handler.PublicationError, new Exceptional()));
     private final Set<Object> listeners = new HashSet<>();
 
     /**
@@ -70,5 +65,14 @@ public class EventManager {
     public synchronized void unregisterEventListener(Object listener) {
         this.listeners.remove(listener);
         this.bus.unsubscribe(listener);
+    }
+
+    private class Exceptional implements IPublicationErrorHandler {
+
+        @Override
+        public void handleError(PublicationError publicationError) {
+            LoggerFactory.getLogger("lex-game")
+                    .error("Daim this super cool event thingy we used broke :(", publicationError);
+        }
     }
 }

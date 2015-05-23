@@ -1,8 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.objects.tools;
 
-import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
 import uk.jamierocks.lexteam.ygd.core.objects.GameObject;
-import uk.jamierocks.lexteam.ygd.core.objects.tools.ability.ToolAbility;
+import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
 
 /**
  * Represents a tool that can be used to affect a {@link Connection}
@@ -10,7 +9,7 @@ import uk.jamierocks.lexteam.ygd.core.objects.tools.ability.ToolAbility;
  * @author Tom Drever
  * @author Jamie Mansfield
  */
-public class Tool extends GameObject {
+public abstract class Tool extends GameObject {
 
     private ToolAbility toolAbility;
 
@@ -27,7 +26,5 @@ public class Tool extends GameObject {
         return toolAbility;
     }
 
-    public void Use(){
-        toolAbility.Use();
-    }
+    public abstract void use();
 }

@@ -4,7 +4,6 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 import uk.jamierocks.lexteam.ygd.core.level.Level;
 
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -21,7 +20,7 @@ public class SectionBuilder {
     }
 
     public SectionBuilder level(Level... levels) {
-        for(Level level : Preconditions.checkNotNull(levels)) {
+        for (Level level : Preconditions.checkNotNull(levels)) {
             this.levels.add(Preconditions.checkNotNull(level));
         }
         return this;

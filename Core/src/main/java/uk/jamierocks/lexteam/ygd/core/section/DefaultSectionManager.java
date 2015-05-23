@@ -3,7 +3,6 @@ package uk.jamierocks.lexteam.ygd.core.section;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 
-import java.util.HashSet;
 import java.util.Set;
 
 /**

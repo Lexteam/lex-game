@@ -22,7 +22,7 @@ public class PointFactory {
      * @param friendPoint The friend point of the new point
      * @return A new point with a friend point and a new ID
      */
-    public static Point newPoint(Point friendPoint){
+    public static Point newPoint(Point friendPoint) {
 
         return new Point(points.incrementAndGet(), friendPoint);
     }

@@ -18,26 +18,26 @@ public class Point {
      */
     protected Point FriendPoint;
 
+    protected Point(int id) {
+        this.ID = id;
+    }
+
+    protected Point(int id, Point friendPoint) {
+        this.ID = id;
+        this.FriendPoint = friendPoint;
+    }
+
     /**
      * Gets the friend point
      */
-    public Point GetFriendPoint(){
+    public Point GetFriendPoint() {
         return FriendPoint;
     }
 
     /**
      * Sets the friend point
      */
-    public void SetFriendPoint(Point friendPoint){
-        this.FriendPoint = friendPoint;
-    }
-
-    protected Point(int id) {
-        this.ID = id;
-    }
-
-    protected Point(int id, Point friendPoint){
-        this.ID = id;
+    public void SetFriendPoint(Point friendPoint) {
         this.FriendPoint = friendPoint;
     }
 

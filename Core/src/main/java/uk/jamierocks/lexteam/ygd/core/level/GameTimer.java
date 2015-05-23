@@ -10,13 +10,14 @@ import java.util.TimerTask;
  *
  * @author Jamie Mansfield
  */
-public class GameTimer{
+public class GameTimer {
+
     public Timer gameTimer;
     public Level gameLevel;
 
     public long timerPulseTime;
 
-    public GameTimer(Level level, long pulseTime){
+    public GameTimer(Level level, long pulseTime) {
         timerPulseTime = pulseTime;
 
         gameLevel = level;
@@ -24,7 +25,7 @@ public class GameTimer{
         gameTimer = new Timer();
     }
 
-    public void startGameTimer(){
+    public void startGameTimer() {
         gameTimer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -33,7 +34,7 @@ public class GameTimer{
         }, timerPulseTime);
     }
 
-    private void runPulse(Level level){
+    private void runPulse(Level level) {
         Point startingPoint = level.getStartingPoint();
 
 

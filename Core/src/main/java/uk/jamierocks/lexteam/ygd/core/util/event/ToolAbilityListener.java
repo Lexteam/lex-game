@@ -12,11 +12,11 @@ public class ToolAbilityListener {
 
     @Handler
     public void onCreatePoint(CreatePointToolAbilityEvent event) {
-        if (event.getConnection().pointTo == null){
+        if (event.getConnection().pointTo == null) {
             event.getConnection().pointTo = event.getPoint();
         }
 
-        if (event.getConnection().pointFrom == null){
+        if (event.getConnection().pointFrom == null) {
             event.getConnection().pointFrom = event.getPoint();
         }
     }
