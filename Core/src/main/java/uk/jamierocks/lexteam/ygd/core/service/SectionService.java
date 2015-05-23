@@ -1,31 +1,34 @@
-package uk.jamierocks.lexteam.ygd.core.section;
+package uk.jamierocks.lexteam.ygd.core.service;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
+import uk.jamierocks.lexteam.ygd.core.section.Section;
 
 import java.util.Set;
 
 /**
- * The default {@link SectionManager}
+ * The {@link Section} service
  *
  * @author Jamie Mansfield
  */
-public class DefaultSectionManager implements SectionManager {
+public class SectionService {
 
-    private final Set<Section> sections = Sets.newHashSet();
+    private Set<Section> sections = Sets.newHashSet();
 
     /**
-     * {@inheritDoc}
+     * Gets all the registered {@link Section}s
+     *
+     * @return all the registered {@link Section}s
      */
-    @Override
     public Set<Section> getSections() {
         return sections;
     }
 
     /**
-     * {@inheritDoc}
+     * Registers a {@link Section}/multiple {@link Section}s
+     *
+     * @param sections the {@link Section}s to register
      */
-    @Override
     public void registerSection(Section... sections) {
         for (Section section : Preconditions.checkNotNull(sections)) {
             this.sections.add(Preconditions.checkNotNull(section));
