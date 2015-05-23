@@ -1,5 +1,6 @@
 package uk.jamierocks.lexteam.ygd.core;
 
+import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import uk.jamierocks.lexteam.ygd.core.section.SectionBuilder;
 import uk.jamierocks.lexteam.ygd.core.util.event.ToolAbilityListener;
@@ -18,10 +19,10 @@ public final class YGDGame {
      */
     private static void init() {
         // Register sections
-        getGame().getSectionService().registerSection(new SectionBuilder().level().build());
+        // TODO: Create sections and register them.
 
-        // Register event handlers
-        getGame().getEventManager().registerEventListener(new ToolAbilityListener());
+        // Register event listeners
+        game.getEventManager().registerEventListener(new ToolAbilityListener());
     }
 
     /**
@@ -29,8 +30,8 @@ public final class YGDGame {
      *
      * @return the {@link Game} being run
      */
-    public static Game getGame() {
-        return game;
+    public static Optional<Game> getGame() {
+        return Optional.of(game);
     }
 
     /**
@@ -43,7 +44,7 @@ public final class YGDGame {
      */
     public static void setGame(Game game) {
         if (YGDGame.game != null) {
-            throw new UnsupportedOperationException("There is only one Game!");
+            throw new UnsupportedOperationException("Only one game can run at once!");
         }
         YGDGame.game = Preconditions.checkNotNull(game);
         init();
