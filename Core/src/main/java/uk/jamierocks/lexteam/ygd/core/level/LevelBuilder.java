@@ -1,121 +1,100 @@
 package uk.jamierocks.lexteam.ygd.core.level;
 
-    import com.google.common.base.Preconditions;
-    import uk.jamierocks.lexteam.ygd.core.objects.Point;
-    import uk.jamierocks.lexteam.ygd.core.objects.PointFactory;
-    import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
+import com.google.common.collect.Sets;
+import uk.jamierocks.lexteam.ygd.core.objects.Point;
+import uk.jamierocks.lexteam.ygd.core.objects.PointFactory;
+import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
 
-    import java.util.Collection;
-    import java.util.HashSet;
-    import java.util.Iterator;
-    import java.util.Set;
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ * Builder to create a {@link Level}
+ *
+ * @author Tom Drever
+ * @author Jamie Mansfield
+ */
+public class LevelBuilder {
+
+    public final Set<Connection> connections = Sets.newHashSet();
+
+    public Level build() {
+       return new CreatedLevel(connections);
+    }
 
     /**
-     * Builder for levels
-     * @author  Tom Drever
+     * Implemented method of adding a connection that also removes the relevant points from the available points
+     *
+     * @param connections the connection/s to be added
      */
-    public class LevelBuilder {
+    public LevelBuilder connection(Connection... connections) {
+        for (Connection connection : connections) {
+            this.connections.add(connection);
+        }
+        return this;
+    }
 
-        /**
-         * The level built
-         */
-        private Level level;
+    private class CreatedLevel implements Level {
 
-        /**
-         *  Creates a new level
-         */
-        public LevelBuilder() {
-            level = new CreatedLevel() {
-            };
+        public final Set<Connection> connections;
+
+        public final GameTimer gameTimer = new GameTimer(this, 1000);;
+
+        public final Point startPoint = PointFactory.newPoint();
+        public final Point endPoint = PointFactory.newPoint();
+
+        public CreatedLevel(Set<Connection> connections) {
+            this.connections = connections;
         }
 
         /**
-         *
+         * {@inheritDoc}
          */
-        public Level build(){
-            return level;
+        @Override
+        public Set<Connection> getConnections() {
+            return this.connections;
         }
 
         /**
-         * Implemented method of adding a connection that also removes the relevant points from the available points
-         * @param connections the connection/s to be added
+         * {@inheritDoc}
          */
+        @Override
         public void addConnection(Connection... connections) {
-            this.level.addConnection((connections));
-        }
-
-        public void populateAvailablePoints(){
-            //for ... this.level.addAvailablePoint();
-        }
-
-        private class CreatedLevel implements Level {
-
-            public final Set<Connection> connections;
-
-            public final GameTimer gameTimer;
-
-            public final Point startPoint;
-            public final Point endPoint;
-
-            /**
-             * Creates an completely empty {@link Level}
-             */
-            public CreatedLevel(){
-                connections = new HashSet<>();
-                gameTimer = new GameTimer(this, 1000);
-
-                startPoint = PointFactory.newPoint();
-                endPoint = PointFactory.newPoint();
-            }
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public Set<Connection> getConnections() {
-                return this.connections;
-            }
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public void addConnection(Connection... connections) {
-                for (Connection connection : connections){
-                    this.connections.add(connection);
-                }
-            }
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public void removeConnection(Connection connection) {
-                this.connections.remove(connection);
-            }
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public GameTimer getGameTimer() {
-                return this.gameTimer;
-            }
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public Point getStartingPoint() {
-                return startPoint;
-            }
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public Point getEndPoint(){
-                return endPoint;
+            for (Connection connection : connections) {
+                this.connections.add(connection);
             }
         }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void removeConnection(Connection connection) {
+            this.connections.remove(connection);
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public GameTimer getGameTimer() {
+            return this.gameTimer;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public Point getStartingPoint() {
+            return startPoint;
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public Point getEndPoint() {
+            return endPoint;
+        }
+    }
 }

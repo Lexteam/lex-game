@@ -20,7 +20,7 @@ public class SectionBuilder {
         levels = Sets.newHashSet();
     }
 
-    public SectionBuilder addLevel(Level... levels) {
+    public SectionBuilder level(Level... levels) {
         for(Level level : Preconditions.checkNotNull(levels)) {
             this.levels.add(Preconditions.checkNotNull(level));
         }

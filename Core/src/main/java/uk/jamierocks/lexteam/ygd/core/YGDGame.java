@@ -34,7 +34,7 @@ public final class YGDGame {
      */
     private static void init() {
         // Register sections
-        getGame().getSectionManager().registerSection(new SectionBuilder().addLevel().build());
+        getGame().getSectionManager().registerSection(new SectionBuilder().level().build());
 
         // Register event handlers
         getGame().getEventManager().registerEventListener(new ToolAbilityListener());
