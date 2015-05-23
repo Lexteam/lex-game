@@ -13,7 +13,7 @@ import java.util.Random;
  * @author Tom Drever
  * @author Jamie Mansfield
  */
-public class Connection extends GameObject {
+public class Connection implements GameObject {
 
     /**
      * Represents the point the connection goes to

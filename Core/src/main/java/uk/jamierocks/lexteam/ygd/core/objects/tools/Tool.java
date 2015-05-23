@@ -9,7 +9,7 @@ import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
  * @author Tom Drever
  * @author Jamie Mansfield
  */
-public abstract class Tool extends GameObject {
+public abstract class Tool implements GameObject {
 
     private ToolAbility toolAbility;
 
