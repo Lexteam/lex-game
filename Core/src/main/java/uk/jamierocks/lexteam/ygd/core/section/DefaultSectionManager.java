@@ -1,6 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.section;
 
 import com.google.common.base.Preconditions;
+import com.google.common.collect.Sets;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,7 +13,7 @@ import java.util.Set;
  */
 public class DefaultSectionManager implements SectionManager {
 
-    private final Set<Section> sections = new HashSet<>();
+    private final Set<Section> sections = Sets.newHashSet();
 
     /**
      * {@inheritDoc}

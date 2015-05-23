@@ -1,7 +1,18 @@
 package uk.jamierocks.lexteam.ygd.core.event.tool.ability;
 
+import uk.jamierocks.lexteam.ygd.core.level.Level;
+import uk.jamierocks.lexteam.ygd.core.objects.Point;
+import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
+import uk.jamierocks.lexteam.ygd.core.util.event.tool.ability.PointToolAbilityBaseEvent;
+
 /**
- * Created by Jamie_2 on 16/05/2015.
+ * @author Jamie Mansfield
  */
-public class CreatePointToolAbilityEvent {
+public class CreatePointToolAbilityEvent extends PointToolAbilityBaseEvent {
+
+    public CreatePointToolAbilityEvent(Level level,
+            Connection connection,
+            Point point) {
+        super(level, connection, point);
+    }
 }
