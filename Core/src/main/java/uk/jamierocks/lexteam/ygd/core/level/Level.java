@@ -3,6 +3,7 @@ package uk.jamierocks.lexteam.ygd.core.level;
 import com.google.common.base.Optional;
 import uk.jamierocks.lexteam.ygd.core.objects.Point;
 import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
+import uk.jamierocks.lexteam.ygd.core.task.TaskOwner;
 
 import java.util.Set;
 
@@ -12,7 +13,7 @@ import java.util.Set;
  * @author Jamie Mansfield
  * @author Tom Drever
  */
-public interface Level {
+public interface Level extends TaskOwner {
 
     /**
      * Get the level's timer

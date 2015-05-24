@@ -1,6 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.event;
 
 import com.google.common.base.Preconditions;
+import com.google.common.collect.Sets;
 import net.engio.mbassy.bus.SyncMessageBus;
 import net.engio.mbassy.bus.common.Properties;
 import net.engio.mbassy.bus.config.BusConfiguration;
@@ -16,6 +17,8 @@ import java.util.Set;
 /**
  * https://github.com/KittehOrg/KittehIRCClientLib/blob/5dd12bbafe49e1c04ee7447b366b17f365052df7/src/main/java/org
  * /kitteh/irc/client/library/EventManager.java
+ *
+ * @author Jamie Mansfield
  */
 public class EventManager {
 
@@ -41,7 +44,7 @@ public class EventManager {
      * @return a set of objects
      */
     public synchronized Set<Object> getRegisteredEventListeners() {
-        return new HashSet<>(this.listeners);
+        return Sets.newHashSet(this.listeners);
     }
 
     /**
@@ -71,7 +74,7 @@ public class EventManager {
 
         @Override
         public void handleError(PublicationError publicationError) {
-            YGDGame.getGame().getLogger().error("Daim this super cool event thingy we used broke :(", publicationError);
+            YGDGame.getGame().get().getLogger().error("Daim this super cool event thingy we used broke :(", publicationError);
         }
     }
 }

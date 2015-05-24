@@ -2,7 +2,7 @@ package uk.jamierocks.lexteam.ygd.core;
 
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
-import uk.jamierocks.lexteam.ygd.core.section.SectionBuilder;
+import uk.jamierocks.lexteam.ygd.core.util.event.GameListener;
 import uk.jamierocks.lexteam.ygd.core.util.event.ToolAbilityListener;
 
 /**
@@ -23,6 +23,7 @@ public final class YGDGame {
 
         // Register event listeners
         game.getEventManager().registerEventListener(new ToolAbilityListener());
+        game.getEventManager().registerEventListener(new GameListener());
     }
 
     /**
