@@ -1,5 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.level;
 
+import com.google.common.base.Optional;
+import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 import uk.jamierocks.lexteam.ygd.core.objects.Point;
 import uk.jamierocks.lexteam.ygd.core.objects.PointFactory;
@@ -38,7 +40,6 @@ public class LevelBuilder {
         public final Set<Connection> connections;
 
         public final GameTimer gameTimer = new GameTimer(this, 1000);
-        ;
 
         public final Point startPoint = PointFactory.newPoint();
         public final Point endPoint = PointFactory.newPoint();
@@ -60,8 +61,8 @@ public class LevelBuilder {
          */
         @Override
         public void addConnection(Connection... connections) {
-            for (Connection connection : connections) {
-                this.connections.add(connection);
+            for (Connection connection : Preconditions.checkNotNull(connections)) {
+                this.connections.add(Preconditions.checkNotNull(connection));
             }
         }
 
@@ -77,8 +78,8 @@ public class LevelBuilder {
          * {@inheritDoc}
          */
         @Override
-        public GameTimer getGameTimer() {
-            return this.gameTimer;
+        public Optional<GameTimer> getGameTimer() {
+            return Optional.of(gameTimer);
         }
 
         /**

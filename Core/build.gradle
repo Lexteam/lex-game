@@ -8,6 +8,9 @@ targetCompatibility = 1.7
 
 repositories {
     mavenCentral()
+    maven {
+        url 'http://repo.visualillusionsent.net/repository/public'
+    }
 }
 
 dependencies {
@@ -15,6 +18,7 @@ dependencies {
     compile 'com.google.guava:guava:18.0'
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'net.engio:mbassador:1.2.1'
+    compile 'net.visualillusionsent:viutils:1.4.2'
 
     testCompile 'junit:junit:4.11'
 }
@@ -25,5 +29,6 @@ shadowJar {
         include dependency('com.google.guava:guava')
         include dependency('com.google.code.gson:gson')
         include dependency('net.engio:mbassador')
+        include dependency('net.visualillusionsent:viutils')
     }
 }

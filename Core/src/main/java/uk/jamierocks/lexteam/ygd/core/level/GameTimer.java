@@ -1,14 +1,14 @@
 package uk.jamierocks.lexteam.ygd.core.level;
 
-import uk.jamierocks.lexteam.ygd.core.objects.Point;
+import net.visualillusionsent.utils.TaskManager;
 
 import java.util.Timer;
-import java.util.TimerTask;
 
 /**
- * Represents a {@link Level}'s timer
+ * Represent a {@link Level} timer
  *
  * @author Jamie Mansfield
+ * @author Tom Drever
  */
 public class GameTimer {
 
@@ -18,15 +18,13 @@ public class GameTimer {
     public long timerPulseTime;
 
     public GameTimer(Level level, long pulseTime) {
-        timerPulseTime = pulseTime;
-
-        gameLevel = level;
-
-        gameTimer = new Timer();
+        this.timerPulseTime = pulseTime;
+        this.gameLevel = level;
+        this.gameTimer = new Timer();
     }
 
     public void startGameTimer() {
-        gameTimer.schedule(new TimerTask() {
+        TaskManager.scheduleDelayedTaskInMillis(new Runnable() {
             @Override
             public void run() {
                 runPulse(gameLevel);
@@ -34,9 +32,7 @@ public class GameTimer {
         }, timerPulseTime);
     }
 
-    private void runPulse(Level level) {
-        Point startingPoint = level.getStartingPoint();
-
-
+    protected void runPulse(Level level) {
+        // TODO: create
     }
 }

@@ -1,5 +1,6 @@
 package uk.jamierocks.lexteam.ygd.core.level;
 
+import com.google.common.base.Optional;
 import uk.jamierocks.lexteam.ygd.core.objects.Point;
 import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
 
@@ -16,7 +17,7 @@ public interface Level {
     /**
      * Get the level's timer
      */
-    GameTimer getGameTimer();
+    Optional<GameTimer> getGameTimer();
 
     /**
      * Get the level's connections
