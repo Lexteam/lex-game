@@ -3,7 +3,8 @@ package uk.jamierocks.lexteam.ygd.core;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.jamierocks.lexteam.ygd.core.event.EventManager;
-import uk.jamierocks.lexteam.ygd.core.section.SectionManager;
+import uk.jamierocks.lexteam.ygd.core.service.SectionService;
+import uk.jamierocks.lexteam.ygd.core.task.GameTaskManager;
 
 /**
  * The main game object
@@ -14,12 +15,10 @@ import uk.jamierocks.lexteam.ygd.core.section.SectionManager;
  */
 public abstract class Game {
 
-    /**
-     * The game's {@link SectionManager}
-     *
-     * @return the game's {@link SectionManager}
-     */
-    public abstract SectionManager getSectionManager();
+    private EventManager eventManager = new EventManager();
+    private SectionService sectionService = new SectionService();
+    private GameTaskManager taskManager = new GameTaskManager();
+    private Logger logger = LoggerFactory.getLogger("lex-game");
 
     /**
      * The game's {@link EventManager}
@@ -27,7 +26,25 @@ public abstract class Game {
      * @return the game's {@link EventManager}
      */
     public EventManager getEventManager() {
-        return new EventManager();
+        return eventManager;
+    }
+
+    /**
+     * The game's {@link SectionService}
+     *
+     * @return the game's {@link SectionService}
+     */
+    public SectionService getSectionService() {
+        return sectionService;
+    }
+
+    /**
+     * The game's {@link GameTaskManager}
+     *
+     * @return the game's {@link GameTaskManager}
+     */
+    public GameTaskManager getTaskManager() {
+        return taskManager;
     }
 
     /**
@@ -36,6 +53,8 @@ public abstract class Game {
      * @return the main {@link Logger}
      */
     public Logger getLogger() {
-        return LoggerFactory.getLogger("lex-game");
+        return logger;
     }
+
+    public abstract void shutdown();
 }

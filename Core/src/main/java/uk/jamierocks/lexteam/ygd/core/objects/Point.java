@@ -1,5 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.objects;
 
+import com.google.common.base.Optional;
+
 /**
  * Represents a point
  *
@@ -8,38 +10,36 @@ package uk.jamierocks.lexteam.ygd.core.objects;
  */
 public class Point {
 
+    public final int id;
+    private Point friendPoint;
+
+    protected Point(int id) {
+        this.id = id;
+    }
+
+    protected Point(int id, Point friendPoint) {
+        this.id = id;
+        this.friendPoint = friendPoint;
+    }
+
     /**
      * The ID of the point
      */
-    public final int ID;
+    public int getId() {
+        return id;
+    }
 
     /**
      * Represents the point this point is next to on the cube (NOT the point it is connected to).
      */
-    protected Point FriendPoint;
-
-    /**
-     * Gets the friend point
-     */
-    public Point GetFriendPoint(){
-        return FriendPoint;
+    public Optional<Point> getFriendPoint() {
+        return Optional.of(friendPoint);
     }
 
     /**
      * Sets the friend point
      */
-    public void SetFriendPoint(Point friendPoint){
-        this.FriendPoint = friendPoint;
+    public void setFriendPoint(Point friendPoint) {
+        this.friendPoint = friendPoint;
     }
-
-    protected Point(int id) {
-        this.ID = id;
-    }
-
-    protected Point(int id, Point friendPoint){
-        this.ID = id;
-        this.FriendPoint = friendPoint;
-    }
-
-
 }

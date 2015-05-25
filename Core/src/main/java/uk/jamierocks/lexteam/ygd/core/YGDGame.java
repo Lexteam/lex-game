@@ -1,7 +1,8 @@
 package uk.jamierocks.lexteam.ygd.core;
 
+import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
-import uk.jamierocks.lexteam.ygd.core.section.SectionBuilder;
+import uk.jamierocks.lexteam.ygd.core.util.event.GameListener;
 import uk.jamierocks.lexteam.ygd.core.util.event.ToolAbilityListener;
 
 /**
@@ -14,6 +15,27 @@ public final class YGDGame {
     private static Game game;
 
     /**
+     * Initializes game components
+     */
+    private static void init() {
+        // Register sections
+        // TODO: Create sections and register them.
+
+        // Register event listeners
+        game.getEventManager().registerEventListener(new ToolAbilityListener());
+        game.getEventManager().registerEventListener(new GameListener());
+    }
+
+    /**
+     * Gets the currently running {@link Game}
+     *
+     * @return the {@link Game} being run
+     */
+    public static Optional<Game> getGame() {
+        return Optional.of(game);
+    }
+
+    /**
      * Attempts to set the currently running {@link Game}
      * This will not work, if one is already running!
      *
@@ -23,29 +45,9 @@ public final class YGDGame {
      */
     public static void setGame(Game game) {
         if (YGDGame.game != null) {
-            throw new UnsupportedOperationException("There is only one Game!");
+            throw new UnsupportedOperationException("Only one game can run at once!");
         }
         YGDGame.game = Preconditions.checkNotNull(game);
         init();
-    }
-
-    /**
-     * Initializes game components
-     */
-    private static void init() {
-        // Register sections
-        getGame().getSectionManager().registerSection(new SectionBuilder().addLevel().build());
-
-        // Register event handlers
-        getGame().getEventManager().registerEventListener(new ToolAbilityListener());
-    }
-
-    /**
-     * Gets the currently running {@link Game}
-     *
-     * @return the {@link Game} being run
-     */
-    public static Game getGame() {
-        return game;
     }
 }

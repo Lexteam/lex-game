@@ -8,6 +8,9 @@ targetCompatibility = 1.7
 
 repositories {
     mavenCentral()
+    maven {
+        url 'http://repo.visualillusionsent.net/repository/public'
+    }
 }
 
 dependencies {
