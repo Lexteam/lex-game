@@ -1,10 +1,9 @@
 package uk.jamierocks.lexteam.ygd.core.test;
 
-import org.junit.Assert;
 import org.junit.Test;
-import uk.jamierocks.lexteam.ygd.core.objects.tools.Tool;
-import uk.jamierocks.lexteam.ygd.core.objects.tools.ability.SimpleToolAbility;
-import uk.jamierocks.lexteam.ygd.core.objects.tools.ability.ToolAbilities;
+import uk.jamierocks.lexteam.ygd.core.object.tool.Tool;
+import uk.jamierocks.lexteam.ygd.core.object.tool.ability.SimpleToolAbility;
+import uk.jamierocks.lexteam.ygd.core.object.tool.ability.ToolAbilities;
 
 
 /**

@@ -1,4 +1,4 @@
-package uk.jamierocks.lexteam.ygd.core.objects;
+package uk.jamierocks.lexteam.ygd.core.object;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

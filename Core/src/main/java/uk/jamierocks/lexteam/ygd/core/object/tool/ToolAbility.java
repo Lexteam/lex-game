@@ -1,4 +1,4 @@
-package uk.jamierocks.lexteam.ygd.core.objects.tools;
+package uk.jamierocks.lexteam.ygd.core.object.tool;
 
 /**
  * The enum of tool abilities

@@ -1,4 +1,4 @@
-package uk.jamierocks.lexteam.ygd.core.objects.tools.connection;
+package uk.jamierocks.lexteam.ygd.core.object.tool.connection;
 
 /**
  * An enum representing the different frequencies of connection.

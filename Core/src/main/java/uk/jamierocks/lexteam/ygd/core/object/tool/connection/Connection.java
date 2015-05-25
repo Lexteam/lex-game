@@ -1,8 +1,8 @@
-package uk.jamierocks.lexteam.ygd.core.objects.tools.connection;
+package uk.jamierocks.lexteam.ygd.core.object.tool.connection;
 
-import uk.jamierocks.lexteam.ygd.core.objects.GameObject;
-import uk.jamierocks.lexteam.ygd.core.objects.Point;
-import uk.jamierocks.lexteam.ygd.core.objects.PointFactory;
+import uk.jamierocks.lexteam.ygd.core.object.GameObject;
+import uk.jamierocks.lexteam.ygd.core.object.Point;
+import uk.jamierocks.lexteam.ygd.core.object.PointFactory;
 
 import java.util.HashSet;
 import java.util.Random;

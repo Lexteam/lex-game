@@ -1,7 +1,7 @@
-package uk.jamierocks.lexteam.ygd.core.objects.tools;
+package uk.jamierocks.lexteam.ygd.core.object.tool;
 
-import uk.jamierocks.lexteam.ygd.core.objects.GameObject;
-import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
+import uk.jamierocks.lexteam.ygd.core.object.GameObject;
+import uk.jamierocks.lexteam.ygd.core.object.tool.connection.Connection;
 
 /**
  * Represents a tool that can be used to affect a {@link Connection}

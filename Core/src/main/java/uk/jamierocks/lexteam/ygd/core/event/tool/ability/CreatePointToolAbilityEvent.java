@@ -1,9 +1,9 @@
 package uk.jamierocks.lexteam.ygd.core.event.tool.ability;
 
 import uk.jamierocks.lexteam.ygd.core.level.Level;
-import uk.jamierocks.lexteam.ygd.core.objects.Point;
-import uk.jamierocks.lexteam.ygd.core.objects.tools.ToolAbility;
-import uk.jamierocks.lexteam.ygd.core.objects.tools.connection.Connection;
+import uk.jamierocks.lexteam.ygd.core.object.Point;
+import uk.jamierocks.lexteam.ygd.core.object.tool.ToolAbility;
+import uk.jamierocks.lexteam.ygd.core.object.tool.connection.Connection;
 import uk.jamierocks.lexteam.ygd.core.util.event.tool.ability.PointToolAbilityBaseEvent;
 
 /**
