@@ -10,7 +10,7 @@ import com.google.common.base.Optional;
  */
 public class Point {
 
-    public final int id;
+    private final int id;
     private Point friendPoint;
 
     protected Point(int id) {

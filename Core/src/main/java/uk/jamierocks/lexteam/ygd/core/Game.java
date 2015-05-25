@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import uk.jamierocks.lexteam.ygd.core.event.EventManager;
 import uk.jamierocks.lexteam.ygd.core.service.SectionService;
 import uk.jamierocks.lexteam.ygd.core.task.GameTaskManager;
+import uk.jamierocks.lexteam.ygd.core.task.TaskOwner;
 
 /**
  * The main game object
@@ -13,7 +14,7 @@ import uk.jamierocks.lexteam.ygd.core.task.GameTaskManager;
  *
  * @author Jamie Mansfield
  */
-public abstract class Game {
+public abstract class Game implements TaskOwner {
 
     private EventManager eventManager = new EventManager();
     private SectionService sectionService = new SectionService();
