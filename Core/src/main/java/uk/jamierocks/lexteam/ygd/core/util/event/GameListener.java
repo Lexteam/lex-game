@@ -1,6 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.util.event;
 
 import net.engio.mbassy.listener.Handler;
+import uk.jamierocks.lexteam.ygd.core.YGDGame;
 import uk.jamierocks.lexteam.ygd.core.event.game.ShutdownGameEvent;
 import uk.jamierocks.lexteam.ygd.core.level.Level;
 import uk.jamierocks.lexteam.ygd.core.section.Section;
@@ -26,5 +27,6 @@ public class GameListener {
                 event.getGame().getTaskManager().removeTasks(event.getGame());
             }
         });
+        YGDGame.destroyGame();
     }
 }

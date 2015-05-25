@@ -16,6 +16,9 @@ public final class YGDGame {
 
     /**
      * Initializes game components
+     * This is called after a game is set.
+     *
+     * <b>THIS SHOULD ONLY BE CALLED ONCE PER GAME INSTANCE</b>
      */
     private static void init() {
         // Register sections
@@ -42,6 +45,7 @@ public final class YGDGame {
      * <b>THIS SHOULD ONLY BE USED BY THE IMPLEMENTATION!</b>
      *
      * @param game the {@link Game} to set.
+     * @throws UnsupportedOperationException if an instance is already running.
      */
     public static void setGame(Game game) {
         if (YGDGame.game != null) {
@@ -49,5 +53,15 @@ public final class YGDGame {
         }
         YGDGame.game = Preconditions.checkNotNull(game);
         init();
+    }
+
+    /**
+     * Destroys the currently running {@link Game}.
+     * This is done, by setting the game to null.
+     *
+     * <b>This should only be used by the implementation, or {@link GameListener}.</b>
+     */
+    public static void destroyGame() {
+        YGDGame.game = null;
     }
 }
