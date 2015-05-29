@@ -5,7 +5,7 @@
 namespace Engine {
 
     //Defines the Depth techiques for the camera to use
-    enum CameraDepthMode{perspective, othograhic};
+    enum CameraDepthMode{perspective, orthographic};
 
 	class Camera : public Engine::BaseModel,
 		public Engine::Transformable
