@@ -11,11 +11,11 @@ repositories {
 }
 
 dependencies {
-    compile 'com.google.code.gson:gson:2.3.1'
+    compile 'org.ow2.asm:asm-debug-all:5.0.3'
 }
 
 shadowJar {
     dependencies {
-        include dependency('com.google.code.gson:gson')
+        include dependency('org.ow2.asm:asm-debug-all')
     }
 }
