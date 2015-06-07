@@ -1,7 +1,7 @@
 /*
  * This file is part of Hop, licensed under the MIT License (MIT).
  *
- * Copyright (c) Jamie Mansfield <https://github.com/jamierocks>
+ * Copyright (c) 2015, Jamie Mansfield <https://github.com/jamierocks>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +23,15 @@
  */
 package uk.jamierocks.hop;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
+
 /**
  * This annotation represents a 'hop'
  *
  * A hop class defines a set of changes to make to a class, at runtime.
  */
+@Target(ElementType.TYPE)
 public @interface Hop {
 
     /**

@@ -1,7 +1,11 @@
 plugins {
     id 'java'
+
     id 'com.github.johnrengelman.shadow' version '1.2.1'
+    id 'com.github.hierynomus.license' version '0.11.0'
 }
+
+defaultTasks 'licenseFormat'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
@@ -17,5 +21,13 @@ dependencies {
 shadowJar {
     dependencies {
         include dependency('org.ow2.asm:asm-debug-all')
+    }
+}
+
+license {
+    header file('HEADER')
+    strictCheck true
+    mapping {
+        java = 'SLASHSTAR_STYLE'
     }
 }

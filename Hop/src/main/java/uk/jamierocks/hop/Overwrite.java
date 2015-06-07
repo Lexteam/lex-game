@@ -1,5 +1,5 @@
 /*
- * This file is part of Launchie, licensed under the MIT License (MIT).
+ * This file is part of Hop, licensed under the MIT License (MIT).
  *
  * Copyright (c) 2015, Jamie Mansfield <https://github.com/jamierocks>
  *
@@ -21,16 +21,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package uk.jamierocks.launchie;
+package uk.jamierocks.hop;
 
-import java.io.File;
-import java.util.List;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Target;
 
-public interface ITweaker {
-
-    void acceptOptions(List<String> args, File gameDir);
-
-    String getLaunchTarget();
-
-    String[] getLaunchArguments();
+@Target(ElementType.METHOD)
+public @interface Overwrite {
 }
