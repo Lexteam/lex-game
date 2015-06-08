@@ -6,7 +6,7 @@ public interface Camera extends BaseModel, Transformable {
 
     boolean setActive(boolean active);
 
-    boolean setDepthMode(CameraDepthMode Mode);
+    boolean setDepthMode(CameraDepthMode mode);
 
     boolean getActive();
 

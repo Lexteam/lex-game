@@ -12,16 +12,23 @@ targetCompatibility = 1.7
 
 repositories {
     mavenCentral()
+    maven {
+        name = 'minecraft'
+        url = 'https://libraries.minecraft.net/'
+    }
 }
 
 dependencies {
     compile 'com.google.code.gson:gson:2.3.1'
+    compile 'net.minecraft:launchwrapper:1.11'
 }
 
 shadowJar {
     dependencies {
         include dependency('com.google.code.gson:gson')
+        include dependency('net.minecraft:launchwrapper')
     }
+    classifier ''
 }
 
 license {

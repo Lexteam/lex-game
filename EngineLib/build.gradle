@@ -17,5 +17,7 @@ dependencies {
 shadowJar {
     dependencies {
         include dependency('net.java.dev.jna:jna')
+        include project(':Engine')
     }
+    classifier ''
 }

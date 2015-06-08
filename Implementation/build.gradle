@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+
+    id 'com.github.johnrengelman.shadow' version '1.2.1'
+}
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+ext.manifest = [
+        'Main-Class': 'uk.jamierocks.lexteam.ygd.game.launch.GameMain'
+]
+
+dependencies {
+    compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.0-beta9'
+    compile project(':Core')
+    compile project(':EngineLib')
+    compile project(':Hop')
+}
+
+shadowJar {
+    dependencies {
+        include dependency('org.apache.logging.log4j:log4j-slf4j-impl:2.0-beta9')
+        include project(':Core')
+        include project(':EngineLib')
+        include project(':Hop')
+    }
+    classifier ''
+}

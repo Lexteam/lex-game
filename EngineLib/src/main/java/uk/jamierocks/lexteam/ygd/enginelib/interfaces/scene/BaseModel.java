@@ -4,5 +4,5 @@ public interface BaseModel {
 
     boolean setPos(float x, float y, float z);
 
-    boolean setPos(Tile Tilepos);
+    boolean setPos(Tile tilepos);
 }

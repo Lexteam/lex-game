@@ -26,4 +26,5 @@ shadowJar {
         include dependency('com.google.code.gson:gson')
         include dependency('net.engio:mbassador')
     }
+    classifier ''
 }
