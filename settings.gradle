@@ -1,3 +1,3 @@
 rootProject.name = 'lexgame'
-include 'Core', 'Engine', 'EngineLib', 'Hop', 'Implementation'
+include 'Core', 'Engine', 'EngineLib', 'Hop'
 
