@@ -26,7 +26,7 @@ public class GameTimer {
     }
 
     public void startGameTimer() {
-        YGDGame.getGame().get().getProvider(GameTaskManager.class).get().addTask(new GameTask(gameLevel, timerPulseTime) {
+        YGDGame.getGame().getProvider(GameTaskManager.class).get().addTask(new GameTask(gameLevel, timerPulseTime) {
             @Override
             public void run() {
                 runPulse(gameLevel);

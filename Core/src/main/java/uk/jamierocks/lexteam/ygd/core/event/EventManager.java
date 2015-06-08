@@ -74,7 +74,7 @@ public class EventManager {
 
         @Override
         public void handleError(PublicationError publicationError) {
-            YGDGame.getGame().get().getLogger().error("Daim this super cool event thingy we used broke :(", publicationError);
+            YGDGame.getGame().getLogger().error("Daim this super cool event thingy we used broke :(", publicationError);
         }
     }
 }

@@ -78,7 +78,7 @@ public final class GameTaskManager {
                         task.run();
                     }
                     catch (Throwable thrown) {
-                        YGDGame.getGame().get().getLogger().error(
+                        YGDGame.getGame().getLogger().error(
                                 "An Exception occurred while executing ServerTask: "
                                         + task.getClass().getSimpleName(), thrown);
                         taskIter.remove();

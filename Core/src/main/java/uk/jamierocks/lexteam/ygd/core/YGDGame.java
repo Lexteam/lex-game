@@ -1,6 +1,5 @@
 package uk.jamierocks.lexteam.ygd.core;
 
-import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import uk.jamierocks.lexteam.ygd.core.event.EventManager;
 import uk.jamierocks.lexteam.ygd.core.service.service.SectionService;
@@ -42,8 +41,9 @@ public final class YGDGame {
      *
      * @return the {@link Game} being run
      */
-    public static Optional<Game> getGame() {
-        return Optional.of(game);
+    public static Game getGame() {
+        if (game != null) return game;
+        throw new UnsupportedOperationException("The game has not been registered yet!");
     }
 
     /**
