@@ -11,7 +11,7 @@ import java.util.Set;
  *
  * @author Jamie Mansfield
  */
-public class SectionBuilder {
+public final class SectionBuilder {
 
     private final Set<Level> levels;
 

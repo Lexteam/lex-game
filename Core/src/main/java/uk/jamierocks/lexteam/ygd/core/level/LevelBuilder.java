@@ -15,12 +15,12 @@ import java.util.Set;
  * @author Tom Drever
  * @author Jamie Mansfield
  */
-public class LevelBuilder {
+public final class LevelBuilder {
 
-    public final Set<Connection> connections = Sets.newHashSet();
+    public final Set<Connection> connections;
 
-    public Level build() {
-        return new CreatedLevel(connections);
+    public LevelBuilder() {
+        connections = Sets.newHashSet();
     }
 
     /**
@@ -33,6 +33,10 @@ public class LevelBuilder {
             this.connections.add(connection);
         }
         return this;
+    }
+
+    public Level build() {
+        return new CreatedLevel(connections);
     }
 
     private class CreatedLevel implements Level {
