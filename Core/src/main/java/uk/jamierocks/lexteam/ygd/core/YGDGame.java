@@ -2,6 +2,9 @@ package uk.jamierocks.lexteam.ygd.core;
 
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
+import uk.jamierocks.lexteam.ygd.core.event.EventManager;
+import uk.jamierocks.lexteam.ygd.core.service.service.SectionService;
+import uk.jamierocks.lexteam.ygd.core.task.GameTaskManager;
 import uk.jamierocks.lexteam.ygd.core.util.event.GameListener;
 import uk.jamierocks.lexteam.ygd.core.util.event.ToolAbilityListener;
 
@@ -21,12 +24,17 @@ public final class YGDGame {
      * <b>THIS SHOULD ONLY BE CALLED ONCE PER GAME INSTANCE</b>
      */
     private static void init() {
+        // Register providers
+        game.addProvider(new EventManager());
+        game.addProvider(new SectionService());
+        game.addProvider(new GameTaskManager());
+
         // Register sections
         // TODO: Create sections and register them.
 
         // Register event listeners
-        game.getEventManager().registerEventListener(new ToolAbilityListener());
-        game.getEventManager().registerEventListener(new GameListener());
+        game.getProvider(EventManager.class).get().registerEventListener(new ToolAbilityListener());
+        game.getProvider(EventManager.class).get().registerEventListener(new GameListener());
     }
 
     /**

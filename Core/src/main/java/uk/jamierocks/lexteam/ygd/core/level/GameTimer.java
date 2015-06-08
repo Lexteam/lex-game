@@ -2,6 +2,7 @@ package uk.jamierocks.lexteam.ygd.core.level;
 
 import uk.jamierocks.lexteam.ygd.core.YGDGame;
 import uk.jamierocks.lexteam.ygd.core.task.GameTask;
+import uk.jamierocks.lexteam.ygd.core.task.GameTaskManager;
 
 import java.util.Timer;
 
@@ -25,7 +26,7 @@ public class GameTimer {
     }
 
     public void startGameTimer() {
-        YGDGame.getGame().get().getTaskManager().addTask(new GameTask(gameLevel, timerPulseTime) {
+        YGDGame.getGame().get().getProvider(GameTaskManager.class).get().addTask(new GameTask(gameLevel, timerPulseTime) {
             @Override
             public void run() {
                 runPulse(gameLevel);

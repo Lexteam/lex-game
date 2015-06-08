@@ -1,11 +1,16 @@
 package uk.jamierocks.lexteam.ygd.core;
 
+import com.google.common.base.Optional;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.jamierocks.lexteam.ygd.core.event.EventManager;
-import uk.jamierocks.lexteam.ygd.core.service.SectionService;
+import uk.jamierocks.lexteam.ygd.core.service.service.SectionService;
 import uk.jamierocks.lexteam.ygd.core.task.GameTaskManager;
 import uk.jamierocks.lexteam.ygd.core.task.TaskOwner;
+
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * The main game object
@@ -16,36 +21,22 @@ import uk.jamierocks.lexteam.ygd.core.task.TaskOwner;
  */
 public abstract class Game implements TaskOwner {
 
-    private EventManager eventManager = new EventManager();
-    private SectionService sectionService = new SectionService();
-    private GameTaskManager taskManager = new GameTaskManager();
+    private ConcurrentMap<Class<?>, Object> providers = Maps.newConcurrentMap();
+
     private Logger logger = LoggerFactory.getLogger("lex-game");
 
-    /**
-     * The game's {@link EventManager}
-     *
-     * @return the game's {@link EventManager}
-     */
-    public EventManager getEventManager() {
-        return eventManager;
+    public <T> Optional<T> getProvider(Class<T> providerClass) {
+        Preconditions.checkNotNull(providerClass, "providerClass");
+        if (providers.containsKey(providerClass)) {
+            T provider = (T) providers.get(providerClass);
+            return provider != null ? Optional.of(provider) : Optional.<T>absent();
+        }
+        throw new UnsupportedOperationException("That provider has not been registered!");
     }
 
-    /**
-     * The game's {@link SectionService}
-     *
-     * @return the game's {@link SectionService}
-     */
-    public SectionService getSectionService() {
-        return sectionService;
-    }
-
-    /**
-     * The game's {@link GameTaskManager}
-     *
-     * @return the game's {@link GameTaskManager}
-     */
-    public GameTaskManager getTaskManager() {
-        return taskManager;
+    public <T> void addProvider(T provider) {
+        Preconditions.checkNotNull(provider, "provider");
+        providers.put(provider.getClass(), provider);
     }
 
     /**

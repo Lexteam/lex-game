@@ -1,4 +1,4 @@
-package uk.jamierocks.lexteam.ygd.core.service;
+package uk.jamierocks.lexteam.ygd.core.service.service;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
