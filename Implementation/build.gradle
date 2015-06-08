@@ -7,10 +7,6 @@ plugins {
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
-repositories {
-    mavenCentral()
-}
-
 ext.manifest = [
         'Main-Class': 'uk.jamierocks.lexteam.ygd.game.launch.GameMain'
 ]

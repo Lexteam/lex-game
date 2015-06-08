@@ -6,17 +6,15 @@ plugins {
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     compile 'net.java.dev.jna:jna:4.1.0'
+    compile ':jsfml:test'
 }
 
 shadowJar {
     dependencies {
         include dependency('net.java.dev.jna:jna')
+
         include project(':Engine')
     }
     classifier ''
