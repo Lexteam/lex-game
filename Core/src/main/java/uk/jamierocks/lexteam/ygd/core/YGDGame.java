@@ -3,7 +3,7 @@ package uk.jamierocks.lexteam.ygd.core;
 import com.google.common.base.Preconditions;
 import uk.jamierocks.lexteam.ygd.core.event.EventManager;
 import uk.jamierocks.lexteam.ygd.core.service.service.SectionService;
-import uk.jamierocks.lexteam.ygd.core.task.GameTaskManager;
+import uk.jamierocks.lexteam.ygd.core.task.TaskManager;
 import uk.jamierocks.lexteam.ygd.core.util.event.GameListener;
 import uk.jamierocks.lexteam.ygd.core.util.event.ToolAbilityListener;
 
@@ -26,7 +26,7 @@ public final class YGDGame {
         // Register providers
         game.addProvider(new EventManager());
         game.addProvider(new SectionService());
-        game.addProvider(new GameTaskManager());
+        game.addProvider(new TaskManager());
 
         // Register sections
         // TODO: Create sections and register them.

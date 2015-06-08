@@ -5,7 +5,7 @@ package uk.jamierocks.lexteam.ygd.core.task;
  *
  * @author Jamie Mansfield
  */
-public abstract class GameTask {
+public abstract class Task {
 
     private final long schedule;
     private final boolean continuous;
@@ -23,7 +23,7 @@ public abstract class GameTask {
      * @throws IllegalArgumentException
      *         if owner is null
      */
-    public GameTask(TaskOwner owner, long delay) {
+    public Task(TaskOwner owner, long delay) {
         this(owner, delay, false);
     }
 
@@ -41,7 +41,7 @@ public abstract class GameTask {
      * @throws IllegalArgumentException
      *         if owner is null
      */
-    public GameTask(TaskOwner owner, long delay, boolean continuous) {
+    public Task(TaskOwner owner, long delay, boolean continuous) {
         if (owner == null) {
             throw new IllegalArgumentException("A ServerTask requires an owner.");
         }

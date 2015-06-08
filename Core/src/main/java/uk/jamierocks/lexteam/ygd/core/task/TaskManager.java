@@ -11,18 +11,18 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author Jamie Mansfield
  */
-public final class GameTaskManager {
-    private final ConcurrentHashMap<GameTask, TaskOwner> tasks = new ConcurrentHashMap<>();
+public final class TaskManager {
+    private final ConcurrentHashMap<Task, TaskOwner> tasks = new ConcurrentHashMap<>();
 
     /**
-     * Adds a {@link GameTask} to the queue
+     * Adds a {@link Task} to the queue
      *
      * @param task
-     *         the {@link GameTask} to be added
+     *         the {@link Task} to be added
      *
      * @return {@code true} if successfully added; {@code false} if not
      */
-    public boolean addTask(GameTask task) {
+    public boolean addTask(Task task) {
         synchronized (tasks) {
             tasks.put(task, task.getOwner());
             return true;
@@ -30,14 +30,14 @@ public final class GameTaskManager {
     }
 
     /**
-     * Removes a {@link GameTask} from the queue<br>
+     * Removes a {@link Task} from the queue<br>
      *
      * @param task
-     *         the {@link GameTask} to be removed
+     *         the {@link Task} to be removed
      *
      * @return {@code true} if removed; {@code false} if not found or unable to be removed
      */
-    public boolean removeTask(GameTask task) {
+    public boolean removeTask(Task task) {
         synchronized (tasks) {
             return tasks.remove(task) != null;
         }
@@ -51,7 +51,7 @@ public final class GameTaskManager {
      */
     public void removeTasks(TaskOwner owner) {
         synchronized (tasks) {
-            Iterator<Map.Entry<GameTask, TaskOwner>> taskIter = tasks.entrySet().iterator();
+            Iterator<Map.Entry<Task, TaskOwner>> taskIter = tasks.entrySet().iterator();
             while (taskIter.hasNext()) {
                 if (taskIter.next().getValue().equals(owner)) {
                     taskIter.remove();
@@ -69,9 +69,9 @@ public final class GameTaskManager {
             return;
         }
         synchronized (tasks) {
-            Iterator<Map.Entry<GameTask, TaskOwner>> taskIter = tasks.entrySet().iterator();
+            Iterator<Map.Entry<Task, TaskOwner>> taskIter = tasks.entrySet().iterator();
             while (taskIter.hasNext()) {
-                GameTask task = taskIter.next().getKey();
+                Task task = taskIter.next().getKey();
                 task.decrementDelay();
                 if (task.shouldExecute()) {
                     try {
