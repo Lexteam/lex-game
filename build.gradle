@@ -18,6 +18,10 @@ allprojects {
             name = 'minecraft'
             url = 'https://libraries.minecraft.net/'
         }
+        maven {
+            name = 'sponge'
+            url = 'https://repo.spongepowered.org/maven/'
+        }
         flatDir  {
             dirs rootProject.file('lib')
         }
@@ -34,17 +38,17 @@ jar {
 
 dependencies {
     compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.0-beta9'
+    compile 'org.spongepowered:mixin:0.4.3'
     compile project(':Core')
     compile project(':EngineLib')
-    compile project(':Hop')
 }
 
 shadowJar {
     dependencies {
         include dependency('org.apache.logging.log4j:log4j-slf4j-impl:2.0-beta9')
+        include dependency('org.spongepowered:mixin')
         include project(':Core')
         include project(':EngineLib')
-        include project(':Hop')
     }
     classifier ''
 }
