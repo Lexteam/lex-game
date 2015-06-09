@@ -15,6 +15,11 @@ public class GameLaunch extends Game {
     }
 
     @Override
+    protected void init() {
+        YGDGame.defaultInit();
+    }
+
+    @Override
     public void shutdown() {
 
     }

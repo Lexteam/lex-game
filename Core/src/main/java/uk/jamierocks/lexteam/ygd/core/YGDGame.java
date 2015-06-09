@@ -6,6 +6,8 @@ import uk.jamierocks.lexteam.ygd.core.provider.section.SectionService;
 import uk.jamierocks.lexteam.ygd.core.provider.task.TaskManager;
 import uk.jamierocks.lexteam.ygd.core.util.event.GameListener;
 import uk.jamierocks.lexteam.ygd.core.util.event.ToolAbilityListener;
+import uk.jamierocks.lexteam.ygd.core.util.provider.section.DefaultSectionService;
+import uk.jamierocks.lexteam.ygd.core.util.provider.task.DefaultTaskManager;
 
 /**
  * Allows static access to game internals
@@ -17,17 +19,24 @@ public final class YGDGame {
     private static Game game;
 
     /**
-     * Initializes game components
+     * Initializes default implementations of game components.
+     *
+     * <b>THIS SHOULD ONLY BE USED BY THE IMPLEMENTATION!</b>
+     */
+    public static void defaultInit() {
+        // Register providers
+        game.registerProvider(EventBus.class, new EventBus()); // Could be removed
+        game.registerProvider(TaskManager.class, new DefaultTaskManager());
+        game.registerProvider(SectionService.class, new DefaultSectionService());
+    }
+
+    /**
+     * Initializes game components.
      * This is called after a game is set.
      *
      * <b>THIS SHOULD ONLY BE CALLED ONCE PER GAME INSTANCE</b>
      */
     private static void init() {
-        // Register providers
-        game.registerProvider(EventBus.class, new EventBus());
-        game.registerProvider(TaskManager.class, new TaskManager());
-        game.registerProvider(SectionService.class, new SectionService());
-
         // Register sections
         // TODO: Create sections and register them.
 
@@ -37,7 +46,7 @@ public final class YGDGame {
     }
 
     /**
-     * Gets the currently running {@link Game}
+     * Gets the currently running {@link Game}.
      *
      * @return the {@link Game} being run
      */
@@ -47,7 +56,7 @@ public final class YGDGame {
     }
 
     /**
-     * Attempts to set the currently running {@link Game}
+     * Attempts to set the currently running {@link Game}.
      * This will not work, if one is already running!
      *
      * <b>THIS SHOULD ONLY BE USED BY THE IMPLEMENTATION!</b>
@@ -60,6 +69,8 @@ public final class YGDGame {
             throw new UnsupportedOperationException("Only one game can run at once!");
         }
         YGDGame.game = Preconditions.checkNotNull(game);
+
+        YGDGame.game.init();
         init();
     }
 

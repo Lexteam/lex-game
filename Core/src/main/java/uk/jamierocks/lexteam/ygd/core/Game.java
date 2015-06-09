@@ -62,5 +62,7 @@ public abstract class Game implements TaskOwner {
         return eventBus;
     }
 
+    protected abstract void init();
+
     public abstract void shutdown();
 }
