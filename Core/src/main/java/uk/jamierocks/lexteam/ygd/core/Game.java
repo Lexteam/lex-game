@@ -5,6 +5,8 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.jamierocks.lexteam.ygd.core.event.EventBus;
+import uk.jamierocks.lexteam.ygd.core.event.provider.RegisterProviderEvent;
 import uk.jamierocks.lexteam.ygd.core.task.TaskOwner;
 
 import java.util.concurrent.ConcurrentMap;
@@ -19,7 +21,7 @@ import java.util.concurrent.ConcurrentMap;
 public abstract class Game implements TaskOwner {
 
     private ConcurrentMap<Class<?>, Object> providers = Maps.newConcurrentMap();
-
+    private EventBus eventBus = new EventBus();
     private Logger logger = LoggerFactory.getLogger("lex-game");
 
     public <T> Optional<T> getProvider(Class<T> providerClass) {
@@ -31,10 +33,20 @@ public abstract class Game implements TaskOwner {
         throw new UnsupportedOperationException("That provider has not been registered!");
     }
 
-    public <T> void addProvider(Class<?> providerClass, T provider) {
+    public <T> void registerProvider(Class<?> providerClass, T provider) {
         Preconditions.checkNotNull(provider, "provider");
         Preconditions.checkNotNull(providerClass, "providerClass");
-        providers.put(providerClass, provider);
+
+        RegisterProviderEvent event = new RegisterProviderEvent(providerClass, provider);
+        eventBus.callEvent(event);
+
+        if (!event.isCanceled()) {
+            if (providers.containsKey(event.getProviderClass())) {
+                throw new UnsupportedOperationException("That providerClass has already been registered!");
+            }
+
+            providers.put(event.getProviderClass(), event.getProvider());
+        }
     }
 
     /**
@@ -44,6 +56,10 @@ public abstract class Game implements TaskOwner {
      */
     public Logger getLogger() {
         return logger;
+    }
+
+    public EventBus getEventBus() {
+        return eventBus;
     }
 
     public abstract void shutdown();

@@ -1,4 +1,4 @@
-package uk.jamierocks.lexteam.ygd.core.provider.event;
+package uk.jamierocks.lexteam.ygd.core.event;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
@@ -20,7 +20,7 @@ import java.util.Set;
  *
  * @author Jamie Mansfield
  */
-public class EventManager {
+public class EventBus {
 
     private final SyncMessageBus<Object> bus =
             new SyncMessageBus<>(new BusConfiguration().addFeature(Feature.SyncPubSub.Default()).setProperty(
