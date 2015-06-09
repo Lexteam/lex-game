@@ -18,7 +18,8 @@ public abstract class Task {
      * @param owner
      *         the {@link TaskOwner} of the task
      * @param delay
-     *         the delay before executing. Set to 0 or less to run within the next Server tick (Roughly once every 50 milliseconds)
+     *         the delay before executing. Set to 0 or less to run within the next Server tick (Roughly once every 50
+     *         milliseconds)
      *
      * @throws IllegalArgumentException
      *         if owner is null

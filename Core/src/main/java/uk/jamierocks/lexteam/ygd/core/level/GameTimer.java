@@ -1,8 +1,8 @@
 package uk.jamierocks.lexteam.ygd.core.level;
 
 import uk.jamierocks.lexteam.ygd.core.YGDGame;
-import uk.jamierocks.lexteam.ygd.core.task.Task;
 import uk.jamierocks.lexteam.ygd.core.provider.task.TaskManager;
+import uk.jamierocks.lexteam.ygd.core.task.Task;
 
 import java.util.Timer;
 

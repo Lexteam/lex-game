@@ -51,7 +51,9 @@ public final class YGDGame {
      * @return the {@link Game} being run
      */
     public static Game getGame() {
-        if (game != null) return game;
+        if (game != null) {
+            return game;
+        }
         throw new UnsupportedOperationException("The game has not been registered yet!");
     }
 

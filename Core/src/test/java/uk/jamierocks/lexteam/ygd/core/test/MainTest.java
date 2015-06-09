@@ -7,8 +7,9 @@ import org.junit.Test;
  * Created /me
  */
 public class MainTest {
+
     @Test
-    public void MainTest(){
+    public void MainTest() {
 
     }
 }

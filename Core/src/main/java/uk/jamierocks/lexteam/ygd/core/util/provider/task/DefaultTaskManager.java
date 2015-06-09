@@ -55,8 +55,7 @@ public class DefaultTaskManager implements TaskManager {
                 if (task.shouldExecute()) {
                     try {
                         task.run();
-                    }
-                    catch (Throwable thrown) {
+                    } catch (Throwable thrown) {
                         YGDGame.getGame().getLogger().error(
                                 "An Exception occurred while executing ServerTask: "
                                         + task.getClass().getSimpleName(), thrown);
@@ -65,8 +64,7 @@ public class DefaultTaskManager implements TaskManager {
                     }
                     if (!task.isContinuous()) {
                         taskIter.remove();
-                    }
-                    else {
+                    } else {
                         task.reset();
                     }
                 }
