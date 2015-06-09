@@ -1,4 +1,4 @@
-package uk.jamierocks.lexteam.ygd.core.event;
+package uk.jamierocks.lexteam.ygd.core.provider.event;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;

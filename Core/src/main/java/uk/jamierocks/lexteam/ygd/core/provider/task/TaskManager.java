@@ -1,6 +1,8 @@
-package uk.jamierocks.lexteam.ygd.core.task;
+package uk.jamierocks.lexteam.ygd.core.provider.task;
 
 import uk.jamierocks.lexteam.ygd.core.YGDGame;
+import uk.jamierocks.lexteam.ygd.core.task.Task;
+import uk.jamierocks.lexteam.ygd.core.task.TaskOwner;
 
 import java.util.Iterator;
 import java.util.Map;

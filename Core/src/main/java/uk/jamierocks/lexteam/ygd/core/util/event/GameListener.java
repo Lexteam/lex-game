@@ -5,9 +5,9 @@ import uk.jamierocks.lexteam.ygd.core.YGDGame;
 import uk.jamierocks.lexteam.ygd.core.event.game.ShutdownGameEvent;
 import uk.jamierocks.lexteam.ygd.core.level.Level;
 import uk.jamierocks.lexteam.ygd.core.section.Section;
-import uk.jamierocks.lexteam.ygd.core.service.service.SectionService;
+import uk.jamierocks.lexteam.ygd.core.provider.section.SectionService;
 import uk.jamierocks.lexteam.ygd.core.task.Task;
-import uk.jamierocks.lexteam.ygd.core.task.TaskManager;
+import uk.jamierocks.lexteam.ygd.core.provider.task.TaskManager;
 
 /**
  * The listener for game events

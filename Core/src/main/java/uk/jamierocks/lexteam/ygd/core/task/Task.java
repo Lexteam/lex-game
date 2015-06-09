@@ -84,7 +84,7 @@ public abstract class Task {
     /**
      * Internal use method to decrease the delay
      */
-    final void decrementDelay() {
+    public final void decrementDelay() {
         --delay;
     }
 
@@ -93,14 +93,14 @@ public abstract class Task {
      *
      * @return {@code true} for execute; {@code false} for not
      */
-    final boolean shouldExecute() {
+    public final boolean shouldExecute() {
         return delay <= 0;
     }
 
     /**
      * Internal use method to reset the delay on continuous tasks
      */
-    final void reset() {
+    public final void reset() {
         this.delay = this.schedule;
         this.onReset();
     }

@@ -31,9 +31,10 @@ public abstract class Game implements TaskOwner {
         throw new UnsupportedOperationException("That provider has not been registered!");
     }
 
-    public <T> void addProvider(T provider) {
+    public <T> void addProvider(Class<?> providerClass, T provider) {
         Preconditions.checkNotNull(provider, "provider");
-        providers.put(provider.getClass(), provider);
+        Preconditions.checkNotNull(providerClass, "providerClass");
+        providers.put(providerClass, provider);
     }
 
     /**
