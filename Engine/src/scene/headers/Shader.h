@@ -75,7 +75,7 @@ namespace Engine
 
 			// gives error formal parimiter wont be aligned :(
 			bool setUniformparam(std::string Varname, glm::tvec4<float> vec);
-	
+
 
             ///gets///
             //Uniforms must be used in the shader Note will return a dynamic array if Varname is vec<n>

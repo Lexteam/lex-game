@@ -1,5 +1,5 @@
-//#include "../headers/Texture.h"
-#include "../../../PROGRAMMING/PROJECTS/lex-game/Engine/src/scene/headers/Texture.h"
+#include "../headers/Texture.h"
+
 
 bool Engine::Texture::internalBind(sf::Image &img)
 {

@@ -1,5 +1,5 @@
-//#include "..\headers\ShaderProgram.h"
-#include "..\..\..\PROGRAMMING\PROJECTS\lex-game\Engine\src\scene\headers\Shader.h"
+#include "..\headers\ShaderProgram.h"
+//#include "..\..\..\PROGRAMMING\PROJECTS\lex-game\Engine\src\scene\headers\Shader.h"
 
 //compilation & linking
 bool Engine::Shader::compile(std::string data)

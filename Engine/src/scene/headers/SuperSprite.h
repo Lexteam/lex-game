@@ -7,60 +7,74 @@
 #include <vector>
 #include <iostream>
 
-#ifndef _H_SUPERSPRITE_H_
-#define _H_SUPERSPRITE_H_
+#ifndef _H_TextureManager_H_
+#define _H_TextureManager_H_
 namespace Engine
 {
-    static unsigned SuperSpritesUsed = 0;
-
-    const static unsigned MaxSuperSprites = 16;
+    const static std::fstream BoundryDump("Boundires.bin", ios::app);
 
     class Texture;
 
 	//data holder
 	class SpriteImage
 	{
-	public:
-		SpriteImage(glm::vec2 SpriteBoundry, std::string Spritename) :
-			Boundry(SpriteBoundry),
-			name(Spritename)
-		{
-		}
+        public:
+            //SpriteBoundRect: the part of the sprite to be loaded
+            SpriteImage(glm::vec2t<float> SpriteBoundRect, std::string SpriteFilename) :
+                Filename(Spritename)
+                Boundry(SpriteBoundRect)
+            {
+            }
 
-		glm::vec2 getBoundry() { return Boundry; }
+            //allocates the whole file to the sprite
+            SpriteImage(std::string SpriteFilename) :
+                Filename(Spritename)
+            {
+            }
 
-		std::string getName() { return name; }
-	private:
-		glm::vec2 Boundry;
+            //dump Boundry to Boundryfile
+            ~SpriteImage()
+            {
+                BoundryDump << Boundry.x << ',' << Boundry.y << ID;
 
-		std::string name;
+            }
+            glm::vec2 getBoundry() { return Boundry; }
+
+            int getID() {return ID;}
+        private:
+            static unsigned SpriteImagesUsed = 0;
+
+            int ID;
+
+            glm::vec2 Boundry;
+
+            std::string Filename;
 
 	};
 
-    class SuperSprite
+    class TextureManager
     {
         public:
 
-            SuperSprite(Engine::SpriteImage sprite)
+            TextureManager(Engine::SpriteImage sprite)
             {
-                if(SuperSpritesUsed < MaxSuperSprites)
+                if(TextureManagersUsed < MaxTextureManagers)
                 {
-                    ++SuperSpritesUsed;
+                    ++TextureManagersUsed;
                     addSprite(sprite);
                 }
-				else
-				{
-					throw "heck";
-				}
+                else
+                {
+
+                }
             }
 
-			~SuperSprite()
+			~TextureManager()
 			{
-				--SuperSpritesUsed;
+				--TextureManagersUsed;
 			}
 
-            //recreates the supersprite <Warning> creates a new thread to work on, preformance heavy
-            bool update();
+
 
             //adds a sprite tobe genrated does not call generate/update
             bool addSprite(Engine::SpriteImage sprite);
@@ -70,16 +84,24 @@ namespace Engine
 
             unsigned* LoadImageDataBlock(std::string spritename);
 
-			//concatnates a SuperSprite to this SuperSprite
+			//concatnates a TextureManager to this TextureManager
 			//v.preformance heavy last resort Nothrow guarantee
-			bool ConcatinateSuperSprite(Engine::SuperSprite& sprite);
+			bool ConcatinateTextureManager(Engine::TextureManager& sprite);
 
         private:
-            static std::vector<Engine::SpriteImage> SpriteBlocks;
 
-            std::fstream ImageStream;
+            static unsigned TextureManagersUsed = 0;
+
+            const static unsigned MaxTextureManagers = 16;
+
+            //recreates the TextureManager <Warning> creates a new thread to work on temporally, preformance heavy
+            bool genratePixDumpFile();
+
+            static std::vector<Engine::SpriteImage> SpriteBoundries;
+
+            std::fstream SpriteStream;
 
 	};
 
 }
-#endif // _H_SUPERSPRITE_H_
+#endif // _H_TextureManager_H_
