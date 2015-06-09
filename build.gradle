@@ -49,3 +49,7 @@ shadowJar {
     classifier ''
 }
 assemble.dependsOn shadowJar
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}
