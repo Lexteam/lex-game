@@ -1,9 +1,13 @@
 package uk.jamierocks.lexteam.ygd.core;
 
-import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
+import uk.jamierocks.lexteam.ygd.core.event.EventBus;
+import uk.jamierocks.lexteam.ygd.core.provider.section.SectionService;
+import uk.jamierocks.lexteam.ygd.core.provider.task.TaskManager;
 import uk.jamierocks.lexteam.ygd.core.util.event.GameListener;
 import uk.jamierocks.lexteam.ygd.core.util.event.ToolAbilityListener;
+import uk.jamierocks.lexteam.ygd.core.util.provider.section.DefaultSectionService;
+import uk.jamierocks.lexteam.ygd.core.util.provider.task.DefaultTaskManager;
 
 /**
  * Allows static access to game internals
@@ -15,7 +19,19 @@ public final class YGDGame {
     private static Game game;
 
     /**
-     * Initializes game components
+     * Initializes default implementations of game components.
+     *
+     * <b>THIS SHOULD ONLY BE USED BY THE IMPLEMENTATION!</b>
+     */
+    public static void defaultInit() {
+        // Register providers
+        game.registerProvider(EventBus.class, new EventBus()); // Could be removed
+        game.registerProvider(TaskManager.class, new DefaultTaskManager());
+        game.registerProvider(SectionService.class, new DefaultSectionService());
+    }
+
+    /**
+     * Initializes game components.
      * This is called after a game is set.
      *
      * <b>THIS SHOULD ONLY BE CALLED ONCE PER GAME INSTANCE</b>
@@ -25,21 +41,24 @@ public final class YGDGame {
         // TODO: Create sections and register them.
 
         // Register event listeners
-        game.getEventManager().registerEventListener(new ToolAbilityListener());
-        game.getEventManager().registerEventListener(new GameListener());
+        game.getProvider(EventBus.class).get().registerEventListener(new ToolAbilityListener());
+        game.getProvider(EventBus.class).get().registerEventListener(new GameListener());
     }
 
     /**
-     * Gets the currently running {@link Game}
+     * Gets the currently running {@link Game}.
      *
      * @return the {@link Game} being run
      */
-    public static Optional<Game> getGame() {
-        return Optional.of(game);
+    public static Game getGame() {
+        if (game != null) {
+            return game;
+        }
+        throw new UnsupportedOperationException("The game has not been registered yet!");
     }
 
     /**
-     * Attempts to set the currently running {@link Game}
+     * Attempts to set the currently running {@link Game}.
      * This will not work, if one is already running!
      *
      * <b>THIS SHOULD ONLY BE USED BY THE IMPLEMENTATION!</b>
@@ -52,12 +71,14 @@ public final class YGDGame {
             throw new UnsupportedOperationException("Only one game can run at once!");
         }
         YGDGame.game = Preconditions.checkNotNull(game);
+
+        YGDGame.game.init();
         init();
     }
 
     /**
      * Destroys the currently running {@link Game}.
-     * This is done, by setting the game to null.
+     * This is done, by setting the game variable to {@code null}.
      *
      * <b>This should only be used by the implementation, or {@link GameListener}.</b>
      */

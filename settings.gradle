@@ -1,2 +1,3 @@
 rootProject.name = 'lexgame'
 include 'Core', 'Engine', 'EngineLib'
+

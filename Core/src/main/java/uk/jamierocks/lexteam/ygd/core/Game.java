@@ -1,11 +1,15 @@
 package uk.jamierocks.lexteam.ygd.core;
 
+import com.google.common.base.Optional;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.jamierocks.lexteam.ygd.core.event.EventManager;
-import uk.jamierocks.lexteam.ygd.core.service.SectionService;
-import uk.jamierocks.lexteam.ygd.core.task.GameTaskManager;
+import uk.jamierocks.lexteam.ygd.core.event.EventBus;
+import uk.jamierocks.lexteam.ygd.core.event.provider.RegisterProviderEvent;
 import uk.jamierocks.lexteam.ygd.core.task.TaskOwner;
+
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * The main game object
@@ -16,36 +20,33 @@ import uk.jamierocks.lexteam.ygd.core.task.TaskOwner;
  */
 public abstract class Game implements TaskOwner {
 
-    private EventManager eventManager = new EventManager();
-    private SectionService sectionService = new SectionService();
-    private GameTaskManager taskManager = new GameTaskManager();
+    private ConcurrentMap<Class<?>, Object> providers = Maps.newConcurrentMap();
+    private EventBus eventBus = new EventBus();
     private Logger logger = LoggerFactory.getLogger("lex-game");
 
-    /**
-     * The game's {@link EventManager}
-     *
-     * @return the game's {@link EventManager}
-     */
-    public EventManager getEventManager() {
-        return eventManager;
+    public <T> Optional<T> getProvider(Class<T> providerClass) {
+        Preconditions.checkNotNull(providerClass, "providerClass");
+        if (providers.containsKey(providerClass)) {
+            T provider = (T) providers.get(providerClass);
+            return provider != null ? Optional.of(provider) : Optional.<T>absent();
+        }
+        throw new UnsupportedOperationException("That provider has not been registered!");
     }
 
-    /**
-     * The game's {@link SectionService}
-     *
-     * @return the game's {@link SectionService}
-     */
-    public SectionService getSectionService() {
-        return sectionService;
-    }
+    public <T> void registerProvider(Class<?> providerClass, T provider) {
+        Preconditions.checkNotNull(provider, "provider");
+        Preconditions.checkNotNull(providerClass, "providerClass");
 
-    /**
-     * The game's {@link GameTaskManager}
-     *
-     * @return the game's {@link GameTaskManager}
-     */
-    public GameTaskManager getTaskManager() {
-        return taskManager;
+        RegisterProviderEvent event = new RegisterProviderEvent(providerClass, provider);
+        eventBus.callEvent(event);
+
+        if (!event.isCanceled()) {
+            if (providers.containsKey(event.getProviderClass())) {
+                throw new UnsupportedOperationException("That providerClass has already been registered!");
+            }
+
+            providers.put(event.getProviderClass(), event.getProvider());
+        }
     }
 
     /**
@@ -56,6 +57,12 @@ public abstract class Game implements TaskOwner {
     public Logger getLogger() {
         return logger;
     }
+
+    public EventBus getEventBus() {
+        return eventBus;
+    }
+
+    protected abstract void init();
 
     public abstract void shutdown();
 }

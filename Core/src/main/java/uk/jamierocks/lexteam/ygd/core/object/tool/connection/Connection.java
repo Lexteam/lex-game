@@ -62,7 +62,7 @@ public class Connection implements GameObject {
      * @return {@code true} if the point is found within this connection
      */
     public boolean hasPoint(int ID) {
-        return this.pointTo.ID == ID || this.pointFrom.ID == ID;
+        return this.pointTo.getId() == ID || this.pointFrom.getId() == ID;
     }
 
     /**
