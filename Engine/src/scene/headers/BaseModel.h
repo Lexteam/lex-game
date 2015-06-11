@@ -1,4 +1,4 @@
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include <vector>
 #include <glm/glm.hpp>
 #include "Tile.h"
@@ -29,6 +29,7 @@ namespace Engine {
                 pos.y = y;
                 pos.z = z;
                 pos.w = 1;//tmp
+                return true;
 			}
 			bool setPos(Engine::Tile Tilepos)
 			{
@@ -36,6 +37,7 @@ namespace Engine {
 				pos.y = static_cast<float>(Tilepos.getPos().y);
 				pos.z = static_cast<float>(Tilepos.getPos().z);
 				pos.w = 1.0f;//temp
+				return true;
 			}
 
 			///gets///

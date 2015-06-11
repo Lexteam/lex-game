@@ -1,6 +1,6 @@
-#include <SFML\Window.hpp>
-#include <SFML\Graphics.hpp>
-#include <SFML\OpenGL.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/OpenGL.hpp>
 
 #include<string>
 

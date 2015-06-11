@@ -1,4 +1,4 @@
-#include "SuperSprite.h"
+#include "TextureManager.h"
 
 
 #ifndef _H_TEXTURE_H_

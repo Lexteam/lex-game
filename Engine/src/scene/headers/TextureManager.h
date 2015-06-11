@@ -2,16 +2,17 @@
 #include <SFML/OpenGL.hpp>
 #include <SFML/Graphics.hpp>
 #include <string>
-#include <fstream>
 #include <glm/glm.hpp>
+#include <glm/vec2.hpp>
 #include <vector>
 #include <iostream>
+#include <fstream>
 
 #ifndef _H_TextureManager_H_
 #define _H_TextureManager_H_
 namespace Engine
 {
-    const static std::fstream BoundryDump("Boundires.bin", ios::app);
+    const static std::fstream BoundryDump("Boundires.bin", std::ios::app);
 
     class Texture;
 
@@ -19,37 +20,44 @@ namespace Engine
 	class SpriteImage
 	{
         public:
+
             //SpriteBoundRect: the part of the sprite to be loaded
-            SpriteImage(glm::vec2t<float> SpriteBoundRect, std::string SpriteFilename) :
-                Filename(Spritename)
+            SpriteImage(glm::tvec2<unsigned> SpriteBoundRect, sf::Image image) :
                 Boundry(SpriteBoundRect)
             {
+                ++SpriteImagesUsed;
+            }
+
+            //part of the sprite
+            SpriteImage(glm::tvec2<unsigned> SpriteBoundRect, std::string ImageFilename) :
+                Boundry(SpriteBoundRect)
+            {
+                sf::Image img;
+                img.loadFromFile(ImageFilename);
             }
 
             //allocates the whole file to the sprite
-            SpriteImage(std::string SpriteFilename) :
-                Filename(Spritename)
+            SpriteImage(std::string SpriteFilename)
             {
+                sf::Image img;
+                img.loadFromFile(SpriteFilename);
+                SpriteImage(glm::tvec2<unsigned>(img.getSize().x, img.getSize().y), img);
             }
 
             //dump Boundry to Boundryfile
             ~SpriteImage()
             {
-                BoundryDump << Boundry.x << ',' << Boundry.y << ID;
-
+                BoundryDump << Boundry.x << ',' << Boundry.y << ',' << ID;
             }
             glm::vec2 getBoundry() { return Boundry; }
 
             int getID() {return ID;}
         private:
-            static unsigned SpriteImagesUsed = 0;
+            static unsigned SpriteImagesUsed;
 
             int ID;
 
-            glm::vec2 Boundry;
-
-            std::string Filename;
-
+            glm::tvec2<unsigned> Boundry;
 	};
 
     class TextureManager
@@ -90,7 +98,7 @@ namespace Engine
 
         private:
 
-            static unsigned TextureManagersUsed = 0;
+            static unsigned TextureManagersUsed;
 
             const static unsigned MaxTextureManagers = 16;
 

@@ -1,8 +1,8 @@
-#include<SFML\System.hpp>
-#include<SFML\Graphics.hpp>
+#include<SFML/System.hpp>
+#include<SFML/Graphics.hpp>
 
-#include "..\headers\PushButton.h"
-#include "..\headers\Button.h"
+#include "../headers/PushButton.h"
+#include "../headers/Button.h"
 
 
 

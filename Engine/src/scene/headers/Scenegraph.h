@@ -1,5 +1,5 @@
-#include <assimp\Importer.hpp>
-#include <assimp\scene.h>
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
 #include "Camera.h"
 #include "Model.h"
 #include "Light.h"

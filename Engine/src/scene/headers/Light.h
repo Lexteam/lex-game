@@ -10,7 +10,7 @@ namespace Engine
 
 	enum LightingMethod { Sun, point, spotlight, hemisphere, area };
 
-	static Engine::Shader DefualtLightingShader("DLightShader.glsl");
+	static Engine::Shader DefualtLightingShader("DLightShader.glsl", Engine::ShaderType::Geometry);
 
 
 
@@ -33,8 +33,8 @@ namespace Engine
 				}
 
                 //used for setting properties of the light
-                bool setShader(Engine::Shader &shader);
-                bool setShader(GLfloat ShaderProgramID);
+                bool setShaderProgram(Engine::ShaderProgram &shader);
+                bool setShaderProgram(GLuint ShaderProgramID);
 
                 //using Defualt shader
                 bool setStrength(GLfloat strength)
@@ -53,7 +53,7 @@ namespace Engine
 
                 Engine::VBO &VertexObject;
 
-                Engine::Shader& shader;
+                Engine::ShaderProgram &shader;
 
 				//renders the light
 				virtual void draw(sf::RenderTarget &target, sf::RenderStates = sf::RenderStates::Default);

@@ -1,9 +1,9 @@
 #include "BaseModel.h"
 #include "Transformable.h"
-#include <assimp\mesh.h>
-#include <assimp\material.h>
-#include <assimp\scene.h>
-#include <assimp\postprocess.h>
+#include <assimp/mesh.h>
+#include <assimp/material.h>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 #include "Shader.h"
 
 #ifndef _H_MODEL_H_
@@ -32,6 +32,21 @@ namespace Engine {
         protected:
               friend class Mesh;
 
+              friend class ShaderProgram;
+
+              //adds texture for certain instances
+              bool AddTexture(vector<reference_wrapper<Engine::Mesh>> MeshesToapply, Engine::Texture Tex);
+
+              //
+              bool AddTexture(Engine::Mesh& MeshToapply, Engine::Texture Tex);
+
+              bool ReplaceTexture(Engine::Mesh& MeshToapply, Engine::Texture Tex, GLuint oldtex);
+
+              bool ReplaceTexture
+
+              //returns false if has other dependencies use replace instead(if it returns false)
+              bool RemoveTex(GLuint tex);
+
               //updates the values of the mesh connected to the VBO
               bool updateIndercieStates(Engine::Mesh& MeshToUpdate);
 
@@ -40,6 +55,8 @@ namespace Engine {
               GLuint getID(){return ID;}
 
         private:
+
+
             GLuint Indercies;
 
             std::vector<float> vertcies;

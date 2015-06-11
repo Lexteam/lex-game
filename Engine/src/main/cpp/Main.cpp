@@ -1,6 +1,6 @@
-#include <SFML\Window.hpp>
-#include <SFML\Graphics.hpp>
-#include <SFML\OpenGL.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/OpenGL.hpp>
 
 #include <iostream>
 
@@ -11,7 +11,7 @@ int main() {
 	OpenglWindow.setVerticalSyncEnabled(true);
 
 	OpenglWindow.setActive();
-	
+
 	glEnable(GL_DEPTH_TEST);
 	glDepthMask(GL_TRUE);
 	glClearDepth(1.f);
@@ -24,7 +24,7 @@ int main() {
 	glFrustum(-Winratio, Winratio, -1.f, 1.f, 1.f, 500.f);
 
 	static const GLfloat ObjectBufferData[] =
-	{	// pos		    //colour    
+	{	// pos		    //colour
 		-20, -20, -20,  0, 0, 1,
 		-20,  20, -20,  1, 0, 0,
 		-20, -20,  20,  0, 1, 2000,
@@ -138,7 +138,7 @@ int main() {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
-		
+
 		OpenglWindow.pushGLStates();
 
 		OpenglWindow.draw(sf::CircleShape(30.f));
