@@ -39,6 +39,18 @@ bool Engine::ShaderProgram::setUniformparam(std::string Varname, glm::tvec4<floa
 	return true;
 }
 
+Engine::ShaderProgram::checkVarMapAndAdd(std::string spritename)
+{
+    if (VarRefMap.find(Varname) ==  VarRefMap::end) {
+        GLuint VarRef = glGetUniformLocation(ProgID, Varname.c_str());
+        VarRefMap[Varname] = VarRef;
+        return true;
+    }
+    else
+    {
+        return false
+    }
+}
 
 //getters
 GLfloat* Engine::ShaderProgram::getUniformparam(std::string Varname)
@@ -51,3 +63,5 @@ GLfloat* Engine::ShaderProgram::getUniformparam(std::string Varname)
     glGetUniformfv(ProgID, VarRefMap[Varname], value);
     return value;
 }
+
+

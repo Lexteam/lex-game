@@ -12,8 +12,6 @@
 #define _H_TextureManager_H_
 namespace Engine
 {
-    const static std::fstream BoundryDump("Boundires.bin", std::ios::app);
-
     class Texture;
 
 	//data holder
@@ -47,17 +45,20 @@ namespace Engine
             //dump Boundry to Boundryfile
             ~SpriteImage()
             {
-                BoundryDump << Boundry.x << ',' << Boundry.y << ',' << ID;
+
             }
-            glm::vec2 getBoundry() { return Boundry; }
+            glm::tvec2<unsigned> getBoundry() { return Boundry; }
 
             int getID() {return ID;}
         private:
             static unsigned SpriteImagesUsed;
 
+            bool log_and_distruct();
+
             int ID;
 
             glm::tvec2<unsigned> Boundry;
+
 	};
 
     class TextureManager

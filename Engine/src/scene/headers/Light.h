@@ -1,4 +1,4 @@
-#include "BaseModel.h"
+#include "Model.h"
 #include "Transformable.h"
 #include "Shader.h"
 
@@ -19,21 +19,20 @@ namespace Engine
 			public Engine::Transformable
 		{
 			public:
-				Light(LightingMethod type, glm::vec3 pos, Engine::Shader &lightShader = Engine::DefualtLightingShader):
-					shader(lightShader)
+				Light(LightingMethod type, glm::vec3 position, Engine::Shader &lightShader = Engine::DefualtLightingShader):
+				    pos(postition)
 				{
-					//stuff
+					shaderprog.LinkShader(lightShader);
 				}
 
 				//pos is set at 0,0
-				Light(LightingMethod type, Engine::Shader &lightShader = Engine::DefualtLightingShader):
-					shader(lightShader)
+				Light(LightingMethod type, Engine::Shader &lightShader = Engine::DefualtLightingShader)
 				{
-					//stuff
+					shaderprog.LinkShader(lightShader);
 				}
 
                 //used for setting properties of the light
-                bool setShaderProgram(Engine::ShaderProgram &shader);
+                bool setShaderProgram(Engine::ShaderProgram &shaderprogram);
                 bool setShaderProgram(GLuint ShaderProgramID);
 
                 //using Defualt shader
@@ -47,13 +46,13 @@ namespace Engine
                 bool setLightingMethod(Engine::LightingMethod type);
 
                 //replaces the defualt form of the light
-                bool AddVBO(Engine::VBO &VertexData){VertexObject = VertexData;}
+                bool AddVBO(Engine::VBO &VertexData){VertexObject = VertexData; return true;}
 
 			private:
 
                 Engine::VBO &VertexObject;
 
-                Engine::ShaderProgram &shader;
+                Engine::ShaderProgram &shaderprog;
 
 				//renders the light
 				virtual void draw(sf::RenderTarget &target, sf::RenderStates = sf::RenderStates::Default);

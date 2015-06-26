@@ -37,10 +37,5 @@ namespace Engine {
 			TileSize &size;
 	};
 
-	static Engine::Tile ToTile(glm::vec3 pos, TileSize size)
-	{
-		return Tile(pos / size.getTileSize(), size);
-	}
-
 }
 #endif //H_TILE_H_

@@ -11,7 +11,7 @@
 
 namespace Engine {
 
-	class Scene :sf::Drawable {
+	class Scene :public sf::Drawable {
 		public:
 			//repersents aiScene, simple loadup class
 			//puts data in render data :)
@@ -34,7 +34,7 @@ namespace Engine {
 						std::vector<Engine::VBO> VertexData;
 
 
-						std::vector<Engine::Model> Models;
+						std::vector<Engine::Mesh> Meshes;
 						std::vector<Engine::Light>  Lights;
 						std::vector<Engine::Material> materials;
 

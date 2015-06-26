@@ -32,7 +32,7 @@ namespace Engine {
 		private:
             CameraDepthMode DepthMode;
 
-		    bool Active
+		    bool Active;
 	};
 
 }

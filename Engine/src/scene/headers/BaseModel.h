@@ -46,15 +46,13 @@ namespace Engine {
 
 		protected:
 
-			//use Pesudo Constructor in Engine::Scene
+            //can be inherited
 			BaseModel()
 			{
 
 			}
 
             glm::vec4 pos;
-
-		private:
 
 	};
 

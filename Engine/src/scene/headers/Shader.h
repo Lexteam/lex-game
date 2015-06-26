@@ -12,8 +12,43 @@
 
 namespace Engine
 {
-    enum ShaderType{Vertex = GL_VERTEX_SHADER, Fragment = GL_FRAGMENT_SHADER,
+    enum class ShaderType{Vertex = GL_VERTEX_SHADER, Fragment = GL_FRAGMENT_SHADER,
                         Geometry = GL_GEOMETRY_SHADER, TesslantaionControl = GL_TESS_CONTROL_SHADER};
+
+    class Shader
+	{
+	public:
+            enum Status { Linked, Compiled };
+
+            Shader(std::string shaderfilename, Engine::ShaderType shadertype) :
+                type(shadertype)
+            {
+                ShaderID = glCreateShader(static_cast<unsigned>(type));
+            }
+
+            ~Shader()
+            {
+
+            }
+
+            Status GetStatus() { return status; }
+        protected:
+            friend class ShaderProgram;
+
+            GLuint GetShaderID() { return ShaderID; }
+
+            ShaderType GetShaderType() { return type; }
+
+        private:
+            ShaderType type;
+
+            bool compile(std::string data);
+
+            GLuint ShaderID;
+
+            Status status;
+
+	};
 
     class ShaderProgram
     {
@@ -23,6 +58,10 @@ namespace Engine
                 ProgID = glCreateProgram();
                 LinkShader(Shadertolink);
             }
+
+            ShaderProgram (const &ShaderProgram) = delete;
+
+            ShaderProgram& operator=(const &ShaderProgram) = delete;
 
             //adds/removes Textures, use if nessasary
             bool addTexture(Engine::Texture &texture);
@@ -53,13 +92,7 @@ namespace Engine
 			GLint GetProgID(){ return ProgID; };
 
         private:
-			bool checkVarMapAndAdd(std::string Varname)
-			{
-				if (!VarRefMap.find(Varname)) {
-					GLuint VarRef = glGetUniformLocation(ProgID, Varname.c_str());
-					VarRefMap[Varname] = VarRef;
-				}
-			}
+			bool checkVarMapAndAdd(std::string Varname);
 
             std::map<std::reference_wrapper<Engine::Texture>, GLuint> TextureMap;
 
@@ -72,40 +105,7 @@ namespace Engine
             GLuint ProgID;
     };
 
-    class Shader
-	{
-	public:
-            enum Status { Linked, Compiled };
 
-            Shader(std::string shaderfilename, Engine::ShaderType shadertype) :
-                type(shadertype)
-            {
-                ShaderID = glCreateShader(type);
-            }
-
-            ~Shader()
-            {
-
-            }
-
-            Status GetStatus() { return status; }
-        protected:
-            friend ShaderProgram;
-
-            GLuint GetShaderID() { return ShaderID; }
-
-            ShaderType GetShaderType() { return type; }
-
-        private:
-            ShaderType type;
-
-            bool compile(std::string data);
-
-            GLuint ShaderID;
-
-            Status status;
-
-	};
 }
 
 #endif // _H_SHADER_H_

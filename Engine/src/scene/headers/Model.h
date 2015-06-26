@@ -11,6 +11,8 @@
 
 namespace Engine {
 
+    class Mesh;
+
     //used for defining models that are(graphically) the same
     class VBO
     {
@@ -23,26 +25,30 @@ namespace Engine {
                 vertcies = Vertcies;
             }
 
-            const VBO& operator&(const VBO& Rhs)
+            const VBO& operator=(const VBO& Rhs)
             {
                 ++Indercies;
                 return *this;
             }
 
+            VBO& operator=(const VBO Rhs) = delete;
+
+			VBO(const VBO &VBO) = delete;
+
         protected:
-              friend class Mesh;
+              friend Mesh;
 
               friend class ShaderProgram;
 
               //adds texture for certain instances
-              bool AddTexture(vector<reference_wrapper<Engine::Mesh>> MeshesToapply, Engine::Texture Tex);
+              bool AddTexture(std::vector<std::reference_wrapper<Engine::Mesh>> MeshesToapply, Engine::Texture Tex);
 
               //
               bool AddTexture(Engine::Mesh& MeshToapply, Engine::Texture Tex);
 
+              //warning: if the old texture is still being used it will not be distroyed
+              //for a more generic texture replacement see TextureManager
               bool ReplaceTexture(Engine::Mesh& MeshToapply, Engine::Texture Tex, GLuint oldtex);
-
-              bool ReplaceTexture
 
               //returns false if has other dependencies use replace instead(if it returns false)
               bool RemoveTex(GLuint tex);
@@ -62,10 +68,6 @@ namespace Engine {
             std::vector<float> vertcies;
 
             GLuint ID;
-
-            VBO& operator=(const VBO Rhs){}
-
-			VBO(const VBO &VBO){}
 
             GLuint EBO;
 
@@ -126,7 +128,7 @@ namespace Engine {
 
             GLuint IndercieID;
 
-			Engine::VBO VertexBuffer;
+			Engine::VBO& VertexBuffer;
 	};
 };
 #endif //_H_MODEL_H_

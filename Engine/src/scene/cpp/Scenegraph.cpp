@@ -1,6 +1,6 @@
-#include "..\headers\Scenegraph.h"
+#include "../headers/Scenegraph.h"
 
-bool Engine::Scene::readscenefile() 
+bool Engine::Scene::readscenefile()
 {
 	return true;
 }
