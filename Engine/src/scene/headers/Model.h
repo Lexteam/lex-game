@@ -25,15 +25,13 @@ namespace Engine {
                 vertcies = Vertcies;
             }
 
-            const VBO& operator=(const VBO& Rhs)
+            VBO& operator=(VBO& Rhs)
             {
                 ++Indercies;
                 return *this;
             }
 
-            VBO& operator=(const VBO Rhs) = delete;
-
-			VBO(const VBO &VBO) = delete;
+			VBO(const VBO& VBO) = delete;
 
         protected:
               friend Mesh;
@@ -79,7 +77,7 @@ namespace Engine {
     {
 		public:
             //sets vertecies and shaders needed for opengl core instanation
-            Mesh(VBO &vertexData, Engine::ShaderProgram Material):
+            Mesh(VBO& vertexData, Engine::ShaderProgram& Material):
 				VertexBuffer(vertexData),
 				material(Material)
             {
@@ -94,12 +92,12 @@ namespace Engine {
 
 			///sets///
 			//keep material
-			bool setMaterial(Engine::ShaderProgram Mat);
+			bool setMaterial(Engine::ShaderProgram& Mat);
 
 			//set UVs/normals
 
 			///gets///
-			Engine::ShaderProgram getSettedMaterial() { return material; }
+			Engine::ShaderProgram& getSettedMaterial() { return material; }
 
         protected:
 
@@ -120,6 +118,8 @@ namespace Engine {
 			//draws the 3D mesh
 			virtual void draw(sf::RenderTarget& target, sf::RenderStates states = sf::RenderStates::Default);
 
+            Engine::VBO& VertexBuffer;
+
             Engine::ShaderProgram& material;
 
             GLuint VAO;
@@ -128,7 +128,6 @@ namespace Engine {
 
             GLuint IndercieID;
 
-			Engine::VBO& VertexBuffer;
 	};
 };
 #endif //_H_MODEL_H_

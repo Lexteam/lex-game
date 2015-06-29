@@ -15,10 +15,7 @@ namespace Engine {
 	{
 		public:
 
-			virtual	~BaseModel()
-			{
-
-			}
+			virtual	~BaseModel() = default;
 
 			///sets///
 
@@ -47,10 +44,7 @@ namespace Engine {
 		protected:
 
             //can be inherited
-			BaseModel()
-			{
-
-			}
+			BaseModel() = default;
 
             glm::vec4 pos;
 

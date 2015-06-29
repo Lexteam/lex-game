@@ -7,6 +7,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <mutex>
 
 #ifndef _H_TextureManager_H_
 #define _H_TextureManager_H_
@@ -45,12 +46,16 @@ namespace Engine
             //dump Boundry to Boundryfile
             ~SpriteImage()
             {
-
+                log_and_distruct();
             }
             glm::tvec2<unsigned> getBoundry() { return Boundry; }
 
             int getID() {return ID;}
         private:
+            std::mutex dump_mutex;
+
+            static std::fstream LogFile;
+
             static unsigned SpriteImagesUsed;
 
             bool log_and_distruct();
@@ -86,12 +91,12 @@ namespace Engine
 
 
             //adds a sprite tobe genrated does not call generate/update
-            bool addSprite(Engine::SpriteImage sprite);
+            bool addSprite(Engine::SpriteImage& sprite);
 
             //removes a sprite tobe genrated does not call genrate/update
             bool removeSprite(std::string Spritename);
 
-            unsigned* LoadImageDataBlock(std::string spritename);
+            std::unique_ptr<unsigned[]> LoadImageDataBlock(std::string spritename);
 
 			//concatnates a TextureManager to this TextureManager
 			//v.preformance heavy last resort Nothrow guarantee
@@ -104,7 +109,7 @@ namespace Engine
             const static unsigned MaxTextureManagers = 16;
 
             //recreates the TextureManager <Warning> creates a new thread to work on temporally, preformance heavy
-            bool genratePixDumpFile();
+            bool genratePixDumpFile() const;
 
             static std::vector<Engine::SpriteImage> SpriteBoundries;
 

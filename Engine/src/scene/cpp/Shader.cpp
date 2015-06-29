@@ -1,4 +1,4 @@
-#include "..\headers\ShaderProgram.h"
+#include "../headers/Shader.h"
 //#include "..\..\..\PROGRAMMING\PROJECTS\lex-game\Engine\src\scene\headers\Shader.h"
 
 //compilation & linking
@@ -39,27 +39,24 @@ bool Engine::ShaderProgram::setUniformparam(std::string Varname, glm::tvec4<floa
 	return true;
 }
 
-Engine::ShaderProgram::checkVarMapAndAdd(std::string spritename)
+bool Engine::ShaderProgram::checkVarMapAndAdd(std::string Varname)
 {
-    if (VarRefMap.find(Varname) ==  VarRefMap::end) {
+    if (VarRefMap.find(Varname) ==  VarRefMap.end()) {
         GLuint VarRef = glGetUniformLocation(ProgID, Varname.c_str());
         VarRefMap[Varname] = VarRef;
         return true;
     }
-    else
-    {
-        return false
-    }
+    return false;
 }
 
 //getters
 GLfloat* Engine::ShaderProgram::getUniformparam(std::string Varname)
 {
-    if(!VarRefMap.find(Varname)._Ptr){
+    if(VarRefMap.find(Varname) == VarRefMap.end()){
         GLuint VarRef = glGetUniformLocation(ProgID, Varname.c_str());
         VarRefMap[Varname] =  VarRef;
     }
-    GLfloat* value;
+    GLfloat* value=nullptr;
     glGetUniformfv(ProgID, VarRefMap[Varname], value);
     return value;
 }

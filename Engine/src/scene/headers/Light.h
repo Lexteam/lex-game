@@ -10,7 +10,7 @@ namespace Engine
 
 	enum LightingMethod { Sun, point, spotlight, hemisphere, area };
 
-	static Engine::Shader DefualtLightingShader("DLightShader.glsl", Engine::ShaderType::Geometry);
+	const static Engine::Shader DefualtLightingShader("DLightShader.glsl", Engine::ShaderType::Geometry);
 
 
 
@@ -19,16 +19,13 @@ namespace Engine
 			public Engine::Transformable
 		{
 			public:
-				Light(LightingMethod type, glm::vec3 position, Engine::Shader &lightShader = Engine::DefualtLightingShader):
-				    pos(postition)
-				{
-					shaderprog.LinkShader(lightShader);
-				}
 
 				//pos is set at 0,0
-				Light(LightingMethod type, Engine::Shader &lightShader = Engine::DefualtLightingShader)
+				Light(LightingMethod type, Engine::VBO& VertexBuffer, Engine::Shader& lightShader):
+                    VertexObject(VertexBuffer),
+                    shaderprog(lightShader)
 				{
-					shaderprog.LinkShader(lightShader);
+
 				}
 
                 //used for setting properties of the light
@@ -38,7 +35,7 @@ namespace Engine
                 //using Defualt shader
                 bool setStrength(GLfloat strength)
                 {
-                    shader.setUniformparam("Strength", strength);
+                    shaderprog.setUniformparam("Strength", strength);
 					return true;
                 }
 
@@ -46,13 +43,13 @@ namespace Engine
                 bool setLightingMethod(Engine::LightingMethod type);
 
                 //replaces the defualt form of the light
-                bool AddVBO(Engine::VBO &VertexData){VertexObject = VertexData; return true;}
+                bool AddVBO(Engine::VBO& VertexData){VertexObject = VertexData; return true;}
 
 			private:
 
-                Engine::VBO &VertexObject;
+                Engine::VBO& VertexObject;
 
-                Engine::ShaderProgram &shaderprog;
+                Engine::ShaderProgram shaderprog;
 
 				//renders the light
 				virtual void draw(sf::RenderTarget &target, sf::RenderStates = sf::RenderStates::Default);

@@ -53,15 +53,15 @@ namespace Engine
     class ShaderProgram
     {
         public:
-            ShaderProgram(Engine::Shader &Shadertolink)
+            ShaderProgram(Engine::Shader& Shadertolink)
             {
                 ProgID = glCreateProgram();
                 LinkShader(Shadertolink);
             }
 
-            ShaderProgram (const &ShaderProgram) = delete;
+            ShaderProgram(const ShaderProgram& Rhs) = delete;
 
-            ShaderProgram& operator=(const &ShaderProgram) = delete;
+            ShaderProgram& operator=(const ShaderProgram Rhs) = delete;
 
             //adds/removes Textures, use if nessasary
             bool addTexture(Engine::Texture &texture);
@@ -94,9 +94,9 @@ namespace Engine
         private:
 			bool checkVarMapAndAdd(std::string Varname);
 
-            std::map<std::reference_wrapper<Engine::Texture>, GLuint> TextureMap;
+			std::map<std::string, GLuint> VarRefMap;
 
-            std::map<std::string, GLuint> VarRefMap;
+            std::map<std::reference_wrapper<Engine::Texture>, GLuint> TextureMap;
 
             std::map<std::reference_wrapper<Shader>, GLuint> ShaderMap;
 

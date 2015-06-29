@@ -5,14 +5,18 @@
 namespace Engine {
 
     //Defines the Depth techiques for the camera to use
-    enum CameraDepthMode{perspective, orthographic};
+    enum class CameraDepthMode{perspective, orthographic};
 
-	class Camera : public Engine::BaseModel,
-		public Engine::Transformable
+	class Camera : public BaseModel,
+		public Transformable
 	{
 		public:
-			Camera() {};
-			~Camera() {};
+			Camera(bool active)
+			{
+			    setActive(active);
+			}
+
+            ~Camera() = default;
 
             bool LookAt(glm::vec3 pos);
             bool LookAt(float x, float y, float z);

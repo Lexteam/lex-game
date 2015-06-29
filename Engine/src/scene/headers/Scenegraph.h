@@ -5,6 +5,7 @@
 #include "Light.h"
 #include "Tile.h"
 #include <vector>
+#include <memory>
 
 #ifndef _H_ESCENEGRAPH_H_
 #define _H_ESCENEGRAPH_H_
@@ -36,10 +37,9 @@ namespace Engine {
 
 						std::vector<Engine::Mesh> Meshes;
 						std::vector<Engine::Light>  Lights;
-						std::vector<Engine::Material> materials;
+						std::vector<Engine::ShaderProgram> materials;
 
-						Engine::Camera RenderCamera;
-						Engine::Model Room;
+						std::unique_ptr<Engine::Camera> RenderCamera;
 
 				};
 
