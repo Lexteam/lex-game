@@ -8,7 +8,7 @@
 namespace Engine
 {
 
-	enum LightingMethod { Sun, point, spotlight, hemisphere, area };
+	enum class LightingMethod { Sun, point, spotlight, hemisphere, area };
 
 	const static Engine::Shader DefualtLightingShader("DLightShader.glsl", Engine::ShaderType::Geometry);
 
