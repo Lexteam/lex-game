@@ -142,3 +142,6 @@ Session.vim
 
 # backup
 backup
+
+# Compiled sources (C++)
+obj/
