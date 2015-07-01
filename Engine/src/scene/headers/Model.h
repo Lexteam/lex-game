@@ -22,12 +22,11 @@ namespace Engine {
             //make the client be detered from inline-loading,but pos.
             VBO(std::vector<float> Vertcies)
             {
-                vertcies = Vertcies;
+                CreateVBO(Vertcies);
             }
 
             VBO& operator=(VBO& Rhs)
             {
-                ++Indercies;
                 return *this;
             }
 
@@ -41,7 +40,7 @@ namespace Engine {
               //adds texture for certain instances
               bool AddTexture(std::vector<std::reference_wrapper<Engine::Mesh>> MeshesToapply, Engine::Texture Tex);
 
-              //
+              //adds texture for all isntances
               bool AddTexture(Engine::Mesh& MeshToapply, Engine::Texture Tex);
 
               //warning: if the old texture is still being used it will not be distroyed
@@ -54,16 +53,19 @@ namespace Engine {
               //updates the values of the mesh connected to the VBO
               bool updateIndercieStates(Engine::Mesh& MeshToUpdate);
 
-              bool draw(Engine::Mesh& MeshTodraw);
+              bool addinstance(Engine::Mesh& MeshTodraw);
+              
+              bool removeinstance(Engine::Mesh& MeshToRemove);
+              
+              //draws all added meshes
+              bool draw();
 
               GLuint getID(){return ID;}
 
         private:
-
+            bool CreateVBO(std::vector<float>& verticies);
 
             GLuint Indercies;
-
-            std::vector<float> vertcies;
 
             GLuint ID;
 
