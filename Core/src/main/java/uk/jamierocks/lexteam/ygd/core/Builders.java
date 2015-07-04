@@ -6,7 +6,9 @@ import uk.jamierocks.lexteam.ygd.core.object.tool.connection.Connection;
 import uk.jamierocks.lexteam.ygd.core.section.SectionBuilder;
 
 /**
- * Class to create new builders fast.
+ * Class to create builders easier and with less code.
+ *
+ * This class is able to minimalize the amount of code it takes to do things that should be shorter.
  *
  * @author Jamie Mansfield
  */
@@ -15,7 +17,7 @@ public final class Builders {
     /**
      * Constructs a new {@link LevelBuilder}
      *
-     * @return new level builder
+     * @return a new level builder
      */
     public static LevelBuilder newLevelBuilder() {
         return new LevelBuilder();
@@ -25,7 +27,7 @@ public final class Builders {
      * Constructs a new {@link LevelBuilder}, with the connections supplied.
      *
      * @param connections the supplied connections.
-     * @return new level builder with the connections supplied
+     * @return a new level builder with the connections supplied
      */
     public static LevelBuilder newLevelBuilder(Connection... connections) {
         return newLevelBuilder().connection(connections);
@@ -34,7 +36,7 @@ public final class Builders {
     /**
      * Constructs a {@link SectionBuilder}
      *
-     * @return new section builder
+     * @return a new section builder
      */
     public static SectionBuilder newSectionBuilder() {
         return new SectionBuilder();
@@ -44,7 +46,7 @@ public final class Builders {
      * Constructs a new {@link SectionBuilder}, with the levels supplied.
      *
      * @param levels the supplied levels.
-     * @return new section builder with the levels supplied
+     * @return a new section builder with the levels supplied
      */
     public static SectionBuilder newSectionBuilder(Level... levels) {
         return newSectionBuilder().level(levels);

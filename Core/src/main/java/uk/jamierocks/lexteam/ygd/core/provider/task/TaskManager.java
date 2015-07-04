@@ -4,7 +4,9 @@ import uk.jamierocks.lexteam.ygd.core.task.Task;
 import uk.jamierocks.lexteam.ygd.core.task.TaskOwner;
 
 /**
- * Based on CanaryLib's ServerTaskManager
+ * Defines a task manager.
+ *
+ * A task manager handles adding tasks, removing tasks and running tasks.
  *
  * @author Jamie Mansfield
  */

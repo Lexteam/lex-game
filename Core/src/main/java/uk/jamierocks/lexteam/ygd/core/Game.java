@@ -12,9 +12,9 @@ import uk.jamierocks.lexteam.ygd.core.task.TaskOwner;
 import java.util.concurrent.ConcurrentMap;
 
 /**
- * The main game object
+ * The main game reference - This will be the central place for many actions.
  *
- * This should be registered with {@link YGDGame#setGame(Game)}, by the implementation
+ * This should be registered with {@link YGDGame#setGame(Game)}, by the implementation.
  *
  * @author Jamie Mansfield
  */
