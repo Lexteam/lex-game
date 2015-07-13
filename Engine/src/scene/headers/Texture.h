@@ -8,10 +8,10 @@ namespace Engine
 {
 
         //type of processing used when generating textures
-    enum TextureFilterType{Linear = GL_LINEAR, Nearest = GL_NEAREST};
+    enum class TextureFilterType{Linear = GL_LINEAR, Nearest = GL_NEAREST};
 
     //wrapping types for processing textures
-    enum TextureWrappingType{Repeat = GL_REPEAT, MirroredRepeat = GL_MIRRORED_REPEAT,
+    enum class TextureWrappingType{Repeat = GL_REPEAT, MirroredRepeat = GL_MIRRORED_REPEAT,
                                 ClampToEdge = GL_CLAMP_TO_EDGE, ClampToBorder = GL_CLAMP_TO_BORDER
 						};
 
