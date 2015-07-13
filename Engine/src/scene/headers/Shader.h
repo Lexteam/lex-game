@@ -18,7 +18,7 @@ namespace Engine
     class Shader
 	{
 	public:
-            enum Status { Linked, Compiled };
+            enum class Status { Linked, Compiled };
 
             Shader(std::string shaderfilename, Engine::ShaderType shadertype) :
                 type(shadertype)
