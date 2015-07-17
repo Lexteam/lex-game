@@ -8,7 +8,7 @@ import uk.jamierocks.lexteam.ygd.core.section.Section;
 import java.util.Set;
 
 /**
- * The default implemenation of {@link SectionService}
+ * The default implementation of {@link SectionService}
  *
  * @author Jamie Mansfield
  */

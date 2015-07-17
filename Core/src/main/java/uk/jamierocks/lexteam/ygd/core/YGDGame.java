@@ -2,10 +2,12 @@ package uk.jamierocks.lexteam.ygd.core;
 
 import com.google.common.base.Preconditions;
 import uk.jamierocks.lexteam.ygd.core.event.EventBus;
+import uk.jamierocks.lexteam.ygd.core.provider.save.SaveService;
 import uk.jamierocks.lexteam.ygd.core.provider.section.SectionService;
 import uk.jamierocks.lexteam.ygd.core.provider.task.TaskManager;
 import uk.jamierocks.lexteam.ygd.core.util.event.GameListener;
 import uk.jamierocks.lexteam.ygd.core.util.event.ToolAbilityListener;
+import uk.jamierocks.lexteam.ygd.core.util.provider.save.DefaultSaveService;
 import uk.jamierocks.lexteam.ygd.core.util.provider.section.DefaultSectionService;
 import uk.jamierocks.lexteam.ygd.core.util.provider.task.DefaultTaskManager;
 
@@ -21,6 +23,8 @@ public final class YGDGame {
     /**
      * Initializes default implementations of game components.
      *
+     * If used, this will need to be used on the game, before YGDGame#setGame(Game) is used!
+     *
      * <b>THIS SHOULD ONLY BE USED BY THE IMPLEMENTATION!</b>
      */
     public static void defaultInit() {
@@ -28,6 +32,7 @@ public final class YGDGame {
         game.registerProvider(EventBus.class, new EventBus()); // Could be removed
         game.registerProvider(TaskManager.class, new DefaultTaskManager());
         game.registerProvider(SectionService.class, new DefaultSectionService());
+        game.registerProvider(SaveService.class, new DefaultSaveService());
     }
 
     /**
