@@ -29,7 +29,7 @@ public final class YGDGame {
      */
     public static void defaultInit() {
         // Register providers
-        game.registerProvider(EventBus.class, new EventBus()); // Could be removed
+        game.registerProvider(EventBus.class, new EventBus());
         game.registerProvider(TaskManager.class, new DefaultTaskManager());
         game.registerProvider(SectionService.class, new DefaultSectionService());
         game.registerProvider(SaveService.class, new DefaultSaveService());

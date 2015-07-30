@@ -21,11 +21,8 @@ public class GameListener {
         event.getGame().getProvider(TaskManager.class).get().addTask(new Task(event.getGame(), event.getDelay()) {
             @Override
             public void run() {
-                for (Section section : event.getGame().getProvider(SectionService.class).get().getSections()) {
-                    for (Level level : section.getLevels()) {
-                        event.getGame().getProvider(TaskManager.class).get().removeTasks(level);
-                    }
-                }
+                event.getGame().getProvider(SectionService.class).get().getSections().forEach(x -> x.getLevels()
+                        .forEach(y -> event.getGame().getProvider(TaskManager.class).get().removeTasks(y)));
                 event.getGame().getProvider(TaskManager.class).get().removeTasks(event.getGame());
             }
         });

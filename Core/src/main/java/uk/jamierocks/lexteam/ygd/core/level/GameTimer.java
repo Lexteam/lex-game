@@ -29,12 +29,12 @@ public class GameTimer {
         YGDGame.getGame().getProvider(TaskManager.class).get().addTask(new Task(gameLevel, timerPulseTime) {
             @Override
             public void run() {
-                runPulse(gameLevel);
+                runPulse();
             }
         });
     }
 
-    protected void runPulse(Level level) {
+    protected void runPulse() {
         // TODO: create
     }
 }
