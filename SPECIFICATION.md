@@ -1,8 +1,11 @@
-GAME SPECIFICS (basically a vague todo and completion list):
+lex-game Specification
+======================
 
-The game will have the ability to create "saves". These will, in essence, be "runs" of the game. 
+## GAME SPECIFICS (basically a vague todo and completion list):
 
-In terms of data, they will be stored as JSON code which can be read from to reveal all the details needed to 
+**The game will have the ability to create "saves". These will, in essence, be "runs" of the game.**
+
+In terms of data, they will be stored as JSON which can be read from to reveal all the details needed to 
 create the "save" in game form.
 In terms of the game, each save will comprise 5-6 sections (more is possible), which will, in turn, comprise about 10-20 
 levels (again, more is possible). The layout and details of these will be randomly generatedfor each save.
@@ -28,9 +31,10 @@ There will probably be a score, which is specific per "save". I don't think we s
 section the levels are connected (in the 3d world, via the door. We'll need a way of connecting the doors - onvoling loading a new 
 "room"). We will, however, probably need a "select section" screen. And, obviously, a "select save".
 
-So, TODO - 
-    integration between engine and core (begun)
-    the connection and level code, in terms of points, needs to be re-written (by me(tom))
-    selection of tiles (selectedTile buffer in Main)
-    CONNECTIONS (how to do?)
-    point-to-position code
+## So, TODO:
+
+* integration between engine and core (begun)
+* the connection and level code, in terms of points, needs to be re-written (by me(tom))
+* selection of tiles (selectedTile buffer in Main)
+* CONNECTIONS (how to do?)
+* point-to-position code

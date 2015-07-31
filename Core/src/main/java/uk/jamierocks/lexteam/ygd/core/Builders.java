@@ -15,7 +15,7 @@ import uk.jamierocks.lexteam.ygd.core.section.SectionBuilder;
 public final class Builders {
 
     /**
-     * Constructs a new {@link LevelBuilder}
+     * Constructs a new {@link LevelBuilder}.
      *
      * @return a new level builder
      */
@@ -34,7 +34,7 @@ public final class Builders {
     }
 
     /**
-     * Constructs a {@link SectionBuilder}
+     * Constructs a {@link SectionBuilder}.
      *
      * @return a new section builder
      */

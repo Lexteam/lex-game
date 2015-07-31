@@ -7,8 +7,8 @@ A work-in-progress puzzle game, view our [specification](SPECIFICATION.md).
 * [Homepage]
 * [Source]
 * [Issues]
-* [Community Chat]: #neptune on irc.esper.net
-* [Development Chat]: #neptunedev on irc.esper.net
+* [Community Chat]: #lexteam on irc.esper.net
+* [Development Chat]: #lex-game on Lexteam Slack
 
 ## License
 
