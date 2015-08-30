@@ -19,7 +19,7 @@ door at the end, the circuit will be randomly scrambled and must be re-completed
 n will probably be decreased each section.
 
 The "circuit" will be made of a set of points, connected by connections. A connection has a point it goes to, and a point it
-comes from. When the pulse comes, each the game will check the list of connections to see whether the pointfrom of the first
+comes from. When the pulse comes, each the game will check the list of connections to see whether the point from of the first
 connection is the pointto of the next connection, and so on. If all the connection join like this, and eventually reach the end 
 point (at the door), the pulse succeeds.
 
