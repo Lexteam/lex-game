@@ -25,7 +25,7 @@ each room in the level. Each section is a new circuit.
 Every *n* number of seconds/minutes, a pulse will go through the circuit. 
 If, when the pulse comes, the circuit does not reach the door at the end, 
 the circuit will be randomly scrambled and must be re-completed. If the circuit 
-is complete, the door will open. n will probably be decreased each section.
+is complete, the door will open. n will probably be decreased each section(5-6 levels).
 
 The circuit/line/thingy will have a set of points, connected by "connections" - 
 parts of the line between points. A connection has a point it goes to, and a 
@@ -67,4 +67,3 @@ So, TODO:
     --continue tools, make engine code for this, graphics
     
 Everyone, make sure you have read this updated specification and that you agree with it, and update it as you see fit. --Tom
-    
