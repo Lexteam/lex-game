@@ -14,16 +14,13 @@ allprojects {
 
     repositories {
         mavenCentral()
-        flatDir  {
-            dirs rootProject.file('lib')
-        }
     }
 }
 
 dependencies {
     compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.0-beta9'
     compile project(':Core')
-    compile project(':EngineLib')
+    compile project(':Engine')
 }
 
 jar {
@@ -38,7 +35,7 @@ shadowJar {
     dependencies {
         include dependency('org.apache.logging.log4j:log4j-slf4j-impl:2.0-beta9')
         include project(':Core')
-        include project(':EngineLib')
+        include project(':Engine')
     }
     classifier ''
 }

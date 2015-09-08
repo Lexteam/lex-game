@@ -1,2 +1,16 @@
-apply plugin: 'cpp'
-apply plugin: 'visual-studio'
+plugins {
+    id 'java'
+}
+apply plugin: 'com.github.johnrengelman.shadow'
+
+dependencies {
+    compile 'org.lwjgl.lwjgl:lwjgl:2.9.3'
+}
+
+shadowJar {
+    dependencies {
+        include dependency('org.lwjgl.lwjgl:lwjgl')
+    }
+    classifier ''
+}
+assemble.dependsOn shadowJar
