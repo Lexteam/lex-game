@@ -12,7 +12,8 @@ A work-in-progress puzzle game, view our [specification](SPECIFICATION.md).
 
 ## License
 
-lex-game's license is available [here](LICENSE.txt).
+lex-game is licensed All Rights Reserved.
+You can find the license [here](LICENSE.txt).
 
 [Homepage]: https://gitlab.com/lexteam/lex-game
 [Source]: https://gitlab.com/lexteam/lex-game

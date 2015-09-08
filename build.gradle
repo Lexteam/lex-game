@@ -18,7 +18,7 @@ allprojects {
 }
 
 dependencies {
-    compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.0-beta9'
+    compile 'org.slf4j:slf4j-jdk14:1.7.12'
     compile project(':Core')
     compile project(':Engine')
 }
@@ -33,7 +33,7 @@ jar {
 
 shadowJar {
     dependencies {
-        include dependency('org.apache.logging.log4j:log4j-slf4j-impl:2.0-beta9')
+        include dependency('org.slf4j:slf4j-jdk14')
         include project(':Core')
         include project(':Engine')
     }
@@ -42,5 +42,5 @@ shadowJar {
 assemble.dependsOn shadowJar
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.5'
+    gradleVersion = '2.6'
 }

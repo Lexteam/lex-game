@@ -56,14 +56,14 @@ the game is won.
 We will need an overlay in-game for the use and selection of these, and 
 obviously graphics for them as well.
 
-So, TODO:
-    --integration between engine and core (begun)
-    --upgrade connection and point code
-    --upgrade level and section code
-    --make it all JSON-compatible
-    --point-to-position code (part of engine/core intergration)
-    --tile selection
-    --UIs (design + code)
-    --continue tools, make engine code for this, graphics
+### So, TODO:
+    - integration between engine and core (begun)
+    - upgrade connection and point code
+    - upgrade level and section code
+    - make it all JSON-compatible
+    - point-to-position code (part of engine/core integration)
+    - tile selection
+    - UIs (design + code)
+    - continue tools, make engine code for this, graphics
     
 Everyone, make sure you have read this updated specification and that you agree with it, and update it as you see fit. --Tom
