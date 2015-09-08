@@ -1,12 +1,12 @@
 package uk.jamierocks.lexteam.ygd.core.level;
 
-import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 import uk.jamierocks.lexteam.ygd.core.object.Point;
 import uk.jamierocks.lexteam.ygd.core.object.PointFactory;
 import uk.jamierocks.lexteam.ygd.core.object.tool.connection.Connection;
 
+import java.util.Optional;
 import java.util.Set;
 
 /**

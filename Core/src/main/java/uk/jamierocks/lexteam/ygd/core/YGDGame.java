@@ -83,7 +83,7 @@ public final class YGDGame {
 
     /**
      * Destroys the currently running {@link Game}.
-     * This is done, by setting the game variable to {@code null}.
+     * This is done, by setting the game field to {@code null}.
      *
      * <b>This should only be used by the implementation, or {@link GameListener}.</b>
      */

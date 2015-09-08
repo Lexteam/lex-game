@@ -1,12 +1,12 @@
 package uk.jamierocks.lexteam.ygd.core;
 
-import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.jamierocks.lexteam.ygd.core.task.TaskOwner;
 
+import java.util.Optional;
 import java.util.concurrent.ConcurrentMap;
 
 /**
@@ -25,12 +25,12 @@ public abstract class Game implements TaskOwner {
         Preconditions.checkNotNull(providerClass, "providerClass");
         if (providers.containsKey(providerClass)) {
             T provider = (T) providers.get(providerClass);
-            return provider != null ? Optional.of(provider) : Optional.<T>absent();
+            return provider != null ? Optional.of(provider) : Optional.empty();
         }
         throw new UnsupportedOperationException("That provider has not been registered!");
     }
 
-    public <T> void registerProvider(Class<?> providerClass, T provider) {
+    public <T, E extends T> void registerProvider(Class<T> providerClass, E provider) {
         Preconditions.checkNotNull(provider, "provider");
         Preconditions.checkNotNull(providerClass, "providerClass");
 

@@ -1,6 +1,6 @@
 package uk.jamierocks.lexteam.ygd.core.object;
 
-import com.google.common.base.Optional;
+import java.util.Optional;
 
 /**
  * Represents a point

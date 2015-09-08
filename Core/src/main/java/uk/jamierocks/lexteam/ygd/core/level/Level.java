@@ -1,10 +1,10 @@
 package uk.jamierocks.lexteam.ygd.core.level;
 
-import com.google.common.base.Optional;
 import uk.jamierocks.lexteam.ygd.core.object.Point;
 import uk.jamierocks.lexteam.ygd.core.object.tool.connection.Connection;
 import uk.jamierocks.lexteam.ygd.core.task.TaskOwner;
 
+import java.util.Optional;
 import java.util.Set;
 
 /**
