@@ -1,6 +1,6 @@
 package uk.jamierocks.lexteam.ygd.core.util.event;
 
-import net.engio.mbassy.listener.Handler;
+import com.google.common.eventbus.Subscribe;
 import uk.jamierocks.lexteam.ygd.core.event.tool.ability.CreatePointToolAbilityEvent;
 
 /**
@@ -10,7 +10,7 @@ import uk.jamierocks.lexteam.ygd.core.event.tool.ability.CreatePointToolAbilityE
  */
 public class ToolAbilityListener {
 
-    @Handler
+    @Subscribe
     public void onCreatePoint(CreatePointToolAbilityEvent event) {
         // TODO: this event
     }

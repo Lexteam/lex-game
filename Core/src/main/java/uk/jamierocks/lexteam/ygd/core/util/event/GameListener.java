@@ -1,12 +1,10 @@
 package uk.jamierocks.lexteam.ygd.core.util.event;
 
-import net.engio.mbassy.listener.Handler;
+import com.google.common.eventbus.Subscribe;
 import uk.jamierocks.lexteam.ygd.core.YGDGame;
 import uk.jamierocks.lexteam.ygd.core.event.game.ShutdownGameEvent;
-import uk.jamierocks.lexteam.ygd.core.level.Level;
 import uk.jamierocks.lexteam.ygd.core.provider.section.SectionService;
 import uk.jamierocks.lexteam.ygd.core.provider.task.TaskManager;
-import uk.jamierocks.lexteam.ygd.core.section.Section;
 import uk.jamierocks.lexteam.ygd.core.task.Task;
 
 /**
@@ -16,7 +14,7 @@ import uk.jamierocks.lexteam.ygd.core.task.Task;
  */
 public class GameListener {
 
-    @Handler
+    @Subscribe
     public void onShutdown(final ShutdownGameEvent event) {
         event.getGame().getProvider(TaskManager.class).get().addTask(new Task(event.getGame(), event.getDelay()) {
             @Override

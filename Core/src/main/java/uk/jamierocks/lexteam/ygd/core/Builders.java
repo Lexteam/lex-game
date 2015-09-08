@@ -8,7 +8,7 @@ import uk.jamierocks.lexteam.ygd.core.section.SectionBuilder;
 /**
  * Class to create builders easier and with less code.
  *
- * This class is able to minimalize the amount of code it takes to do things that should be shorter.
+ * This class is able to minimise the amount of code it takes to create builders.
  *
  * @author Jamie Mansfield
  */
@@ -51,5 +51,4 @@ public final class Builders {
     public static SectionBuilder newSectionBuilder(Level... levels) {
         return newSectionBuilder().level(levels);
     }
-
 }

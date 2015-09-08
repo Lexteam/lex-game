@@ -1,7 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core;
 
 import com.google.common.base.Preconditions;
-import uk.jamierocks.lexteam.ygd.core.event.EventBus;
+import com.google.common.eventbus.EventBus;
 import uk.jamierocks.lexteam.ygd.core.provider.save.SaveService;
 import uk.jamierocks.lexteam.ygd.core.provider.section.SectionService;
 import uk.jamierocks.lexteam.ygd.core.provider.task.TaskManager;
@@ -46,8 +46,8 @@ public final class YGDGame {
         // TODO: Create sections and register them.
 
         // Register event listeners
-        game.getProvider(EventBus.class).get().registerEventListener(new ToolAbilityListener());
-        game.getProvider(EventBus.class).get().registerEventListener(new GameListener());
+        game.getProvider(EventBus.class).get().register(new ToolAbilityListener());
+        game.getProvider(EventBus.class).get().register(new GameListener());
     }
 
     /**
