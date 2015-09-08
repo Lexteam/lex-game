@@ -23,8 +23,6 @@ public final class YGDGame {
     /**
      * Initializes default implementations of game components.
      *
-     * If used, this will need to be used on the game, before YGDGame#setGame(Game) is used!
-     *
      * <b>THIS SHOULD ONLY BE USED BY THE IMPLEMENTATION!</b>
      */
     public static void defaultInit() {
