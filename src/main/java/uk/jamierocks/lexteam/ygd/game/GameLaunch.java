@@ -1,40 +1,36 @@
 package uk.jamierocks.lexteam.ygd.game;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.google.common.eventbus.EventBus;
 import uk.jamierocks.lexteam.ygd.core.Game;
+import uk.jamierocks.lexteam.ygd.core.data.DataManager;
 import uk.jamierocks.lexteam.ygd.core.data.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.service.ProviderExistsException;
-import uk.jamierocks.lexteam.ygd.core.service.ServiceManager;
-import uk.jamierocks.lexteam.ygd.core.service.SimpleServiceManager;
-import uk.jamierocks.lexteam.ygd.game.data.Processors;
-import uk.jamierocks.lexteam.ygd.game.service.Services;
+import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
+import uk.jamierocks.lexteam.ygd.game.impl.data.processor.LoggerValueProcessor;
 
-/**
- * The implementation of {@link Game}.
- *
- * @author Jamie Mansfield
- */
-public class GameLaunch implements Game {
+public class GameLaunch {
 
-    public final Logger logger = LoggerFactory.getLogger("lex-game");
-    private final ServiceManager serviceManager = new SimpleServiceManager();
-
-    public GameLaunch() {
-        try {
-            Services.registerServices(serviceManager);
-        } catch (ProviderExistsException e) {
-            get(Keys.LOGGER).error("A provider already exists for that service!", e);
-        }
-        Processors.registerProcessors();
-    }
+    private static Game game;
 
     public static void main(String[] args) {
-        new GameLaunch();
+        game = new LexGame();
+        try {
+            registerServices();
+        } catch (ProviderExistsException e) {
+            game.get(Keys.LOGGER).error("A provider already exists for that service!", e);
+        }
+        registerProcessors();
     }
 
-    @Override
-    public ServiceManager getServiceManager() {
-        return serviceManager;
+    public static Game getGame() {
+        return game;
+    }
+
+    private static void registerServices() throws ProviderExistsException {
+        getGame().getServiceManager().setProvider(EventBus.class, new EventBus());
+    }
+
+    private static void registerProcessors() {
+        DataManager.registerProcessor(new LoggerValueProcessor());
     }
 }

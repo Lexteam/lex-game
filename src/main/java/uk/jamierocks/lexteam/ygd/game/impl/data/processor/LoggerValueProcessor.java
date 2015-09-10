@@ -1,4 +1,4 @@
-package uk.jamierocks.lexteam.ygd.game.data.processor;
+package uk.jamierocks.lexteam.ygd.game.impl.data.processor;
 
 import org.slf4j.Logger;
 import uk.jamierocks.lexteam.ygd.core.data.DataContainer;
@@ -7,6 +7,7 @@ import uk.jamierocks.lexteam.ygd.core.data.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.data.value.Value;
 import uk.jamierocks.lexteam.ygd.game.GameLaunch;
 import uk.jamierocks.lexteam.ygd.core.data.value.ValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
 
 import java.util.Optional;
 
@@ -19,14 +20,14 @@ public class LoggerValueProcessor implements ValueProcessor<Logger, Value<Logger
 
     @Override
     public boolean supports(DataContainer container) {
-        return container instanceof GameLaunch;
+        return container instanceof LexGame;
     }
 
     @Override
     public Optional<Logger> getValueFromContainer(DataContainer container) {
-        if (supports(container)) {
-            GameLaunch game = (GameLaunch) container;
-            return Optional.of(game.logger);
+        if (container instanceof LexGame) {
+            LexGame game = (LexGame) container;
+            return Optional.of(game.getLogger());
         }
         return Optional.empty();
     }
