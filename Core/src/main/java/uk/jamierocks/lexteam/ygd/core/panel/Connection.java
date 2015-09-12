@@ -1,7 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.panel;
 
 /**
- * Created by Jamie_2 on 12/09/2015.
+ * @author Tom
  */
 public class Connection {
     public Connection(Direction to, Direction from){
@@ -21,10 +21,7 @@ public class Connection {
     public Direction getFrom(){
         return from;
     }
-    public void setFrom(Direction direction){
+    public void setFrom(Direction direction) {
         from = direction;
     }
-
-
-
 }
