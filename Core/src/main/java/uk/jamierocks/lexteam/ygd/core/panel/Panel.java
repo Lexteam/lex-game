@@ -8,5 +8,5 @@ public interface Panel {
     void setConnection(Connection connection);
 
     int getDuration();
-    void setDuration();
+    void setDuration(int duration);
 }

@@ -4,5 +4,5 @@ import uk.jamierocks.lexteam.ygd.core.panel.Panel;
 
 public interface ToolManipulator {
 
-    void manipulate(Panel panel);
+    void manipulate(Panel panel, ToolManipulatorInfo info);
 }

@@ -10,11 +10,11 @@ public class Tool {
         this.manipulator = manipulator;
     }
 
-    public ToolManipulator getManipulator() {
-        return manipulator;
-    }
-
     public String getName() {
         return name;
+    }
+
+    public ToolManipulator getManipulator() {
+        return manipulator;
     }
 }
