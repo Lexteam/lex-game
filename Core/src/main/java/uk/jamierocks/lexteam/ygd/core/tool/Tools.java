@@ -10,7 +10,8 @@ public final class Tools {
     });
 
     public static final Tool REMOVE_CONNECTION = new Tool("remove_connection", (panel, info) -> {
-
+        panel.getConnection().setTo(Direction.NONE);
+        panel.getConnection().setFrom(Direction.NONE);
     });
 
     public static final Tool REVERSE_CONNECTION = new Tool("reverse_connection", (panel, info) -> {
