@@ -6,7 +6,8 @@ import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 public final class Tools {
 
     public static final Tool ADD_CONNECTION = new Tool("add_connection", (panel, info) -> {
-
+        panel.getConnection().setTo(info.get(Keys.DIRECTION_TO));
+        panel.getConnection().setFrom(info.get(Keys.DIRECTION_FROM));
     });
 
     public static final Tool REMOVE_CONNECTION = new Tool("remove_connection", (panel, info) -> {

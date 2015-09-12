@@ -1,12 +1,11 @@
 package uk.jamierocks.lexteam.ygd.game.impl.panel;
 
 import uk.jamierocks.lexteam.ygd.core.panel.Connection;
-import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 import uk.jamierocks.lexteam.ygd.core.panel.Panel;
 
 public class GamePanel implements Panel {
 
-    private Connection connection = new Connection(Direction.NONE, Direction.NONE);
+    private Connection connection = Connection.BLANK;
     private int duration = 1;
     private boolean burntout = false;
 
