@@ -5,8 +5,8 @@ package uk.jamierocks.lexteam.ygd.core.panel;
  */
 public class Connection {
     public Connection(Direction to, Direction from){
-        this.setTo(to);
-        this.setFrom(from);
+        this.to = to;
+        this.from = from;
     }
 
     private Direction to;
@@ -14,7 +14,7 @@ public class Connection {
         return to;
     }
     public void setTo(Direction direction){
-        to = direction;
+        this.to = direction;
     }
 
     private Direction from;
@@ -22,6 +22,6 @@ public class Connection {
         return from;
     }
     public void setFrom(Direction direction) {
-        from = direction;
+        this.from = direction;
     }
 }

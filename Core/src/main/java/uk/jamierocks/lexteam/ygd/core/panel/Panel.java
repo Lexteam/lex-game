@@ -9,4 +9,6 @@ public interface Panel {
 
     int getDuration();
     void setDuration(int duration);
+
+
 }
