@@ -1,6 +1,9 @@
 package uk.jamierocks.lexteam.ygd.core.section;
 
 import uk.jamierocks.lexteam.ygd.core.Difficulty;
+import uk.jamierocks.lexteam.ygd.core.section.level.Level;
+
+import java.util.Set;
 
 /**
  * Represents a section, with a name and difficulty
@@ -56,5 +59,26 @@ public class Section {
      */
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+    }
+
+    /**
+     * The levels in the section
+     */
+    private Set<Level> levels;
+
+    /**
+     * Gets the levels
+     * @return Level[] levels
+     */
+    public Set<Level> getLevels() {
+        return levels;
+    }
+
+    /**
+     * Sets the section's levels
+     * @param levels the new value for levels
+     */
+    public void setLevels(Set<Level> levels) {
+        this.levels = levels;
     }
 }
