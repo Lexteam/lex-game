@@ -1,8 +1,13 @@
 package uk.jamierocks.lexteam.ygd.game.impl.panel;
 
+import uk.jamierocks.lexteam.ygd.core.Game;
 import uk.jamierocks.lexteam.ygd.core.panel.Connection;
 import uk.jamierocks.lexteam.ygd.core.panel.Panel;
-
+/**
+ * The implementation of {@link Panel}.
+ *
+ * @author Jamie Mansfield
+ */
 public class GamePanel implements Panel {
 
     private Connection connection = Connection.BLANK;

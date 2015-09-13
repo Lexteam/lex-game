@@ -1,7 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.panel;
 
 /**
- * Represents the four sides of a panel
+ * Represents the four directional sides of a panel, and an empty one.
  *
  * @author Tom
  */
