@@ -2,7 +2,7 @@ package uk.jamierocks.lexteam.ygd.core.section.level;
 
 import com.flowpowered.math.vector.Vector3f;
 import uk.jamierocks.lexteam.ygd.core.panel.BasePanel;
-import uk.jamierocks.lexteam.ygd.core.panel.PanelMap;
+import uk.jamierocks.lexteam.ygd.core.util.LexMap;
 
 /**
  * Represents a level, containing the panels
@@ -16,7 +16,7 @@ public class Level {
     private LexMap<BasePanel, Vector3f> panels;
 
     /**
-     * Sets the panels
+     * Gets the panels
      * @return LexMap<BasePanel, Vector3f> panels
      */
     public LexMap<BasePanel, Vector3f> getPanels() {
@@ -24,14 +24,14 @@ public class Level {
     }
 
     public BasePanel getPanel(Vector3f panelPosition){
-        return panels.getPanel(panelPosition);
+        return panels.getKey(panelPosition);
     }
 
     /**
-     * Gets the panels
+     * Sets the panels
      * @param panels the new panels
      */
-    public void LexMap<BasePanel, Vector3f>(PanelMap panels) {
+    public void setPanels (LexMap<BasePanel, Vector3f> panels) {
         this.panels = panels;
     }
 }
