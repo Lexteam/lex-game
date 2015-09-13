@@ -7,7 +7,7 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.12'
     compile 'com.google.guava:guava:18.0'
     compile 'com.google.code.gson:gson:2.3.1'
-    compile 'com.flowpowered:flow-math:1.0.2-SNAPSHOT'
+    compile 'com.flowpowered:flow-math:1.0.1'
 }
 
 shadowJar {
