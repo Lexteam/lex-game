@@ -88,7 +88,7 @@ public final class Tools {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
             double chance = Math.random() * 100;
-            if (chance <= 50){
+            if (chance <= 50) {
                 panel.setBurntout(false);
             }
         }
@@ -105,7 +105,7 @@ public final class Tools {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
             double chance = Math.random() * 100;
-            if (chance <= 90){
+            if (chance <= 90) {
                 panel.setBurntout(false);
             }
         }
