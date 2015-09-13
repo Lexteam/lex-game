@@ -68,7 +68,7 @@ public class Section {
 
     /**
      * Gets the levels
-     * @return Level[] levels
+     * @return Set<Level> levels
      */
     public Set<Level> getLevels() {
         return levels;

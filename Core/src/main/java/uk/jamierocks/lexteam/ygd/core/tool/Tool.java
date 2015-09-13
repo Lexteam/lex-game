@@ -2,6 +2,8 @@ package uk.jamierocks.lexteam.ygd.core.tool;
 
 /**
  * Represents a tool.
+ *
+ * @author Jamie Mansfield
  */
 public class Tool {
 

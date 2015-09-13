@@ -13,13 +13,13 @@ public class Level {
     /**
      * The level's panels
      */
-    private Set<Panel> panels;
+    private Set<Set<Set<Panel>>> panels;
 
     /**
      * Sets the panels
-     * @return Panel[] panels
+     * @return Set<Set<Set<Panel>>> panels
      */
-    public Set<Panel> getPanels() {
+    public Set<Set<Set<Panel>>> getPanels() {
         return panels;
     }
 
@@ -27,7 +27,7 @@ public class Level {
      * Gets the panels
      * @param panels the new panels
      */
-    public void setPanels(Set<Panel> panels) {
+    public void setPanels(Set<Set<Set<Panel>>> panels) {
         this.panels = panels;
     }
 }
