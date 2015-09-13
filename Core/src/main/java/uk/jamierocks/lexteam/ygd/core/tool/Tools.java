@@ -88,16 +88,19 @@ public final class Tools {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
             double chance = Math.random() * 100;
-            if (chance <= 50) {
-                panel.setBurntout(false);
+            if(panel.isBurntout()){
+                if (chance <= 50) {
+                    panel.setBurntout(false);
+                }
+            }
+            else{
+                panel.setBurntout(true);
             }
         }
 
         @Override
         public boolean canManipulate(Panel panel) {
-            return panel.getConnection().getTo() != Direction.NONE &&
-                    panel.getConnection().getFrom() != Direction.NONE &&
-                    panel.isBurntout();
+            return true;
         }
     });
 
@@ -105,16 +108,19 @@ public final class Tools {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
             double chance = Math.random() * 100;
-            if (chance <= 90) {
-                panel.setBurntout(false);
+            if(panel.isBurntout()){
+                if (chance <= 90) {
+                    panel.setBurntout(false);
+                }
+            }
+            else{
+                panel.setBurntout(true);
             }
         }
 
         @Override
         public boolean canManipulate(Panel panel) {
-            return panel.getConnection().getTo() != Direction.NONE &&
-                    panel.getConnection().getFrom() != Direction.NONE &&
-                    panel.isBurntout();
+            return true;
         }
     });
 }
