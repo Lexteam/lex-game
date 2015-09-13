@@ -20,6 +20,9 @@ public class LexGame implements Game {
         return logger;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public ServiceManager getServiceManager() {
         return serviceManager;
