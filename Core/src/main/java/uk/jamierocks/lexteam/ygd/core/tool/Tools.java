@@ -82,12 +82,32 @@ public final class Tools {
     });
 
     /**
-     * Tool that repairs burnt out panels.
+     * Tools that repairs burnt out panels.
      */
-    public static final Tool REPAIR_PANEL = new Tool("repair_panel", new ToolManipulator() {
+    public static final Tool WEAK_REPAIR_PANEL = new Tool("weak_repair_panel", new ToolManipulator() {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
-            panel.setBurntout(false);
+            double chance = Math.random() * 100;
+            if (chance <= 50){
+                panel.setBurntout(false);
+            }
+        }
+
+        @Override
+        public boolean canManipulate(Panel panel) {
+            return panel.getConnection().getTo() != Direction.NONE &&
+                    panel.getConnection().getFrom() != Direction.NONE &&
+                    panel.isBurntout();
+        }
+    });
+
+    public static final Tool STRONG_REPAIR_PANEL = new Tool("strong_repair_panel", new ToolManipulator() {
+        @Override
+        public void manipulate(Panel panel, ToolManipulatorInfo info) {
+            double chance = Math.random() * 100;
+            if (chance <= 90){
+                panel.setBurntout(false);
+            }
         }
 
         @Override
