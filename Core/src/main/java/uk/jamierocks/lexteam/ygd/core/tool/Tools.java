@@ -44,4 +44,8 @@ public final class Tools {
     public static final Tool CHANGE_DURATION = new Tool("change_duration", (panel, info) -> {
         panel.setDuration(info.get(Keys.DURATION));
     });
+
+    public static final Tool REMOVE_BURNTOUT = new Tool("remove_burntout", (panel, info) -> {
+        panel.setBurntout(false);
+    });
 }

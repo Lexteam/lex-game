@@ -4,7 +4,7 @@ package uk.jamierocks.lexteam.ygd.core.panel;
  * Represents a panel, containing a connection
  * @author Tom
  */
-public interface Panel {
+public interface Panel extends BasePanel{
 
     /**
      * Gets the panel's connection
