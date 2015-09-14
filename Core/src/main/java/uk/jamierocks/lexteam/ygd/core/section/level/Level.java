@@ -16,6 +16,10 @@ public class Level {
      */
     private LexMap<BasePanel, Vector3f> panels = LexMaps.newLexMap();
 
+    public Level(LexMap<BasePanel, Vector3f> panels){
+        this.panels = panels;
+    }
+
     /**
      * Gets the panels
      * @return LexMap<BasePanel, Vector3f> panels
@@ -29,10 +33,10 @@ public class Level {
     }
 
     /**
-     * Sets the panels
-     * @param panels the new panels
+     * Adds a new panel
+     * @param panel the new panel
      */
-    public void setPanels (LexMap<BasePanel, Vector3f> panels) {
-        this.panels = panels;
+    public void addPanel (BasePanel panel) {
+        panels.add(panel, panel.getPanelPosition());
     }
 }
