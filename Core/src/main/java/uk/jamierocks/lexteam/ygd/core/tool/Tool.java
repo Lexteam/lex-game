@@ -7,27 +7,25 @@ package uk.jamierocks.lexteam.ygd.core.tool;
  */
 public class Tool {
 
-    /**
-     * The name of the tool
-     */
     private final String name;
-    /**
-     * The tool's manipulator
-     */
     private final ToolManipulator manipulator;
+    private final int cooldown;
 
     /**
      * Creates a new tool with a set name and manipulator
+     *
      * @param name the new name value
      * @param manipulator the new manipulator value
      */
-    public Tool(String name, ToolManipulator manipulator) {
+    public Tool(String name, int cooldown, ToolManipulator manipulator) {
         this.name = name;
+        this.cooldown = cooldown;
         this.manipulator = manipulator;
     }
 
     /**
      * Gets the tool's name
+     *
      * @return String name
      */
     public String getName() {
@@ -35,7 +33,19 @@ public class Tool {
     }
 
     /**
+     * Gets the tool's cooldown time.
+     *
+     * The time should be in seconds.
+     *
+     * @return int representation of the cooldown time.
+     */
+    public int getCooldown() {
+        return cooldown;
+    }
+
+    /**
      * Gets the tool's manipulator
+     *
      * @return ToolManipulator manipulator
      */
     public ToolManipulator getManipulator() {
