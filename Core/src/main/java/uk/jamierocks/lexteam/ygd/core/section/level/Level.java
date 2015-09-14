@@ -1,9 +1,11 @@
 package uk.jamierocks.lexteam.ygd.core.section.level;
 
 import com.flowpowered.math.vector.Vector3f;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.ImmutableBiMap;
 import uk.jamierocks.lexteam.ygd.core.panel.BasePanel;
-import uk.jamierocks.lexteam.ygd.core.util.LexMap;
-import uk.jamierocks.lexteam.ygd.core.util.LexMaps;
+
+import java.util.Set;
 
 /**
  * Represents a level, containing the panels
@@ -14,9 +16,11 @@ public class Level {
     /**
      * The level's panels
      */
-    private LexMap<BasePanel, Vector3f> panels = LexMaps.newLexMap();
+    private BiMap<BasePanel, Vector3f> panels = ImmutableBiMap.<BasePanel, Vector3f>builder().build();
 
-    public Level(LexMap<BasePanel, Vector3f> panels){
+    public Level() {}
+
+    public Level(BiMap<BasePanel, Vector3f> panels){
         this.panels = panels;
     }
 
@@ -24,12 +28,12 @@ public class Level {
      * Gets the panels
      * @return LexMap<BasePanel, Vector3f> panels
      */
-    public LexMap<BasePanel, Vector3f> getPanels() {
-        return panels;
+    public Set<BasePanel> getPanels() {
+        return panels.keySet();
     }
 
     public BasePanel getPanel(Vector3f panelPosition){
-        return panels.getKey(panelPosition);
+        return panels.inverse().get(panelPosition);
     }
 
     /**
@@ -37,6 +41,6 @@ public class Level {
      * @param panel the new panel
      */
     public void addPanel (BasePanel panel) {
-        panels.add(panel, panel.getPanelPosition());
+        panels.put(panel, panel.getPanelPosition());
     }
 }
