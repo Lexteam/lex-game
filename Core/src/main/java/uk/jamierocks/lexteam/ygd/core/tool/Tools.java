@@ -25,7 +25,8 @@ public final class Tools {
         @Override
         public boolean canManipulate(Panel panel) {
             return panel.getConnection().getTo() == Direction.NONE &&
-                    panel.getConnection().getFrom() == Direction.NONE;
+                    panel.getConnection().getFrom() == Direction.NONE &&
+                    !panel.isCoolingDown();
         }
     });
 
@@ -42,7 +43,8 @@ public final class Tools {
         @Override
         public boolean canManipulate(Panel panel) {
             return panel.getConnection().getTo() != Direction.NONE &&
-                    panel.getConnection().getFrom() != Direction.NONE;
+                    panel.getConnection().getFrom() != Direction.NONE &&
+                     !panel.isCoolingDown();
         }
     });
 
@@ -61,7 +63,8 @@ public final class Tools {
         @Override
         public boolean canManipulate(Panel panel) {
             return panel.getConnection().getTo() != Direction.NONE &&
-                    panel.getConnection().getFrom() != Direction.NONE;
+                    panel.getConnection().getFrom() != Direction.NONE &&
+                    !panel.isCoolingDown();
         }
     });
 
@@ -77,7 +80,8 @@ public final class Tools {
         @Override
         public boolean canManipulate(Panel panel) {
             return panel.getConnection().getTo() != Direction.NONE &&
-                    panel.getConnection().getFrom() != Direction.NONE;
+                    panel.getConnection().getFrom() != Direction.NONE &&
+                    !panel.isCoolingDown();
         }
     });
 
@@ -100,7 +104,7 @@ public final class Tools {
 
         @Override
         public boolean canManipulate(Panel panel) {
-            return true;
+            return !panel.isCoolingDown();
         }
     });
 
@@ -120,7 +124,7 @@ public final class Tools {
 
         @Override
         public boolean canManipulate(Panel panel) {
-            return true;
+            return !panel.isCoolingDown();
         }
     });
 }

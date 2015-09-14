@@ -41,4 +41,16 @@ public interface Panel extends BasePanel{
      * @param burntout the new value
      */
     void setBurntout(boolean burntout);
+
+    /**
+     * Gets whether or not the panel is currently cooling down
+     * @return True if the panel is cooling down
+     */
+    boolean isCoolingDown();
+
+    /**
+     * Sets whether or not the panel is cooling down
+     * @param coolingDown the new value
+     */
+    void setCoolingDown(boolean coolingDown);
 }
