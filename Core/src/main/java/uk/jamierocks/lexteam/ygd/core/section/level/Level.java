@@ -3,6 +3,7 @@ package uk.jamierocks.lexteam.ygd.core.section.level;
 import com.flowpowered.math.vector.Vector3f;
 import uk.jamierocks.lexteam.ygd.core.panel.BasePanel;
 import uk.jamierocks.lexteam.ygd.core.util.LexMap;
+import uk.jamierocks.lexteam.ygd.core.util.LexMaps;
 
 /**
  * Represents a level, containing the panels
@@ -13,7 +14,7 @@ public class Level {
     /**
      * The level's panels
      */
-    private LexMap<BasePanel, Vector3f> panels;
+    private LexMap<BasePanel, Vector3f> panels = LexMaps.newLexMap();
 
     /**
      * Gets the panels
