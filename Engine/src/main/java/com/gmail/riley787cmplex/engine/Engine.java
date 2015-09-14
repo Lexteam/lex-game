@@ -8,15 +8,13 @@ import uk.jamierocks.lexteam.ygd.core.section.*;
 import uk.jamierocks.lexteam.ygd.core.section.level.*;
 import uk.jamierocks.lexteam.ygd.core.tool.*;
 
-
-
-
 public class Engine{
       private final static int  SIDES = 4;
 
-      public Engine( Vector3f Nopanels_perface ){
+      public Engine(){
 
       }
+
 
       public void Animate(ToolType tool, Panel panel) {
 

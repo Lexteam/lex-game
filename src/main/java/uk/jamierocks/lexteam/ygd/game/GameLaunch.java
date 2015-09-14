@@ -16,7 +16,7 @@ public class GameLaunch {
     private static Game game;
 
     public static void main(String[] args) {
-        game = new LexGame();
+        game = new Game();
         try {
             registerServices();
         } catch (ProviderExistsException e) {
