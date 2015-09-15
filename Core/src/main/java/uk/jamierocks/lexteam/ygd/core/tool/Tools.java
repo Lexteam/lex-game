@@ -23,11 +23,11 @@ public final class Tools {
         }
 
         @Override
-        public boolean canManipulate(Panel panel) {
-            return panel.getConnection().getTo() == Direction.NONE &&
-                    panel.getConnection().getFrom() == Direction.NONE &&
-                    !panel.isCoolingDown() &&
-                    !panel.isFixedPanel();
+        public boolean[] getManipulateOptions(Panel panel) {
+            return new boolean[] {
+                panel.getConnection().getTo() == Direction.NONE &&
+                        panel.getConnection().getFrom() == Direction.NONE
+            };
         }
     });
 
@@ -42,11 +42,11 @@ public final class Tools {
         }
 
         @Override
-        public boolean canManipulate(Panel panel) {
-            return panel.getConnection().getTo() != Direction.NONE &&
-                    panel.getConnection().getFrom() != Direction.NONE &&
-                     !panel.isCoolingDown() &&
-                    !panel.isFixedPanel();
+        public boolean[] getManipulateOptions(Panel panel) {
+            return new boolean[] {
+                    panel.getConnection().getTo() != Direction.NONE &&
+                            panel.getConnection().getFrom() != Direction.NONE
+            };
         }
     });
 
@@ -63,11 +63,11 @@ public final class Tools {
         }
 
         @Override
-        public boolean canManipulate(Panel panel) {
-            return panel.getConnection().getTo() != Direction.NONE &&
-                    panel.getConnection().getFrom() != Direction.NONE &&
-                    !panel.isCoolingDown() &&
-                    !panel.isFixedPanel();
+        public boolean[] getManipulateOptions(Panel panel) {
+            return new boolean[] {
+                    panel.getConnection().getTo() != Direction.NONE &&
+                            panel.getConnection().getFrom() != Direction.NONE
+            };
         }
     });
 
@@ -81,11 +81,11 @@ public final class Tools {
         }
 
         @Override
-        public boolean canManipulate(Panel panel) {
-            return panel.getConnection().getTo() != Direction.NONE &&
-                    panel.getConnection().getFrom() != Direction.NONE &&
-                    !panel.isCoolingDown() &&
-                    !panel.isFixedPanel();
+        public boolean[] getManipulateOptions(Panel panel) {
+            return new boolean[] {
+                    panel.getConnection().getTo() != Direction.NONE &&
+                            panel.getConnection().getFrom() != Direction.NONE
+            };
         }
     });
 
@@ -107,9 +107,8 @@ public final class Tools {
         }
 
         @Override
-        public boolean canManipulate(Panel panel) {
-            return !panel.isCoolingDown() &&
-                    !panel.isFixedPanel();
+        public boolean[] getManipulateOptions(Panel panel) {
+            return new boolean[0];
         }
     });
 
@@ -128,9 +127,8 @@ public final class Tools {
         }
 
         @Override
-        public boolean canManipulate(Panel panel) {
-            return !panel.isCoolingDown() &&
-                    !panel.isFixedPanel();
+        public boolean[] getManipulateOptions(Panel panel) {
+            return new boolean[0];
         }
     });
 }
