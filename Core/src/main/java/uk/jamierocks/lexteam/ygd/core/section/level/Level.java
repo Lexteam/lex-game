@@ -32,6 +32,11 @@ public class Level {
         return panels.keySet();
     }
 
+    /**
+     * Returns a panel based on its position
+     * @param panelPosition the position of the panel wanted
+     * @return a panel that matches the given position
+     */
     public BasePanel getPanel(Vector3f panelPosition){
         return panels.inverse().get(panelPosition);
     }

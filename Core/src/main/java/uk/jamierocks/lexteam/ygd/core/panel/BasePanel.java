@@ -3,6 +3,7 @@ package uk.jamierocks.lexteam.ygd.core.panel;
 import com.flowpowered.math.vector.Vector3f;
 
 /**
+ * The most basic possible panel
  * @author Tom
  */
 public interface BasePanel {
