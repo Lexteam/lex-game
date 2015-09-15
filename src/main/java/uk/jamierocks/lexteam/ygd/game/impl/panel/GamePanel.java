@@ -16,6 +16,7 @@ public class GamePanel implements Panel {
     private boolean burntout = false;
     private Vector3f panelPosition;
     private boolean isCoolingDown = false;
+    private boolean isFixedPanel;
 
     /**
      * {@inheritDoc}
@@ -95,5 +96,21 @@ public class GamePanel implements Panel {
     @Override
     public void setCoolingDown(boolean isCoolingDown) {
         this.isCoolingDown = isCoolingDown;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean isFixedPanel() {
+        return isFixedPanel;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setFixedPanel(boolean fixed) {
+        this.isFixedPanel = fixed;
     }
 }
