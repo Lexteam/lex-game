@@ -1,6 +1,5 @@
 package uk.jamierocks.lexteam.ygd.game.impl.panel;
 
-import com.flowpowered.math.vector.Vector3f;
 import uk.jamierocks.lexteam.ygd.core.panel.Connection;
 import uk.jamierocks.lexteam.ygd.core.panel.Panel;
 
@@ -8,13 +7,13 @@ import uk.jamierocks.lexteam.ygd.core.panel.Panel;
  * The implementation of {@link Panel}.
  *
  * @author Jamie Mansfield
+ * @author Tom
  */
-public class GamePanel implements Panel {
+public class GamePanel extends GameBasePanel implements Panel {
 
     private Connection connection = Connection.BLANK;
     private int duration = 1;
     private boolean burntout = false;
-    private Vector3f panelPosition;
     private boolean isCoolingDown = false;
     private boolean isFixedPanel;
 
@@ -64,22 +63,6 @@ public class GamePanel implements Panel {
     @Override
     public void setBurntout(boolean burntout) {
         this.burntout = burntout;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Vector3f getPanelPosition(){
-        return this.panelPosition;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setPanelPosition(Vector3f panelPosition){
-        this.panelPosition = panelPosition;
     }
 
     /**
