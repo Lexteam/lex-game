@@ -2,6 +2,7 @@ package uk.jamierocks.lexteam.ygd.game.impl.data.processor;
 
 import org.slf4j.Logger;
 import uk.jamierocks.lexteam.ygd.core.data.DataContainer;
+import uk.jamierocks.lexteam.ygd.core.data.DataTransactionResult;
 import uk.jamierocks.lexteam.ygd.core.data.key.Key;
 import uk.jamierocks.lexteam.ygd.core.data.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.data.value.Value;
@@ -21,6 +22,11 @@ public class LoggerValueProcessor implements ValueProcessor<Logger, Value<Logger
     @Override
     public boolean supports(DataContainer container) {
         return container instanceof LexGame;
+    }
+
+    @Override
+    public DataTransactionResult offer(Logger data) {
+        return DataTransactionResult.DISALLOWED;
     }
 
     @Override
