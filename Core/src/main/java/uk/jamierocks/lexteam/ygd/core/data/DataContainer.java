@@ -9,8 +9,8 @@ public interface DataContainer {
         return DataManager.get(this, key);
     }
 
-    default <T> void offer(Key<Value<T>> key, T value) {
-
+    default <T> DataTransactionResult offer(Key<Value<T>> key, T value) {
+        return DataManager.offer(key, value);
     }
 
     default <T> boolean has(Key<Value<T>> key) {

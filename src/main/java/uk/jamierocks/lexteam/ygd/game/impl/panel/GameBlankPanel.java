@@ -6,7 +6,7 @@ import uk.jamierocks.lexteam.ygd.core.panel.BlankPanel;
  * The implementation of {@Link BlankPanel}.
  *
  * @author Tom
- * @author Jamie Mansfiels
+ * @author Jamie Mansfield
  */
 public class GameBlankPanel extends GameBasePanel implements BlankPanel {
 

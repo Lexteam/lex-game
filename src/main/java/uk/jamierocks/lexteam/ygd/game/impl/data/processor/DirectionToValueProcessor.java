@@ -1,6 +1,7 @@
 package uk.jamierocks.lexteam.ygd.game.impl.data.processor;
 
 import uk.jamierocks.lexteam.ygd.core.data.DataContainer;
+import uk.jamierocks.lexteam.ygd.core.data.DataTransactionResult;
 import uk.jamierocks.lexteam.ygd.core.data.key.Key;
 import uk.jamierocks.lexteam.ygd.core.data.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.data.value.Value;
@@ -20,6 +21,11 @@ public class DirectionToValueProcessor implements ValueProcessor<Direction, Valu
     @Override
     public boolean supports(DataContainer container) {
         return container instanceof AddConnectionInfo;
+    }
+
+    @Override
+    public DataTransactionResult offer(Direction data) {
+        return DataTransactionResult.DISALLOWED;
     }
 
     @Override

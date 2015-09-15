@@ -19,6 +19,10 @@ public class DataManager {
         return (T) processors.get(key).getValueFromContainer(container).get();
     }
 
+    public static <T> DataTransactionResult offer(Key<Value<T>> key, T value) {
+        return processors.get(key).offer(value);
+    }
+
     public static <T> boolean has(DataContainer container, Key<Value<T>> key) {
         return processors.get(key).supports(container);
     }
