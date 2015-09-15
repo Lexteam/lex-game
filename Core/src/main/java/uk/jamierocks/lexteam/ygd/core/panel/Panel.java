@@ -53,4 +53,17 @@ public interface Panel extends BasePanel{
      * @param coolingDown the new value
      */
     void setCoolingDown(boolean coolingDown);
+
+    /**
+     * Gets whether the panel is fixed; whether tools can interact with it
+     * @return True if the panel is fixed
+     */
+    boolean isFixedPanel();
+
+    /**
+     * Sets whether or not the panel is fixed
+     * @param fixed the new value
+     */
+    void setFixedPanel(boolean fixed);
+
 }

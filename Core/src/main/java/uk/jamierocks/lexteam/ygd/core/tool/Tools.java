@@ -26,7 +26,8 @@ public final class Tools {
         public boolean canManipulate(Panel panel) {
             return panel.getConnection().getTo() == Direction.NONE &&
                     panel.getConnection().getFrom() == Direction.NONE &&
-                    !panel.isCoolingDown();
+                    !panel.isCoolingDown() &&
+                    !panel.isFixedPanel();
         }
     });
 
@@ -44,7 +45,8 @@ public final class Tools {
         public boolean canManipulate(Panel panel) {
             return panel.getConnection().getTo() != Direction.NONE &&
                     panel.getConnection().getFrom() != Direction.NONE &&
-                     !panel.isCoolingDown();
+                     !panel.isCoolingDown() &&
+                    !panel.isFixedPanel();
         }
     });
 
@@ -64,7 +66,8 @@ public final class Tools {
         public boolean canManipulate(Panel panel) {
             return panel.getConnection().getTo() != Direction.NONE &&
                     panel.getConnection().getFrom() != Direction.NONE &&
-                    !panel.isCoolingDown();
+                    !panel.isCoolingDown() &&
+                    !panel.isFixedPanel();
         }
     });
 
@@ -81,7 +84,8 @@ public final class Tools {
         public boolean canManipulate(Panel panel) {
             return panel.getConnection().getTo() != Direction.NONE &&
                     panel.getConnection().getFrom() != Direction.NONE &&
-                    !panel.isCoolingDown();
+                    !panel.isCoolingDown() &&
+                    !panel.isFixedPanel();
         }
     });
 
@@ -104,7 +108,8 @@ public final class Tools {
 
         @Override
         public boolean canManipulate(Panel panel) {
-            return !panel.isCoolingDown();
+            return !panel.isCoolingDown() &&
+                    !panel.isFixedPanel();
         }
     });
 
@@ -124,7 +129,8 @@ public final class Tools {
 
         @Override
         public boolean canManipulate(Panel panel) {
-            return !panel.isCoolingDown();
+            return !panel.isCoolingDown() &&
+                    !panel.isFixedPanel();
         }
     });
 }
