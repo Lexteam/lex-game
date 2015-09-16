@@ -7,11 +7,13 @@ import java.util.Set;
 
 /**
  * Represents a section, with a name and difficulty
+ *
  * @author Tom
  */
 public class Section {
     /**
      * Creates a new Section
+     *
      * @param name the name
      * @param difficulty the difficulty
      */
@@ -26,6 +28,7 @@ public class Section {
     private String name;
     /**
      * Gets the name
+     *
      * @return name String name
      */
     public String getName() {
@@ -34,6 +37,7 @@ public class Section {
 
     /**
      * Sets the name
+     *
      * @param name the new name value
      */
     public void setName(String name) {
@@ -47,6 +51,7 @@ public class Section {
 
     /**
      * Gets the difficulty
+     *
      * @return Difficulty difficulty
      */
     public Difficulty getDifficulty() {
@@ -55,6 +60,7 @@ public class Section {
 
     /**
      * Sets the difficulty
+     *
      * @param difficulty the new difficulty value
      */
     public void setDifficulty(Difficulty difficulty) {
@@ -68,6 +74,7 @@ public class Section {
 
     /**
      * Gets the levels
+     *
      * @return Set<Level> levels
      */
     public Set<Level> getLevels() {
@@ -76,6 +83,7 @@ public class Section {
 
     /**
      * Sets the section's levels
+     *
      * @param levels the new value for levels
      */
     public void setLevels(Set<Level> levels) {

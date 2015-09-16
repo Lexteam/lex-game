@@ -9,6 +9,7 @@ import java.util.Set;
 
 /**
  * Represents a level, containing the panels
+ *
  * @author Tom
  */
 public class Level {
@@ -26,6 +27,7 @@ public class Level {
 
     /**
      * Gets the panels
+     *
      * @return LexMap<BasePanel, Vector3f> panels
      */
     public Set<BasePanel> getPanels() {
@@ -34,6 +36,7 @@ public class Level {
 
     /**
      * Returns a panel based on its position
+     *
      * @param panelPosition the position of the panel wanted
      * @return a panel that matches the given position
      */
@@ -43,6 +46,7 @@ public class Level {
 
     /**
      * Adds a new panel
+     *
      * @param panel the new panel
      */
     public void addPanel (BasePanel panel) {

@@ -3,6 +3,7 @@ package uk.jamierocks.lexteam.ygd.core.panel;
 /**
  * Represents a connection on a panel. Contains representations of the sides of the
  * panel the connection goes to and from.
+ *
  * @author Tom
  */
 public class Connection {
@@ -17,6 +18,7 @@ public class Connection {
 
     /**
      * Construct a panel with set to and from directions
+     *
      * @param to the 'to' direction value
      * @param from the 'from' direction value
      */
@@ -34,6 +36,7 @@ public class Connection {
 
     /**
      * Sets the direction of the 'to' side of the connection
+     *
      * @param direction the new value
      */
     public void setTo(Direction direction) {
@@ -49,6 +52,7 @@ public class Connection {
 
     /**
      * Sets the direction of the 'from' side of the connection
+     *
      * @param direction the new value
      */
     public void setFrom(Direction direction) {
