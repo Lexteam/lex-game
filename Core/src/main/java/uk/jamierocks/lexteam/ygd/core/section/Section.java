@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * Represents a section, with a name and difficulty
  *
- * @author Tom
+ * @author Tom Drever
  */
 public class Section {
     /**

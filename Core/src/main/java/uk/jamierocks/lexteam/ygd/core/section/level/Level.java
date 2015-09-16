@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * Represents a level, containing the panels
  *
- * @author Tom
+ * @author Tom Drever
  */
 public class Level {
 

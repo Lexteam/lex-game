@@ -4,7 +4,7 @@ package uk.jamierocks.lexteam.ygd.core.panel;
  * Represents a connection on a panel. Contains representations of the sides of the
  * panel the connection goes to and from.
  *
- * @author Tom
+ * @author Tom Drever
  */
 public class Connection {
 

@@ -3,7 +3,7 @@ package uk.jamierocks.lexteam.ygd.core.panel;
 /**
  * A blank panel
  *
- * @author Tom
+ * @author Tom Drever
  */
 public interface BlankPanel extends BasePanel {
 

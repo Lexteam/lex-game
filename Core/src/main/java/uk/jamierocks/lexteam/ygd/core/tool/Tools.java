@@ -8,7 +8,7 @@ import uk.jamierocks.lexteam.ygd.core.panel.Panel;
  * A class containing the variety of tools within the game.
  *
  * @author Jamie Mansfield
- * @author Tom
+ * @author Tom Drever
  */
 public final class Tools {
 

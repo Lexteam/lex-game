@@ -5,7 +5,7 @@ import com.flowpowered.math.vector.Vector3f;
 /**
  * The most basic possible panel
  *
- * @author Tom
+ * @author Tom Drever
  */
 public interface BasePanel {
     /**

@@ -3,7 +3,7 @@ package uk.jamierocks.lexteam.ygd.core.panel;
 /**
  * Represents a panel, containing a connection
  *
- * @author Tom
+ * @author Tom Drever
  */
 public interface Panel extends BasePanel{
 
