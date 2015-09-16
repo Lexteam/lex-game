@@ -9,16 +9,16 @@ import com.flowpowered.math.vector.Vector3f;
  */
 public interface BasePanel {
     /**
-     * Gets the panel's position
+     * Gets the position of the panel represented as a {@link Vector3f}.
      *
-     * @return Vector3f panelPosition
+     * @return the position of the panel.
      */
     Vector3f getPanelPosition();
 
     /**
-     * Sets the panel's position
+     * Sets the position of the panel.
      *
-     * @param panelPosition the new position value
+     * @param panelPosition the new position.
      */
     void setPanelPosition(Vector3f panelPosition);
 }

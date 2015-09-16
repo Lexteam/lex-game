@@ -8,43 +8,45 @@ package uk.jamierocks.lexteam.ygd.core.panel;
 public interface Panel extends BasePanel{
 
     /**
-     * Gets the panel's connection
+     * Gets the panel's connection.
      *
-     * @return Connection connction
+     * @return the panel's connection.
      */
     Connection getConnection();
 
     /**
-     * Sets the panel's connection
+     * Sets the panel's connection.
      *
-     * @param connection the new connection value
+     * @param connection the new connection.
      */
     void setConnection(Connection connection);
 
     /**
-     * Gets the duration of the panel
+     * Gets the duration of the panel.
+     * The duration is in seconds.
      *
-     * @return Int duration
+     * @return the pulse duration.
      */
     int getDuration();
 
     /**
+     * Sets the pulse duration of this panel.
      *
-     * @param duration the new duration value
+     * @param duration the new duration.
      */
     void setDuration(int duration);
 
     /**
-     * Gets whether or not the panel is burnt out
+     * Gets whether or not the panel is burnt out.
      *
-     * @return True if panel is burnt out
+     * @return True if panel is burnt out.
      */
     boolean isBurntout();
 
     /**
-     * Sets whether or not the panel is burnt out
+     * Sets whether or not the panel is burnt out.
      *
-     * @param burntout the new value
+     * @param burntout the new value.
      */
     void setBurntout(boolean burntout);
 
@@ -70,9 +72,9 @@ public interface Panel extends BasePanel{
     boolean isFixedPanel();
 
     /**
-     * Sets whether or not the panel is fixed
+     * Sets whether or not the panel is fixed.
      *
-     * @param fixed the new value
+     * @param fixed the new value.
      */
     void setFixedPanel(boolean fixed);
 

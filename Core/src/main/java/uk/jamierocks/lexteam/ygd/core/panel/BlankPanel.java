@@ -1,7 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.panel;
 
 /**
- * A blank panel
+ * A blank panel.
  *
  * @author Tom Drever
  */

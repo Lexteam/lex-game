@@ -28,6 +28,8 @@ public class Connection {
     }
 
     /**
+     * Gets the {@link Direction} going into the 'to' side of this connection.
+     *
      * @return the direction of the 'to' side of the connection
      */
     public Direction getTo() {
@@ -44,6 +46,8 @@ public class Connection {
     }
 
     /**
+     * Gets the {@link Direction} going into the 'from' side of this connection.
+     *
      * @return the direction of the 'from' side of the connection
      */
     public Direction getFrom() {
