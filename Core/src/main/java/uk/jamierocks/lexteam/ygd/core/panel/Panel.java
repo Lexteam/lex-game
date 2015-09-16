@@ -39,7 +39,7 @@ public interface Panel extends BasePanel{
     /**
      * Gets whether or not the panel is burnt out.
      *
-     * @return True if panel is burnt out.
+     * @return {@code true} if panel is burnt out.
      */
     boolean isBurntout();
 
@@ -53,7 +53,7 @@ public interface Panel extends BasePanel{
     /**
      * Gets whether or not the panel is currently cooling down
      *
-     * @return True if the panel is cooling down
+     * @return {@code true} if the panel is cooling down
      */
     boolean isCoolingDown();
 
@@ -67,7 +67,7 @@ public interface Panel extends BasePanel{
     /**
      * Gets whether the panel is fixed; whether tools can interact with it
      *
-     * @return True if the panel is fixed
+     * @return {@code true} if the panel is fixed
      */
     boolean isFixedPanel();
 
