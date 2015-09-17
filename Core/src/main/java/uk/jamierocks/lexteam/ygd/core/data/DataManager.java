@@ -2,8 +2,8 @@ package uk.jamierocks.lexteam.ygd.core.data;
 
 import com.google.common.collect.Maps;
 import uk.jamierocks.lexteam.ygd.core.data.key.Key;
-import uk.jamierocks.lexteam.ygd.core.data.value.ValueProcessor;
 import uk.jamierocks.lexteam.ygd.core.data.value.Value;
+import uk.jamierocks.lexteam.ygd.core.data.value.ValueProcessor;
 
 import java.util.Map;
 
