@@ -24,9 +24,9 @@ public class Tool {
     }
 
     /**
-     * Gets the tool's name
+     * Gets the tool's name.
      *
-     * @return String name
+     * @return the tool's name.
      */
     public String getName() {
         return name;
@@ -37,16 +37,16 @@ public class Tool {
      *
      * The time should be in seconds.
      *
-     * @return int representation of the cooldown time.
+     * @return the cooldown time in seconds.
      */
     public int getCooldown() {
         return cooldown;
     }
 
     /**
-     * Gets the tool's manipulator
+     * Gets the tool's manipulator.
      *
-     * @return ToolManipulator manipulator
+     * @return the tool's manipulator.
      */
     public ToolManipulator getManipulator() {
         return manipulator;
