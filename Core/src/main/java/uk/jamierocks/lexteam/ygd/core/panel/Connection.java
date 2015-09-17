@@ -8,13 +8,12 @@ package uk.jamierocks.lexteam.ygd.core.panel;
  */
 public class Connection {
 
-    private Direction to;
-    private Direction from;
-
     /**
      * A blank connection
      */
     public static final Connection BLANK = new Connection(Direction.NONE, Direction.NONE);
+    private Direction to;
+    private Direction from;
 
     /**
      * Construct a panel with set to and from directions

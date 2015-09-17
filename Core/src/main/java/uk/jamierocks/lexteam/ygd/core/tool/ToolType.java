@@ -19,10 +19,6 @@ public enum ToolType {
         this.tool = tool;
     }
 
-    public Tool getTool() {
-        return tool;
-    }
-
     public static ToolType fromTool(Tool tool) {
         for (ToolType type : values()) {
             if (type.tool == tool) {
@@ -30,5 +26,9 @@ public enum ToolType {
             }
         }
         return null;
+    }
+
+    public Tool getTool() {
+        return tool;
     }
 }

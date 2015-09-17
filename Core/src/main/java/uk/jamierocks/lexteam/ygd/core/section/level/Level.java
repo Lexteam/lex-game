@@ -16,9 +16,10 @@ public class Level {
 
     private BiMap<BasePanel, Vector3f> panels = ImmutableBiMap.<BasePanel, Vector3f>builder().build();
 
-    public Level() {}
+    public Level() {
+    }
 
-    public Level(BiMap<BasePanel, Vector3f> panels){
+    public Level(BiMap<BasePanel, Vector3f> panels) {
         this.panels = panels;
     }
 
@@ -37,7 +38,7 @@ public class Level {
      * @param panelPosition the position of the panel wanted
      * @return a panel that matches the given position
      */
-    public BasePanel getPanel(Vector3f panelPosition){
+    public BasePanel getPanel(Vector3f panelPosition) {
         return panels.inverse().get(panelPosition);
     }
 
@@ -46,7 +47,7 @@ public class Level {
      *
      * @param panel the new panel.
      */
-    public void addPanel (BasePanel panel) {
+    public void addPanel(BasePanel panel) {
         panels.put(panel, panel.getPanelPosition());
     }
 }

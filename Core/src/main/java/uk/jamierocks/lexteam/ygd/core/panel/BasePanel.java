@@ -8,6 +8,7 @@ import com.flowpowered.math.vector.Vector3f;
  * @author Tom Drever
  */
 public interface BasePanel {
+
     /**
      * Gets the position of the panel represented as a {@link Vector3f}.
      *

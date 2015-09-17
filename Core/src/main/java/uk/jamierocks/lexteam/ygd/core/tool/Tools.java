@@ -24,9 +24,9 @@ public final class Tools {
 
         @Override
         public boolean[] getManipulateOptions(Panel panel) {
-            return new boolean[] {
-                panel.getConnection().getTo() == Direction.NONE &&
-                        panel.getConnection().getFrom() == Direction.NONE
+            return new boolean[]{
+                    panel.getConnection().getTo() == Direction.NONE &&
+                            panel.getConnection().getFrom() == Direction.NONE
             };
         }
     });
@@ -43,7 +43,7 @@ public final class Tools {
 
         @Override
         public boolean[] getManipulateOptions(Panel panel) {
-            return new boolean[] {
+            return new boolean[]{
                     panel.getConnection().getTo() != Direction.NONE &&
                             panel.getConnection().getFrom() != Direction.NONE
             };
@@ -64,7 +64,7 @@ public final class Tools {
 
         @Override
         public boolean[] getManipulateOptions(Panel panel) {
-            return new boolean[] {
+            return new boolean[]{
                     panel.getConnection().getTo() != Direction.NONE &&
                             panel.getConnection().getFrom() != Direction.NONE
             };
@@ -82,7 +82,7 @@ public final class Tools {
 
         @Override
         public boolean[] getManipulateOptions(Panel panel) {
-            return new boolean[] {
+            return new boolean[]{
                     panel.getConnection().getTo() != Direction.NONE &&
                             panel.getConnection().getFrom() != Direction.NONE
             };
@@ -96,12 +96,11 @@ public final class Tools {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
             double chance = Math.random() * 100;
-            if(panel.isBurntout()){
+            if (panel.isBurntout()) {
                 if (chance <= 50) {
                     panel.setBurntout(false);
                 }
-            }
-            else{
+            } else {
                 panel.setBurntout(true);
             }
         }
@@ -116,12 +115,11 @@ public final class Tools {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
             double chance = Math.random() * 100;
-            if(panel.isBurntout()){
+            if (panel.isBurntout()) {
                 if (chance <= 90) {
                     panel.setBurntout(false);
                 }
-            }
-            else{
+            } else {
                 panel.setBurntout(true);
             }
         }

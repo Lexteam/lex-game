@@ -11,6 +11,11 @@ import java.util.Set;
  * @author Tom Drever
  */
 public class Section {
+
+    private String name;
+    private Difficulty difficulty;
+    private Set<Level> levels;
+
     /**
      * Creates a new Section
      *
@@ -22,7 +27,6 @@ public class Section {
         this.difficulty = difficulty;
     }
 
-    private String name;
     /**
      * Gets the name of this level.
      *
@@ -41,8 +45,6 @@ public class Section {
         this.name = name;
     }
 
-    private Difficulty difficulty;
-
     /**
      * Gets the difficulty of this level.
      *
@@ -60,8 +62,6 @@ public class Section {
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
     }
-
-    private Set<Level> levels;
 
     /**
      * Gets the levels.
