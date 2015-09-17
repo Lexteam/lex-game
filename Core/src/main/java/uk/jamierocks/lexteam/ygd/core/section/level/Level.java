@@ -9,13 +9,11 @@ import java.util.Set;
 
 /**
  * Represents a level, containing the panels
- * @author Tom
+ *
+ * @author Tom Drever
  */
 public class Level {
 
-    /**
-     * The level's panels
-     */
     private BiMap<BasePanel, Vector3f> panels = ImmutableBiMap.<BasePanel, Vector3f>builder().build();
 
     public Level() {}
@@ -25,15 +23,17 @@ public class Level {
     }
 
     /**
-     * Gets the panels
-     * @return LexMap<BasePanel, Vector3f> panels
+     * Gets all the panels, contained in this level.
+     *
+     * @return all the panels.
      */
     public Set<BasePanel> getPanels() {
         return panels.keySet();
     }
 
     /**
-     * Returns a panel based on its position
+     * Gets a panel based on its position.
+     *
      * @param panelPosition the position of the panel wanted
      * @return a panel that matches the given position
      */
@@ -42,8 +42,9 @@ public class Level {
     }
 
     /**
-     * Adds a new panel
-     * @param panel the new panel
+     * Adds the specified panel to this level.
+     *
+     * @param panel the new panel.
      */
     public void addPanel (BasePanel panel) {
         panels.put(panel, panel.getPanelPosition());
