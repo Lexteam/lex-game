@@ -9,14 +9,14 @@ import uk.jamierocks.lexteam.ygd.core.section.level.*;
 import uk.jamierocks.lexteam.ygd.core.tool.*;
 
 public class Engine{
-      private final static int  SIDES = 4;
+      private final static int  SIDES = 6;
 
-      public Engine(){
+      public Engine(int panelsperface){
 
       }
 
 
-      public void Animate(ToolType tool, Panel panel) {
+      public void animate(ToolType tool, Panel panel) {
 
             if (!panel.isBurntout()) {
                   switch (tool) {
