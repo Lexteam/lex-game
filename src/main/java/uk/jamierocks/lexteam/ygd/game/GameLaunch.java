@@ -5,6 +5,7 @@ import uk.jamierocks.lexteam.ygd.core.Game;
 import uk.jamierocks.lexteam.ygd.core.data.DataManager;
 import uk.jamierocks.lexteam.ygd.core.data.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.service.ProviderExistsException;
+import uk.jamierocks.lexteam.ygd.core.util.DataUtils;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
 import uk.jamierocks.lexteam.ygd.game.impl.data.processor.DirectionFromValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.data.processor.DirectionToValueProcessor;
@@ -23,6 +24,10 @@ public class GameLaunch {
             game.get(Keys.LOGGER).error("A provider already exists for that service!", e);
         }
         registerProcessors();
+
+        if (!DataUtils.getDataPath().toFile().exists()) {
+            DataUtils.getDataPath().toFile().mkdir();
+        }
     }
 
     public static Game getGame() {
