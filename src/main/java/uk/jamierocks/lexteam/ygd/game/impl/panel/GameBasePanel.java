@@ -16,7 +16,7 @@ public class GameBasePanel implements BasePanel {
      * {@inheritDoc}
      */
     @Override
-    public Vector3f getPanelPosition(){
+    public Vector3f getPanelPosition() {
         return this.panelPosition;
     }
 
@@ -24,7 +24,7 @@ public class GameBasePanel implements BasePanel {
      * {@inheritDoc}
      */
     @Override
-    public void setPanelPosition(Vector3f panelPosition){
+    public void setPanelPosition(Vector3f panelPosition) {
         this.panelPosition = panelPosition;
     }
 }
