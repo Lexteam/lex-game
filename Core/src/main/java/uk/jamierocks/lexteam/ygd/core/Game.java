@@ -10,5 +10,10 @@ import uk.jamierocks.lexteam.ygd.core.service.ServiceManager;
  */
 public interface Game extends DataContainer {
 
+    /**
+     * Gets the game's service manager.
+     *
+     * @return the {@link ServiceManager}.
+     */
     ServiceManager getServiceManager();
 }

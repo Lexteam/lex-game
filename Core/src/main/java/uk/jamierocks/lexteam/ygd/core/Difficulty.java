@@ -9,20 +9,28 @@ import java.util.List;
 public enum Difficulty {
 
     LOWEST(Tools.REVERSE_CONNECTION, Tools.WEAK_REPAIR_PANEL),
-    LOW(Tools.REVERSE_CONNECTION, Tools.WEAK_REPAIR_PANEL, Tools.ADD_CONNECTION),
-    EASY(Tools.REVERSE_CONNECTION, Tools.WEAK_REPAIR_PANEL, Tools.ADD_CONNECTION, Tools.REMOVE_CONNECTION),
-    MEDIUM(Tools.REVERSE_CONNECTION, Tools.WEAK_REPAIR_PANEL, Tools.ADD_CONNECTION, Tools.REMOVE_CONNECTION,  Tools.CHANGE_DURATION),
-    HARD(Tools.REVERSE_CONNECTION, Tools.STRONG_REPAIR_PANEL, Tools.ADD_CONNECTION, Tools.REMOVE_CONNECTION,  Tools.CHANGE_DURATION),
-    HIGH(Tools.REVERSE_CONNECTION, Tools.STRONG_REPAIR_PANEL, Tools.ADD_CONNECTION, Tools.REMOVE_CONNECTION, Tools.CHANGE_DURATION),
-    HIGHEST(Tools.REVERSE_CONNECTION, Tools.STRONG_REPAIR_PANEL, Tools.ADD_CONNECTION, Tools.REMOVE_CONNECTION, Tools.CHANGE_DURATION);
+    LOW(LOWEST, Tools.ADD_CONNECTION),
+    EASY(LOW, Tools.REMOVE_CONNECTION),
+    MEDIUM(EASY, Tools.CHANGE_DURATION),
+    HARD(Tools.REVERSE_CONNECTION, Tools.STRONG_REPAIR_PANEL, Tools.ADD_CONNECTION, Tools.REMOVE_CONNECTION,
+            Tools.CHANGE_DURATION),
+    HIGH(HARD),
+    HIGHEST(HIGH);
 
     private final List<Tool> tools;
+
+    Difficulty(Difficulty difficulty, Tool... tools) {
+        this.tools = Lists.newArrayList(difficulty.getTools());
+        for (Tool tool : tools) {
+            this.tools.add(tool);
+        }
+    }
 
     Difficulty(Tool... tools) {
         this.tools = Lists.newArrayList(tools);
     }
 
     public List<Tool> getTools() {
-        return tools;
+        return this.tools;
     }
 }

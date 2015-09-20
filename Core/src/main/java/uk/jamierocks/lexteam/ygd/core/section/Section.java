@@ -6,12 +6,19 @@ import uk.jamierocks.lexteam.ygd.core.section.level.Level;
 import java.util.Set;
 
 /**
- * Represents a section, with a name and difficulty
- * @author Tom
+ * Represents a section.
+ *
+ * @author Tom Drever
  */
 public class Section {
+
+    private String name;
+    private Difficulty difficulty;
+    private Set<Level> levels;
+
     /**
      * Creates a new Section
+     *
      * @param name the name
      * @param difficulty the difficulty
      */
@@ -21,54 +28,45 @@ public class Section {
     }
 
     /**
-     * The Section's name
-     */
-    private String name;
-    /**
-     * Gets the name
-     * @return name String name
+     * Gets the name of this level.
+     *
+     * @return the level's name.
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Sets the name
-     * @param name the new name value
+     * Sets the name of this level.
+     *
+     * @param name the new name.
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * The Section's difficulty
-     */
-    private Difficulty difficulty;
-
-    /**
-     * Gets the difficulty
-     * @return Difficulty difficulty
+     * Gets the difficulty of this level.
+     *
+     * @return the level's difficulty.
      */
     public Difficulty getDifficulty() {
         return difficulty;
     }
 
     /**
-     * Sets the difficulty
-     * @param difficulty the new difficulty value
+     * Sets the difficulty of this level.
+     *
+     * @param difficulty the new difficulty.
      */
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
     }
 
     /**
-     * The levels in the section
-     */
-    private Set<Level> levels;
-
-    /**
-     * Gets the levels
-     * @return Set<Level> levels
+     * Gets the levels.
+     *
+     * @return the levels.
      */
     public Set<Level> getLevels() {
         return levels;
@@ -76,6 +74,7 @@ public class Section {
 
     /**
      * Sets the section's levels
+     *
      * @param levels the new value for levels
      */
     public void setLevels(Set<Level> levels) {

@@ -8,7 +8,7 @@ import uk.jamierocks.lexteam.ygd.core.panel.Panel;
  * A class containing the variety of tools within the game.
  *
  * @author Jamie Mansfield
- * @author Tom
+ * @author Tom Drever
  */
 public final class Tools {
 
@@ -23,10 +23,11 @@ public final class Tools {
         }
 
         @Override
-        public boolean canManipulate(Panel panel) {
-            return panel.getConnection().getTo() == Direction.NONE &&
-                    panel.getConnection().getFrom() == Direction.NONE &&
-                    !panel.isCoolingDown();
+        public boolean[] getManipulateOptions(Panel panel) {
+            return new boolean[]{
+                    panel.getConnection().getTo() == Direction.NONE &&
+                            panel.getConnection().getFrom() == Direction.NONE
+            };
         }
     });
 
@@ -41,10 +42,11 @@ public final class Tools {
         }
 
         @Override
-        public boolean canManipulate(Panel panel) {
-            return panel.getConnection().getTo() != Direction.NONE &&
-                    panel.getConnection().getFrom() != Direction.NONE &&
-                     !panel.isCoolingDown();
+        public boolean[] getManipulateOptions(Panel panel) {
+            return new boolean[]{
+                    panel.getConnection().getTo() != Direction.NONE &&
+                            panel.getConnection().getFrom() != Direction.NONE
+            };
         }
     });
 
@@ -61,10 +63,11 @@ public final class Tools {
         }
 
         @Override
-        public boolean canManipulate(Panel panel) {
-            return panel.getConnection().getTo() != Direction.NONE &&
-                    panel.getConnection().getFrom() != Direction.NONE &&
-                    !panel.isCoolingDown();
+        public boolean[] getManipulateOptions(Panel panel) {
+            return new boolean[]{
+                    panel.getConnection().getTo() != Direction.NONE &&
+                            panel.getConnection().getFrom() != Direction.NONE
+            };
         }
     });
 
@@ -78,10 +81,11 @@ public final class Tools {
         }
 
         @Override
-        public boolean canManipulate(Panel panel) {
-            return panel.getConnection().getTo() != Direction.NONE &&
-                    panel.getConnection().getFrom() != Direction.NONE &&
-                    !panel.isCoolingDown();
+        public boolean[] getManipulateOptions(Panel panel) {
+            return new boolean[]{
+                    panel.getConnection().getTo() != Direction.NONE &&
+                            panel.getConnection().getFrom() != Direction.NONE
+            };
         }
     });
 
@@ -92,19 +96,18 @@ public final class Tools {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
             double chance = Math.random() * 100;
-            if(panel.isBurntout()){
+            if (panel.isBurntout()) {
                 if (chance <= 50) {
                     panel.setBurntout(false);
                 }
-            }
-            else{
+            } else {
                 panel.setBurntout(true);
             }
         }
 
         @Override
-        public boolean canManipulate(Panel panel) {
-            return !panel.isCoolingDown();
+        public boolean[] getManipulateOptions(Panel panel) {
+            return new boolean[0];
         }
     });
 
@@ -112,19 +115,18 @@ public final class Tools {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
             double chance = Math.random() * 100;
-            if(panel.isBurntout()){
+            if (panel.isBurntout()) {
                 if (chance <= 90) {
                     panel.setBurntout(false);
                 }
-            }
-            else{
+            } else {
                 panel.setBurntout(true);
             }
         }
 
         @Override
-        public boolean canManipulate(Panel panel) {
-            return !panel.isCoolingDown();
+        public boolean[] getManipulateOptions(Panel panel) {
+            return new boolean[0];
         }
     });
 }

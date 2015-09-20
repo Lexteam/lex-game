@@ -1,42 +1,53 @@
 package uk.jamierocks.lexteam.ygd.core.section.level;
 
 import com.flowpowered.math.vector.Vector3f;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.ImmutableBiMap;
 import uk.jamierocks.lexteam.ygd.core.panel.BasePanel;
-import uk.jamierocks.lexteam.ygd.core.util.LexMap;
-import uk.jamierocks.lexteam.ygd.core.util.LexMaps;
+
+import java.util.Set;
 
 /**
  * Represents a level, containing the panels
- * @author Tom
+ *
+ * @author Tom Drever
  */
 public class Level {
 
-    /**
-     * The level's panels
-     */
-    private LexMap<BasePanel, Vector3f> panels = LexMaps.newLexMap();
+    private BiMap<BasePanel, Vector3f> panels = ImmutableBiMap.<BasePanel, Vector3f>builder().build();
 
-    public Level(LexMap<BasePanel, Vector3f> panels){
+    public Level() {
+    }
+
+    public Level(BiMap<BasePanel, Vector3f> panels) {
         this.panels = panels;
     }
 
     /**
-     * Gets the panels
-     * @return LexMap<BasePanel, Vector3f> panels
+     * Gets all the panels, contained in this level.
+     *
+     * @return all the panels.
      */
-    public LexMap<BasePanel, Vector3f> getPanels() {
-        return panels;
-    }
-
-    public BasePanel getPanel(Vector3f panelPosition){
-        return panels.getKey(panelPosition);
+    public Set<BasePanel> getPanels() {
+        return panels.keySet();
     }
 
     /**
-     * Adds a new panel
-     * @param panel the new panel
+     * Gets a panel based on its position.
+     *
+     * @param panelPosition the position of the panel wanted
+     * @return a panel that matches the given position
      */
-    public void addPanel (BasePanel panel) {
-        panels.add(panel, panel.getPanelPosition());
+    public BasePanel getPanel(Vector3f panelPosition) {
+        return panels.inverse().get(panelPosition);
+    }
+
+    /**
+     * Adds the specified panel to this level.
+     *
+     * @param panel the new panel.
+     */
+    public void addPanel(BasePanel panel) {
+        panels.put(panel, panel.getPanelPosition());
     }
 }

@@ -6,5 +6,21 @@ public interface ToolManipulator {
 
     void manipulate(Panel panel, ToolManipulatorInfo info);
 
-    boolean canManipulate(Panel panel);
+    boolean[] getManipulateOptions(Panel panel);
+
+    default boolean canManipulate(Panel panel) {
+        boolean[] options = getManipulateOptions(panel);
+
+        if (!panel.isCoolingDown() || !panel.isFixedPanel()) {
+            return false;
+        }
+
+        for (boolean option : options) {
+            if (!option) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
