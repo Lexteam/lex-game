@@ -3,7 +3,7 @@ package uk.jamierocks.lexteam.ygd.core.panel;
 import com.flowpowered.math.vector.Vector3f;
 
 /**
- * The most basic possible panel
+ * The most basic possible panel. Just holds its position.
  *
  * @author Tom Drever
  */

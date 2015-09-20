@@ -4,6 +4,7 @@ import com.flowpowered.math.vector.Vector3f;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import uk.jamierocks.lexteam.ygd.core.panel.BasePanel;
+import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 
 import java.util.Set;
 
@@ -16,11 +17,18 @@ public class Level {
 
     private BiMap<BasePanel, Vector3f> panels = ImmutableBiMap.<BasePanel, Vector3f>builder().build();
 
+    private int panelsPerFace;
+
     public Level() {
     }
 
-    public Level(BiMap<BasePanel, Vector3f> panels) {
+    public Level(BiMap<BasePanel, Vector3f> panels, int panelsPerFace) {
         this.panels = panels;
+        this.panelsPerFace = panelsPerFace;
+    }
+
+    public int getPanelsPerFace(){
+        return panelsPerFace;
     }
 
     /**
@@ -40,6 +48,46 @@ public class Level {
      */
     public BasePanel getPanel(Vector3f panelPosition) {
         return panels.inverse().get(panelPosition);
+    }
+
+    /**
+     *
+     * @param panel
+     * @param direction
+     * @return
+     */
+    public BasePanel getAdjacentPanel(BasePanel panel, Direction direction){
+        Vector3f adjacentPanelPosition;
+
+        switch (direction) {
+            case LEFT:
+                if (panel.getPanelPosition().getX() == 1){
+                    adjacentPanelPosition = new Vector3f(this.getPanelsPerFace(), panel.getPanelPosition().getY(), ((panel.getPanelPosition().getZ() - 1) % 4));
+                } else {
+                    adjacentPanelPosition = new Vector3f(panel.getPanelPosition().getX() - 1, panel.getPanelPosition().getY(), panel.getPanelPosition().getZ());
+                }
+                break;
+            case RIGHT:
+                if (panel.getPanelPosition().getX() == this.getPanelsPerFace()){
+                    adjacentPanelPosition = new Vector3f(1, panel.getPanelPosition().getY(), ((panel.getPanelPosition().getZ() + 1) % 4));
+                } else {
+                    adjacentPanelPosition = new Vector3f(panel.getPanelPosition().getX() - 1, panel.getPanelPosition().getY(), panel.getPanelPosition().getZ());
+                }
+                break;
+            case UP:
+                if(panel.getPanelPosition().getY() == this.panelsPerFace){
+                    // do some stuff
+                } else {
+                    adjacentPanelPosition = new Vector3f(panel.getPanelPosition().getX(), panel.getPanelPosition().getY() + 1, panel.getPanelPosition().getZ());
+                }
+                break;
+            case DOWN:
+                break;
+            case NONE:
+                //This should never be the case
+                break;
+        }
+        return null;
     }
 
     /**
