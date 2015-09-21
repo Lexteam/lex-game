@@ -1,34 +1,30 @@
 package com.gmail.riley787cmplex.engine;
 
-import uk.jamierocks.lexteam.ygd.core.panel.Panel;
-import uk.jamierocks.lexteam.ygd.core.tool.*;
-import java.util.Map;
-
+import com.flowpowered.math.vector.Vector3f;
 
 /**
  * Created by Games on 20/09/2015.
  */
 public class Animation {
 
-    public void setAnimationToTool(Tool tool, AnimationData Data){
-
-    }
-    public void setAnimationToPanel(Panel panel, AnimationData Data){
-
-    }
-
-    public AnimationData getAnimationData(Tool tool){
-
-    }
-    public AnimationData getAnimationData(Panel panel) {
-
+    public class Second{
+        Second(float Seconds){seconds = Seconds;}
+        float getSeconds(){return seconds;}
+        private float seconds;
     }
 
-    public void playAnimation(){
+    public Vector3f getVelocity() {return velocity;}
+    public Vector3f getVelocity_rot() {return velocity_rot;}
+    public Second getTimetaken(){return timetaken;}
 
-    }
+    public void setVelocity(Vector3f Velocity){velocity = Velocity;}
+    public void setVelocity_rot(Vector3f Velocity_rot) { velocity_rot = Velocity_rot;}
 
-    private Map<Tool, AnimationData> toolAnimations;
-    private Map<Panel, AnimationData> toolPanels;
+    public void setTimetaken(Second Timetaken){ Timetaken = timetaken;}
+
+    private Vector3f velocity;
+    private Vector3f velocity_rot;
+
+    //in seconds
+    private Second timetaken;
 }
-
