@@ -22,7 +22,7 @@ public class GameLaunch {
         try {
             registerServices();
         } catch (ProviderExistsException e) {
-            game.obtainMeta(GameMeta.class).getLogger().error("A provider already exists for that service!", e);
+            game.getMeta().getLogger().error("A provider already exists for that service!", e);
         }
         registerProcessors();
         registerValueProcessors();
