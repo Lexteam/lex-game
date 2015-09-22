@@ -1,11 +1,10 @@
-package uk.jamierocks.lexteam.ygd.game.impl.data.processor;
+package uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor;
 
-import uk.jamierocks.lexteam.ygd.core.data.DataContainer;
-import uk.jamierocks.lexteam.ygd.core.data.DataTransactionResult;
-import uk.jamierocks.lexteam.ygd.core.data.key.Key;
-import uk.jamierocks.lexteam.ygd.core.data.key.Keys;
-import uk.jamierocks.lexteam.ygd.core.data.value.Value;
-import uk.jamierocks.lexteam.ygd.core.data.value.ValueProcessor;
+import uk.jamierocks.lexteam.ygd.core.meta.api.key.Key;
+import uk.jamierocks.lexteam.ygd.core.meta.api.key.Keys;
+import uk.jamierocks.lexteam.ygd.core.meta.api.value.Value;
+import uk.jamierocks.lexteam.ygd.core.meta.api.value.ValueOwner;
+import uk.jamierocks.lexteam.ygd.core.meta.api.value.ValueProcessor;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.AddConnectionInfo;
 
@@ -19,17 +18,12 @@ public class DirectionToValueProcessor implements ValueProcessor<Direction, Valu
     }
 
     @Override
-    public boolean supports(DataContainer container) {
+    public boolean supports(ValueOwner container) {
         return container instanceof AddConnectionInfo;
     }
 
     @Override
-    public DataTransactionResult offer(Direction data) {
-        return DataTransactionResult.DISALLOWED;
-    }
-
-    @Override
-    public Optional<Direction> getValueFromContainer(DataContainer container) {
+    public Optional<Direction> getValueFromContainer(ValueOwner container) {
         if (container instanceof AddConnectionInfo) {
             AddConnectionInfo connectionInfo = (AddConnectionInfo) container;
             return Optional.of(connectionInfo.getTo());
