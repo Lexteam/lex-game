@@ -1,8 +1,5 @@
 package uk.jamierocks.lexteam.ygd.core.meta.api;
 
-import uk.jamierocks.lexteam.ygd.core.meta.api.key.Key;
-import uk.jamierocks.lexteam.ygd.core.meta.api.value.Value;
-
 /**
  * Represents a meta owner.
  *
@@ -27,22 +24,4 @@ public interface MetaOwner {
      * @return {@code true} if it supports that meta.
      */
     <T extends Meta> boolean supportsMeta(Class<T> clazz);
-
-    /**
-     * Gets a value from it's key.
-     *
-     * @param key the specified key.
-     * @param <T> the value type.
-     * @return the value.
-     */
-    <T> T get(Key<Value<T>> key);
-
-    /**
-     * Checks to see if this owner supports that key.
-     *
-     * @param key the specified key.
-     * @param <T> the value type.
-     * @return the value.
-     */
-    <T> boolean has(Key<Value<T>> key);
 }
