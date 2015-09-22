@@ -25,7 +25,7 @@ public interface MetaOwner {
      * @param <T> the type.
      * @return {@code true} if it supports that meta.
      */
-    default<T extends Meta> boolean supportsMeta(Class<T> clazz) {
+    default <T extends Meta> boolean supportsMeta(Class<T> clazz) {
         return MetaManager.has(this, clazz);
     }
 }

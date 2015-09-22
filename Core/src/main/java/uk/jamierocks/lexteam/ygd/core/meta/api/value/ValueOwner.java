@@ -27,7 +27,7 @@ public interface ValueOwner {
      * @param <T> the value type.
      * @return the value.
      */
-    default <T> boolean has(Key<Value<T>> key) {
-        return ValueManager.has(this, key);
+    default <T> boolean supports(Key<Value<T>> key) {
+        return ValueManager.supports(this, key);
     }
 }

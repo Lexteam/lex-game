@@ -17,7 +17,7 @@ public class ValueManager {
         return (T) processors.get(key).getValueFromContainer(container).get();
     }
 
-    public static <T> boolean has(ValueOwner container, Key<Value<T>> key) {
+    public static <T> boolean supports(ValueOwner container, Key<Value<T>> key) {
         return processors.get(key).supports(container);
     }
 }
