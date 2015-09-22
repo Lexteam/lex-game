@@ -1,4 +1,4 @@
-package uk.jamierocks.lexteam.ygd.core.meta;
+package uk.jamierocks.lexteam.ygd.core.meta.api;
 
 /**
  * Represents a meta owner.
