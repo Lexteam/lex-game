@@ -14,7 +14,9 @@ public interface MetaOwner {
      * @param <T> the type.
      * @return the meta.
      */
-    <T extends Meta> T obtainMeta(Class<T> clazz);
+    default <T extends Meta> T obtainMeta(Class<T> clazz) {
+        return MetaManager.get(this, clazz);
+    }
 
     /**
      * Checks to see if this owner supports that meta type.
@@ -23,5 +25,7 @@ public interface MetaOwner {
      * @param <T> the type.
      * @return {@code true} if it supports that meta.
      */
-    <T extends Meta> boolean supportsMeta(Class<T> clazz);
+    default<T extends Meta> boolean supportsMeta(Class<T> clazz) {
+        return MetaManager.has(this, clazz);
+    }
 }
