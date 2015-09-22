@@ -1,6 +1,5 @@
 package uk.jamierocks.lexteam.ygd.core;
 
-import uk.jamierocks.lexteam.ygd.core.data.DataContainer;
 import uk.jamierocks.lexteam.ygd.core.meta.api.MetaOwner;
 import uk.jamierocks.lexteam.ygd.core.service.ServiceManager;
 
@@ -9,7 +8,7 @@ import uk.jamierocks.lexteam.ygd.core.service.ServiceManager;
  *
  * @author Jamie Mansfield
  */
-public interface Game extends DataContainer, MetaOwner {
+public interface Game extends MetaOwner {
 
     /**
      * Gets the game's service manager.
