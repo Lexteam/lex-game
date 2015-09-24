@@ -23,62 +23,13 @@ public class Engine{
 
       }
 
-
-      public void overrideAnimation(Tool tool, Animation animation){
-            toolAnimations.put(tool, animation);
-      }
-      public void overrideAnimation(Panel panel, Animation animation){
-            panelAnimations.put(panel, animation);
-      }
-
-      public boolean setAnimationIfAbsent(Tool tool, Animation animation){
-            if(toolAnimations.putIfAbsent(tool, animation) != null) return  true;
-            else return false;
-      }
-      public boolean setAnimationIfAbsent(Panel panel, Animation animation){
-            if(panelAnimations.putIfAbsent(panel, animation) != null) return  true;
-            else return false;
-      }
-
-      public boolean setAnimationsFromFiles(String MediaPath){
-            return true;
-      }
-
-      public void playToolAnimation(Tool tool, Panel panel)  throws NoSuchObjectException{
-            if(checkAnimationExists(tool)){
-                  if(panel.isBurntout()){
-
-                  }
-                  if(checkAnimationExists(panel)){
-
-                  }
-                  else{
-                        String err = "no animation for Panel " + tool.getName();
-                        throw(new NoSuchObjectException(err));
-                  }
-
-            }
-            else{
-                  String err = "no animation for Tool " + tool.getName();
-                  throw(new NoSuchObjectException(err));
-            }
-      }
+      
 
       public int getSides(){ return SIDES;}
 
-      private boolean checkAnimationExists(Tool tool){
-            return toolAnimations.containsKey(tool);
-      }
 
-      private boolean checkAnimationExists(Panel panel){
-            return toolAnimations.containsKey(panel);
-      }
-
-
-      private static Map<Tool, Animation> toolAnimations;
-      private static Map<Panel, Animation> panelAnimations;
-      private static Animation burntoutPanel;
-      private static Animation panelCooldownAnim;
+      private static KeyFrameData burntoutPanel;
+      private static KeyFrameData panelCooldownAnim;
 
 
 }
