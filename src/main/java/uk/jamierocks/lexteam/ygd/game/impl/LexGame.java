@@ -32,4 +32,12 @@ public class LexGame implements Game, GameMeta {
     public ServiceManager getServiceManager() {
         return serviceManager;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public GameMeta getMeta() {
+        return this;
+    }
 }
