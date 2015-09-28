@@ -1,6 +1,8 @@
 package com.gmail.riley787cmplex.engine;
 
+
 import com.flowpowered.math.vector.Vector3f;
+
 
 import java.util.Set;
 
@@ -14,7 +16,7 @@ public class Model {
     public void setKeyFrames(KeyFrameData Data){KeyFrames = Data;}
 
     //returns false if animation is absent
-    public boolean setKeyFrameDataIfAbsent(KeyFrameData Data){
+    public boolean setKeyFrameDataifabsent(KeyFrameData Data){
         if(KeyFrames == null){
             KeyFrames =  Data;
             return true;
@@ -37,7 +39,7 @@ public class Model {
 
     private Vector3f scale;
     private Vector3f rotation;
-    private Vector3f size;
+
 
     private boolean animationPlaying;
 }

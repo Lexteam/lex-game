@@ -14,10 +14,15 @@ public class KeyFrameData {
 
     }
 
-    public Map getVelocity_Rot_time(){return Velocity_Rot_time;}
-    public Set<Vector4f> getTimeVelocity(){return Velocity_time;}
+    public boolean isComplete(){
+        return completeAnimation;
+    }
 
-    private Map<Float, Quaternionf> Velocity_Rot_time;
-    private Set<Vector4f> Velocity_time;
+    public Map getVelocity_rot_time(){return Velocity_rot_time;}
+    public Set<Vector4f> getVelocity_trans_time(){return Velocity_trans_time;}
 
+    private Map<Float, Quaternionf> Velocity_rot_time;
+    private Set<Vector4f> Velocity_trans_time;
+
+    private boolean completeAnimation;
 }
