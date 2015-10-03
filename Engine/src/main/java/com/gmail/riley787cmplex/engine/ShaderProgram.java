@@ -1,7 +1,7 @@
 package com.gmail.riley787cmplex.engine;
 
 import com.flowpowered.math.vector.VectorNf;
-import org.lwjgl.system.libffi.Closure;
+
 
 import java.util.Map;
 
@@ -18,6 +18,13 @@ public class ShaderProgram {
     public void addShader(Shader shader){
 
     }
+
+
+
+    public void link(){
+
+    }
+
 
 
     public VectorNf getUniform(){

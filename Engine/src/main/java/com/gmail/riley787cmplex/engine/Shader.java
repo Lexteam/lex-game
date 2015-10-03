@@ -25,4 +25,9 @@ public class Shader {
 
     }
 
+    public void compile(){
+
+    }
+
+
 }
