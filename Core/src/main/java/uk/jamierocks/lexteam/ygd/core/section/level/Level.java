@@ -2,6 +2,7 @@ package uk.jamierocks.lexteam.ygd.core.section.level;
 
 import com.flowpowered.math.vector.Vector3f;
 import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import com.google.common.collect.ImmutableBiMap;
 import uk.jamierocks.lexteam.ygd.core.panel.BasePanel;
 
@@ -14,7 +15,7 @@ import java.util.Set;
  */
 public class Level {
 
-    private BiMap<BasePanel, Vector3f> panels = ImmutableBiMap.<BasePanel, Vector3f>builder().build();
+    private BiMap<BasePanel, Vector3f> panels = HashBiMap.create();
 
     public Level() {
     }

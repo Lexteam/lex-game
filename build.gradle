@@ -39,12 +39,13 @@ shadowJar {
         include dependency('com.google.code.gson:gson')
         include dependency('com.google.guave:guava')
         include dependency('org.slf4j:slf4j-api')
+        include dependency('com.flowpowered:flow-plugins')
 
         // Engine
         include project(':Engine')
         include dependency('org.lwjgl:lwjgl')
 
-        // Extra
+        // Implementation
         include dependency('org.slf4j:slf4j-jdk14') // slf4j implementation
     }
     classifier ''
