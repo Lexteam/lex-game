@@ -7,7 +7,7 @@ public interface ToolManipulator {
     /**
      * Called when a tool is used.
      *
-     * <b>YOU SHOULD HAVE ALREADY TESTED IF YOU CAN MANIPULATE THE PANEL!</b>
+     * <b>YOU SHOULD HAVE ALREADY CHECKED IF YOU CAN MANIPULATE THE PANEL!</b>
      *
      * @param panel teh panel to manipulate.
      * @param info the manipulator information.
