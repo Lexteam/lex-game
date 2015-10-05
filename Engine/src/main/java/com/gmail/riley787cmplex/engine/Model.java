@@ -5,6 +5,7 @@ import com.flowpowered.math.imaginary.Quaternionf;
 import com.flowpowered.math.vector.Vector3f;
 
 
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -13,32 +14,17 @@ import java.util.Set;
  */
 public class Model {
 
+    protected void addInstance(ModelInstance Instance){
 
-
-
-    public boolean KeyFramesExist(){if(KeyFrames != null)return true; return false;}
-
-    public void setKeyFrames(KeyFrameData Data){KeyFrames = Data;}
-
-    //returns false if animation is absent
-    public boolean setKeyFrameDataifabsent(KeyFrameData Data){
-        if(KeyFrames == null){
-            KeyFrames =  Data;
-            return true;
-        }
-        else{
-            return  false;
-        }
     }
 
-    public boolean isAnimationPlaying(int instance){return animationPlaying;}
-
-    public KeyFrameData getKeyFrameData(){return KeyFrames;}
-
-    private KeyFrameData KeyFrames;
+    //change to bitmap
+    public Boolean isAnimationPlaying(int instance){return animationPlaying.get(instance);}
+    public Boolean isEffectPlaying(int instance){return effectPlaying.get(instance);}
 
     private Set<Vector3f> verticies;
     private Set<Vector3f> faces;
 
-    private boolean animationPlaying;
+    private Map<Integer, Boolean> animationPlaying;
+    private Map<Integer, Boolean> effectPlaying;
 }

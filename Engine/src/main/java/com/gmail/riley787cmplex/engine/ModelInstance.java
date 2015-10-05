@@ -10,6 +10,28 @@ import com.flowpowered.math.vector.Vector3f;
  */
 public class ModelInstance {
 
+    protected ModelInstance(Model Model){
+
+    }
+
+    public ModelInstance(){}
+
+    public void playAnimation(KeyFrameData Data){
+
+    }
+    public void playAnimation(String animationName){
+
+    }
+
+
+    public void playEffect(EffectData Data){
+
+    }
+    public void playEffect(String animationName){
+
+    }
+
+
     public void setPosition(Vector3f position){
         Position = position;
     }
@@ -37,8 +59,6 @@ public class ModelInstance {
     }
 
 
-
-
     public Vector3f getScale(){
         return Scale;
     }
@@ -50,8 +70,6 @@ public class ModelInstance {
     public Quaternionf getRotation(){
         return Rotation;
     }
-
-
 
 
     private Vector3f Position;

@@ -14,8 +14,8 @@ public class Engine{
       public int getSides(){ return SIDES;}
 
 
-      private static ParticleEffect burntoutPanel;
-      private static ParticleEffect panelCooldownAnim;
+      private static EffectData burntoutPanel;
+      private static EffectData panelCooldownAnim;
 
 
 }
