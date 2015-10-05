@@ -3,14 +3,12 @@ package com.gmail.riley787cmplex.engine;
 /**
  * Created by ethan on 05/10/15.
  */
-public class MediaData {
+public class MediaData<T>{
 
-    public MediaData(String filename){
-        parse(filename);
-    }
+    public MediaData(String filename, T id){parse(filename);}
 
-    final public String getName(){return Name;}
+    final public T getName(){return Name;}
     protected void parse(String filename){}
 
-    private String Name;
+    private T Name;
 }
