@@ -39,7 +39,6 @@ shadowJar {
         include dependency('com.google.code.gson:gson')
         include dependency('com.google.guave:guava')
         include dependency('org.slf4j:slf4j-api')
-        include dependency('com.flowpowered:flow-plugins')
 
         // Engine
         include project(':Engine')
