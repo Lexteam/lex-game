@@ -1,9 +1,9 @@
 package uk.jamierocks.lexteam.ygd.core.section.level;
 
-import com.flowpowered.math.vector.Vector3f;
 import com.google.common.collect.BiMap;
-import com.google.common.collect.ImmutableBiMap;
+import com.google.common.collect.HashBiMap;
 import uk.jamierocks.lexteam.ygd.core.panel.BasePanel;
+import uk.jamierocks.lexteam.ygd.core.panel.CubePosition;
 
 import java.util.Set;
 
@@ -11,15 +11,16 @@ import java.util.Set;
  * Represents a level, containing the panels
  *
  * @author Tom Drever
+ * @author Jamie Mansfield
  */
 public class Level {
 
-    private BiMap<BasePanel, Vector3f> panels = ImmutableBiMap.<BasePanel, Vector3f>builder().build();
+    private BiMap<BasePanel, CubePosition> panels = HashBiMap.create();
 
     public Level() {
     }
 
-    public Level(BiMap<BasePanel, Vector3f> panels) {
+    public Level(BiMap<BasePanel, CubePosition> panels) {
         this.panels = panels;
     }
 
@@ -38,7 +39,7 @@ public class Level {
      * @param panelPosition the position of the panel wanted
      * @return a panel that matches the given position
      */
-    public BasePanel getPanel(Vector3f panelPosition) {
+    public BasePanel getPanel(CubePosition panelPosition) {
         return panels.inverse().get(panelPosition);
     }
 
@@ -48,6 +49,6 @@ public class Level {
      * @param panel the new panel.
      */
     public void addPanel(BasePanel panel) {
-        panels.put(panel, panel.getPanelPosition());
+        panels.put(panel, panel.getCubePosition());
     }
 }

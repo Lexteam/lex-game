@@ -6,16 +6,17 @@ apply plugin: 'com.github.johnrengelman.shadow'
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.12'
     compile 'com.google.guava:guava:18.0'
-    compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.flowpowered:flow-math:1.0.1'
+    compile 'ninja.leaping.configurate:configurate-hocon:2.0'
 }
 
 shadowJar {
     dependencies {
         include dependency('org.slf4j:slf4j-api')
         include dependency('com.google.guava:guava')
-        include dependency('com.google.code.gson:gson')
         include dependency('com.flowpowered:flow-math')
+        include dependency('ninja.leaping.configurate:configurate-core')
+        include dependency('ninja.leaping.configurate:configurate-hocon')
     }
     classifier ''
 }
