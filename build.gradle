@@ -19,6 +19,7 @@ allprojects {
 
 dependencies {
     compile 'org.slf4j:slf4j-jdk14:1.7.12'
+    compile project(':LexUtils')
     compile project(':Core')
     compile project(':Engine')
 }

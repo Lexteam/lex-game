@@ -2,6 +2,7 @@ package uk.jamierocks.lexteam.ygd.game.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.jamierocks.lexteam.utils.IApplication;
 import uk.jamierocks.lexteam.ygd.core.Game;
 import uk.jamierocks.lexteam.ygd.core.GameSettings;
 import uk.jamierocks.lexteam.ygd.core.meta.GameMeta;
@@ -16,9 +17,8 @@ import java.io.File;
  *
  * @author Jamie Mansfield
  */
-public class LexGame implements Game, GameMeta {
+public class LexGame implements IApplication, Game, GameMeta {
 
-    private final Logger logger = LoggerFactory.getLogger("lex-game");
     private final ServiceManager serviceManager = new SimpleServiceManager();
     private final GameSettings gameSettings =
             new GameSettings(this,
@@ -29,8 +29,16 @@ public class LexGame implements Game, GameMeta {
      * {@inheritDoc}
      */
     @Override
+    public String getName() {
+        return "lex-game";
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public Logger getLogger() {
-        return logger;
+        return LoggerFactory.getLogger(getSafeName());
     }
 
     /**
