@@ -18,6 +18,16 @@ public interface Game extends SingularMetaOwner<GameMeta> {
      */
     ServiceManager getServiceManager();
 
+    /**
+     * Gets the user defined game settings.
+     *
+     * @return the {@link GameSettings}.
+     */
+    GameSettings getSettings();
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     default GameMeta getMeta() {
         return obtainMeta(GameMeta.class);

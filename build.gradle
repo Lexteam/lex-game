@@ -36,9 +36,10 @@ shadowJar {
         // Core
         include project(':Core')
         include dependency('com.flowpowered:flow-math')
-        include dependency('com.google.code.gson:gson')
         include dependency('com.google.guave:guava')
         include dependency('org.slf4j:slf4j-api')
+        include dependency('ninja.leaping.configurate:configurate-core')
+        include dependency('ninja.leaping.configurate:configurate-hocon')
 
         // Engine
         include project(':Engine')
