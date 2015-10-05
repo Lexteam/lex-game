@@ -9,12 +9,18 @@ import com.flowpowered.math.vector.Vector2f;
  */
 public class CubePosition {
 
+    private final Panel panel;
     private final CubeFace cubeFace;
     private final Vector2f vector2f;
 
-    public CubePosition(CubeFace cubeFace, Vector2f vector2f) {
+    public CubePosition(Panel panel, CubeFace cubeFace, Vector2f vector2f) {
+        this.panel = panel;
         this.cubeFace = cubeFace;
         this.vector2f = vector2f;
+    }
+
+    public Panel getPanel() {
+        return panel;
     }
 
     public CubeFace getCubeFace() {
