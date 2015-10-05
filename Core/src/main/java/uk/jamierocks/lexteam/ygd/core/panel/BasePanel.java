@@ -1,7 +1,5 @@
 package uk.jamierocks.lexteam.ygd.core.panel;
 
-import com.flowpowered.math.vector.Vector3f;
-
 /**
  * The most basic possible panel. Just holds its position.
  *
@@ -10,16 +8,16 @@ import com.flowpowered.math.vector.Vector3f;
 public interface BasePanel {
 
     /**
-     * Gets the position of the panel represented as a {@link Vector3f}.
+     * Gets the position of the panel represented as a {@link CubePosition}.
      *
      * @return the position of the panel.
      */
-    Vector3f getPanelPosition();
+    CubePosition getCubePosition();
 
     /**
      * Sets the position of the panel.
      *
-     * @param panelPosition the new position.
+     * @param cubePosition the new position.
      */
-    void setPanelPosition(Vector3f panelPosition);
+    void setCubePosition(CubePosition cubePosition);
 }

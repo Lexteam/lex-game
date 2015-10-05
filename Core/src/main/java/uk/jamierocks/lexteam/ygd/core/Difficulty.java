@@ -1,11 +1,18 @@
 package uk.jamierocks.lexteam.ygd.core;
 
 import com.google.common.collect.Lists;
+import uk.jamierocks.lexteam.ygd.core.section.level.Level;
 import uk.jamierocks.lexteam.ygd.core.tool.Tool;
 import uk.jamierocks.lexteam.ygd.core.tool.Tools;
 
 import java.util.List;
 
+/**
+ * Represents a {@link Level}'s difficulty.
+ *
+ * @author Jamie Mansfield
+ * @author Tom Drever
+ */
 public enum Difficulty {
 
     LOWEST(Tools.REVERSE_CONNECTION, Tools.WEAK_REPAIR_PANEL),

@@ -44,7 +44,7 @@ shadowJar {
         include project(':Engine')
         include dependency('org.lwjgl:lwjgl')
 
-        // Extra
+        // Implementation
         include dependency('org.slf4j:slf4j-jdk14') // slf4j implementation
     }
     classifier ''

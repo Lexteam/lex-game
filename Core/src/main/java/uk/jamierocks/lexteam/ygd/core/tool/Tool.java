@@ -12,10 +12,11 @@ public class Tool {
     private final int cooldown;
 
     /**
-     * Creates a new tool with a set name and manipulator
+     * Creates a new tool with a set name and manipulator.
      *
-     * @param name the new name value
-     * @param manipulator the new manipulator value
+     * @param name the new name value.
+     * @param cooldown the cooldown time in seconds.
+     * @param manipulator the new manipulator value.
      */
     public Tool(String name, int cooldown, ToolManipulator manipulator) {
         this.name = name;

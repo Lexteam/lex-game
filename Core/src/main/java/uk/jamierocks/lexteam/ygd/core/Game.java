@@ -1,6 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core;
 
-import uk.jamierocks.lexteam.ygd.core.data.DataContainer;
+import uk.jamierocks.lexteam.ygd.core.meta.GameMeta;
+import uk.jamierocks.lexteam.ygd.core.meta.api.SingularMetaOwner;
 import uk.jamierocks.lexteam.ygd.core.service.ServiceManager;
 
 /**
@@ -8,7 +9,7 @@ import uk.jamierocks.lexteam.ygd.core.service.ServiceManager;
  *
  * @author Jamie Mansfield
  */
-public interface Game extends DataContainer {
+public interface Game extends SingularMetaOwner<GameMeta> {
 
     /**
      * Gets the game's service manager.
@@ -16,4 +17,9 @@ public interface Game extends DataContainer {
      * @return the {@link ServiceManager}.
      */
     ServiceManager getServiceManager();
+
+    @Override
+    default GameMeta getMeta() {
+        return obtainMeta(GameMeta.class);
+    }
 }

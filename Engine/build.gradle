@@ -7,11 +7,14 @@ dependencies {
     compile project(":Core")
 
     compile 'org.lwjgl:lwjgl:3.0.0a'
+
+    compile 'com.flowpowered:react:1.0.0'
 }
 
 shadowJar {
     dependencies {
         include dependency('org.lwjgl:lwjgl')
+        include dependency('com.flowpowered:react')
     }
     classifier ''
 }

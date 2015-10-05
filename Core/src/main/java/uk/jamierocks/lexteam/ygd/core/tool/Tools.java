@@ -1,6 +1,6 @@
 package uk.jamierocks.lexteam.ygd.core.tool;
 
-import uk.jamierocks.lexteam.ygd.core.data.key.Keys;
+import uk.jamierocks.lexteam.ygd.core.meta.api.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 import uk.jamierocks.lexteam.ygd.core.panel.Panel;
 

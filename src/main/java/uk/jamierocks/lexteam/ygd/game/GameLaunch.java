@@ -2,14 +2,15 @@ package uk.jamierocks.lexteam.ygd.game;
 
 import com.google.common.eventbus.EventBus;
 import uk.jamierocks.lexteam.ygd.core.Game;
-import uk.jamierocks.lexteam.ygd.core.data.DataManager;
-import uk.jamierocks.lexteam.ygd.core.data.key.Keys;
+import uk.jamierocks.lexteam.ygd.core.meta.api.MetaManager;
+import uk.jamierocks.lexteam.ygd.core.meta.api.value.ValueManager;
 import uk.jamierocks.lexteam.ygd.core.service.ProviderExistsException;
+import uk.jamierocks.lexteam.ygd.core.util.DataUtils;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
-import uk.jamierocks.lexteam.ygd.game.impl.data.processor.DirectionFromValueProcessor;
-import uk.jamierocks.lexteam.ygd.game.impl.data.processor.DirectionToValueProcessor;
-import uk.jamierocks.lexteam.ygd.game.impl.data.processor.DurationValueProcessor;
-import uk.jamierocks.lexteam.ygd.game.impl.data.processor.LoggerValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.GameMetaProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.DirectionFromValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.DirectionToValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.DurationValueProcessor;
 
 public class GameLaunch {
 
@@ -20,9 +21,14 @@ public class GameLaunch {
         try {
             registerServices();
         } catch (ProviderExistsException e) {
-            game.get(Keys.LOGGER).error("A provider already exists for that service!", e);
+            game.getMeta().getLogger().error("A provider already exists for that service!", e);
         }
         registerProcessors();
+        registerValueProcessors();
+
+        if (!DataUtils.getDataPath().toFile().exists()) {
+            DataUtils.getDataPath().toFile().mkdir();
+        }
     }
 
     public static Game getGame() {
@@ -34,9 +40,12 @@ public class GameLaunch {
     }
 
     private static void registerProcessors() {
-        DataManager.registerProcessor(new LoggerValueProcessor());
-        DataManager.registerProcessor(new DurationValueProcessor());
-        DataManager.registerProcessor(new DirectionToValueProcessor());
-        DataManager.registerProcessor(new DirectionFromValueProcessor());
+        MetaManager.registerProcessor(new GameMetaProcessor());
+    }
+
+    private static void registerValueProcessors() {
+        ValueManager.registerProcessor(new DurationValueProcessor());
+        ValueManager.registerProcessor(new DirectionToValueProcessor());
+        ValueManager.registerProcessor(new DirectionFromValueProcessor());
     }
 }
