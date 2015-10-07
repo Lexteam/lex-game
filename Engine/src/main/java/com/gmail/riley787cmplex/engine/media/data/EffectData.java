@@ -1,5 +1,8 @@
 package com.gmail.riley787cmplex.engine.media.data;
 
+import com.gmail.riley787cmplex.engine.media.libraries.EffectLibrary;
+import com.gmail.riley787cmplex.engine.Engine;
+
 import javax.annotation.PostConstruct;
 
 /**
@@ -12,8 +15,5 @@ public class EffectData extends MediaData<String> {
         parse(Filename);
     }
 
-    @PostConstruct //will this compile?
-    private void init(String Filename){
-        EffectMediaLib.register(Filename, this);
-    }
+
 }

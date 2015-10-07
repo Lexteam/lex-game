@@ -7,11 +7,9 @@ public class MediaData<T> extends  MediaDataNoCopy<T>{
 
     public static class Friend<T>{Friend(){}}
 
-    public MediaData(T ID){id = ID;}
+    public MediaData(T ID){}
 
-    final public T getID(){return id;}
-
-    private T id;
+    //getID()
 }
 
 
