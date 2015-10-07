@@ -8,7 +8,6 @@ import uk.jamierocks.lexteam.ygd.core.GameSettings;
 import uk.jamierocks.lexteam.ygd.core.meta.GameMeta;
 import uk.jamierocks.lexteam.ygd.core.service.ServiceManager;
 import uk.jamierocks.lexteam.ygd.core.service.SimpleServiceManager;
-import uk.jamierocks.lexteam.ygd.core.util.DataUtils;
 
 import java.io.File;
 
@@ -22,8 +21,8 @@ public class LexGame implements IApplication, Game, GameMeta {
     private final ServiceManager serviceManager = new SimpleServiceManager();
     private final GameSettings gameSettings =
             new GameSettings(this,
-                    new File(DataUtils.getDataPath().toFile(), "settings.hocon"),
-                    "defaultSettings.hocon");
+                    new File(getDirectory(), "settings.conf"),
+                    "defaultSettings.conf");
 
     /**
      * {@inheritDoc}
@@ -31,6 +30,18 @@ public class LexGame implements IApplication, Game, GameMeta {
     @Override
     public String getName() {
         return "lex-game";
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public File getDirectory() {
+        File directory = new File(LEXTEAM_BASE_DIRECTORY, getSafeName());
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+        return directory;
     }
 
     /**
