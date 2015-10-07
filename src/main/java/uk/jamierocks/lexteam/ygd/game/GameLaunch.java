@@ -5,7 +5,6 @@ import uk.jamierocks.lexteam.ygd.core.Game;
 import uk.jamierocks.lexteam.ygd.core.meta.api.MetaManager;
 import uk.jamierocks.lexteam.ygd.core.meta.api.value.ValueManager;
 import uk.jamierocks.lexteam.ygd.core.service.ProviderExistsException;
-import uk.jamierocks.lexteam.ygd.core.util.DataUtils;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.GameMetaProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.DirectionFromValueProcessor;
@@ -25,10 +24,6 @@ public class GameLaunch {
         }
         registerProcessors();
         registerValueProcessors();
-
-        if (!DataUtils.getDataPath().toFile().exists()) {
-            DataUtils.getDataPath().toFile().mkdir();
-        }
     }
 
     public static Game getGame() {

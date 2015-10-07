@@ -22,7 +22,7 @@ public class LexGame implements IApplication, Game, GameMeta {
     private final GameSettings gameSettings =
             new GameSettings(this,
                     new File(getDirectory(), "settings.conf"),
-                    "defaultSettings.conf");
+                    "settings.conf");
 
     /**
      * {@inheritDoc}
