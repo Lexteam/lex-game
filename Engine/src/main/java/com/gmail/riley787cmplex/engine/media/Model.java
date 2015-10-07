@@ -1,8 +1,9 @@
-package com.gmail.riley787cmplex.engine;
+package com.gmail.riley787cmplex.engine.media;
 
 
 import com.flowpowered.math.imaginary.Quaternionf;
 import com.flowpowered.math.vector.Vector3f;
+import com.gmail.riley787cmplex.engine.media.data.ModelInstance;
 
 
 import java.util.Map;
@@ -14,9 +15,7 @@ import java.util.Set;
  */
 public class Model {
 
-    protected void addInstance(ModelInstance Instance){
-
-    }
+    public int addInstance(ModelInstance.Friend friend){++no_ofInstances; return  no_ofInstances;}
 
     //change to bitmap
     public Boolean isAnimationPlaying(int instance){return animationPlaying.get(instance);}
@@ -27,4 +26,6 @@ public class Model {
 
     private Map<Integer, Boolean> animationPlaying;
     private Map<Integer, Boolean> effectPlaying;
+
+    private int no_ofInstances;
 }

@@ -1,20 +1,22 @@
-package com.gmail.riley787cmplex.engine;
+package com.gmail.riley787cmplex.engine.media.data;
 
 import com.flowpowered.math.imaginary.Quaternionf;
 import com.flowpowered.math.vector.Vector3f;
+import com.gmail.riley787cmplex.engine.media.Model;
 
 /**
  * Created by ethan on 03/10/15.
  * handles non-absoulte values
  * lazyness is key!
  */
-public class ModelInstance {
+public class ModelInstance extends MediaData<Integer> {
 
-    protected ModelInstance(Model Model){
+    static Friend<Integer> friend = new Friend<>();
 
+    public ModelInstance(Model model){
+        super(model.addInstance(friend));
     }
 
-    public ModelInstance(){}
 
     public void playAnimation(KeyFrameData Data){
 

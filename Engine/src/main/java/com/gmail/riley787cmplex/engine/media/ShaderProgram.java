@@ -1,6 +1,7 @@
-package com.gmail.riley787cmplex.engine;
+package com.gmail.riley787cmplex.engine.media;
 
 import com.flowpowered.math.vector.VectorNf;
+import com.gmail.riley787cmplex.engine.media.data.Shader;
 
 
 import java.util.Map;

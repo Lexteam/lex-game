@@ -1,5 +1,7 @@
 package com.gmail.riley787cmplex.engine;
 
+import com.gmail.riley787cmplex.engine.media.data.EffectData;
+
 public class Engine{
 
 
