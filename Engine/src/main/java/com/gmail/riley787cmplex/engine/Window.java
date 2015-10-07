@@ -1,7 +1,11 @@
 package com.gmail.riley787cmplex.engine;
 
-/**
- * Created by ethan on 03/10/15.
+/*
+ * Copyright (c) 2015, Jamie Mansfield <https://www.jamierocks.uk>
+ * Copyright (c) 2015, Tom Drever <https://github.com/CharlesStewart>
+ * Copyright (c) 2015, Ethan Riley <https://github.com/EthanRiley>
+ *
+ * All Rights Reserved.
  */
 public class Window {
 }

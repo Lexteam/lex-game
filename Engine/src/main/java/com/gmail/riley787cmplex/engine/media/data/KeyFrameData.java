@@ -6,8 +6,12 @@ import com.flowpowered.math.imaginary.Quaternionf;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Created by Games on 20/09/2015.
+/*
+ * Copyright (c) 2015, Jamie Mansfield <https://www.jamierocks.uk>
+ * Copyright (c) 2015, Tom Drever <https://github.com/CharlesStewart>
+ * Copyright (c) 2015, Ethan Riley <https://github.com/EthanRiley>
+ *
+ * All Rights Reserved.
  */
 public class KeyFrameData extends MediaData<String> {
 
