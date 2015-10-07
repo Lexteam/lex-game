@@ -5,7 +5,7 @@ package uk.jamierocks.lexteam.ygd.core.meta.api.value;
  *
  * @param <V> the value type.
  */
-public interface Value<V> extends uk.jamierocks.lexteam.ygd.core.data.value.Value<Object> {
+public interface Value<V> {
 
     /**
      * Gets the value.

@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2015, Jamie Mansfield <https://www.jamierocks.uk>
+ * Copyright (c) 2015, Tom Drever <https://github.com/CharlesStewart>
+ * Copyright (c) 2015, Ethan Riley <https://github.com/EthanRiley>
+ *
+ * All Rights Reserved.
+ */
 package uk.jamierocks.lexteam.ygd.game;
 
 import com.google.common.eventbus.EventBus;
@@ -5,7 +12,6 @@ import uk.jamierocks.lexteam.ygd.core.Game;
 import uk.jamierocks.lexteam.ygd.core.meta.api.MetaManager;
 import uk.jamierocks.lexteam.ygd.core.meta.api.value.ValueManager;
 import uk.jamierocks.lexteam.ygd.core.service.ProviderExistsException;
-import uk.jamierocks.lexteam.ygd.core.util.DataUtils;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.GameMetaProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.DirectionFromValueProcessor;
@@ -25,10 +31,6 @@ public class GameLaunch {
         }
         registerProcessors();
         registerValueProcessors();
-
-        if (!DataUtils.getDataPath().toFile().exists()) {
-            DataUtils.getDataPath().toFile().mkdir();
-        }
     }
 
     public static Game getGame() {

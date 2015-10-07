@@ -43,7 +43,7 @@ public class GameSettings {
             rootNode = this.loader.load();
             if (defaultFile != null && !defaultFile.isEmpty()) {
                 rootNode.mergeValuesFrom(HoconConfigurationLoader.builder()
-                        .setURL(this.getClass().getResource(defaultFile)).build().load());
+                        .setURL(Game.class.getResource(defaultFile)).build().load());
             }
         } catch (IOException e) {
             game.getMeta().getLogger().error("Error loading root node", e);

@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2015, Jamie Mansfield <https://www.jamierocks.uk>
+ * Copyright (c) 2015, Tom Drever <https://github.com/CharlesStewart>
+ * Copyright (c) 2015, Ethan Riley <https://github.com/EthanRiley>
+ *
+ * All Rights Reserved.
+ */
 package uk.jamierocks.lexteam.ygd.game.impl;
 
 import org.slf4j.Logger;
@@ -8,7 +15,6 @@ import uk.jamierocks.lexteam.ygd.core.GameSettings;
 import uk.jamierocks.lexteam.ygd.core.meta.GameMeta;
 import uk.jamierocks.lexteam.ygd.core.service.ServiceManager;
 import uk.jamierocks.lexteam.ygd.core.service.SimpleServiceManager;
-import uk.jamierocks.lexteam.ygd.core.util.DataUtils;
 
 import java.io.File;
 
@@ -22,8 +28,8 @@ public class LexGame implements IApplication, Game, GameMeta {
     private final ServiceManager serviceManager = new SimpleServiceManager();
     private final GameSettings gameSettings =
             new GameSettings(this,
-                    new File(DataUtils.getDataPath().toFile(), "settings.hocon"),
-                    "defaultSettings.hocon");
+                    new File(getDirectory(), "settings.conf"),
+                    "settings.conf");
 
     /**
      * {@inheritDoc}
@@ -31,6 +37,18 @@ public class LexGame implements IApplication, Game, GameMeta {
     @Override
     public String getName() {
         return "lex-game";
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public File getDirectory() {
+        File directory = new File(LEXTEAM_BASE_DIRECTORY, getSafeName());
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+        return directory;
     }
 
     /**
