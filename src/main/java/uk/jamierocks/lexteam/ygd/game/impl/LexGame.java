@@ -26,10 +26,10 @@ import java.io.File;
 public class LexGame implements IApplication, Game, GameMeta {
 
     private final ServiceManager serviceManager = new SimpleServiceManager();
-    private final GameSettings gameSettings =
-            new GameSettings(this,
-                    new File(getDirectory(), "settings.conf"),
-                    "settings.conf");
+    private final GameSettings gameSettings = null;
+            //new GameSettings(this,
+                    //new File(getDirectory(), "settings.conf"),
+                    //"settings.conf");
 
     /**
      * {@inheritDoc}

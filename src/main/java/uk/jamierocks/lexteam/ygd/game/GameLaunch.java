@@ -12,17 +12,19 @@ import uk.jamierocks.lexteam.ygd.core.Game;
 import uk.jamierocks.lexteam.ygd.core.meta.api.MetaManager;
 import uk.jamierocks.lexteam.ygd.core.meta.api.value.ValueManager;
 import uk.jamierocks.lexteam.ygd.core.service.ProviderExistsException;
+import uk.jamierocks.lexteam.ygd.core.tool.Tools;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.GameMetaProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.DirectionFromValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.DirectionToValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.DurationValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.tool.GameTools;
 
 public class GameLaunch {
 
     private static Game game;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
         game = new LexGame();
         try {
             registerServices();
@@ -31,6 +33,7 @@ public class GameLaunch {
         }
         registerProcessors();
         registerValueProcessors();
+        GameTools.injectTools();
     }
 
     public static Game getGame() {
