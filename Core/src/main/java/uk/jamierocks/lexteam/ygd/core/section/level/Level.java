@@ -1,9 +1,13 @@
 package uk.jamierocks.lexteam.ygd.core.section.level;
 
+import com.flowpowered.math.vector.Vector2f;
+import com.flowpowered.math.vector.Vector3f;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import uk.jamierocks.lexteam.ygd.core.panel.BasePanel;
+import uk.jamierocks.lexteam.ygd.core.panel.CubeFace;
 import uk.jamierocks.lexteam.ygd.core.panel.CubePosition;
+import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 
 import java.util.Set;
 
@@ -49,40 +53,41 @@ public class Level {
         return panels.inverse().get(panelPosition);
     }
 
-    /*
-    public BasePanel getAdjacentPanel(BasePanel panel, Direction direction){
-        Vector3f adjacentPanelPosition;
 
+    public BasePanel getAdjacentPanel(BasePanel panel, Direction direction){
+        BasePanel adjacentPanel;
         switch (direction) {
             case LEFT:
-                if (panel.getPanelPosition().getX() == 1){
-                    adjacentPanelPosition = new Vector3f(this.getPanelsPerFace(), panel.getPanelPosition().getY(), ((panel.getPanelPosition().getZ() - 1) % 4));
-                } else {
-                    adjacentPanelPosition = new Vector3f(panel.getPanelPosition().getX() - 1, panel.getPanelPosition().getY(), panel.getPanelPosition().getZ());
+                if (panel.getCubePosition().getVector2f().getX() == 0){
+                    if (panel.getCubePosition().getCubeFace() == CubeFace.TOP){
+                        //do top
+                    }
+                    else if (panel.getCubePosition().getCubeFace() == CubeFace.BOTTOM){
+                        adjacentPanel.setCubePosition(new CubePosition(CubeFace.getCubeFace(panel.getCubePosition().getCubeFace().getLeft()), new Vector2f(panel.getCubePosition().getVector2f().getY(), 0)));
+                    }
+                    adjacentPanel.setCubePosition(new CubePosition(CubeFace.getCubeFace(panel.getCubePosition().getCubeFace().getLeft()), new Vector2f(panelsPerFace, panel.getCubePosition().getVector2f().getY())));
+                }
+                else {
+                    adjacentPanel.setCubePosition(
+                            new CubePosition(
+                                    panel.getCubePosition().getCubeFace(),
+                                    new Vector2f(
+                                            panel.getCubePosition().getVector2f().getX() - 1,
+                                            panel.getCubePosition().getVector2f().getY())));
                 }
                 break;
             case RIGHT:
-                if (panel.getPanelPosition().getX() == this.getPanelsPerFace()){
-                    adjacentPanelPosition = new Vector3f(1, panel.getPanelPosition().getY(), ((panel.getPanelPosition().getZ() + 1) % 4));
-                } else {
-                    adjacentPanelPosition = new Vector3f(panel.getPanelPosition().getX() - 1, panel.getPanelPosition().getY(), panel.getPanelPosition().getZ());
-                }
                 break;
             case UP:
-                if(panel.getPanelPosition().getY() == this.panelsPerFace){
-                    // do some stuff
-                } else {
-                    adjacentPanelPosition = new Vector3f(panel.getPanelPosition().getX(), panel.getPanelPosition().getY() + 1, panel.getPanelPosition().getZ());
-                }
                 break;
             case DOWN:
                 break;
             case NONE:
-                //This should never be the case
+                //No.
                 break;
         }
-        return null;
-    }*/
+        return adjacentPanel;
+    }
 
     /**
      * Adds the specified panel to this level.

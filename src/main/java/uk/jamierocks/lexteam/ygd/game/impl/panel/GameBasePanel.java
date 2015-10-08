@@ -2,6 +2,7 @@ package uk.jamierocks.lexteam.ygd.game.impl.panel;
 
 import com.flowpowered.math.vector.Vector3f;
 import uk.jamierocks.lexteam.ygd.core.panel.BasePanel;
+import uk.jamierocks.lexteam.ygd.core.panel.CubePosition;
 
 /**
  * The implementation of {@Link BasePanel}.
@@ -10,21 +11,21 @@ import uk.jamierocks.lexteam.ygd.core.panel.BasePanel;
  */
 public class GameBasePanel implements BasePanel {
 
-    private Vector3f panelPosition;
+    private CubePosition cubePosition;
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public Vector3f getPanelPosition() {
-        return this.panelPosition;
+    public CubePosition getCubePosition() {
+        return cubePosition;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void setPanelPosition(Vector3f panelPosition) {
-        this.panelPosition = panelPosition;
+    public void setCubePosition(CubePosition cubePosition) {
+        this.cubePosition = cubePosition;
     }
 }
