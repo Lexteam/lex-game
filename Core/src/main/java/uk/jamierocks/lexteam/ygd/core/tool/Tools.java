@@ -90,7 +90,7 @@ public final class Tools {
     });
 
     /**
-     * Tools that repairs burnt out panels.
+     * Tools that repairs burnt out panels. Weak and strong relate to chance to repair.
      */
     public static final Tool WEAK_REPAIR_PANEL = new Tool("weak_repair_panel", 3, new ToolManipulator() {
         @Override
