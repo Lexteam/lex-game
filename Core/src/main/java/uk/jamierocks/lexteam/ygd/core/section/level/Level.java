@@ -55,7 +55,7 @@ public class Level {
 
 
     public BasePanel getAdjacentPanel(BasePanel panel, Direction direction){
-        BasePanel adjacentPanel;
+        CubePosition adjacentPanelCubePosition;
         switch (direction) {
             case LEFT:
                 if (panel.getCubePosition().getVector2f().getX() == 0){
@@ -63,13 +63,12 @@ public class Level {
                         //do top
                     }
                     else if (panel.getCubePosition().getCubeFace() == CubeFace.BOTTOM){
-                        adjacentPanel.setCubePosition(new CubePosition(CubeFace.getCubeFace(panel.getCubePosition().getCubeFace().getLeft()), new Vector2f(panel.getCubePosition().getVector2f().getY(), 0)));
+                        adjacentPanelCubePosition = new CubePosition(CubeFace.getCubeFace(panel.getCubePosition().getCubeFace().getLeft()), new Vector2f(panel.getCubePosition().getVector2f().getY(), 0)));
                     }
-                    adjacentPanel.setCubePosition(new CubePosition(CubeFace.getCubeFace(panel.getCubePosition().getCubeFace().getLeft()), new Vector2f(panelsPerFace, panel.getCubePosition().getVector2f().getY())));
+                    adjacentPanelCubePosition = new CubePosition(CubeFace.getCubeFace(panel.getCubePosition().getCubeFace().getLeft()), new Vector2f(panelsPerFace, panel.getCubePosition().getVector2f().getY())));
                 }
                 else {
-                    adjacentPanel.setCubePosition(
-                            new CubePosition(
+                    adjacentPanelCubePosition = new CubePosition(
                                     panel.getCubePosition().getCubeFace(),
                                     new Vector2f(
                                             panel.getCubePosition().getVector2f().getX() - 1,
@@ -86,7 +85,7 @@ public class Level {
                 //No.
                 break;
         }
-        return adjacentPanel;
+        return panels.inverse().get(adjacentPanelCubePosition);
     }
 
     /**
