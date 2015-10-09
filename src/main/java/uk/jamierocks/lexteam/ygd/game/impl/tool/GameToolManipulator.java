@@ -7,9 +7,9 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.tool;
 
-import com.google.common.eventbus.EventBus;
 import uk.jamierocks.lexteam.ygd.core.event.tool.ToolManipulateEvent;
 import uk.jamierocks.lexteam.ygd.core.panel.Panel;
+import uk.jamierocks.lexteam.ygd.core.service.event.IEventBus;
 import uk.jamierocks.lexteam.ygd.core.tool.Tool;
 import uk.jamierocks.lexteam.ygd.core.tool.ToolManipulator;
 import uk.jamierocks.lexteam.ygd.game.GameLaunch;
@@ -42,7 +42,7 @@ public abstract class GameToolManipulator implements ToolManipulator {
         }
 
         ToolManipulateEvent event = new ToolManipulateEvent(tool, panel);
-        GameLaunch.getGame().getServiceManager().provide(EventBus.class).get().post(event);
+        GameLaunch.getGame().getServiceManager().provide(IEventBus.class).get().post(event);
 
         return !event.isCancelled();
     }

@@ -7,12 +7,12 @@
  */
 package uk.jamierocks.lexteam.ygd.game;
 
-import com.google.common.eventbus.EventBus;
 import uk.jamierocks.lexteam.ygd.core.Game;
 import uk.jamierocks.lexteam.ygd.core.meta.api.MetaManager;
 import uk.jamierocks.lexteam.ygd.core.meta.api.value.ValueManager;
 import uk.jamierocks.lexteam.ygd.core.service.ProviderExistsException;
-import uk.jamierocks.lexteam.ygd.core.tool.Tools;
+import uk.jamierocks.lexteam.ygd.core.service.event.IEventBus;
+import uk.jamierocks.lexteam.ygd.core.service.event.SimpleEventBus;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.GameMetaProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.DirectionFromValueProcessor;
@@ -41,7 +41,7 @@ public class GameLaunch {
     }
 
     private static void registerServices() throws ProviderExistsException {
-        getGame().getServiceManager().setProvider(EventBus.class, new EventBus());
+        getGame().getServiceManager().setProvider(IEventBus.class, new SimpleEventBus());
     }
 
     private static void registerProcessors() {
