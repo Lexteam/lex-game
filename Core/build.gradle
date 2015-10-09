@@ -1,7 +1,14 @@
 plugins {
     id 'java'
+
+    id 'net.ellune.blossom' version '1.0.1'
 }
 apply plugin: 'com.github.johnrengelman.shadow'
+
+blossom {
+    replaceToken '@project.version@',
+            project.version, 'src/main/java/uk/jamierocks/lexteam/ygd/core/data/Constants.java'
+}
 
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.12'
