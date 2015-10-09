@@ -8,7 +8,6 @@
 package uk.jamierocks.lexteam.ygd.game;
 
 import uk.jamierocks.lexteam.ygd.core.Game;
-import uk.jamierocks.lexteam.ygd.core.data.Constants;
 import uk.jamierocks.lexteam.ygd.core.meta.api.MetaManager;
 import uk.jamierocks.lexteam.ygd.core.meta.api.value.ValueManager;
 import uk.jamierocks.lexteam.ygd.core.service.ProviderExistsException;
@@ -27,7 +26,7 @@ public class GameLaunch {
 
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
         game = new LexGame();
-        game.getMeta().getLogger().info(String.format("lex-game version %s loading", Constants.VERSION));
+        game.getMeta().getLogger().info(String.format("lex-game version %s loading", Game.VERSION));
         try {
             registerServices();
         } catch (ProviderExistsException e) {

@@ -7,7 +7,7 @@ apply plugin: 'com.github.johnrengelman.shadow'
 
 blossom {
     replaceToken '@project.version@',
-            project.version, 'src/main/java/uk/jamierocks/lexteam/ygd/core/data/Constants.java'
+            project.version, 'src/main/java/uk/jamierocks/lexteam/ygd/core/Game.java'
 }
 
 dependencies {

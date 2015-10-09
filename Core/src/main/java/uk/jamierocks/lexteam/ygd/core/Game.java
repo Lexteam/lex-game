@@ -11,6 +11,8 @@ import uk.jamierocks.lexteam.ygd.core.service.ServiceManager;
  */
 public interface Game extends SingularMetaOwner<GameMeta> {
 
+    String VERSION = "%project.version%";
+
     /**
      * Gets the game's service manager.
      *
