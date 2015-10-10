@@ -44,7 +44,7 @@ public class GameTools {
         toolField.set(null, to);
     }
 
-    private static final Tool ADD_CONNECTION =
+    public static final Tool ADD_CONNECTION =
             new Tool("add_connection", 1, new GameToolManipulator(Tools.ADD_CONNECTION) {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
@@ -61,7 +61,7 @@ public class GameTools {
         }
     });
 
-    private static final Tool REMOVE_CONNECTION =
+    public static final Tool REMOVE_CONNECTION =
             new Tool("remove_connection", 1, new GameToolManipulator(Tools.REMOVE_CONNECTION) {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
@@ -78,7 +78,7 @@ public class GameTools {
         }
     });
 
-    private static final Tool REVERSE_CONNECTION =
+    public static final Tool REVERSE_CONNECTION =
             new Tool("reverse_connection", 1, new GameToolManipulator(Tools.REVERSE_CONNECTION) {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
@@ -97,7 +97,7 @@ public class GameTools {
         }
     });
 
-    private static final Tool CHANGE_DURATION =
+    public static final Tool CHANGE_DURATION =
             new Tool("change_duration", 1, new GameToolManipulator(Tools.CHANGE_DURATION) {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
@@ -113,7 +113,7 @@ public class GameTools {
         }
     });
 
-    private static final Tool WEAK_REPAIR_PANEL =
+    public static final Tool WEAK_REPAIR_PANEL =
             new Tool("weak_repair_panel", 3, new GameToolManipulator(Tools.WEAK_REPAIR_PANEL) {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
@@ -133,7 +133,7 @@ public class GameTools {
         }
     });
 
-    private static final Tool STRONG_REPAIR_PANEL =
+    public static final Tool STRONG_REPAIR_PANEL =
             new Tool("strong_repair_panel", 3, new GameToolManipulator(Tools.STRONG_REPAIR_PANEL) {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {

@@ -26,6 +26,8 @@ dependencies {
     compile project(':LexUtils')
     compile project(':Core')
     //compile project(':Engine')
+
+    testCompile 'junit:junit:4.11'
 }
 
 jar {
