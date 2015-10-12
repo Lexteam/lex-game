@@ -7,13 +7,11 @@ package com.gmail.riley787cmplex.engine.media.data;
  *
  * All Rights Reserved.
  */
-public class MediaData<T> extends  MediaDataNoCopy<T>{
-
-    public static class Friend<T>{Friend(){}}
+public class MediaData<T>{
 
     public MediaData(T ID){}
 
-    //getID()
+    protected void parse(String filename){}
 }
 
 

@@ -1,6 +1,4 @@
-package com.gmail.riley787cmplex.engine.media.libraries;
-
-import com.gmail.riley787cmplex.engine.media.data.EffectData;
+package com.gmail.riley787cmplex.engine.media.data;
 
 /*
  * Copyright (c) 2015, Jamie Mansfield <https://www.jamierocks.uk>
@@ -8,8 +6,15 @@ import com.gmail.riley787cmplex.engine.media.data.EffectData;
  * Copyright (c) 2015, Ethan Riley <https://github.com/EthanRiley>
  *
  * All Rights Reserved.
- */
 
-public final class EffectLibrary extends MediaLibrary<String, EffectData>{
+ * To be inherited
+ */
+public class MediaDataFriend<T> extends MediaData<T>{
+
+    public MediaDataFriend(T id){
+        super(id);
+    }
+
+    public static class Friend<T>{Friend(){}}
 
 }

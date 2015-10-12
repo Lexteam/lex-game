@@ -13,7 +13,7 @@ import com.gmail.riley787cmplex.engine.media.Model;
  * handles non-absoulte values
  * lazyness is key!
  */
-public class ModelInstance extends MediaData<Integer> {
+public class ModelInstance extends MediaDataFriend<Integer> {
 
     static Friend<Integer> friend = new Friend<>();
 

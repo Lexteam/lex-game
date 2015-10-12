@@ -1,7 +1,8 @@
 package com.gmail.riley787cmplex.engine;
 
 import com.gmail.riley787cmplex.engine.media.data.EffectData;
-import com.gmail.riley787cmplex.engine.media.libraries.EffectLibrary;
+import com.gmail.riley787cmplex.engine.media.data.KeyFrameData;
+import com.gmail.riley787cmplex.engine.media.libraries.MediaLibrary;
 
 /*
  * Copyright (c) 2015, Jamie Mansfield <https://www.jamierocks.uk>
@@ -12,10 +13,13 @@ import com.gmail.riley787cmplex.engine.media.libraries.EffectLibrary;
  */
 public class Engine{
 
+      protected static MediaLibrary effectlibrary = new MediaLibrary<String, EffectData>();
+
+      protected static MediaLibrary keyframelibrary = new MediaLibrary<String, KeyFrameData>();
+
 
       private final static int  SIDES = 6;
 
-      public static EffectLibrary effectLibrary = new EffectLibrary();
 
       public Engine(int panelsperface){
 
@@ -24,10 +28,6 @@ public class Engine{
       
 
       public int getSides(){ return SIDES;}
-
-
-      private static EffectData burntoutPanel;
-      private static EffectData panelCooldownAnim;
 
 
 }

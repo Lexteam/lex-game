@@ -14,7 +14,7 @@ import org.lwjgl.opengl.GL;
  *
  * All Rights Reserved.
  */
-public class Shader extends MediaData<String>{
+public class Shader extends MediaDataFriend<String>{
 
     public Shader(String Filename, String Name, ShaderType Type) {
         super(Name); parse(Filename); type = Type;

@@ -1,12 +1,8 @@
 package com.gmail.riley787cmplex.engine.media.libraries;
 
-import com.gmail.riley787cmplex.engine.media.data.EffectData;
 import com.gmail.riley787cmplex.engine.media.data.MediaData;
-import com.gmail.riley787cmplex.engine.media.data.MediaDataNoCopy;
 
 import java.util.List;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 /*
  * Copyright (c) 2015, Jamie Mansfield <https://www.jamierocks.uk>
@@ -16,46 +12,28 @@ import java.util.concurrent.locks.ReentrantLock;
  * All Rights Reserved.
  * to be inherted.
  */
-public class MediaLibrary<K, M extends MediaDataNoCopy<?>> {
-
-    public MediaLibrary(){}
-
-    final Lock lock = new ReentrantLock();
+public class MediaLibrary<K, M extends MediaData<?>> {
 
     public void registerMedia(K key, M media){
         keys.add(key);
         mediaData.add(media);
     }
 
-    public void putKeyOnly(K key){
-
-        if(!lock.tryLock()) {
-            lock.lock();
-            try {
-                keys.add(key);
-            }
-            finally {}
-        }
-        else{
-            //throw
-        }
+    public synchronized void addKey(K key){
+        keys.add(key);
     }
 
-    public void addMedia_tolastkey(M media){
-        if(lock.tryLock()) {
-            try {
-                mediaData.add(media);
-            }
-            finally {
-                lock.unlock();
-            }
-        }
+    public synchronized void finalize_MediaData(M media){
+        mediaData.add(media);
     }
 
-    protected M getData(K key){return mediaData.get(keys.indexOf(key));}
+    protected synchronized M getData(K key){return mediaData.get(keys.indexOf(key));}
 
-    protected K getID(M media){return keys.get(mediaData.indexOf(media));}
+    protected synchronized K getID(M media){return keys.get(mediaData.indexOf(media));}
 
-    private List<K> keys;
-    private List<M> mediaData;
+
+    volatile private List<K> keys;
+    volatile private List<M> mediaData;
+
+
 }

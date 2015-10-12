@@ -1,10 +1,5 @@
 package com.gmail.riley787cmplex.engine.media.data;
 
-import com.gmail.riley787cmplex.engine.media.libraries.EffectLibrary;
-import com.gmail.riley787cmplex.engine.Engine;
-
-import javax.annotation.PostConstruct;
-
 /*
  * Copyright (c) 2015, Jamie Mansfield <https://www.jamierocks.uk>
  * Copyright (c) 2015, Tom Drever <https://github.com/CharlesStewart>
