@@ -1,5 +1,6 @@
 package uk.jamierocks.lexteam.ygd.core.service.event;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
@@ -7,7 +8,7 @@ import java.lang.reflect.Method;
  *
  * @author Jamie Mansfield
  */
-public class EventHandler {
+public class EventHandler implements DedicatedListener {
 
     private final Object instance;
     private final Method method;
@@ -34,5 +35,28 @@ public class EventHandler {
      */
     public Method getMethod() {
         return method;
+    }
+
+    /**
+     * Invokes the given method, in the given instance.
+     *
+     * @param event the event to use while invoking.
+     */
+    @Override
+    public void process(Object event) {
+        if (getHandles().isAssignableFrom(event.getClass())) {
+            try {
+                this.method.invoke(this.instance, event);
+            } catch (InvocationTargetException e) {
+                // TODO: proper catchment
+            } catch (IllegalAccessException e) {
+                // TODO: proper catchment
+            }
+        }
+    }
+
+    @Override
+    public Class getHandles() {
+        return this.method.getParameterTypes()[0];
     }
 }

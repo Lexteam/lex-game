@@ -1,7 +1,5 @@
 package uk.jamierocks.lexteam.ygd.core.service.event;
 
-import java.util.Set;
-
 /**
  * The lex-game event bus.
  *
@@ -23,11 +21,4 @@ public interface IEventBus {
      * @param event the specified event.
      */
     void post(Object event);
-
-    /**
-     * Gets all of the registered event handlers.
-     *
-     * @return the event handlers.
-     */
-    Set<EventHandler> getHandlers();
 }
