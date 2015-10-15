@@ -1,5 +1,6 @@
 package uk.jamierocks.lexteam.ygd.core.service.event;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
@@ -34,5 +35,20 @@ public class EventHandler {
      */
     public Method getMethod() {
         return method;
+    }
+
+    /**
+     * Invokes the given method, in the given instance.
+     *
+     * @param event the event to use while invoking.
+     */
+    public void invoke(Object event) {
+        try {
+            this.method.invoke(this.instance, event);
+        } catch (InvocationTargetException e) {
+            // TODO: proper catchment
+        } catch (IllegalAccessException e) {
+            // TODO: proper catchment
+        }
     }
 }

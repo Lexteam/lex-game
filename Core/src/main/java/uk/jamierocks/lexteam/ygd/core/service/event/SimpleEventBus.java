@@ -39,11 +39,7 @@ public class SimpleEventBus implements IEventBus {
         for (EventHandler h : eventHandlers) {
             Class<?>[] params = h.getMethod().getParameterTypes();
             if (params[0].isAssignableFrom(clazz)) {
-                try {
-                    h.getMethod().invoke(h.getInstance(), event);
-                } catch (Exception e) {
-                    // please no
-                }
+                h.invoke(event);
             }
         }
     }
