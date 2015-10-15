@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
  *
  * @author Jamie Mansfield
  */
-public class EventHandler {
+public class EventHandler implements DedicatedListener {
 
     private final Object instance;
     private final Method method;
@@ -42,13 +42,18 @@ public class EventHandler {
      *
      * @param event the event to use while invoking.
      */
-    public void invoke(Object event) {
-        try {
-            this.method.invoke(this.instance, event);
-        } catch (InvocationTargetException e) {
-            // TODO: proper catchment
-        } catch (IllegalAccessException e) {
-            // TODO: proper catchment
+    @Override
+    public void process(Object event) {
+        Class<?>[] params = this.method.getParameterTypes();
+        if (params[0].isAssignableFrom(event.getClass())) {
+            try {
+                this.method.invoke(this.instance, event);
+            } catch (InvocationTargetException e) {
+                // TODO: proper catchment
+            } catch (IllegalAccessException e) {
+                // TODO: proper catchment
+            }
         }
+
     }
 }

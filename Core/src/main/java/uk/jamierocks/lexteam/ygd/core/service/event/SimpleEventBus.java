@@ -12,7 +12,7 @@ import java.util.Set;
  */
 public class SimpleEventBus implements IEventBus {
 
-    private Set<EventHandler> eventHandlers;
+    private Set<DedicatedListener> eventHandlers;
 
     public SimpleEventBus() {
         this.eventHandlers = Sets.newHashSet();
@@ -23,9 +23,13 @@ public class SimpleEventBus implements IEventBus {
      */
     @Override
     public void registerListener(Object listener) {
-        for (Method m : listener.getClass().getMethods()) {
-            if (m.getAnnotation(Listener.class) != null && m.getParameterCount() == 1) {
-                eventHandlers.add(new EventHandler(listener, m));
+        if (listener instanceof DedicatedListener) {
+            this.eventHandlers.add((DedicatedListener) listener);
+        } else {
+            for (Method m : listener.getClass().getMethods()) {
+                if (m.getAnnotation(Listener.class) != null && m.getParameterCount() == 1) {
+                    this.eventHandlers.add(new EventHandler(listener, m));
+                }
             }
         }
     }
@@ -35,12 +39,8 @@ public class SimpleEventBus implements IEventBus {
      */
     @Override
     public void post(Object event) {
-        Class<?> clazz = event.getClass();
-        for (EventHandler h : eventHandlers) {
-            Class<?>[] params = h.getMethod().getParameterTypes();
-            if (params[0].isAssignableFrom(clazz)) {
-                h.invoke(event);
-            }
+        for (DedicatedListener h : eventHandlers) {
+            h.process(event);
         }
     }
 
@@ -48,7 +48,7 @@ public class SimpleEventBus implements IEventBus {
      * {@inheritDoc}
      */
     @Override
-    public Set<EventHandler> getHandlers() {
-        return this.eventHandlers;
+    public Set<DedicatedListener> getHandlers() {
+        return Sets.newHashSet(this.eventHandlers);
     }
 }

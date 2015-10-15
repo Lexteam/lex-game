@@ -27,7 +27,7 @@ public interface IEventBus {
     /**
      * Gets all of the registered event handlers.
      *
-     * @return the event handlers.
+     * @return an immutable set of the event handlers.
      */
-    Set<EventHandler> getHandlers();
+    Set<DedicatedListener> getHandlers();
 }
