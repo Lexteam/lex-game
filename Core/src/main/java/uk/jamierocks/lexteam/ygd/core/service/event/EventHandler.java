@@ -44,8 +44,7 @@ public class EventHandler implements DedicatedListener {
      */
     @Override
     public void process(Object event) {
-        Class<?>[] params = this.method.getParameterTypes();
-        if (params[0].isAssignableFrom(event.getClass())) {
+        if (getHandles().isAssignableFrom(event.getClass())) {
             try {
                 this.method.invoke(this.instance, event);
             } catch (InvocationTargetException e) {
@@ -54,6 +53,10 @@ public class EventHandler implements DedicatedListener {
                 // TODO: proper catchment
             }
         }
+    }
 
+    @Override
+    public Class getHandles() {
+        return this.method.getParameterTypes()[0];
     }
 }

@@ -15,4 +15,11 @@ public interface DedicatedListener<T> {
      * @param event the event.
      */
     void process(T event);
+
+    /**
+     * Gets the type that this 'dedicated listener' listens for.
+     *
+     * @return the type of event.
+     */
+    Class<T> getHandles();
 }
