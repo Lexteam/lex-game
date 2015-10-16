@@ -4,22 +4,23 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * Represents an event handler.
+ * Represents a listener handler.
+ * This wraps around a single method annotated with {@link Listener}.
  *
  * @author Jamie Mansfield
  */
-public class EventHandler implements DedicatedListener {
+public class ListenerHandler implements IDedicatedListener {
 
     private final Object instance;
     private final Method method;
 
-    public EventHandler(Object instance, Method method) {
+    public ListenerHandler(Object instance, Method method) {
         this.instance = instance;
         this.method = method;
     }
 
     /**
-     * Gets the instantiated class of which hold the method that needs to be invoked.
+     * Gets the instantiated class of which holds the method that needs to be invoked.
      * This is required to invoke the method.
      *
      * @return the instantiated class.
@@ -48,13 +49,16 @@ public class EventHandler implements DedicatedListener {
             try {
                 this.method.invoke(this.instance, event);
             } catch (InvocationTargetException e) {
-                // TODO: proper catchment
+                IEventBus.LOGGER.error("There is something wrong :S", e);
             } catch (IllegalAccessException e) {
-                // TODO: proper catchment
+                IEventBus.LOGGER.error("All @Listener methods need to be public!", e);
             }
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Class getHandles() {
         return this.method.getParameterTypes()[0];
