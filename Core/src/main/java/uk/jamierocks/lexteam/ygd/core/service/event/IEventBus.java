@@ -1,11 +1,16 @@
 package uk.jamierocks.lexteam.ygd.core.service.event;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * The lex-game event bus.
  *
  * @author Jamie Mansfield
  */
 public interface IEventBus {
+
+    Logger LOGGER = LoggerFactory.getLogger("lex-game | event bus");
 
     /**
      * Registers the specified event listener.

@@ -20,7 +20,7 @@ public class ListenerHandler implements IDedicatedListener {
     }
 
     /**
-     * Gets the instantiated class of which hold the method that needs to be invoked.
+     * Gets the instantiated class of which holds the method that needs to be invoked.
      * This is required to invoke the method.
      *
      * @return the instantiated class.
@@ -49,9 +49,9 @@ public class ListenerHandler implements IDedicatedListener {
             try {
                 this.method.invoke(this.instance, event);
             } catch (InvocationTargetException e) {
-                // TODO: proper catchment
+                IEventBus.LOGGER.error("There is something wrong :S", e);
             } catch (IllegalAccessException e) {
-                // TODO: proper catchment
+                IEventBus.LOGGER.error("All @Listener methods need to be public!", e);
             }
         }
     }
