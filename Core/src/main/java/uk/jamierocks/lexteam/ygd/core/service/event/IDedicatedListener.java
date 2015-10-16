@@ -7,7 +7,7 @@ package uk.jamierocks.lexteam.ygd.core.service.event;
  * @param <T> this is the type of which the event is.
  * @author Jamie Mansfield
  */
-public interface DedicatedListener<T> {
+public interface IDedicatedListener<T> {
 
     /**
      * Processes the given event.

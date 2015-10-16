@@ -4,16 +4,17 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * Represents an event handler.
+ * Represents a listener handler.
+ * This wraps around a single method annotated with {@link Listener}.
  *
  * @author Jamie Mansfield
  */
-public class EventHandler implements DedicatedListener {
+public class ListenerHandler implements IDedicatedListener {
 
     private final Object instance;
     private final Method method;
 
-    public EventHandler(Object instance, Method method) {
+    public ListenerHandler(Object instance, Method method) {
         this.instance = instance;
         this.method = method;
     }
@@ -55,6 +56,9 @@ public class EventHandler implements DedicatedListener {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Class getHandles() {
         return this.method.getParameterTypes()[0];

@@ -14,7 +14,7 @@ import java.util.Set;
  */
 public class SimpleEventBus implements IEventBus {
 
-    private Map<Class, Set<DedicatedListener>> handlers;
+    private Map<Class, Set<IDedicatedListener>> handlers;
 
     public SimpleEventBus() {
         this.handlers = Maps.newHashMap();
@@ -25,17 +25,17 @@ public class SimpleEventBus implements IEventBus {
      */
     @Override
     public void registerListener(Object listener) {
-        if (listener instanceof DedicatedListener) {
-            DedicatedListener dedicatedListener = (DedicatedListener) listener;
-            Set<DedicatedListener> listeners =
+        if (listener instanceof IDedicatedListener) {
+            IDedicatedListener dedicatedListener = (IDedicatedListener) listener;
+            Set<IDedicatedListener> listeners =
                     this.handlers.getOrDefault(dedicatedListener.getHandles(), Sets.newHashSet());
             listeners.add(dedicatedListener);
             this.handlers.put(dedicatedListener.getHandles(), listeners);
         } else {
             for (Method m : listener.getClass().getMethods()) {
                 if (m.getAnnotation(Listener.class) != null && m.getParameterCount() == 1) {
-                    EventHandler handler = new EventHandler(listener, m);
-                    Set<DedicatedListener> listeners =
+                    ListenerHandler handler = new ListenerHandler(listener, m);
+                    Set<IDedicatedListener> listeners =
                             this.handlers.getOrDefault(handler.getHandles(), Sets.newHashSet());
                     listeners.add(handler);
                     this.handlers.put(handler.getHandles(), listeners);
@@ -49,7 +49,7 @@ public class SimpleEventBus implements IEventBus {
      */
     @Override
     public void post(Object event) {
-        for (DedicatedListener listener : handlers.get(event.getClass())) {
+        for (IDedicatedListener listener : handlers.get(event.getClass())) {
             listener.process(event);
         }
     }
