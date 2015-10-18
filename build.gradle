@@ -20,7 +20,9 @@ allprojects {
 dependencies {
     compile 'org.slf4j:slf4j-jdk14:1.7.12'
     compile project(':Core')
-    compile project(':Engine')
+    //compile project(':Engine')
+
+    testCompile 'junit:junit:4.11'
 }
 
 jar {

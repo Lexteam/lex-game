@@ -9,6 +9,7 @@ import uk.jamierocks.lexteam.ygd.core.panel.CubeFace;
 import uk.jamierocks.lexteam.ygd.core.panel.CubePosition;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -53,8 +54,7 @@ public class Level {
         return panels.inverse().get(panelPosition);
     }
 
-
-    public BasePanel getAdjacentPanel(BasePanel panel, Direction direction){
+    public CubePosition getAdjacentPanelPosition(BasePanel panel, Direction direction){
         CubePosition adjacentPanelCubePosition = new CubePosition(null, null);
         switch (direction) {
             case LEFT:
@@ -117,7 +117,11 @@ public class Level {
                 //No.
                 break;
         }
-        return panels.inverse().get(adjacentPanelCubePosition);
+        return adjacentPanelCubePosition;
+    }
+
+    public BasePanel getAdjacentPanel(BasePanel panel, Direction direction){
+        return panels.inverse().get(getAdjacentPanelPosition(panel, direction));
     }
 
     /**

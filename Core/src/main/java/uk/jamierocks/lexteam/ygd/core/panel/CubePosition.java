@@ -24,4 +24,13 @@ public class CubePosition {
     public Vector2f getVector2f() {
         return vector2f;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        boolean faceequal = ((CubePosition) obj).cubeFace == this.cubeFace;
+        boolean vecequals = (((CubePosition) obj).vector2f == this.vector2f);
+
+        return faceequal && vecequals;
+    }
 }
