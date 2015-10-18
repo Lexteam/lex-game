@@ -30,7 +30,15 @@ public class AddConnectionInfo implements ToolManipulatorInfo {
         return to;
     }
 
+    public void setTo(Direction to) {
+        this.to = to;
+    }
+
     public Direction getFrom() {
         return from;
+    }
+
+    public void setFrom(Direction from) {
+        this.from = from;
     }
 }

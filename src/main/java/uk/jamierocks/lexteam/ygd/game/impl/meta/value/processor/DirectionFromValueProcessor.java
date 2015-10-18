@@ -30,6 +30,16 @@ public class DirectionFromValueProcessor implements ValueProcessor<Direction, Va
     }
 
     @Override
+    public boolean offer(ValueOwner container, Direction value) {
+        if (container instanceof AddConnectionInfo) {
+            AddConnectionInfo connectionInfo = (AddConnectionInfo) container;
+            connectionInfo.setFrom(value);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public Optional<Direction> getValueFromContainer(ValueOwner container) {
         if (container instanceof AddConnectionInfo) {
             AddConnectionInfo connectionInfo = (AddConnectionInfo) container;

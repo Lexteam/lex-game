@@ -26,4 +26,8 @@ public class ChangeDurationInfo implements ToolManipulatorInfo {
     public int getDuration() {
         return duration;
     }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
 }

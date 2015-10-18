@@ -30,4 +30,16 @@ public interface ValueOwner {
     default <T> boolean supports(Key<Value<T>> key) {
         return ValueManager.supports(this, key);
     }
+
+    /**
+     * Offers the given value to the value processor.
+     *
+     * @param key the key of which you are offering to.
+     * @param value the value you wish to set.
+     * @param <T> the value type.
+     * @return {@code true} if the value was set.
+     */
+    default <T> boolean offer(Key<Value<T>> key, T value) {
+        return ValueManager.offer(this, key, value);
+    }
 }

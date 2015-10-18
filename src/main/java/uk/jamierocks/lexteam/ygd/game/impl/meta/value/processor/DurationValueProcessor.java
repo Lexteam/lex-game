@@ -12,6 +12,8 @@ import uk.jamierocks.lexteam.ygd.core.meta.api.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.api.value.Value;
 import uk.jamierocks.lexteam.ygd.core.meta.api.value.ValueOwner;
 import uk.jamierocks.lexteam.ygd.core.meta.api.value.ValueProcessor;
+import uk.jamierocks.lexteam.ygd.core.panel.Direction;
+import uk.jamierocks.lexteam.ygd.game.impl.tool.AddConnectionInfo;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.ChangeDurationInfo;
 
 import java.util.Optional;
@@ -26,6 +28,16 @@ public class DurationValueProcessor implements ValueProcessor<Integer, Value<Int
     @Override
     public boolean supports(ValueOwner container) {
         return container instanceof ChangeDurationInfo;
+    }
+
+    @Override
+    public boolean offer(ValueOwner container, Integer value) {
+        if (container instanceof AddConnectionInfo) {
+            ChangeDurationInfo durationInfo = (ChangeDurationInfo) container;
+            durationInfo.setDuration(value);
+            return true;
+        }
+        return false;
     }
 
     @Override

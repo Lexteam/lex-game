@@ -10,6 +10,8 @@ public interface ValueProcessor<E, V extends Value<E>> {
 
     boolean supports(ValueOwner container);
 
+    boolean offer(ValueOwner container, E value);
+
     Optional<E> getValueFromContainer(ValueOwner container);
 }
 

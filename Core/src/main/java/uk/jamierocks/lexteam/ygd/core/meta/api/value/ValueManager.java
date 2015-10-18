@@ -20,4 +20,8 @@ public class ValueManager {
     public static <T> boolean supports(ValueOwner container, Key<Value<T>> key) {
         return processors.get(key).supports(container);
     }
+
+    public static <T> boolean offer(ValueOwner container, Key<Value<T>> key, T value) {
+        return processors.get(key).offer(container, value);
+    }
 }
