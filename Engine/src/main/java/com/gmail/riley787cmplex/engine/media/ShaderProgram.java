@@ -30,23 +30,5 @@ public class ShaderProgram {
 
     }
 
-
-
-    public VectorNf getUniform(){
-
-    }
-
-    public <T> getUniform(){
-
-    }
-
-    public void setUniform(VectorNf uniformData){
-
-    }
-
-    public <T> setUniform(T UniformData){
-
-    }
-
     private Map<String, Integer> uniformLocations;
 }
