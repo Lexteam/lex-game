@@ -2,6 +2,8 @@ package uk.jamierocks.lexteam.ygd.core.meta.value;
 
 import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
 
+import java.util.Optional;
+
 /**
  * Represents a value owner.
  *
@@ -16,8 +18,19 @@ public interface ValueOwner {
      * @param <T> the value type.
      * @return the value.
      */
-    default <T> T get(Key<Value<T>> key) {
+    default <T> Optional<T> get(Key<Value<T>> key) {
         return ValueManager.get(this, key);
+    }
+
+    /**
+     * Gets a value from it's key, and if it doesn't exist the gets null.
+     *
+     * @param key the specified key.
+     * @param <T> the value type.
+     * @return the value.
+     */
+    default <T> T getOrNull(Key<Value<T>> key) {
+        return get(key).orElse(null);
     }
 
     /**

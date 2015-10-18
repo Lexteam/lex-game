@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
 
 import java.util.Map;
+import java.util.Optional;
 
 public class ValueManager {
 
@@ -13,8 +14,8 @@ public class ValueManager {
         processors.put(processor.getKey(), processor);
     }
 
-    public static <T> T get(ValueOwner container, Key<Value<T>> key) {
-        return (T) processors.get(key).getValueFromContainer(container).get();
+    public static <T> Optional<T> get(ValueOwner container, Key<Value<T>> key) {
+        return processors.get(key).getValueFromContainer(container);
     }
 
     public static <T> boolean supports(ValueOwner container, Key<Value<T>> key) {
