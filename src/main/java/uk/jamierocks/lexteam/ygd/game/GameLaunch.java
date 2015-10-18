@@ -26,11 +26,11 @@ public class GameLaunch {
 
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
         game = new LexGame();
-        game.getMeta().getLogger().info(String.format("lex-game version %s loading", Game.VERSION));
+        game.getMeta().logger().info(String.format("lex-game version %s loading", Game.VERSION));
         try {
             registerServices();
         } catch (ProviderExistsException e) {
-            game.getMeta().getLogger().error("A provider already exists for that service!", e);
+            game.getMeta().logger().error("A provider already exists for that service!", e);
         }
         registerProcessors();
         registerValueProcessors();

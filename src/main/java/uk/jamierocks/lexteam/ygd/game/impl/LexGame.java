@@ -28,7 +28,7 @@ public class LexGame implements IApplication, Game, GameMeta {
     private final ServiceManager serviceManager = new SimpleServiceManager();
     private final GameSettings gameSettings = null;
             //new GameSettings(this,
-                    //new File(getDirectory(), "settings.conf"),
+                    //new File(directory(), "settings.conf"),
                     //"settings.conf");
 
     /**
@@ -43,20 +43,16 @@ public class LexGame implements IApplication, Game, GameMeta {
      * {@inheritDoc}
      */
     @Override
-    public File getDirectory() {
-        File directory = new File(LEXTEAM_BASE_DIRECTORY, getSafeName());
-        if (!directory.exists()) {
-            directory.mkdirs();
-        }
-        return directory;
+    public File directory() {
+        return this.getDirectory();
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public Logger getLogger() {
-        return LoggerFactory.getLogger(getSafeName());
+    public Logger logger() {
+        return this.getLogger();
     }
 
     /**
@@ -64,7 +60,7 @@ public class LexGame implements IApplication, Game, GameMeta {
      */
     @Override
     public ServiceManager getServiceManager() {
-        return serviceManager;
+        return this.serviceManager;
     }
 
     /**

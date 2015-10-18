@@ -18,12 +18,12 @@ public interface GameMeta extends Meta {
      *
      * @return the game's {@link Logger}.
      */
-    Logger getLogger();
+    Logger logger();
 
     /**
      * Gets the game's directory.
      *
      * @return the game's {@link File}.
      */
-    File getDirectory();
+    File directory();
 }
