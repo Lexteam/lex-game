@@ -11,6 +11,7 @@ import uk.jamierocks.lexteam.ygd.core.meta.GameMeta;
 import uk.jamierocks.lexteam.ygd.core.meta.api.MetaOwner;
 import uk.jamierocks.lexteam.ygd.core.meta.api.MetaProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.LexGameMeta;
 
 import java.util.Optional;
 
@@ -29,7 +30,8 @@ public class GameMetaProcessor implements MetaProcessor<GameMeta> {
     @Override
     public Optional<GameMeta> getMetaFromContainer(MetaOwner container) {
         if (container instanceof LexGame) {
-            return Optional.of((LexGame) container);
+            LexGame game = (LexGame) container;
+            return Optional.of(new LexGameMeta(game.getLogger(), game.getDirectory()));
         }
         return Optional.empty();
     }

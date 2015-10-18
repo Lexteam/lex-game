@@ -8,9 +8,7 @@
 package uk.jamierocks.lexteam.ygd.game.test;
 
 import org.junit.Assert;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runners.MethodSorters;
 import uk.jamierocks.lexteam.ygd.core.meta.api.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 import uk.jamierocks.lexteam.ygd.game.GameLaunch;
