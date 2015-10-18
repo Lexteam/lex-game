@@ -45,11 +45,11 @@ public class GameLaunch {
         getGame().getServiceManager().setProvider(IEventBus.class, new SimpleEventBus());
     }
 
-    private static void registerProcessors() {
+    public static void registerProcessors() {
         MetaManager.registerProcessor(new GameMetaProcessor());
     }
 
-    private static void registerValueProcessors() {
+    public static void registerValueProcessors() {
         ValueManager.registerProcessor(new DurationValueProcessor());
         ValueManager.registerProcessor(new DirectionToValueProcessor());
         ValueManager.registerProcessor(new DirectionFromValueProcessor());
