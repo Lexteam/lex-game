@@ -1,4 +1,4 @@
-package uk.jamierocks.lexteam.ygd.core.meta.api.value;
+package uk.jamierocks.lexteam.ygd.core.meta.value;
 
 /**
  * Represents any value.

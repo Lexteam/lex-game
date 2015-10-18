@@ -1,4 +1,4 @@
-package uk.jamierocks.lexteam.ygd.core.meta.api;
+package uk.jamierocks.lexteam.ygd.core.meta;
 
 public interface SingularMetaOwner<T> extends MetaOwner {
 

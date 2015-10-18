@@ -1,8 +1,7 @@
-package uk.jamierocks.lexteam.ygd.core.meta;
+package uk.jamierocks.lexteam.ygd.core.meta.manipulator;
 
 import org.slf4j.Logger;
 import uk.jamierocks.lexteam.ygd.core.Game;
-import uk.jamierocks.lexteam.ygd.core.meta.api.Meta;
 
 import java.io.File;
 

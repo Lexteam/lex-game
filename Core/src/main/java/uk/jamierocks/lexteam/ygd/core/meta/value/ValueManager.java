@@ -1,7 +1,7 @@
-package uk.jamierocks.lexteam.ygd.core.meta.api.value;
+package uk.jamierocks.lexteam.ygd.core.meta.value;
 
 import com.google.common.collect.Maps;
-import uk.jamierocks.lexteam.ygd.core.meta.api.key.Key;
+import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
 
 import java.util.Map;
 

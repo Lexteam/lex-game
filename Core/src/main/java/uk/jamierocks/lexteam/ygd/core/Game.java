@@ -1,7 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core;
 
-import uk.jamierocks.lexteam.ygd.core.meta.GameMeta;
-import uk.jamierocks.lexteam.ygd.core.meta.api.SingularMetaOwner;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.GameMeta;
+import uk.jamierocks.lexteam.ygd.core.meta.SingularMetaOwner;
 import uk.jamierocks.lexteam.ygd.core.service.ServiceManager;
 
 /**

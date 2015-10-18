@@ -9,7 +9,7 @@ package uk.jamierocks.lexteam.ygd.game.test;
 
 import org.junit.Assert;
 import org.junit.Test;
-import uk.jamierocks.lexteam.ygd.core.meta.api.key.Keys;
+import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 import uk.jamierocks.lexteam.ygd.game.GameLaunch;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.AddConnectionInfo;

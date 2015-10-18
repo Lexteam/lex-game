@@ -7,11 +7,11 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.processor;
 
-import uk.jamierocks.lexteam.ygd.core.meta.GameMeta;
-import uk.jamierocks.lexteam.ygd.core.meta.api.MetaOwner;
-import uk.jamierocks.lexteam.ygd.core.meta.api.MetaProcessor;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.GameMeta;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
-import uk.jamierocks.lexteam.ygd.game.impl.meta.LexGameMeta;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.LexGameMeta;
 
 import java.util.Optional;
 

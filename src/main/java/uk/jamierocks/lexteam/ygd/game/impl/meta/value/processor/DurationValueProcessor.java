@@ -7,12 +7,11 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor;
 
-import uk.jamierocks.lexteam.ygd.core.meta.api.key.Key;
-import uk.jamierocks.lexteam.ygd.core.meta.api.key.Keys;
-import uk.jamierocks.lexteam.ygd.core.meta.api.value.Value;
-import uk.jamierocks.lexteam.ygd.core.meta.api.value.ValueOwner;
-import uk.jamierocks.lexteam.ygd.core.meta.api.value.ValueProcessor;
-import uk.jamierocks.lexteam.ygd.core.panel.Direction;
+import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
+import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
+import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
+import uk.jamierocks.lexteam.ygd.core.meta.value.ValueOwner;
+import uk.jamierocks.lexteam.ygd.core.meta.value.ValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.AddConnectionInfo;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.ChangeDurationInfo;
 

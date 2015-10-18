@@ -1,6 +1,6 @@
-package uk.jamierocks.lexteam.ygd.core.meta.api.key;
+package uk.jamierocks.lexteam.ygd.core.meta.key;
 
-import uk.jamierocks.lexteam.ygd.core.meta.api.value.Value;
+import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
 
 /**
  * Represents a key, this can be of any value.

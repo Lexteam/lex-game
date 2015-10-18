@@ -8,8 +8,8 @@
 package uk.jamierocks.lexteam.ygd.game;
 
 import uk.jamierocks.lexteam.ygd.core.Game;
-import uk.jamierocks.lexteam.ygd.core.meta.api.MetaManager;
-import uk.jamierocks.lexteam.ygd.core.meta.api.value.ValueManager;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaManager;
+import uk.jamierocks.lexteam.ygd.core.meta.value.ValueManager;
 import uk.jamierocks.lexteam.ygd.core.service.ProviderExistsException;
 import uk.jamierocks.lexteam.ygd.core.service.event.IEventBus;
 import uk.jamierocks.lexteam.ygd.core.service.event.SimpleEventBus;

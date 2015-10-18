@@ -1,4 +1,4 @@
-package uk.jamierocks.lexteam.ygd.core.meta.api;
+package uk.jamierocks.lexteam.ygd.core.meta;
 
 import com.google.common.collect.Maps;
 

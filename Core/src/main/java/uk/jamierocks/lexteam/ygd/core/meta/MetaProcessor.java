@@ -1,4 +1,6 @@
-package uk.jamierocks.lexteam.ygd.core.meta.api;
+package uk.jamierocks.lexteam.ygd.core.meta;
+
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.Meta;
 
 import java.util.Optional;
 
