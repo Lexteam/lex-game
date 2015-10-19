@@ -29,18 +29,18 @@ public class MetaValueTest {
     @Test
     public void durationTest() {
         ChangeDurationInfo info = new ChangeDurationInfo(5);
-        Assert.assertEquals(info.getOrNull(Keys.DURATION), new Integer(5));
+        Assert.assertEquals(info.getOrNull(Keys.TOOL_DURATION), new Integer(5));
     }
 
     @Test
     public void directionToTest() {
         AddConnectionInfo info = new AddConnectionInfo(Direction.DOWN, Direction.LEFT);
-        Assert.assertEquals(info.getOrNull(Keys.DIRECTION_TO), Direction.DOWN);
+        Assert.assertEquals(info.getOrNull(Keys.TOOL_DIRECTION_TO), Direction.DOWN);
     }
 
     @Test
     public void directionFromTest() {
         AddConnectionInfo info = new AddConnectionInfo(Direction.DOWN, Direction.LEFT);
-        Assert.assertEquals(info.getOrNull(Keys.DIRECTION_FROM), Direction.LEFT);
+        Assert.assertEquals(info.getOrNull(Keys.TOOL_DIRECTION_FROM), Direction.LEFT);
     }
 }

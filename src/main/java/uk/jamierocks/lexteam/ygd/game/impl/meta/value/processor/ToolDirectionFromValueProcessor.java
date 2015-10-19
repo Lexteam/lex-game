@@ -7,30 +7,30 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor;
 
+import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
-import uk.jamierocks.lexteam.ygd.core.meta.value.ValueOwner;
 import uk.jamierocks.lexteam.ygd.core.meta.value.ValueProcessor;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.AddConnectionInfo;
 
 import java.util.Optional;
 
-public class DirectionFromValueProcessor implements ValueProcessor<Direction, Value<Direction>> {
+public class ToolDirectionFromValueProcessor implements ValueProcessor<Direction, Value<Direction>> {
 
     @Override
     public Key<? extends Value<Direction>> getKey() {
-        return Keys.DIRECTION_FROM;
+        return Keys.TOOL_DIRECTION_FROM;
     }
 
     @Override
-    public boolean supports(ValueOwner container) {
+    public boolean supports(MetaOwner container) {
         return container instanceof AddConnectionInfo;
     }
 
     @Override
-    public boolean offer(ValueOwner container, Direction value) {
+    public boolean offer(MetaOwner container, Direction value) {
         if (container instanceof AddConnectionInfo) {
             AddConnectionInfo connectionInfo = (AddConnectionInfo) container;
             connectionInfo.setFrom(value);
@@ -40,7 +40,7 @@ public class DirectionFromValueProcessor implements ValueProcessor<Direction, Va
     }
 
     @Override
-    public Optional<Direction> getValueFromContainer(ValueOwner container) {
+    public Optional<Direction> getValueFromContainer(MetaOwner container) {
         if (container instanceof AddConnectionInfo) {
             AddConnectionInfo connectionInfo = (AddConnectionInfo) container;
             return Optional.of(connectionInfo.getFrom());

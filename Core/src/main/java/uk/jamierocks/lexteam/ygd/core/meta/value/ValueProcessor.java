@@ -1,5 +1,6 @@
 package uk.jamierocks.lexteam.ygd.core.meta.value;
 
+import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
 
 import java.util.Optional;
@@ -8,10 +9,10 @@ public interface ValueProcessor<E, V extends Value<E>> {
 
     Key<? extends Value<E>> getKey();
 
-    boolean supports(ValueOwner container);
+    boolean supports(MetaOwner container);
 
-    boolean offer(ValueOwner container, E value);
+    boolean offer(MetaOwner container, E value);
 
-    Optional<E> getValueFromContainer(ValueOwner container);
+    Optional<E> getValueFromContainer(MetaOwner container);
 }
 

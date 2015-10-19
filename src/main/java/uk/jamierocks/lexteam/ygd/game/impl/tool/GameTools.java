@@ -48,8 +48,8 @@ public class GameTools {
             new Tool("add_connection", 1, new GameToolManipulator(Tools.ADD_CONNECTION) {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
-            panel.getConnection().setTo(info.getOrNull(Keys.DIRECTION_TO));
-            panel.getConnection().setFrom(info.getOrNull(Keys.DIRECTION_FROM));
+            panel.getConnection().setTo(info.getOrNull(Keys.TOOL_DIRECTION_TO));
+            panel.getConnection().setFrom(info.getOrNull(Keys.TOOL_DIRECTION_FROM));
         }
 
         @Override
@@ -101,7 +101,7 @@ public class GameTools {
             new Tool("change_duration", 1, new GameToolManipulator(Tools.CHANGE_DURATION) {
         @Override
         public void manipulate(Panel panel, ToolManipulatorInfo info) {
-            panel.setDuration(info.getOrNull(Keys.DURATION));
+            panel.setDuration(info.getOrNull(Keys.TOOL_DURATION));
         }
 
         @Override

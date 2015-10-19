@@ -15,9 +15,11 @@ import uk.jamierocks.lexteam.ygd.core.service.event.IEventBus;
 import uk.jamierocks.lexteam.ygd.core.service.event.SimpleEventBus;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.GameMetaProcessor;
-import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.DirectionFromValueProcessor;
-import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.DirectionToValueProcessor;
-import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.DurationValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.ToolDirectionFromValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.ToolDirectionToValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.ToolDurationValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.GameDirectoryValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.GameLoggerValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.GameTools;
 
 public class GameLaunch {
@@ -50,8 +52,10 @@ public class GameLaunch {
     }
 
     public static void registerValueProcessors() {
-        ValueManager.registerProcessor(new DurationValueProcessor());
-        ValueManager.registerProcessor(new DirectionToValueProcessor());
-        ValueManager.registerProcessor(new DirectionFromValueProcessor());
+        ValueManager.registerProcessor(new GameLoggerValueProcessor());
+        ValueManager.registerProcessor(new GameDirectoryValueProcessor());
+        ValueManager.registerProcessor(new ToolDurationValueProcessor());
+        ValueManager.registerProcessor(new ToolDirectionToValueProcessor());
+        ValueManager.registerProcessor(new ToolDirectionFromValueProcessor());
     }
 }

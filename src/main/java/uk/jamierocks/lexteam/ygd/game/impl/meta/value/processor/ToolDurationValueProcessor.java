@@ -7,30 +7,30 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor;
 
+import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
-import uk.jamierocks.lexteam.ygd.core.meta.value.ValueOwner;
 import uk.jamierocks.lexteam.ygd.core.meta.value.ValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.AddConnectionInfo;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.ChangeDurationInfo;
 
 import java.util.Optional;
 
-public class DurationValueProcessor implements ValueProcessor<Integer, Value<Integer>> {
+public class ToolDurationValueProcessor implements ValueProcessor<Integer, Value<Integer>> {
 
     @Override
     public Key<? extends Value<Integer>> getKey() {
-        return Keys.DURATION;
+        return Keys.TOOL_DURATION;
     }
 
     @Override
-    public boolean supports(ValueOwner container) {
+    public boolean supports(MetaOwner container) {
         return container instanceof ChangeDurationInfo;
     }
 
     @Override
-    public boolean offer(ValueOwner container, Integer value) {
+    public boolean offer(MetaOwner container, Integer value) {
         if (container instanceof AddConnectionInfo) {
             ChangeDurationInfo durationInfo = (ChangeDurationInfo) container;
             durationInfo.setDuration(value);
@@ -40,7 +40,7 @@ public class DurationValueProcessor implements ValueProcessor<Integer, Value<Int
     }
 
     @Override
-    public Optional<Integer> getValueFromContainer(ValueOwner container) {
+    public Optional<Integer> getValueFromContainer(MetaOwner container) {
         if (container instanceof ChangeDurationInfo) {
             ChangeDurationInfo durationInfo = (ChangeDurationInfo) container;
             return Optional.of(durationInfo.getDuration());
