@@ -7,7 +7,8 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.tool;
 
-import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolDirectionMeta;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolDurationMeta;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 import uk.jamierocks.lexteam.ygd.core.panel.Panel;
 import uk.jamierocks.lexteam.ygd.core.tool.Tool;
@@ -23,6 +24,116 @@ import java.lang.reflect.Modifier;
  * @author Jamie Mansfield
  */
 public class GameTools {
+
+    public static final Tool ADD_CONNECTION =
+            new Tool("add_connection", 1,
+                    new MetaBackedGameToolManipulator<ToolDirectionMeta>(
+                            Tools.ADD_CONNECTION, ToolDirectionMeta.class) {
+
+                        @Override
+                        public void manipulatePanel(Panel panel, ToolDirectionMeta meta) {
+                            panel.getConnection().setTo(meta.to());
+                            panel.getConnection().setFrom(meta.from());
+                        }
+
+                        @Override
+                        public boolean[] getManipulateOptions(Panel panel) {
+                            return new boolean[]{
+                                    panel.getConnection().getTo() == Direction.NONE &&
+                                            panel.getConnection().getFrom() == Direction.NONE
+                            };
+                        }
+                    });
+    public static final Tool REMOVE_CONNECTION =
+            new Tool("remove_connection", 1, new GameToolManipulator(Tools.REMOVE_CONNECTION) {
+                @Override
+                public void manipulate(Panel panel, ToolManipulatorInfo info) {
+                    panel.getConnection().setTo(Direction.NONE);
+                    panel.getConnection().setFrom(Direction.NONE);
+                }
+
+                @Override
+                public boolean[] getManipulateOptions(Panel panel) {
+                    return new boolean[]{
+                            panel.getConnection().getTo() != Direction.NONE &&
+                                    panel.getConnection().getFrom() != Direction.NONE
+                    };
+                }
+            });
+    public static final Tool REVERSE_CONNECTION =
+            new Tool("reverse_connection", 1, new GameToolManipulator(Tools.REVERSE_CONNECTION) {
+                @Override
+                public void manipulate(Panel panel, ToolManipulatorInfo info) {
+                    Direction from = panel.getConnection().getFrom();
+                    Direction to = panel.getConnection().getTo();
+                    panel.getConnection().setFrom(to);
+                    panel.getConnection().setTo(from);
+                }
+
+                @Override
+                public boolean[] getManipulateOptions(Panel panel) {
+                    return new boolean[]{
+                            panel.getConnection().getTo() != Direction.NONE &&
+                                    panel.getConnection().getFrom() != Direction.NONE
+                    };
+                }
+            });
+    public static final Tool CHANGE_DURATION =
+            new Tool("change_duration", 1,
+                    new MetaBackedGameToolManipulator<ToolDurationMeta>(
+                            Tools.CHANGE_DURATION, ToolDurationMeta.class) {
+
+                        @Override
+                        public void manipulatePanel(Panel panel, ToolDurationMeta meta) {
+                            panel.setDuration(meta.duration());
+                        }
+
+                        @Override
+                        public boolean[] getManipulateOptions(Panel panel) {
+                            return new boolean[]{
+                                    panel.getConnection().getTo() != Direction.NONE &&
+                                            panel.getConnection().getFrom() != Direction.NONE
+                            };
+                        }
+                    });
+    public static final Tool WEAK_REPAIR_PANEL =
+            new Tool("weak_repair_panel", 3, new GameToolManipulator(Tools.WEAK_REPAIR_PANEL) {
+                @Override
+                public void manipulate(Panel panel, ToolManipulatorInfo info) {
+                    double chance = Math.random() * 100;
+                    if (panel.isBurntout()) {
+                        if (chance <= 50) {
+                            panel.setBurntout(false);
+                        }
+                    } else {
+                        panel.setBurntout(true);
+                    }
+                }
+
+                @Override
+                public boolean[] getManipulateOptions(Panel panel) {
+                    return new boolean[0];
+                }
+            });
+    public static final Tool STRONG_REPAIR_PANEL =
+            new Tool("strong_repair_panel", 3, new GameToolManipulator(Tools.STRONG_REPAIR_PANEL) {
+                @Override
+                public void manipulate(Panel panel, ToolManipulatorInfo info) {
+                    double chance = Math.random() * 100;
+                    if (panel.isBurntout()) {
+                        if (chance <= 90) {
+                            panel.setBurntout(false);
+                        }
+                    } else {
+                        panel.setBurntout(true);
+                    }
+                }
+
+                @Override
+                public boolean[] getManipulateOptions(Panel panel) {
+                    return new boolean[0];
+                }
+            });
 
     public static void injectTools() throws NoSuchFieldException, IllegalAccessException {
         setTool("ADD_CONNECTION", ADD_CONNECTION);
@@ -43,113 +154,4 @@ public class GameTools {
 
         toolField.set(null, to);
     }
-
-    public static final Tool ADD_CONNECTION =
-            new Tool("add_connection", 1, new GameToolManipulator(Tools.ADD_CONNECTION) {
-        @Override
-        public void manipulate(Panel panel, ToolManipulatorInfo info) {
-            panel.getConnection().setTo(info.getOrNull(Keys.TOOL_DIRECTION_TO));
-            panel.getConnection().setFrom(info.getOrNull(Keys.TOOL_DIRECTION_FROM));
-        }
-
-        @Override
-        public boolean[] getManipulateOptions(Panel panel) {
-            return new boolean[]{
-                    panel.getConnection().getTo() == Direction.NONE &&
-                            panel.getConnection().getFrom() == Direction.NONE
-            };
-        }
-    });
-
-    public static final Tool REMOVE_CONNECTION =
-            new Tool("remove_connection", 1, new GameToolManipulator(Tools.REMOVE_CONNECTION) {
-        @Override
-        public void manipulate(Panel panel, ToolManipulatorInfo info) {
-            panel.getConnection().setTo(Direction.NONE);
-            panel.getConnection().setFrom(Direction.NONE);
-        }
-
-        @Override
-        public boolean[] getManipulateOptions(Panel panel) {
-            return new boolean[]{
-                    panel.getConnection().getTo() != Direction.NONE &&
-                            panel.getConnection().getFrom() != Direction.NONE
-            };
-        }
-    });
-
-    public static final Tool REVERSE_CONNECTION =
-            new Tool("reverse_connection", 1, new GameToolManipulator(Tools.REVERSE_CONNECTION) {
-        @Override
-        public void manipulate(Panel panel, ToolManipulatorInfo info) {
-            Direction from = panel.getConnection().getFrom();
-            Direction to = panel.getConnection().getTo();
-            panel.getConnection().setFrom(to);
-            panel.getConnection().setTo(from);
-        }
-
-        @Override
-        public boolean[] getManipulateOptions(Panel panel) {
-            return new boolean[]{
-                    panel.getConnection().getTo() != Direction.NONE &&
-                            panel.getConnection().getFrom() != Direction.NONE
-            };
-        }
-    });
-
-    public static final Tool CHANGE_DURATION =
-            new Tool("change_duration", 1, new GameToolManipulator(Tools.CHANGE_DURATION) {
-        @Override
-        public void manipulate(Panel panel, ToolManipulatorInfo info) {
-            panel.setDuration(info.getOrNull(Keys.TOOL_DURATION));
-        }
-
-        @Override
-        public boolean[] getManipulateOptions(Panel panel) {
-            return new boolean[]{
-                    panel.getConnection().getTo() != Direction.NONE &&
-                            panel.getConnection().getFrom() != Direction.NONE
-            };
-        }
-    });
-
-    public static final Tool WEAK_REPAIR_PANEL =
-            new Tool("weak_repair_panel", 3, new GameToolManipulator(Tools.WEAK_REPAIR_PANEL) {
-        @Override
-        public void manipulate(Panel panel, ToolManipulatorInfo info) {
-            double chance = Math.random() * 100;
-            if (panel.isBurntout()) {
-                if (chance <= 50) {
-                    panel.setBurntout(false);
-                }
-            } else {
-                panel.setBurntout(true);
-            }
-        }
-
-        @Override
-        public boolean[] getManipulateOptions(Panel panel) {
-            return new boolean[0];
-        }
-    });
-
-    public static final Tool STRONG_REPAIR_PANEL =
-            new Tool("strong_repair_panel", 3, new GameToolManipulator(Tools.STRONG_REPAIR_PANEL) {
-        @Override
-        public void manipulate(Panel panel, ToolManipulatorInfo info) {
-            double chance = Math.random() * 100;
-            if (panel.isBurntout()) {
-                if (chance <= 90) {
-                    panel.setBurntout(false);
-                }
-            } else {
-                panel.setBurntout(true);
-            }
-        }
-
-        @Override
-        public boolean[] getManipulateOptions(Panel panel) {
-            return new boolean[0];
-        }
-    });
 }
