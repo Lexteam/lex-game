@@ -9,17 +9,15 @@ package uk.jamierocks.lexteam.ygd.game.impl.meta.processor;
 
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.GameMeta;
 import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
-import uk.jamierocks.lexteam.ygd.core.meta.MetaProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.LexGameMeta;
 
 import java.util.Optional;
 
-public class GameMetaProcessor implements MetaProcessor<GameMeta> {
+public class GameMetaProcessor extends AbstractMetaProcessor<GameMeta> {
 
-    @Override
-    public Class<GameMeta> getMetaType() {
-        return GameMeta.class;
+    public GameMetaProcessor() {
+        super(GameMeta.class);
     }
 
     @Override

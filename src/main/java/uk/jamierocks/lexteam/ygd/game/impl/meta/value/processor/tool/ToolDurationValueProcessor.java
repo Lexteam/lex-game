@@ -5,23 +5,21 @@
  *
  * All Rights Reserved.
  */
-package uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor;
+package uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool;
 
 import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
-import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
-import uk.jamierocks.lexteam.ygd.core.meta.value.ValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.AbstractValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.AddConnectionInfo;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.ChangeDurationInfo;
 
 import java.util.Optional;
 
-public class ToolDurationValueProcessor implements ValueProcessor<Integer, Value<Integer>> {
+public class ToolDurationValueProcessor extends AbstractValueProcessor<Integer, Value<Integer>> {
 
-    @Override
-    public Key<? extends Value<Integer>> getKey() {
-        return Keys.TOOL_DURATION;
+    public ToolDurationValueProcessor() {
+        super(Keys.TOOL_DURATION);
     }
 
     @Override

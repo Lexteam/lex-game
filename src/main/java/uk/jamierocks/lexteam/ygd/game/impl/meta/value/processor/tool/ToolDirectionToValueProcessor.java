@@ -5,23 +5,21 @@
  *
  * All Rights Reserved.
  */
-package uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor;
+package uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool;
 
 import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
-import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
-import uk.jamierocks.lexteam.ygd.core.meta.value.ValueProcessor;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.AbstractValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.AddConnectionInfo;
 
 import java.util.Optional;
 
-public class ToolDirectionToValueProcessor implements ValueProcessor<Direction, Value<Direction>> {
+public class ToolDirectionToValueProcessor extends AbstractValueProcessor<Direction, Value<Direction>> {
 
-    @Override
-    public Key<? extends Value<Direction>> getKey() {
-        return Keys.TOOL_DIRECTION_TO;
+    public ToolDirectionToValueProcessor() {
+        super(Keys.TOOL_DIRECTION_TO);
     }
 
     @Override
