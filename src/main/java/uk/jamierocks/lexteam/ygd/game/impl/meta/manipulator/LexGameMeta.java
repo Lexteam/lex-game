@@ -8,6 +8,7 @@
 package uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator;
 
 import org.slf4j.Logger;
+import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.GameMeta;
 
 import java.io.File;
@@ -17,7 +18,7 @@ import java.io.File;
  *
  * @author Jamie Mansfield
  */
-public class LexGameMeta implements GameMeta {
+public class LexGameMeta extends AbstractMeta implements GameMeta {
 
     private Logger logger;
     private File directory;
@@ -25,6 +26,7 @@ public class LexGameMeta implements GameMeta {
     public LexGameMeta(Logger logger, File directory) {
         this.logger = logger;
         this.directory = directory;
+        this.registerSetters();
     }
 
     /**
@@ -41,5 +43,19 @@ public class LexGameMeta implements GameMeta {
     @Override
     public File directory() {
         return this.directory;
+    }
+
+    public void setLogger(Logger logger) {
+        this.logger = logger;
+    }
+
+    public void setDirectory(File directory) {
+        this.directory = directory;
+    }
+
+    @Override
+    protected void registerSetters() {
+        this.registerSetter(Keys.GAME_LOGGER, LexGameMeta.this::setLogger);
+        this.registerSetter(Keys.GAME_DIRECTORY, LexGameMeta.this::setDirectory);
     }
 }
