@@ -7,8 +7,8 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.tool;
 
-import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolDirectionMeta;
-import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolDurationMeta;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolAddConnectionMeta;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolChangeDurationMeta;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 import uk.jamierocks.lexteam.ygd.core.panel.Panel;
 import uk.jamierocks.lexteam.ygd.core.tool.Tool;
@@ -27,11 +27,11 @@ public class GameTools {
 
     public static final Tool ADD_CONNECTION =
             new Tool("add_connection", 1,
-                    new MetaBackedGameToolManipulator<ToolDirectionMeta>(
-                            Tools.ADD_CONNECTION, ToolDirectionMeta.class) {
+                    new MetaBackedGameToolManipulator<ToolAddConnectionMeta>(
+                            Tools.ADD_CONNECTION, ToolAddConnectionMeta.class) {
 
                         @Override
-                        public void manipulatePanel(Panel panel, ToolDirectionMeta meta) {
+                        public void manipulatePanel(Panel panel, ToolAddConnectionMeta meta) {
                             panel.getConnection().setTo(meta.to());
                             panel.getConnection().setFrom(meta.from());
                         }
@@ -80,11 +80,11 @@ public class GameTools {
             });
     public static final Tool CHANGE_DURATION =
             new Tool("change_duration", 1,
-                    new MetaBackedGameToolManipulator<ToolDurationMeta>(
-                            Tools.CHANGE_DURATION, ToolDurationMeta.class) {
+                    new MetaBackedGameToolManipulator<ToolChangeDurationMeta>(
+                            Tools.CHANGE_DURATION, ToolChangeDurationMeta.class) {
 
                         @Override
-                        public void manipulatePanel(Panel panel, ToolDurationMeta meta) {
+                        public void manipulatePanel(Panel panel, ToolChangeDurationMeta meta) {
                             panel.setDuration(meta.duration());
                         }
 

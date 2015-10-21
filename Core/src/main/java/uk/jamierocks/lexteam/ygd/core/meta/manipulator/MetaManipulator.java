@@ -7,6 +7,6 @@ import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
  *
  * @author Jamie Mansfield
  */
-public interface Meta {
+public interface MetaManipulator {
 
 }

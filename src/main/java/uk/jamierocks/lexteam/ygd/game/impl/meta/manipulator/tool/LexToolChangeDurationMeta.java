@@ -7,18 +7,18 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool;
 
-import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolDurationMeta;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolChangeDurationMeta;
 
 /**
- * The meta implementation of {@link ToolDurationMeta}.
+ * The meta implementation of {@link ToolChangeDurationMeta}.
  *
  * @author Jamie Mansfield
  */
-public class LexToolDurationMeta implements ToolDurationMeta {
+public class LexToolChangeDurationMeta implements ToolChangeDurationMeta {
 
     private final int duration;
 
-    public LexToolDurationMeta(int duration) {
+    public LexToolChangeDurationMeta(int duration) {
         this.duration = duration;
     }
 

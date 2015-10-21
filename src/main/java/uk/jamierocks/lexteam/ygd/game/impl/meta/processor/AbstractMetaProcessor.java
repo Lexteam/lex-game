@@ -8,9 +8,9 @@
 package uk.jamierocks.lexteam.ygd.game.impl.meta.processor;
 
 import uk.jamierocks.lexteam.ygd.core.meta.MetaProcessor;
-import uk.jamierocks.lexteam.ygd.core.meta.manipulator.Meta;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.MetaManipulator;
 
-public abstract class AbstractMetaProcessor<M extends Meta> implements MetaProcessor<M> {
+public abstract class AbstractMetaProcessor<M extends MetaManipulator> implements MetaProcessor<M> {
 
     private final Class<M> clazz;
 

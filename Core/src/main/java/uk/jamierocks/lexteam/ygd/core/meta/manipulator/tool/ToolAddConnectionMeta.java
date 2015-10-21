@@ -1,14 +1,15 @@
 package uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool;
 
-import uk.jamierocks.lexteam.ygd.core.meta.manipulator.Meta;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.MetaManipulator;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
+import uk.jamierocks.lexteam.ygd.core.tool.Tools;
 
 /**
- * Meta for tools which change the direction.
+ * Meta for {@link Tools#ADD_CONNECTION}.
  *
  * @author Jamie Mansfield
  */
-public interface ToolDirectionMeta extends Meta {
+public interface ToolAddConnectionMeta extends MetaManipulator {
 
     /**
      * Gets the direction the connection points to.

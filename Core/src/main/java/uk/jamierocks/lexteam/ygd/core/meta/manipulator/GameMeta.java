@@ -10,7 +10,7 @@ import java.io.File;
  *
  * @author Jamie Mansfield
  */
-public interface GameMeta extends Meta {
+public interface GameMeta extends MetaManipulator {
 
     /**
      * Gets the game's logger.

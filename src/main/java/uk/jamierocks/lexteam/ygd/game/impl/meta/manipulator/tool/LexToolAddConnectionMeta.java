@@ -7,20 +7,20 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool;
 
-import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolDirectionMeta;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolAddConnectionMeta;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 
 /**
- * The meta implementation of {@link ToolDirectionMeta}.
+ * The meta implementation of {@link ToolAddConnectionMeta}.
  *
  * @author Jamie Mansfield
  */
-public class LexToolDirectionMeta implements ToolDirectionMeta {
+public class LexToolAddConnectionMeta implements ToolAddConnectionMeta {
 
     private final Direction to;
     private final Direction from;
 
-    public LexToolDirectionMeta(Direction to, Direction from) {
+    public LexToolAddConnectionMeta(Direction to, Direction from) {
         this.to = to;
         this.from = from;
     }

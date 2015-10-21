@@ -1,6 +1,6 @@
 package uk.jamierocks.lexteam.ygd.game.impl.tool;
 
-import uk.jamierocks.lexteam.ygd.core.meta.manipulator.Meta;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.MetaManipulator;
 import uk.jamierocks.lexteam.ygd.core.panel.Panel;
 import uk.jamierocks.lexteam.ygd.core.tool.Tool;
 import uk.jamierocks.lexteam.ygd.core.tool.ToolManipulatorInfo;
@@ -10,7 +10,7 @@ import uk.jamierocks.lexteam.ygd.core.tool.ToolManipulatorInfo;
  *
  * @author Jamie Mansfield
  */
-public abstract class MetaBackedGameToolManipulator<M extends Meta> extends GameToolManipulator {
+public abstract class MetaBackedGameToolManipulator<M extends MetaManipulator> extends GameToolManipulator {
 
     private final Class<M> metaClazz;
 

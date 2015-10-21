@@ -1,7 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.meta;
 
 import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
-import uk.jamierocks.lexteam.ygd.core.meta.manipulator.Meta;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.MetaManipulator;
 import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
 import uk.jamierocks.lexteam.ygd.core.meta.value.ValueManager;
 
@@ -66,7 +66,7 @@ public interface MetaOwner {
      * @param <T> the type.
      * @return the meta.
      */
-    default <T extends Meta> T obtainMeta(Class<T> clazz) {
+    default <T extends MetaManipulator> T obtainMeta(Class<T> clazz) {
         return MetaManager.get(this, clazz);
     }
 
@@ -77,7 +77,7 @@ public interface MetaOwner {
      * @param <T> the type.
      * @return {@code true} if it supports that meta.
      */
-    default <T extends Meta> boolean supportsMeta(Class<T> clazz) {
+    default <T extends MetaManipulator> boolean supportsMeta(Class<T> clazz) {
         return MetaManager.has(this, clazz);
     }
 }

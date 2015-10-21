@@ -1,10 +1,10 @@
 package uk.jamierocks.lexteam.ygd.core.meta;
 
-import uk.jamierocks.lexteam.ygd.core.meta.manipulator.Meta;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.MetaManipulator;
 
 import java.util.Optional;
 
-public interface MetaProcessor<M extends Meta> {
+public interface MetaProcessor<M extends MetaManipulator> {
 
     Class<M> getMetaType();
 

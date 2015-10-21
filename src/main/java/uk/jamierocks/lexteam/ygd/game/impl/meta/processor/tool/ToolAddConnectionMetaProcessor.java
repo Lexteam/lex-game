@@ -8,17 +8,17 @@
 package uk.jamierocks.lexteam.ygd.game.impl.meta.processor.tool;
 
 import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
-import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolDirectionMeta;
-import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool.LexToolDirectionMeta;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolAddConnectionMeta;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool.LexToolAddConnectionMeta;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.AbstractMetaProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.AddConnectionInfo;
 
 import java.util.Optional;
 
-public class ToolDirectionMetaProcessor extends AbstractMetaProcessor<ToolDirectionMeta> {
+public class ToolAddConnectionMetaProcessor extends AbstractMetaProcessor<ToolAddConnectionMeta> {
 
-    public ToolDirectionMetaProcessor() {
-        super(ToolDirectionMeta.class);
+    public ToolAddConnectionMetaProcessor() {
+        super(ToolAddConnectionMeta.class);
     }
 
     @Override
@@ -27,10 +27,10 @@ public class ToolDirectionMetaProcessor extends AbstractMetaProcessor<ToolDirect
     }
 
     @Override
-    public Optional<ToolDirectionMeta> getMetaFromContainer(MetaOwner container) {
+    public Optional<ToolAddConnectionMeta> getMetaFromContainer(MetaOwner container) {
         if (container instanceof AddConnectionInfo) {
             AddConnectionInfo info = (AddConnectionInfo) container;
-            return Optional.of(new LexToolDirectionMeta(info.getTo(), info.getFrom()));
+            return Optional.of(new LexToolAddConnectionMeta(info.getTo(), info.getFrom()));
         }
         return Optional.empty();
     }
