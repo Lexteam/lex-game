@@ -12,8 +12,8 @@ import org.junit.Test;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 import uk.jamierocks.lexteam.ygd.game.GameLaunch;
-import uk.jamierocks.lexteam.ygd.game.impl.tool.AddConnectionInfo;
-import uk.jamierocks.lexteam.ygd.game.impl.tool.ChangeDurationInfo;
+import uk.jamierocks.lexteam.ygd.game.impl.tool.info.AddConnectionInfo;
+import uk.jamierocks.lexteam.ygd.game.impl.tool.info.ChangeDurationInfo;
 
 /**
  * Tests for Meta Value API.

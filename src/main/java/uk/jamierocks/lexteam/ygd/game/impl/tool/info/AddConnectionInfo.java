@@ -5,7 +5,7 @@
  *
  * All Rights Reserved.
  */
-package uk.jamierocks.lexteam.ygd.game.impl.tool;
+package uk.jamierocks.lexteam.ygd.game.impl.tool.info;
 
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 import uk.jamierocks.lexteam.ygd.core.tool.ToolManipulatorInfo;

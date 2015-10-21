@@ -11,8 +11,8 @@ import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.AbstractValueProcessor;
-import uk.jamierocks.lexteam.ygd.game.impl.tool.AddConnectionInfo;
-import uk.jamierocks.lexteam.ygd.game.impl.tool.ChangeDurationInfo;
+import uk.jamierocks.lexteam.ygd.game.impl.tool.info.AddConnectionInfo;
+import uk.jamierocks.lexteam.ygd.game.impl.tool.info.ChangeDurationInfo;
 
 import java.util.Optional;
 

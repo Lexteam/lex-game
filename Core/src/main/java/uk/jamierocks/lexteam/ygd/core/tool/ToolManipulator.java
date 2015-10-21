@@ -9,7 +9,7 @@ public interface ToolManipulator {
      *
      * <b>YOU SHOULD HAVE ALREADY CHECKED IF YOU CAN MANIPULATE THE PANEL!</b>
      *
-     * @param panel teh panel to manipulate.
+     * @param panel the panel to manipulate.
      * @param info the manipulator information.
      */
     void manipulate(Panel panel, ToolManipulatorInfo info);

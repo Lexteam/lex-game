@@ -12,7 +12,7 @@ import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.AbstractValueProcessor;
-import uk.jamierocks.lexteam.ygd.game.impl.tool.AddConnectionInfo;
+import uk.jamierocks.lexteam.ygd.game.impl.tool.info.AddConnectionInfo;
 
 import java.util.Optional;
 

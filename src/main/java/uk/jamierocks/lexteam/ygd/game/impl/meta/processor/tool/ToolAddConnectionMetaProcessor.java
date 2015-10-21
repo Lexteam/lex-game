@@ -11,7 +11,7 @@ import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolAddConnectionMeta;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool.LexToolAddConnectionMeta;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.AbstractMetaProcessor;
-import uk.jamierocks.lexteam.ygd.game.impl.tool.AddConnectionInfo;
+import uk.jamierocks.lexteam.ygd.game.impl.tool.info.AddConnectionInfo;
 
 import java.util.Optional;
 

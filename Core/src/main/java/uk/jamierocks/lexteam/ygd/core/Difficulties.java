@@ -23,5 +23,5 @@ public final class Difficulties {
 
     public static final Difficulty HIGH = new Difficulty(HARD);
 
-    public static final Difficulty HIGHES = new Difficulty(HIGH);
+    public static final Difficulty HIGHEST = new Difficulty(HIGH);
 }

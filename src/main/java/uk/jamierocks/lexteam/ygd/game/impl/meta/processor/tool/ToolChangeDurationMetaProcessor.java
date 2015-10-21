@@ -11,7 +11,7 @@ import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolChangeDurationMeta;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool.LexToolChangeDurationMeta;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.AbstractMetaProcessor;
-import uk.jamierocks.lexteam.ygd.game.impl.tool.ChangeDurationInfo;
+import uk.jamierocks.lexteam.ygd.game.impl.tool.info.ChangeDurationInfo;
 
 import java.util.Optional;
 
