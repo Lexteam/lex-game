@@ -26,6 +26,17 @@ public abstract class AbstractMeta implements MetaManipulator {
         this.keySetterMap.put(Preconditions.checkNotNull(key), Preconditions.checkNotNull((Consumer) function));
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public <T> boolean supports(Key<Value<T>> key) {
+        return this.keySetterMap.containsKey(key);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public <T> void set(Key<Value<T>> key, T value) {
         this.keySetterMap.get(key).accept(value);

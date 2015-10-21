@@ -1,43 +1,35 @@
 package uk.jamierocks.lexteam.ygd.core;
 
-import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import uk.jamierocks.lexteam.ygd.core.section.level.Level;
 import uk.jamierocks.lexteam.ygd.core.tool.Tool;
-import uk.jamierocks.lexteam.ygd.core.tool.Tools;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * Represents a {@link Level}'s difficulty.
  *
  * @author Jamie Mansfield
- * @author Tom Drever
  */
-public enum Difficulty {
+public class Difficulty {
 
-    LOWEST(Tools.REVERSE_CONNECTION, Tools.WEAK_REPAIR_PANEL),
-    LOW(LOWEST, Tools.ADD_CONNECTION),
-    EASY(LOW, Tools.REMOVE_CONNECTION),
-    MEDIUM(EASY, Tools.CHANGE_DURATION),
-    HARD(Tools.REVERSE_CONNECTION, Tools.STRONG_REPAIR_PANEL, Tools.ADD_CONNECTION, Tools.REMOVE_CONNECTION,
-            Tools.CHANGE_DURATION),
-    HIGH(HARD),
-    HIGHEST(HIGH);
+    private Set<Tool> tools;
 
-    private final List<Tool> tools;
-
-    Difficulty(Difficulty difficulty, Tool... tools) {
-        this.tools = Lists.newArrayList(difficulty.getTools());
-        for (Tool tool : tools) {
-            this.tools.add(tool);
-        }
+    public Difficulty(Tool... tools) {
+        this.tools = Sets.newHashSet(tools);
     }
 
-    Difficulty(Tool... tools) {
-        this.tools = Lists.newArrayList(tools);
+    public Difficulty(Difficulty difficulty, Tool... tools) {
+        this.tools = Sets.newHashSet(tools);
+        this.tools.addAll(difficulty.tools());
     }
 
-    public List<Tool> getTools() {
+    /**
+     * The set of available tools to the player for this difficulty.
+     *
+     * @return a set of available tools.
+     */
+    public Set<Tool> tools() {
         return this.tools;
     }
 }

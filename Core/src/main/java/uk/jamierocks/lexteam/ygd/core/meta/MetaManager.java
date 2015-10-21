@@ -16,7 +16,7 @@ public class MetaManager {
         return (T) processors.get(key).getMetaFromContainer(container).get();
     }
 
-    public static <T> boolean has(MetaOwner container, Class<T> key) {
+    public static <T> boolean supports(MetaOwner container, Class<T> key) {
         return processors.get(key).supports(container);
     }
 }

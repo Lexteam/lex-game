@@ -33,7 +33,7 @@ public interface MetaOwner {
      * @return the value.
      */
     default <T> T getOrNull(Key<Value<T>> key) {
-        return get(key).orElse(null);
+        return this.get(key).orElse(null);
     }
 
     /**
@@ -78,6 +78,6 @@ public interface MetaOwner {
      * @return {@code true} if it supports that meta.
      */
     default <T extends MetaManipulator> boolean supportsMeta(Class<T> clazz) {
-        return MetaManager.has(this, clazz);
+        return MetaManager.supports(this, clazz);
     }
 }
