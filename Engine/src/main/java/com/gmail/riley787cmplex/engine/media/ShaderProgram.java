@@ -2,6 +2,7 @@ package com.gmail.riley787cmplex.engine.media;
 
 import com.flowpowered.math.vector.VectorNf;
 import com.gmail.riley787cmplex.engine.media.data.Shader;
+import org.lwjgl.opengl.*;
 
 
 import java.util.Map;
@@ -32,21 +33,22 @@ public class ShaderProgram {
 
 
 
-    public VectorNf getUniform(){
 
-    }
 
-    public <T> getUniform(){
-
+    public Integer getUniform(String uniformName){
+        if(uniformLocations.keySet().contains(uniformName)){
+            return uniformLocations.get(uniformName);
+        }
+        else{
+            return -1;
+        }
     }
 
     public void setUniform(VectorNf uniformData){
 
     }
 
-    public <T> setUniform(T UniformData){
 
-    }
 
     private Map<String, Integer> uniformLocations;
 }

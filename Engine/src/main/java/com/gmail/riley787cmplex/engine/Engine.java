@@ -3,6 +3,9 @@ package com.gmail.riley787cmplex.engine;
 import com.gmail.riley787cmplex.engine.media.data.EffectData;
 import com.gmail.riley787cmplex.engine.media.data.KeyFrameData;
 import com.gmail.riley787cmplex.engine.media.libraries.MediaLibrary;
+import org.lwjgl.opengl.*;
+import org.lwjgl.system.*;
+import org.lwjgl.Sys.*;
 
 /*
  * Copyright (c) 2015, Jamie Mansfield <https://www.jamierocks.uk>
@@ -22,7 +25,8 @@ public class Engine{
 
 
       public Engine(int panelsperface){
-
+            GL.createCapabilities(true);
+            
       }
 
       
