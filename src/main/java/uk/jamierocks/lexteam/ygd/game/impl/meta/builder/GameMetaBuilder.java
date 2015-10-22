@@ -25,4 +25,12 @@ public class GameMetaBuilder implements MetaManipulatorBuilder<GameMeta> {
     public GameMeta create() {
         return new LexGameMeta();
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Class<GameMeta> getType() {
+        return GameMeta.class;
+    }
 }

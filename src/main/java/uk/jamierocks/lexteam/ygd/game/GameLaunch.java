@@ -13,7 +13,11 @@ import uk.jamierocks.lexteam.ygd.core.meta.value.ValueManager;
 import uk.jamierocks.lexteam.ygd.core.service.ProviderExistsException;
 import uk.jamierocks.lexteam.ygd.core.service.event.IEventBus;
 import uk.jamierocks.lexteam.ygd.core.service.event.SimpleEventBus;
+import uk.jamierocks.lexteam.ygd.core.service.meta.IMetaService;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.builder.GameMetaBuilder;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.builder.tool.ToolAddConectionMetaBuilder;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.builder.tool.ToolChangeDurationMetaBuilder;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.GameMetaProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.tool.ToolAddConnectionMetaProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.tool.ToolChangeDurationMetaProcessor;
@@ -23,6 +27,7 @@ import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDuratio
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.GameDirectoryValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.GameLoggerValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.service.event.GameEvents;
+import uk.jamierocks.lexteam.ygd.game.impl.service.meta.GameMetaService;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.GameTools;
 
 public class GameLaunch {
@@ -39,6 +44,7 @@ public class GameLaunch {
         }
         GameEvents.initialise(game.getServiceManager().provide(IEventBus.class).get());
         registerProcessors();
+        registerManipulatorBuilders();
         registerValueProcessors();
         GameTools.injectTools();
     }
@@ -49,12 +55,20 @@ public class GameLaunch {
 
     private static void registerServices() throws ProviderExistsException {
         getGame().getServiceManager().setProvider(IEventBus.class, new SimpleEventBus());
+        getGame().getServiceManager().setProvider(IMetaService.class, new GameMetaService());
     }
 
     public static void registerProcessors() {
         MetaManager.registerProcessor(new GameMetaProcessor());
         MetaManager.registerProcessor(new ToolAddConnectionMetaProcessor());
         MetaManager.registerProcessor(new ToolChangeDurationMetaProcessor());
+    }
+
+    public static void registerManipulatorBuilders() {
+        GameMetaService metaService = (GameMetaService) getGame().getServiceManager().provide(IMetaService.class).get();
+        metaService.registerManipulatorBuilder(new GameMetaBuilder());
+        metaService.registerManipulatorBuilder(new ToolAddConectionMetaBuilder());
+        metaService.registerManipulatorBuilder(new ToolChangeDurationMetaBuilder());
     }
 
     public static void registerValueProcessors() {

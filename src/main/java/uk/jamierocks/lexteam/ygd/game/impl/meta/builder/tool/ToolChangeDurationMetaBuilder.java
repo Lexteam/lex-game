@@ -25,4 +25,12 @@ public class ToolChangeDurationMetaBuilder implements MetaManipulatorBuilder<Too
     public ToolChangeDurationMeta create() {
         return new LexToolChangeDurationMeta();
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Class<ToolChangeDurationMeta> getType() {
+        return ToolChangeDurationMeta.class;
+    }
 }

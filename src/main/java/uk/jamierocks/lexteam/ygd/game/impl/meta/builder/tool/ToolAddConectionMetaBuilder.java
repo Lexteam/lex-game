@@ -25,4 +25,12 @@ public class ToolAddConectionMetaBuilder implements MetaManipulatorBuilder<ToolA
     public ToolAddConnectionMeta create() {
         return new LexToolAddConnectionMeta();
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Class<ToolAddConnectionMeta> getType() {
+        return ToolAddConnectionMeta.class;
+    }
 }
