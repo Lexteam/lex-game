@@ -25,7 +25,7 @@ public class LexToolAddConnectionMeta extends AbstractMeta implements ToolAddCon
     public LexToolAddConnectionMeta(Direction to, Direction from) {
         this.to = to;
         this.from = from;
-        this.registerSetters();
+        this.registerGettersAndSetters();
     }
 
     @Override
@@ -47,8 +47,11 @@ public class LexToolAddConnectionMeta extends AbstractMeta implements ToolAddCon
     }
 
     @Override
-    protected void registerSetters() {
+    protected void registerGettersAndSetters() {
+        this.registerGetter(Keys.TOOL_DIRECTION_TO, LexToolAddConnectionMeta.this::to);
         this.registerSetter(Keys.TOOL_DIRECTION_TO, LexToolAddConnectionMeta.this::setTo);
+
+        this.registerGetter(Keys.TOOL_DIRECTION_FROM, LexToolAddConnectionMeta.this::from);
         this.registerSetter(Keys.TOOL_DIRECTION_FROM, LexToolAddConnectionMeta.this::setFrom);
     }
 }

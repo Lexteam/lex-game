@@ -26,7 +26,7 @@ public class LexGameMeta extends AbstractMeta implements GameMeta {
     public LexGameMeta(Logger logger, File directory) {
         this.logger = logger;
         this.directory = directory;
-        this.registerSetters();
+        this.registerGettersAndSetters();
     }
 
     /**
@@ -54,8 +54,11 @@ public class LexGameMeta extends AbstractMeta implements GameMeta {
     }
 
     @Override
-    protected void registerSetters() {
+    protected void registerGettersAndSetters() {
+        this.registerGetter(Keys.GAME_LOGGER, LexGameMeta.this::logger);
         this.registerSetter(Keys.GAME_LOGGER, LexGameMeta.this::setLogger);
+
+        this.registerGetter(Keys.GAME_DIRECTORY, LexGameMeta.this::directory);
         this.registerSetter(Keys.GAME_DIRECTORY, LexGameMeta.this::setDirectory);
     }
 }

@@ -9,14 +9,13 @@ package uk.jamierocks.lexteam.ygd.game.impl.service.event;
 
 import uk.jamierocks.lexteam.ygd.core.service.event.Events;
 import uk.jamierocks.lexteam.ygd.core.service.event.IEventBus;
-import uk.jamierocks.lexteam.ygd.game.GameLaunch;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 public class GameEvents {
 
-    public static void initialise() throws NoSuchFieldException, IllegalAccessException {
+    public static void initialise(IEventBus eventBus) throws NoSuchFieldException, IllegalAccessException {
         Field field = Events.class.getDeclaredField("EVENT_BUS");
         field.setAccessible(true);
 
@@ -24,6 +23,6 @@ public class GameEvents {
         modifiersField.setAccessible(true);
         modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
 
-        field.set(null, GameLaunch.getGame().getServiceManager().provide(IEventBus.class).get());
+        field.set(null, eventBus);
     }
 }

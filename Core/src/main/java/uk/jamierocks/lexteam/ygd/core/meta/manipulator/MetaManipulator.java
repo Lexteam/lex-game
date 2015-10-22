@@ -4,12 +4,23 @@ import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
 import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
 
+import java.util.Optional;
+
 /**
  * Represents meta a {@link MetaOwner} can hold.
  *
  * @author Jamie Mansfield
  */
 public interface MetaManipulator {
+
+    /**
+     * Gets a value from it's key.
+     *
+     * @param key the specified key.
+     * @param <T> the value type.
+     * @return the value.
+     */
+    <T> Optional<T> get(Key<Value<T>> key);
 
     /**
      * Checks to see if this manipulator supports that key.

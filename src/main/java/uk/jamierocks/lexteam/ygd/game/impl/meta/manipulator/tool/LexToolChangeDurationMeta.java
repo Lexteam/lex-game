@@ -22,7 +22,7 @@ public class LexToolChangeDurationMeta extends AbstractMeta implements ToolChang
 
     public LexToolChangeDurationMeta(int duration) {
         this.duration = duration;
-        this.registerSetters();
+        this.registerGettersAndSetters();
     }
 
     @Override
@@ -35,7 +35,8 @@ public class LexToolChangeDurationMeta extends AbstractMeta implements ToolChang
     }
 
     @Override
-    protected void registerSetters() {
+    protected void registerGettersAndSetters() {
+        this.registerGetter(Keys.TOOL_DURATION, LexToolChangeDurationMeta.this::duration);
         this.registerSetter(Keys.TOOL_DURATION, LexToolChangeDurationMeta.this::setDuration);
     }
 }

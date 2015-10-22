@@ -35,7 +35,7 @@ public class GameLaunch {
         } catch (ProviderExistsException e) {
             game.getMeta().logger().error("A provider already exists for that service!", e);
         }
-        GameEvents.initialise();
+        GameEvents.initialise(game.getServiceManager().provide(IEventBus.class).get());
         registerProcessors();
         registerValueProcessors();
         GameTools.injectTools();
