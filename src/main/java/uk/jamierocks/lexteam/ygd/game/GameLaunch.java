@@ -20,6 +20,7 @@ import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDirecti
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDurationValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.GameDirectoryValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.GameLoggerValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.service.event.GameEvents;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.GameTools;
 
 public class GameLaunch {
@@ -34,6 +35,7 @@ public class GameLaunch {
         } catch (ProviderExistsException e) {
             game.getMeta().logger().error("A provider already exists for that service!", e);
         }
+        GameEvents.initialise();
         registerProcessors();
         registerValueProcessors();
         GameTools.injectTools();
