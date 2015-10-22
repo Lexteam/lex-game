@@ -15,8 +15,10 @@ public class SimpleServiceManager implements ServiceManager {
         Preconditions.checkNotNull(service, "service");
         Preconditions.checkNotNull(provider, "provider");
 
-        T existing = (T) this.providers.putIfAbsent(service, provider);
-        if (existing != null) {
+        if (!this.providers.containsKey(service) && !this.providers.containsKey(provider.getClass())) {
+            this.providers.put(service, provider);
+            this.providers.put(provider.getClass(), provider);
+        } else {
             throw new ProviderExistsException();
         }
     }

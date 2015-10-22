@@ -65,7 +65,7 @@ public class GameLaunch {
     }
 
     public static void registerManipulatorBuilders() {
-        GameMetaService metaService = (GameMetaService) getGame().getServiceManager().provide(IMetaService.class).get();
+        GameMetaService metaService = getGame().getServiceManager().provide(GameMetaService.class).get();
         metaService.registerManipulatorBuilder(new GameMetaBuilder());
         metaService.registerManipulatorBuilder(new ToolAddConectionMetaBuilder());
         metaService.registerManipulatorBuilder(new ToolChangeDurationMetaBuilder());
