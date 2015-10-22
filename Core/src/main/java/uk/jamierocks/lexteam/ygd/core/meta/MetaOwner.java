@@ -80,4 +80,8 @@ public interface MetaOwner {
     default <T extends MetaManipulator> boolean supportsMeta(Class<T> clazz) {
         return MetaManager.supports(this, clazz);
     }
+
+    default <T extends MetaManipulator> boolean applyMeta(T meta) {
+        return MetaManager.apply(this, meta);
+    }
 }

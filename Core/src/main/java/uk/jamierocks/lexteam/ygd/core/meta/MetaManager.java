@@ -1,6 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.meta;
 
 import com.google.common.collect.Maps;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.MetaManipulator;
 
 import java.util.Map;
 
@@ -18,5 +19,9 @@ public class MetaManager {
 
     public static <T> boolean supports(MetaOwner container, Class<T> key) {
         return processors.get(key).supports(container);
+    }
+
+    public static <T extends MetaManipulator> boolean apply(MetaOwner container, T manipulator) {
+        return processors.get(manipulator.getClass()).apply(container, manipulator);
     }
 }

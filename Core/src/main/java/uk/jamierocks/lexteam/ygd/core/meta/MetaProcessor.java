@@ -10,5 +10,7 @@ public interface MetaProcessor<M extends MetaManipulator> {
 
     boolean supports(MetaOwner container);
 
+    boolean apply(MetaOwner owner, M manipulator);
+
     Optional<M> getMetaFromContainer(MetaOwner container);
 }

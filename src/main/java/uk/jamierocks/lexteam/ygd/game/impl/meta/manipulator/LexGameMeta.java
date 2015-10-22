@@ -10,6 +10,7 @@ package uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator;
 import org.slf4j.Logger;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.GameMeta;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.utils.MetaConstants;
 
 import java.io.File;
 
@@ -27,6 +28,10 @@ public class LexGameMeta extends AbstractMeta implements GameMeta {
         this.logger = logger;
         this.directory = directory;
         this.registerGettersAndSetters();
+    }
+
+    public LexGameMeta() {
+        this(MetaConstants.DEFAULT_GAME_LOGGER, MetaConstants.DEFAULT_GAME_DIRECTORY);
     }
 
     /**

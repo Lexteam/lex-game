@@ -15,6 +15,8 @@ import uk.jamierocks.lexteam.ygd.core.service.event.IEventBus;
 import uk.jamierocks.lexteam.ygd.core.service.event.SimpleEventBus;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.GameMetaProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.tool.ToolAddConnectionMetaProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.tool.ToolChangeDurationMetaProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDirectionFromValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDirectionToValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDurationValueProcessor;
@@ -51,6 +53,8 @@ public class GameLaunch {
 
     public static void registerProcessors() {
         MetaManager.registerProcessor(new GameMetaProcessor());
+        MetaManager.registerProcessor(new ToolAddConnectionMetaProcessor());
+        MetaManager.registerProcessor(new ToolChangeDurationMetaProcessor());
     }
 
     public static void registerValueProcessors() {

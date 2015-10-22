@@ -7,6 +7,7 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.processor;
 
+import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.GameMeta;
 import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
@@ -23,6 +24,20 @@ public class GameMetaProcessor extends AbstractMetaProcessor<GameMeta> {
     @Override
     public boolean supports(MetaOwner container) {
         return container instanceof LexGame;
+    }
+
+    @Override
+    public boolean apply(MetaOwner owner, GameMeta manipulator) {
+        if (owner instanceof LexGame) {
+            LexGame game = (LexGame) owner;
+
+            game.offer(Keys.GAME_LOGGER, manipulator.logger());
+            game.offer(Keys.GAME_DIRECTORY, manipulator.directory());
+
+            return game.getLogger() == manipulator.logger() &&
+                    game.getDirectory() == manipulator.directory();
+        }
+        return false;
     }
 
     @Override

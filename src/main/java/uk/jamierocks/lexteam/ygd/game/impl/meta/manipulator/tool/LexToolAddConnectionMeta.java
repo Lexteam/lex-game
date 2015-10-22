@@ -11,6 +11,7 @@ import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolAddConnectionMeta;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.AbstractMeta;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.utils.MetaConstants;
 
 /**
  * The meta implementation of {@link ToolAddConnectionMeta}.
@@ -26,6 +27,10 @@ public class LexToolAddConnectionMeta extends AbstractMeta implements ToolAddCon
         this.to = to;
         this.from = from;
         this.registerGettersAndSetters();
+    }
+
+    public LexToolAddConnectionMeta() {
+        this(MetaConstants.DEFAULT_TOOL_DIRECTION_TO, MetaConstants.DEFAULT_TOOL_DIRECTION_FROM);
     }
 
     @Override

@@ -10,6 +10,7 @@ package uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolChangeDurationMeta;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.AbstractMeta;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.utils.MetaConstants;
 
 /**
  * The meta implementation of {@link ToolChangeDurationMeta}.
@@ -23,6 +24,10 @@ public class LexToolChangeDurationMeta extends AbstractMeta implements ToolChang
     public LexToolChangeDurationMeta(int duration) {
         this.duration = duration;
         this.registerGettersAndSetters();
+    }
+
+    public LexToolChangeDurationMeta() {
+        this(MetaConstants.DEFAULT_TOOL_DURATION);
     }
 
     @Override
