@@ -7,18 +7,18 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.processor;
 
-import uk.jamierocks.lexteam.ygd.core.meta.GameMeta;
-import uk.jamierocks.lexteam.ygd.core.meta.api.MetaOwner;
-import uk.jamierocks.lexteam.ygd.core.meta.api.MetaProcessor;
+import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.GameMeta;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.LexGameMeta;
 
 import java.util.Optional;
 
-public class GameMetaProcessor implements MetaProcessor<GameMeta> {
+public class GameMetaProcessor extends AbstractMetaProcessor<GameMeta> {
 
-    @Override
-    public Class<GameMeta> getMetaType() {
-        return GameMeta.class;
+    public GameMetaProcessor() {
+        super(GameMeta.class);
     }
 
     @Override
@@ -27,9 +27,24 @@ public class GameMetaProcessor implements MetaProcessor<GameMeta> {
     }
 
     @Override
+    public boolean apply(MetaOwner owner, GameMeta manipulator) {
+        if (owner instanceof LexGame) {
+            LexGame game = (LexGame) owner;
+
+            game.offer(Keys.GAME_LOGGER, manipulator.logger());
+            game.offer(Keys.GAME_DIRECTORY, manipulator.directory());
+
+            return game.getLogger() == manipulator.logger() &&
+                    game.getDirectory() == manipulator.directory();
+        }
+        return false;
+    }
+
+    @Override
     public Optional<GameMeta> getMetaFromContainer(MetaOwner container) {
         if (container instanceof LexGame) {
-            return Optional.of((LexGame) container);
+            LexGame game = (LexGame) container;
+            return Optional.of(new LexGameMeta(game.getLogger(), game.getDirectory()));
         }
         return Optional.empty();
     }

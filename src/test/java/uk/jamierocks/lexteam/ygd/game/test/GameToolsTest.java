@@ -19,13 +19,10 @@ import uk.jamierocks.lexteam.ygd.game.impl.tool.GameTools;
  */
 public class GameToolsTest {
 
-    @Test
-    public void injectTools() {
+    public GameToolsTest() {
         try {
             GameTools.injectTools();
-        } catch (NoSuchFieldException e) {
-            Assert.fail();
-        } catch (IllegalAccessException e) {
+        } catch (Exception e) {
             Assert.fail();
         }
     }

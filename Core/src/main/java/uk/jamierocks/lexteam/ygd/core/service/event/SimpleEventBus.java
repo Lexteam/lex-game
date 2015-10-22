@@ -1,8 +1,10 @@
 package uk.jamierocks.lexteam.ygd.core.service.event;
 
+import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
 import java.lang.reflect.Method;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -12,10 +14,10 @@ import java.util.Set;
  */
 public class SimpleEventBus implements IEventBus {
 
-    private Set<EventHandler> eventHandlers;
+    private Map<Class, Set<IDedicatedListener>> handlers;
 
     public SimpleEventBus() {
-        this.eventHandlers = Sets.newHashSet();
+        this.handlers = Maps.newHashMap();
     }
 
     /**
@@ -23,26 +25,20 @@ public class SimpleEventBus implements IEventBus {
      */
     @Override
     public void registerListener(Object listener) {
-        for (Method m : listener.getClass().getMethods()) {
-            if (m.getAnnotation(Listener.class) != null && m.getParameterCount() == 1) {
-                eventHandlers.add(new EventHandler(listener, m));
-            }
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void post(Object event) {
-        Class<?> clazz = event.getClass();
-        for (EventHandler h : eventHandlers) {
-            Class<?>[] params = h.getMethod().getParameterTypes();
-            if (params[0].isAssignableFrom(clazz)) {
-                try {
-                    h.getMethod().invoke(h.getInstance(), event);
-                } catch (Exception e) {
-                    // please no
+        if (listener instanceof IDedicatedListener) {
+            IDedicatedListener dedicatedListener = (IDedicatedListener) listener;
+            Set<IDedicatedListener> listeners =
+                    this.handlers.getOrDefault(dedicatedListener.getHandles(), Sets.newHashSet());
+            listeners.add(dedicatedListener);
+            this.handlers.put(dedicatedListener.getHandles(), listeners);
+        } else {
+            for (Method m : listener.getClass().getMethods()) {
+                if (m.getAnnotation(Listener.class) != null && m.getParameterCount() == 1) {
+                    ListenerHandler handler = new ListenerHandler(listener, m);
+                    Set<IDedicatedListener> listeners =
+                            this.handlers.getOrDefault(handler.getHandles(), Sets.newHashSet());
+                    listeners.add(handler);
+                    this.handlers.put(handler.getHandles(), listeners);
                 }
             }
         }
@@ -52,7 +48,9 @@ public class SimpleEventBus implements IEventBus {
      * {@inheritDoc}
      */
     @Override
-    public Set<EventHandler> getHandlers() {
-        return this.eventHandlers;
+    public void post(Object event) {
+        for (IDedicatedListener listener : handlers.get(event.getClass())) {
+            listener.process(event);
+        }
     }
 }

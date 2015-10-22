@@ -46,7 +46,7 @@ public class GameSettings {
                         .setURL(Game.class.getResource(defaultFile)).build().load());
             }
         } catch (IOException e) {
-            game.getMeta().getLogger().error("Error loading root node", e);
+            game.getMeta().logger().error("Error loading root node", e);
         }
 
         this.rootNode = rootNode;
@@ -78,7 +78,7 @@ public class GameSettings {
         try {
             this.loader.save(this.rootNode);
         } catch (IOException e) {
-            game.getMeta().getLogger().error("Error saving root node", e);
+            game.getMeta().logger().error("Error saving root node", e);
         }
     }
 }

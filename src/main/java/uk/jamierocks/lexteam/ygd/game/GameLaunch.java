@@ -8,16 +8,26 @@
 package uk.jamierocks.lexteam.ygd.game;
 
 import uk.jamierocks.lexteam.ygd.core.Game;
-import uk.jamierocks.lexteam.ygd.core.meta.api.MetaManager;
-import uk.jamierocks.lexteam.ygd.core.meta.api.value.ValueManager;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaManager;
+import uk.jamierocks.lexteam.ygd.core.meta.value.ValueManager;
 import uk.jamierocks.lexteam.ygd.core.service.ProviderExistsException;
 import uk.jamierocks.lexteam.ygd.core.service.event.IEventBus;
 import uk.jamierocks.lexteam.ygd.core.service.event.SimpleEventBus;
+import uk.jamierocks.lexteam.ygd.core.service.meta.IMetaService;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.builder.GameMetaBuilder;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.builder.tool.ToolAddConectionMetaBuilder;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.builder.tool.ToolChangeDurationMetaBuilder;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.GameMetaProcessor;
-import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.DirectionFromValueProcessor;
-import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.DirectionToValueProcessor;
-import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.DurationValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.tool.ToolAddConnectionMetaProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.tool.ToolChangeDurationMetaProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDirectionFromValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDirectionToValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDurationValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.GameDirectoryValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.GameLoggerValueProcessor;
+import uk.jamierocks.lexteam.ygd.game.impl.service.event.GameEvents;
+import uk.jamierocks.lexteam.ygd.game.impl.service.meta.GameMetaService;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.GameTools;
 
 public class GameLaunch {
@@ -26,13 +36,15 @@ public class GameLaunch {
 
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
         game = new LexGame();
-        game.getMeta().getLogger().info(String.format("lex-game version %s loading", Game.VERSION));
+        game.getMeta().logger().info(String.format("lex-game version %s loading", Game.VERSION));
         try {
             registerServices();
         } catch (ProviderExistsException e) {
-            game.getMeta().getLogger().error("A provider already exists for that service!", e);
+            game.getMeta().logger().error("A provider already exists for that service!", e);
         }
+        GameEvents.initialise(game.getServiceManager().provide(IEventBus.class).get());
         registerProcessors();
+        registerManipulatorBuilders();
         registerValueProcessors();
         GameTools.injectTools();
     }
@@ -43,15 +55,27 @@ public class GameLaunch {
 
     private static void registerServices() throws ProviderExistsException {
         getGame().getServiceManager().setProvider(IEventBus.class, new SimpleEventBus());
+        getGame().getServiceManager().setProvider(IMetaService.class, new GameMetaService());
     }
 
-    private static void registerProcessors() {
+    public static void registerProcessors() {
         MetaManager.registerProcessor(new GameMetaProcessor());
+        MetaManager.registerProcessor(new ToolAddConnectionMetaProcessor());
+        MetaManager.registerProcessor(new ToolChangeDurationMetaProcessor());
     }
 
-    private static void registerValueProcessors() {
-        ValueManager.registerProcessor(new DurationValueProcessor());
-        ValueManager.registerProcessor(new DirectionToValueProcessor());
-        ValueManager.registerProcessor(new DirectionFromValueProcessor());
+    public static void registerManipulatorBuilders() {
+        GameMetaService metaService = getGame().getServiceManager().provide(GameMetaService.class).get();
+        metaService.registerManipulatorBuilder(new GameMetaBuilder());
+        metaService.registerManipulatorBuilder(new ToolAddConectionMetaBuilder());
+        metaService.registerManipulatorBuilder(new ToolChangeDurationMetaBuilder());
+    }
+
+    public static void registerValueProcessors() {
+        ValueManager.registerProcessor(new GameLoggerValueProcessor());
+        ValueManager.registerProcessor(new GameDirectoryValueProcessor());
+        ValueManager.registerProcessor(new ToolDurationValueProcessor());
+        ValueManager.registerProcessor(new ToolDirectionToValueProcessor());
+        ValueManager.registerProcessor(new ToolDirectionFromValueProcessor());
     }
 }

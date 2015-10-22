@@ -31,6 +31,7 @@ public class ShaderProgram {
 
     }
 
+<<<<<<< HEAD
 
 
 
@@ -50,5 +51,7 @@ public class ShaderProgram {
 
 
 
+=======
+>>>>>>> c2ea411fc76394c9cd054f529d3980a511d19fa9
     private Map<String, Integer> uniformLocations;
 }

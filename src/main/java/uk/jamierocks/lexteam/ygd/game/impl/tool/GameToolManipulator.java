@@ -27,6 +27,9 @@ public abstract class GameToolManipulator implements ToolManipulator {
         this.tool = tool;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean canManipulate(Panel panel) {
         boolean[] options = getManipulateOptions(panel);
