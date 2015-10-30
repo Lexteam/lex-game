@@ -56,7 +56,11 @@ public abstract class AbstractMeta implements MetaManipulator {
      * {@inheritDoc}
      */
     @Override
-    public <T> void set(Key<Value<T>> key, T value) {
-        this.keySetterMap.get(key).accept(value);
+    public <T> boolean offer(Key<Value<T>> key, T value) {
+        if (this.supports(key)) {
+            this.keySetterMap.get(key).accept(value);
+            return true;
+        }
+        return false;
     }
 }

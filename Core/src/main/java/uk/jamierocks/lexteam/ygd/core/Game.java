@@ -1,6 +1,6 @@
 package uk.jamierocks.lexteam.ygd.core;
 
-import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaHolder;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.GameMeta;
 import uk.jamierocks.lexteam.ygd.core.service.ServiceManager;
 
@@ -9,7 +9,7 @@ import uk.jamierocks.lexteam.ygd.core.service.ServiceManager;
  *
  * @author Jamie Mansfield
  */
-public interface Game extends MetaOwner {
+public interface Game extends MetaHolder {
 
     String VERSION = "%project.version%";
 

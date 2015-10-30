@@ -3,57 +3,34 @@ package uk.jamierocks.lexteam.ygd.core.meta;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.MetaManipulator;
 import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
+import uk.jamierocks.lexteam.ygd.core.meta.value.ValueHolder;
 import uk.jamierocks.lexteam.ygd.core.meta.value.ValueManager;
 
 import java.util.Optional;
 
 /**
- * Represents a meta owner.
+ * Represents an object which holds meta.
  *
  * @author Jamie Mansfield
  */
-public interface MetaOwner {
+public interface MetaHolder extends ValueHolder {
 
     /**
-     * Gets a value from it's key.
-     *
-     * @param key the specified key.
-     * @param <T> the value type.
-     * @return the value.
+     * {@inheritDoc}
      */
     default <T> Optional<T> get(Key<Value<T>> key) {
         return ValueManager.get(this, key);
     }
 
     /**
-     * Gets a value from it's key, and if it doesn't exist the gets null.
-     *
-     * @param key the specified key.
-     * @param <T> the value type.
-     * @return the value.
-     */
-    default <T> T getOrNull(Key<Value<T>> key) {
-        return this.get(key).orElse(null);
-    }
-
-    /**
-     * Checks to see if this owner supports that key.
-     *
-     * @param key the specified key.
-     * @param <T> the value type.
-     * @return the value.
+     * {@inheritDoc}
      */
     default <T> boolean supports(Key<Value<T>> key) {
         return ValueManager.supports(this, key);
     }
 
     /**
-     * Offers the given value to the value processor.
-     *
-     * @param key the key of which you are offering to.
-     * @param value the value you wish to set.
-     * @param <T> the value type.
-     * @return {@code true} if the value was set.
+     * {@inheritDoc}
      */
     default <T> boolean offer(Key<Value<T>> key, T value) {
         return ValueManager.offer(this, key, value);

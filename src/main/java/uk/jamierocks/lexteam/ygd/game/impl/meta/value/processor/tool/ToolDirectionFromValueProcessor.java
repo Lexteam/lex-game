@@ -7,7 +7,7 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool;
 
-import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaHolder;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
@@ -23,12 +23,12 @@ public class ToolDirectionFromValueProcessor extends AbstractValueProcessor<Dire
     }
 
     @Override
-    public boolean supports(MetaOwner container) {
+    public boolean supports(MetaHolder container) {
         return container instanceof AddConnectionInfo;
     }
 
     @Override
-    public boolean offer(MetaOwner container, Direction value) {
+    public boolean offer(MetaHolder container, Direction value) {
         if (container instanceof AddConnectionInfo) {
             AddConnectionInfo connectionInfo = (AddConnectionInfo) container;
             connectionInfo.setFrom(value);
@@ -38,7 +38,7 @@ public class ToolDirectionFromValueProcessor extends AbstractValueProcessor<Dire
     }
 
     @Override
-    public Optional<Direction> getValueFromContainer(MetaOwner container) {
+    public Optional<Direction> getValueFromContainer(MetaHolder container) {
         if (container instanceof AddConnectionInfo) {
             AddConnectionInfo connectionInfo = (AddConnectionInfo) container;
             return Optional.of(connectionInfo.getFrom());

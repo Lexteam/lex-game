@@ -1,7 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.meta.value;
 
 import com.google.common.collect.Maps;
-import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaHolder;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
 
 import java.util.Map;
@@ -15,15 +15,15 @@ public class ValueManager {
         processors.put(processor.getKey(), processor);
     }
 
-    public static <T> Optional<T> get(MetaOwner container, Key<Value<T>> key) {
+    public static <T> Optional<T> get(MetaHolder container, Key<Value<T>> key) {
         return processors.get(key).getValueFromContainer(container);
     }
 
-    public static <T> boolean supports(MetaOwner container, Key<Value<T>> key) {
+    public static <T> boolean supports(MetaHolder container, Key<Value<T>> key) {
         return processors.get(key).supports(container);
     }
 
-    public static <T> boolean offer(MetaOwner container, Key<Value<T>> key, T value) {
+    public static <T> boolean offer(MetaHolder container, Key<Value<T>> key, T value) {
         return processors.get(key).offer(container, value);
     }
 }

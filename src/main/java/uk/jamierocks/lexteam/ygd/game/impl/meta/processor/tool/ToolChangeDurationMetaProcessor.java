@@ -7,7 +7,7 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.processor.tool;
 
-import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaHolder;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolChangeDurationMeta;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool.LexToolChangeDurationMeta;
@@ -23,12 +23,12 @@ public class ToolChangeDurationMetaProcessor extends AbstractMetaProcessor<ToolC
     }
 
     @Override
-    public boolean supports(MetaOwner container) {
+    public boolean supports(MetaHolder container) {
         return container instanceof ChangeDurationInfo;
     }
 
     @Override
-    public boolean apply(MetaOwner owner, ToolChangeDurationMeta manipulator) {
+    public boolean apply(MetaHolder owner, ToolChangeDurationMeta manipulator) {
         if (owner instanceof ChangeDurationInfo) {
             ChangeDurationInfo info = (ChangeDurationInfo) owner;
 
@@ -40,7 +40,7 @@ public class ToolChangeDurationMetaProcessor extends AbstractMetaProcessor<ToolC
     }
 
     @Override
-    public Optional<ToolChangeDurationMeta> getMetaFromContainer(MetaOwner container) {
+    public Optional<ToolChangeDurationMeta> getMetaFromContainer(MetaHolder container) {
         if (container instanceof ChangeDurationInfo) {
             ChangeDurationInfo info = (ChangeDurationInfo) container;
             return Optional.of(new LexToolChangeDurationMeta(info.getDuration()));

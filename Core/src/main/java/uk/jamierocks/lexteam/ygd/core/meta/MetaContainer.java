@@ -11,7 +11,9 @@ import java.util.Optional;
  */
 public interface MetaContainer {
 
-    Optional<Object> get(MetaQuery path);
+    boolean contains(MetaQuery query);
 
-    MetaContainer set(MetaQuery path, Object value);
+    Optional<Object> get(MetaQuery query);
+
+    MetaContainer set(MetaQuery query, Object value);
 }

@@ -7,7 +7,7 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor;
 
-import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaHolder;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
@@ -22,17 +22,17 @@ public class GameDirectoryValueProcessor extends AbstractValueProcessor<File, Va
     }
 
     @Override
-    public boolean supports(MetaOwner container) {
+    public boolean supports(MetaHolder container) {
         return container instanceof LexGame;
     }
 
     @Override
-    public boolean offer(MetaOwner container, File value) {
+    public boolean offer(MetaHolder container, File value) {
         return false; // currently not allowed.
     }
 
     @Override
-    public Optional<File> getValueFromContainer(MetaOwner container) {
+    public Optional<File> getValueFromContainer(MetaHolder container) {
         if (container instanceof LexGame) {
             return Optional.of(((LexGame) container).getDirectory());
         }

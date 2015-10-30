@@ -16,19 +16,24 @@ import java.util.Optional;
 
 public class LexMetaContainer implements MetaContainer {
 
-    private Map<MetaQuery, Object> queries = Maps.newHashMap();
+    private Map<String, Object> queries = Maps.newHashMap();
 
     @Override
-    public Optional<Object> get(MetaQuery path) {
-        if (this.queries.containsKey(path)) {
-            return Optional.of(this.queries.get(path));
+    public boolean contains(MetaQuery query) {
+        return this.queries.containsKey(query.getName());
+    }
+
+    @Override
+    public Optional<Object> get(MetaQuery query) {
+        if (this.contains(query)) {
+            return Optional.of(this.queries.get(query.getName()));
         }
         return Optional.empty();
     }
 
     @Override
-    public MetaContainer set(MetaQuery path, Object value) {
-        this.queries.put(path, value);
+    public MetaContainer set(MetaQuery query, Object value) {
+        this.queries.put(query.getName(), value);
         return this;
     }
 }
