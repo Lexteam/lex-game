@@ -2,11 +2,7 @@ package uk.jamierocks.lexteam.ygd.core.meta.manipulator;
 
 import uk.jamierocks.lexteam.ygd.core.meta.MetaContainer;
 import uk.jamierocks.lexteam.ygd.core.meta.MetaHolder;
-import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
-import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
 import uk.jamierocks.lexteam.ygd.core.meta.value.ValueHolder;
-
-import java.util.Optional;
 
 /**
  * Represents meta a {@link MetaHolder} can hold.
@@ -15,5 +11,10 @@ import java.util.Optional;
  */
 public interface MetaManipulator extends ValueHolder {
 
+    /**
+     * Gets a {@link MetaContainer} representation of this manipulator.
+     *
+     * @return a {@link MetaContainer}.
+     */
     MetaContainer toContainer();
 }
