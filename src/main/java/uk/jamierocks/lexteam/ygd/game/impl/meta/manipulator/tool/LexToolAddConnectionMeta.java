@@ -7,9 +7,12 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool;
 
+import uk.jamierocks.lexteam.ygd.core.meta.MetaContainer;
+import uk.jamierocks.lexteam.ygd.core.meta.Queries;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolAddConnectionMeta;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.LexMetaContainer;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.AbstractMeta;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.utils.MetaConstants;
 
@@ -58,5 +61,12 @@ public class LexToolAddConnectionMeta extends AbstractMeta implements ToolAddCon
 
         this.registerGetter(Keys.TOOL_DIRECTION_FROM, LexToolAddConnectionMeta.this::from);
         this.registerSetter(Keys.TOOL_DIRECTION_FROM, LexToolAddConnectionMeta.this::setFrom);
+    }
+
+    @Override
+    public MetaContainer toContainer() {
+        return new LexMetaContainer()
+                .set(Queries.DIRECTION_TO, this.to)
+                .set(Queries.DIRECTION_FROM, this.from);
     }
 }

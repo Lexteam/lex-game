@@ -7,8 +7,11 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool;
 
+import uk.jamierocks.lexteam.ygd.core.meta.MetaContainer;
+import uk.jamierocks.lexteam.ygd.core.meta.Queries;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolChangeDurationMeta;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.LexMetaContainer;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.AbstractMeta;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.utils.MetaConstants;
 
@@ -43,5 +46,11 @@ public class LexToolChangeDurationMeta extends AbstractMeta implements ToolChang
     protected void registerGettersAndSetters() {
         this.registerGetter(Keys.TOOL_DURATION, LexToolChangeDurationMeta.this::duration);
         this.registerSetter(Keys.TOOL_DURATION, LexToolChangeDurationMeta.this::setDuration);
+    }
+
+    @Override
+    public MetaContainer toContainer() {
+        return new LexMetaContainer()
+                .set(Queries.DURATION, this.duration);
     }
 }

@@ -8,8 +8,11 @@
 package uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator;
 
 import org.slf4j.Logger;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaContainer;
+import uk.jamierocks.lexteam.ygd.core.meta.Queries;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.GameMeta;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.LexMetaContainer;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.utils.MetaConstants;
 
 import java.io.File;
@@ -65,5 +68,12 @@ public class LexGameMeta extends AbstractMeta implements GameMeta {
 
         this.registerGetter(Keys.GAME_DIRECTORY, LexGameMeta.this::directory);
         this.registerSetter(Keys.GAME_DIRECTORY, LexGameMeta.this::setDirectory);
+    }
+
+    @Override
+    public MetaContainer toContainer() {
+        return new LexMetaContainer()
+                .set(Queries.LOGGER, this.logger)
+                .set(Queries.DIRECTORY, this.directory);
     }
 }

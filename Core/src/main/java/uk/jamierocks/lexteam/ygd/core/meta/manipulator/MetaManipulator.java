@@ -1,5 +1,6 @@
 package uk.jamierocks.lexteam.ygd.core.meta.manipulator;
 
+import uk.jamierocks.lexteam.ygd.core.meta.MetaContainer;
 import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
 import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
@@ -39,4 +40,6 @@ public interface MetaManipulator {
      * @param <T> the value type
      */
     <T> void set(Key<Value<T>> key, T value);
+
+    MetaContainer toContainer();
 }
