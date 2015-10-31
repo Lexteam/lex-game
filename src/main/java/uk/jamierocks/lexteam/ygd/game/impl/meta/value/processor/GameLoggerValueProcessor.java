@@ -8,7 +8,7 @@
 package uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor;
 
 import org.slf4j.Logger;
-import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaHolder;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
 import uk.jamierocks.lexteam.ygd.game.impl.LexGame;
@@ -22,17 +22,17 @@ public class GameLoggerValueProcessor extends AbstractValueProcessor<Logger, Val
     }
 
     @Override
-    public boolean supports(MetaOwner container) {
+    public boolean supports(MetaHolder container) {
         return container instanceof LexGame;
     }
 
     @Override
-    public boolean offer(MetaOwner container, Logger value) {
+    public boolean offer(MetaHolder container, Logger value) {
         return false; // currently not allowed.
     }
 
     @Override
-    public Optional<Logger> getValueFromContainer(MetaOwner container) {
+    public Optional<Logger> getValueFromContainer(MetaHolder container) {
         if (container instanceof LexGame) {
             return Optional.of(((LexGame) container).getLogger());
         }

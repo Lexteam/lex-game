@@ -7,7 +7,7 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.processor.tool;
 
-import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaHolder;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolAddConnectionMeta;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool.LexToolAddConnectionMeta;
@@ -23,12 +23,12 @@ public class ToolAddConnectionMetaProcessor extends AbstractMetaProcessor<ToolAd
     }
 
     @Override
-    public boolean supports(MetaOwner container) {
+    public boolean supports(MetaHolder container) {
         return container instanceof AddConnectionInfo;
     }
 
     @Override
-    public boolean apply(MetaOwner owner, ToolAddConnectionMeta manipulator) {
+    public boolean apply(MetaHolder owner, ToolAddConnectionMeta manipulator) {
         if (owner instanceof AddConnectionInfo) {
             AddConnectionInfo info = (AddConnectionInfo) owner;
 
@@ -42,7 +42,7 @@ public class ToolAddConnectionMetaProcessor extends AbstractMetaProcessor<ToolAd
     }
 
     @Override
-    public Optional<ToolAddConnectionMeta> getMetaFromContainer(MetaOwner container) {
+    public Optional<ToolAddConnectionMeta> getMetaFromContainer(MetaHolder container) {
         if (container instanceof AddConnectionInfo) {
             AddConnectionInfo info = (AddConnectionInfo) container;
             return Optional.of(new LexToolAddConnectionMeta(info.getTo(), info.getFrom()));

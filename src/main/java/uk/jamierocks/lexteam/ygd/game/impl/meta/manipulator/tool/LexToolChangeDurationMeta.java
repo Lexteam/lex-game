@@ -9,7 +9,7 @@ package uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool;
 
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolChangeDurationMeta;
-import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.AbstractMeta;
+import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.AbstractSingularMeta;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.utils.MetaConstants;
 
 /**
@@ -17,13 +17,10 @@ import uk.jamierocks.lexteam.ygd.game.impl.meta.utils.MetaConstants;
  *
  * @author Jamie Mansfield
  */
-public class LexToolChangeDurationMeta extends AbstractMeta implements ToolChangeDurationMeta {
+public class LexToolChangeDurationMeta extends AbstractSingularMeta<Integer> implements ToolChangeDurationMeta {
 
-    private int duration;
-
-    public LexToolChangeDurationMeta(int duration) {
-        this.duration = duration;
-        this.registerGettersAndSetters();
+    public LexToolChangeDurationMeta(Integer value) {
+        super(Keys.TOOL_DURATION, value);
     }
 
     public LexToolChangeDurationMeta() {
@@ -32,16 +29,6 @@ public class LexToolChangeDurationMeta extends AbstractMeta implements ToolChang
 
     @Override
     public int duration() {
-        return this.duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-
-    @Override
-    protected void registerGettersAndSetters() {
-        this.registerGetter(Keys.TOOL_DURATION, LexToolChangeDurationMeta.this::duration);
-        this.registerSetter(Keys.TOOL_DURATION, LexToolChangeDurationMeta.this::setDuration);
+        return this.getValue();
     }
 }

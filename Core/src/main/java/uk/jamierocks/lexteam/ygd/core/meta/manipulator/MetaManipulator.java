@@ -1,42 +1,20 @@
 package uk.jamierocks.lexteam.ygd.core.meta.manipulator;
 
-import uk.jamierocks.lexteam.ygd.core.meta.MetaOwner;
-import uk.jamierocks.lexteam.ygd.core.meta.key.Key;
-import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
-
-import java.util.Optional;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaContainer;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaHolder;
+import uk.jamierocks.lexteam.ygd.core.meta.value.ValueHolder;
 
 /**
- * Represents meta a {@link MetaOwner} can hold.
+ * Represents meta a {@link MetaHolder} can hold.
  *
  * @author Jamie Mansfield
  */
-public interface MetaManipulator {
+public interface MetaManipulator extends ValueHolder {
 
     /**
-     * Gets a value from it's key.
+     * Gets a {@link MetaContainer} representation of this manipulator.
      *
-     * @param key the specified key.
-     * @param <T> the value type.
-     * @return the value.
+     * @return a {@link MetaContainer}.
      */
-    <T> Optional<T> get(Key<Value<T>> key);
-
-    /**
-     * Checks to see if this manipulator supports that key.
-     *
-     * @param key the specified key.
-     * @param <T> the value type.
-     * @return the value.
-     */
-    <T> boolean supports(Key<Value<T>> key);
-
-    /**
-     * Sets the key's value.
-     *
-     * @param key the key
-     * @param value the new value
-     * @param <T> the value type
-     */
-    <T> void set(Key<Value<T>> key, T value);
+    MetaContainer toContainer();
 }
