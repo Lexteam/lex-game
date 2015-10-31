@@ -1,8 +1,7 @@
-package com.gmail.riley787cmplex.engine.media;
+package com.gmail.riley787cmplex.engine.meta.processor;
 
 import com.flowpowered.math.vector.VectorNf;
-import com.gmail.riley787cmplex.engine.media.data.Shader;
-import org.lwjgl.opengl.*;
+import com.gmail.riley787cmplex.engine.meta.Manipluators.Shader;
 
 
 import java.util.Map;
@@ -31,10 +30,6 @@ public class ShaderProgram {
 
     }
 
-<<<<<<< HEAD
-
-
-
 
     public Integer getUniform(String uniformName){
         if(uniformLocations.keySet().contains(uniformName)){
@@ -50,8 +45,5 @@ public class ShaderProgram {
     }
 
 
-
-=======
->>>>>>> c2ea411fc76394c9cd054f529d3980a511d19fa9
     private Map<String, Integer> uniformLocations;
 }

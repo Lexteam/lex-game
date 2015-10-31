@@ -1,8 +1,8 @@
-package com.gmail.riley787cmplex.engine.media.data;
+package com.gmail.riley787cmplex.engine.meta.Manipluators;
 
 import com.flowpowered.math.imaginary.Quaternionf;
 import com.flowpowered.math.vector.Vector3f;
-import com.gmail.riley787cmplex.engine.media.Model;
+import com.gmail.riley787cmplex.engine.meta.processor.Model;
 
 /*
  * Copyright (c) 2015, Jamie Mansfield <https://www.jamierocks.uk>

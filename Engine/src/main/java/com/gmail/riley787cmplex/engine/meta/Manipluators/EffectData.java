@@ -1,4 +1,4 @@
-package com.gmail.riley787cmplex.engine.media.data;
+package com.gmail.riley787cmplex.engine.meta.Manipluators;
 
 /*
  * Copyright (c) 2015, Jamie Mansfield <https://www.jamierocks.uk>

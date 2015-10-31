@@ -1,6 +1,6 @@
 package com.gmail.riley787cmplex.engine;
 
-import com.gmail.riley787cmplex.engine.media.Model;
+import com.gmail.riley787cmplex.engine.meta.processor.Model;
 import org.lwjgl.opengl.GLContext;
 
 /*

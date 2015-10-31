@@ -1,10 +1,4 @@
-package com.gmail.riley787cmplex.engine.media.data;
-
-
-import com.flowpowered.math.vector.VectorNf;
-import org.lwjgl.opengl.GL;
-
-
+package com.gmail.riley787cmplex.engine.meta.Manipluators;
 
 
 /*

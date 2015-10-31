@@ -1,9 +1,8 @@
-package com.gmail.riley787cmplex.engine.media;
+package com.gmail.riley787cmplex.engine.meta.processor;
 
 
-import com.flowpowered.math.imaginary.Quaternionf;
 import com.flowpowered.math.vector.Vector3f;
-import com.gmail.riley787cmplex.engine.media.data.ModelInstance;
+import com.gmail.riley787cmplex.engine.meta.Manipluators.ModelInstance;
 
 
 import java.util.Map;
