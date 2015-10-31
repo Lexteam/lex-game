@@ -1,5 +1,6 @@
 package uk.jamierocks.lexteam.ygd.core.meta.key;
 
+import uk.jamierocks.lexteam.ygd.core.meta.MetaQuery;
 import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
 
 /**
@@ -15,4 +16,6 @@ public interface Key<V extends Value<?>> {
      * @return the value class.
      */
     Class<V> getValueClass();
+
+    MetaQuery getQuery();
 }
