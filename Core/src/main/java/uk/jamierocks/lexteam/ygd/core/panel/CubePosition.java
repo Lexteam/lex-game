@@ -29,6 +29,7 @@ public class CubePosition {
     public boolean equals(Object obj) {
 
         boolean faceequal = ((CubePosition) obj).cubeFace == this.cubeFace;
+        //change this to compare x & y, not the entire vector
         boolean vecequals = (((CubePosition) obj).vector2f == this.vector2f);
 
         return faceequal && vecequals;
