@@ -1,7 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.panel;
 
 /**
- * The most basic panel
+ * The most basic possible panel. Just holds its position.
  *
  * @author Tom Drever
  */

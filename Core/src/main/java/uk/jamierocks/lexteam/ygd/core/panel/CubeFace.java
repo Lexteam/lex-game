@@ -41,6 +41,25 @@ public enum CubeFace {
         return right;
     }
 
+    public static CubeFace getCubeFace(Face face){
+        switch (face) {
+            case TOP:
+                return CubeFace.TOP;
+            case BOTTOM:
+                return CubeFace.BOTTOM;
+            case LEFT:
+                return CubeFace.LEFT;
+            case RIGHT:
+                return CubeFace.RIGHT;
+            case FRONT:
+                return CubeFace.FRONT;
+            case BACK:
+                return CubeFace.BACK;
+            default:
+                return null;
+        }
+    }
+
     public enum Face {
         TOP, BOTTOM, LEFT, RIGHT, FRONT, BACK
     }
