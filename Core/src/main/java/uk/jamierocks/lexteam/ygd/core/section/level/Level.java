@@ -16,6 +16,7 @@ import java.util.Set;
  * Represents a level, containing the panels
  *
  * @author Tom Drever
+ * @author Jamie Mansfield
  */
 public class Level {
 

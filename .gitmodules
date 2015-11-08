@@ -1,0 +1,3 @@
+[submodule "LexUtils"]
+	path = LexUtils
+	url = https://github.com/Lexteam/Utils.git

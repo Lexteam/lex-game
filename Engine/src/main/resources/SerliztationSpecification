@@ -1,0 +1,23 @@
+ARGUMENTS
+x = argument(no spaces used)
+
+ANIMATION OPERATORS
+
+Gx : G = Group HEX: 0 ARG: x = group name
+A GROUP IS ALWAYS STARTED WITHOUT G AT THE START OF THE FILE.
+
+Rxyzw : R = Rotation HEX: 1 ARG: xyzw = quanterions
+Txyzw : T = Translation HEX 2 ARG: xyzw = vec4 velocity
+Sxyzw : S = Scale HEX: 3 ARG: xyzw = vec4 velocity
+
+DECIMAL OPERATORS
+*x : * = 0. HEX: 4 ARG: x = value TRANS: *9 = 0.9
+x% : % = x.x HEX: 5 ARG: x = value TRANS: 9% = 9 9.9
+n^x : ^ = nn. HEX: 6 ARG: x = value TRANS: 9^8 = 9 9.8
+
+DIGITS < 2 - IN HEX
+
+|xX XOR Xx| XOR |x| : | = start of < 2 digit number HEX: 8 ARG: x = value X = escape caricter( can be any operator including | )
+TRANS: G212| = 212 |212R = 212 |212| = 212
+
+THIS MEANS THAT FOR ALL NUMERICAL VALUES IN HEX WE MUST + 8

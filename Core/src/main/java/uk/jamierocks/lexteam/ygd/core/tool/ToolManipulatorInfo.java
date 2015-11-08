@@ -1,7 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core.tool;
 
-import uk.jamierocks.lexteam.ygd.core.meta.api.value.ValueOwner;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaHolder;
 
-public interface ToolManipulatorInfo extends ValueOwner {
+public interface ToolManipulatorInfo extends MetaHolder {
 
 }

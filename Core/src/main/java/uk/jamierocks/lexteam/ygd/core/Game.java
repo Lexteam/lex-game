@@ -1,7 +1,7 @@
 package uk.jamierocks.lexteam.ygd.core;
 
-import uk.jamierocks.lexteam.ygd.core.meta.GameMeta;
-import uk.jamierocks.lexteam.ygd.core.meta.api.SingularMetaOwner;
+import uk.jamierocks.lexteam.ygd.core.meta.MetaHolder;
+import uk.jamierocks.lexteam.ygd.core.meta.manipulator.GameMeta;
 import uk.jamierocks.lexteam.ygd.core.service.ServiceManager;
 
 /**
@@ -9,7 +9,9 @@ import uk.jamierocks.lexteam.ygd.core.service.ServiceManager;
  *
  * @author Jamie Mansfield
  */
-public interface Game extends SingularMetaOwner<GameMeta> {
+public interface Game extends MetaHolder {
+
+    String VERSION = "%project.version%";
 
     /**
      * Gets the game's service manager.
@@ -18,8 +20,14 @@ public interface Game extends SingularMetaOwner<GameMeta> {
      */
     ServiceManager getServiceManager();
 
-    @Override
+    /**
+     * Gets the user defined game settings.
+     *
+     * @return the {@link GameSettings}.
+     */
+    GameSettings getSettings();
+
     default GameMeta getMeta() {
-        return obtainMeta(GameMeta.class);
+        return this.obtainMeta(GameMeta.class);
     }
 }
