@@ -10,10 +10,8 @@ import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 import uk.jamierocks.lexteam.ygd.core.section.level.Level;
 import uk.jamierocks.lexteam.ygd.game.impl.panel.GameBasePanel;
 
-import java.util.Map;
-
 /**
- * Created by Tom on 18/10/2015.
+ * @author Tom Drever
  */
 public class PathAPITest {
     @Test
@@ -38,11 +36,11 @@ public class PathAPITest {
         Level lvl = new Level(panels, ppf);
 
         GameBasePanel gbp = new GameBasePanel();
-        gbp.setCubePosition(new CubePosition(CubeFace.LEFT, new Vector2f(0, 1)));
+        gbp.setCubePosition(new CubePosition(CubeFace.TOP, new Vector2f(0, 1)));
 
-        CubePosition cpos = lvl.getAdjacentPanelPosition(gbp, Direction.DOWN);
+        CubePosition cpos = lvl.getAdjacentPanelPosition(gbp, Direction.RIGHT);
 
-        CubePosition potpos = new CubePosition(CubeFace.LEFT, new Vector2f(0, 0));
+        CubePosition potpos = new CubePosition(CubeFace.TOP, new Vector2f(1, 1));
 
         Assert.assertTrue(cpos.equals(potpos));
     }
