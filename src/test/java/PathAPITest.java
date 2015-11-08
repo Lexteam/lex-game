@@ -36,11 +36,11 @@ public class PathAPITest {
         Level lvl = new Level(panels, ppf);
 
         GameBasePanel gbp = new GameBasePanel();
-        gbp.setCubePosition(new CubePosition(CubeFace.TOP, new Vector2f(0, 1)));
+        gbp.setCubePosition(new CubePosition(CubeFace.BOTTOM, new Vector2f(1, 2)));
 
-        CubePosition cpos = lvl.getAdjacentPanelPosition(gbp, Direction.RIGHT);
+        CubePosition cpos = lvl.getAdjacentPanelPosition(gbp, Direction.UP);
 
-        CubePosition potpos = new CubePosition(CubeFace.TOP, new Vector2f(1, 1));
+        CubePosition potpos = new CubePosition(CubeFace.FRONT, new Vector2f(0, 1));
 
         Assert.assertTrue(cpos.equals(potpos));
     }
