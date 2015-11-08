@@ -27,10 +27,6 @@ public class CubePosition {
 
     @Override
     public boolean equals(Object obj) {
-
-        //boolean faceequal = ((CubePosition) obj).cubeFace == this.cubeFace;
-        //boolean vecequals = (((CubePosition) obj).vector2f == this.vector2f);
-
         return ((CubePosition) obj).cubeFace.equals(this.cubeFace) && (((CubePosition) obj).vector2f.equals(this.vector2f));
     }
 }
