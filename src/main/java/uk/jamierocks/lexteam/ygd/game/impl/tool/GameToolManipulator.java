@@ -7,9 +7,9 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.tool;
 
+import uk.jamierocks.eventbus.IEventBus;
 import uk.jamierocks.lexteam.ygd.core.event.tool.ToolManipulateEvent;
 import uk.jamierocks.lexteam.ygd.core.panel.Panel;
-import uk.jamierocks.lexteam.ygd.core.service.event.IEventBus;
 import uk.jamierocks.lexteam.ygd.core.tool.Tool;
 import uk.jamierocks.lexteam.ygd.core.tool.ToolManipulator;
 import uk.jamierocks.lexteam.ygd.game.GameLaunch;

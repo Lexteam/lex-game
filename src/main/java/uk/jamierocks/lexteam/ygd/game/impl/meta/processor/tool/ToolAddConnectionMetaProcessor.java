@@ -7,12 +7,13 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.processor.tool;
 
-import uk.jamierocks.lexteam.ygd.core.meta.MetaHolder;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolAddConnectionMeta;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool.LexToolAddConnectionMeta;
-import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.AbstractMetaProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.info.AddConnectionInfo;
+import uk.jamierocks.meta.api.MetaContainer;
+import uk.jamierocks.meta.api.MetaHolder;
+import uk.jamierocks.meta.impl.processor.AbstractMetaProcessor;
 
 import java.util.Optional;
 
@@ -39,6 +40,11 @@ public class ToolAddConnectionMetaProcessor extends AbstractMetaProcessor<ToolAd
                     info.getFrom() == manipulator.from();
         }
         return false;
+    }
+
+    @Override
+    public void apply(MetaContainer container, ToolAddConnectionMeta manipulator) {
+        // TODO: implement
     }
 
     @Override

@@ -7,10 +7,10 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.tool;
 
-import uk.jamierocks.lexteam.ygd.core.meta.manipulator.MetaManipulator;
 import uk.jamierocks.lexteam.ygd.core.panel.Panel;
 import uk.jamierocks.lexteam.ygd.core.tool.Tool;
 import uk.jamierocks.lexteam.ygd.core.tool.ToolManipulatorInfo;
+import uk.jamierocks.meta.api.manipulator.MetaManipulator;
 
 /**
  * Extension to {@link GameToolManipulator}, to manipulate with meta directly.
@@ -31,8 +31,8 @@ public abstract class MetaBackedGameToolManipulator<M extends MetaManipulator> e
      */
     @Override
     public void manipulate(Panel panel, ToolManipulatorInfo info) {
-        if (info.supportsMeta(this.metaClazz)) {
-            this.manipulatePanel(panel, info.obtainMeta(this.metaClazz));
+        if (info.supports(this.metaClazz)) {
+            this.manipulatePanel(panel, info.obtain(this.metaClazz));
         }
     }
 

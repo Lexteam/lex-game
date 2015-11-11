@@ -9,8 +9,8 @@ package uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool;
 
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolChangeDurationMeta;
-import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.AbstractSingularMeta;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.utils.MetaConstants;
+import uk.jamierocks.meta.impl.manipulator.AbstractSingularMeta;
 
 /**
  * The meta implementation of {@link ToolChangeDurationMeta}.

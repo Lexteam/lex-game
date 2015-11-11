@@ -7,12 +7,12 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool;
 
-import uk.jamierocks.lexteam.ygd.core.meta.MetaHolder;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
-import uk.jamierocks.lexteam.ygd.core.meta.value.Value;
-import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.AbstractValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.info.AddConnectionInfo;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.info.ChangeDurationInfo;
+import uk.jamierocks.meta.api.MetaHolder;
+import uk.jamierocks.meta.api.value.Value;
+import uk.jamierocks.meta.impl.value.processor.AbstractValueProcessor;
 
 import java.util.Optional;
 

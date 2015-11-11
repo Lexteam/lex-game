@@ -7,14 +7,14 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool;
 
-import uk.jamierocks.lexteam.ygd.core.meta.MetaContainer;
 import uk.jamierocks.lexteam.ygd.core.meta.Queries;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolAddConnectionMeta;
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
-import uk.jamierocks.lexteam.ygd.game.impl.meta.LexMetaContainer;
-import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.AbstractMeta;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.utils.MetaConstants;
+import uk.jamierocks.meta.api.MetaContainer;
+import uk.jamierocks.meta.impl.LexMetaContainer;
+import uk.jamierocks.meta.impl.manipulator.AbstractMeta;
 
 /**
  * The meta implementation of {@link ToolAddConnectionMeta}.

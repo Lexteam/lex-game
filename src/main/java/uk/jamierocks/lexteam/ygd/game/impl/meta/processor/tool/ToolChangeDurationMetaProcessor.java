@@ -7,12 +7,13 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.meta.processor.tool;
 
-import uk.jamierocks.lexteam.ygd.core.meta.MetaHolder;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolChangeDurationMeta;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.manipulator.tool.LexToolChangeDurationMeta;
-import uk.jamierocks.lexteam.ygd.game.impl.meta.processor.AbstractMetaProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.info.ChangeDurationInfo;
+import uk.jamierocks.meta.api.MetaContainer;
+import uk.jamierocks.meta.api.MetaHolder;
+import uk.jamierocks.meta.impl.processor.AbstractMetaProcessor;
 
 import java.util.Optional;
 
@@ -37,6 +38,11 @@ public class ToolChangeDurationMetaProcessor extends AbstractMetaProcessor<ToolC
             return info.getDuration() == manipulator.duration();
         }
         return false;
+    }
+
+    @Override
+    public void apply(MetaContainer container, ToolChangeDurationMeta manipulator) {
+        // TODO: implement
     }
 
     @Override

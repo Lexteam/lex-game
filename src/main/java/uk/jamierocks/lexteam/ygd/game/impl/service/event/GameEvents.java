@@ -7,8 +7,8 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl.service.event;
 
+import uk.jamierocks.eventbus.IEventBus;
 import uk.jamierocks.lexteam.ygd.core.service.event.Events;
-import uk.jamierocks.lexteam.ygd.core.service.event.IEventBus;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
