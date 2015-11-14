@@ -7,11 +7,15 @@
  */
 package uk.jamierocks.lexteam.ygd.game.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.jamierocks.lexteam.utils.IApplication;
 import uk.jamierocks.lexteam.ygd.core.Game;
 import uk.jamierocks.lexteam.ygd.core.GameSettings;
 import uk.jamierocks.lexteam.ygd.core.service.ServiceManager;
 import uk.jamierocks.lexteam.ygd.core.service.SimpleServiceManager;
+
+import java.io.File;
 
 /**
  * The implementation of {@link Game}.
@@ -21,10 +25,8 @@ import uk.jamierocks.lexteam.ygd.core.service.SimpleServiceManager;
 public class LexGame implements IApplication, Game {
 
     private final ServiceManager serviceManager = new SimpleServiceManager();
-    private final GameSettings gameSettings = null;
-            //new GameSettings(this,
-                    //new File(directory(), "settings.conf"),
-                    //"settings.conf");
+    private final GameSettings gameSettings = new GameSettings(this,
+                    new File(getDirectory(), "settings.conf"), "/settings.conf");
 
     /**
      * {@inheritDoc}
@@ -32,6 +34,26 @@ public class LexGame implements IApplication, Game {
     @Override
     public String getName() {
         return "lex-game";
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public File getDirectory() {
+        File directory = new File(LEXTEAM_BASE_DIRECTORY, getSafeName());
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+        return directory;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Logger getLogger() {
+        return LoggerFactory.getLogger(getSafeName());
     }
 
     /**

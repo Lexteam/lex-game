@@ -47,7 +47,7 @@ public class PathAPITest {
         GameBasePanel gbp = new GameBasePanel();
         gbp.setCubePosition(new CubePosition(CubeFace.BOTTOM, new Vector2f(1, 2)));
 
-        CubePosition cpos = lvl.getAdjacentPanelPosition(gbp, Direction.UP);
+        CubePosition cpos = lvl.getAdjacentPanelPosition(gbp, Direction.UP).get();
 
         CubePosition potpos = new CubePosition(CubeFace.FRONT, new Vector2f(0, 1));
 
