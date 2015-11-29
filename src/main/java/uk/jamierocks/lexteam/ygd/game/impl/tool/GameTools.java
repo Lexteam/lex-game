@@ -12,8 +12,8 @@ import uk.jamierocks.lexteam.ygd.core.meta.manipulator.tool.ToolChangeDurationMe
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
 import uk.jamierocks.lexteam.ygd.core.panel.Panel;
 import uk.jamierocks.lexteam.ygd.core.tool.Tool;
-import uk.jamierocks.lexteam.ygd.core.tool.ToolManipulatorInfo;
 import uk.jamierocks.lexteam.ygd.core.tool.Tools;
+import uk.jamierocks.meta.api.MetaHolder;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -47,7 +47,7 @@ public class GameTools {
     public static final Tool REMOVE_CONNECTION =
             new Tool("remove_connection", 1, new GameToolManipulator(Tools.REMOVE_CONNECTION) {
                 @Override
-                public void manipulate(Panel panel, ToolManipulatorInfo info) {
+                public void manipulate(Panel panel, MetaHolder info) {
                     panel.getConnection().setTo(Direction.NONE);
                     panel.getConnection().setFrom(Direction.NONE);
                 }
@@ -63,7 +63,7 @@ public class GameTools {
     public static final Tool REVERSE_CONNECTION =
             new Tool("reverse_connection", 1, new GameToolManipulator(Tools.REVERSE_CONNECTION) {
                 @Override
-                public void manipulate(Panel panel, ToolManipulatorInfo info) {
+                public void manipulate(Panel panel, MetaHolder info) {
                     Direction from = panel.getConnection().getFrom();
                     Direction to = panel.getConnection().getTo();
                     panel.getConnection().setFrom(to);
@@ -99,7 +99,7 @@ public class GameTools {
     public static final Tool WEAK_REPAIR_PANEL =
             new Tool("weak_repair_panel", 3, new GameToolManipulator(Tools.WEAK_REPAIR_PANEL) {
                 @Override
-                public void manipulate(Panel panel, ToolManipulatorInfo info) {
+                public void manipulate(Panel panel, MetaHolder info) {
                     double chance = Math.random() * 100;
                     if (panel.isBurntout()) {
                         if (chance <= 50) {
@@ -118,7 +118,7 @@ public class GameTools {
     public static final Tool STRONG_REPAIR_PANEL =
             new Tool("strong_repair_panel", 3, new GameToolManipulator(Tools.STRONG_REPAIR_PANEL) {
                 @Override
-                public void manipulate(Panel panel, ToolManipulatorInfo info) {
+                public void manipulate(Panel panel, MetaHolder info) {
                     double chance = Math.random() * 100;
                     if (panel.isBurntout()) {
                         if (chance <= 90) {

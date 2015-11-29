@@ -8,15 +8,15 @@
 package uk.jamierocks.lexteam.ygd.game.impl.tool.info;
 
 import uk.jamierocks.lexteam.ygd.core.panel.Direction;
-import uk.jamierocks.lexteam.ygd.core.tool.ToolManipulatorInfo;
 import uk.jamierocks.lexteam.ygd.core.tool.Tools;
+import uk.jamierocks.meta.api.MetaHolder;
 
 /**
- * This is the {@link ToolManipulatorInfo} implementation for {@link Tools#ADD_CONNECTION}.
+ * This is the {@link MetaHolder} implementation for {@link Tools#ADD_CONNECTION}.
  *
  * @author Jamie Mansfield
  */
-public class AddConnectionInfo implements ToolManipulatorInfo {
+public class AddConnectionInfo implements MetaHolder {
 
     private Direction to;
     private Direction from;
