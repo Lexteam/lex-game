@@ -20,7 +20,6 @@ import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDirecti
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDirectionToValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDurationValueProcessor;
 import uk.jamierocks.lexteam.ygd.game.impl.service.event.GameEvents;
-import uk.jamierocks.lexteam.ygd.game.impl.tool.GameTools;
 import uk.jamierocks.meta.api.MetaRegistry;
 import uk.jamierocks.meta.api.builder.Builders;
 import uk.jamierocks.meta.api.value.ValueRegistry;
@@ -41,7 +40,6 @@ public class GameLaunch {
         registerProcessors();
         registerManipulatorBuilders();
         registerValueProcessors();
-        GameTools.injectTools();
     }
 
     public static Game getGame() {
