@@ -10,8 +10,8 @@ package uk.jamierocks.lexteam.ygd.game.impl.meta.value.processor.tool;
 import uk.jamierocks.lexteam.ygd.core.meta.key.Keys;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.info.AddConnectionInfo;
 import uk.jamierocks.lexteam.ygd.game.impl.tool.info.ChangeDurationInfo;
-import uk.jamierocks.meta.api.MetaHolder;
 import uk.jamierocks.meta.api.value.Value;
+import uk.jamierocks.meta.api.value.ValueHolder;
 import uk.jamierocks.meta.impl.value.processor.AbstractValueProcessor;
 
 import java.util.Optional;
@@ -23,12 +23,12 @@ public class ToolDurationValueProcessor extends AbstractValueProcessor<Integer, 
     }
 
     @Override
-    public boolean supports(MetaHolder container) {
+    public boolean supports(ValueHolder container) {
         return container instanceof ChangeDurationInfo;
     }
 
     @Override
-    public boolean offer(MetaHolder container, Integer value) {
+    public boolean offer(ValueHolder container, Integer value) {
         if (container instanceof AddConnectionInfo) {
             ChangeDurationInfo durationInfo = (ChangeDurationInfo) container;
             durationInfo.setDuration(value);
@@ -38,7 +38,7 @@ public class ToolDurationValueProcessor extends AbstractValueProcessor<Integer, 
     }
 
     @Override
-    public Optional<Integer> getValueFromContainer(MetaHolder container) {
+    public Optional<Integer> getValueFromContainer(ValueHolder container) {
         if (container instanceof ChangeDurationInfo) {
             ChangeDurationInfo durationInfo = (ChangeDurationInfo) container;
             return Optional.of(durationInfo.getDuration());

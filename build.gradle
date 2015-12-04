@@ -39,28 +39,8 @@ jar {
 }
 
 shadowJar {
-    dependencies {
-        // Core
-        include project(':Core')
-        include dependency('com.flowpowered:flow-math')
-        include dependency('com.google.guave:guava')
-        include dependency('org.slf4j:slf4j-api')
-        include dependency('ninja.leaping.configurate:configurate-core')
-        include dependency('ninja.leaping.configurate:configurate-hocon')
-
-        // Engine
-        include project(':Engine')
-        include dependency('org.lwjgl:lwjgl')
-
-        // LexUtils
-        include project(':LexUtils')
-
-        // Implementation
-        include dependency('org.slf4j:slf4j-jdk14') // slf4j implementation
-    }
     classifier ''
 }
-assemble.dependsOn shadowJar
 
 license {
     header file('LICENSE.txt')
@@ -73,6 +53,10 @@ license {
     }
 }
 
+artifacts {
+    archives shadowJar
+}
+
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.7'
+    gradleVersion = '2.9'
 }
