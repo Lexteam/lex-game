@@ -19,11 +19,17 @@ public class GameBasePanel implements BasePanel {
 
     private CubePosition cubePosition;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public CubePosition getCubePosition() {
-        return cubePosition;
+        return this.cubePosition;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setCubePosition(CubePosition cubePosition) {
         this.cubePosition = cubePosition;

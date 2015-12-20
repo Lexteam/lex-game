@@ -14,7 +14,7 @@ import uk.jamierocks.lexteam.ygd.core.panel.Panel;
  * The implementation of {@link Panel}.
  *
  * @author Jamie Mansfield
- * @author Tom
+ * @author Tom Drever
  */
 public class GamePanel extends GameBasePanel implements Panel {
 
