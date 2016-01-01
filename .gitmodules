@@ -3,7 +3,7 @@
 	url = https://github.com/Lexteam/Utils.git
 [submodule "Core"]
 	path = Core
-	url = https://gitlab.com/lex-game/Core.git
+	url = http://git.jamierocks.uk/lex-game/Core.git
 [submodule "Engine"]
 	path = Engine
-	url = https://gitlab.com/lex-game/Engine.git
+	url = http://git.jamierocks.uk/lex-game/Engine.git
