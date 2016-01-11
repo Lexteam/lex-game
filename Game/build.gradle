@@ -12,7 +12,6 @@ buildscript {
 plugins {
     id 'java'
 }
-apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'com.github.hierynomus.license'
 
 sourceCompatibility = 1.8
@@ -27,18 +26,8 @@ repositories {
 
 dependencies {
     compile project(':Core')
-    compile 'org.lwjgl:lwjgl:3.0.0a'
-    compile 'com.flowpowered:react:1.0.0'
+    compile project(':LexUtils')
 }
-
-shadowJar {
-    dependencies {
-        include dependency('org.lwjgl:lwjgl')
-        include dependency('com.flowpowered:react')
-    }
-    classifier ''
-}
-assemble.dependsOn shadowJar
 
 license {
     header rootProject.file('LICENSE.txt')

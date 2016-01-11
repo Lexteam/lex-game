@@ -5,7 +5,6 @@
 package com.gmail.riley787cmplex.engine.meta.util;
 
 import com.google.common.collect.BiMap;
-
 import uk.jamierocks.meta.api.manipulator.MetaManipulator;
 
 import java.util.Set;

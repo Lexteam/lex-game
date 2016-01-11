@@ -4,8 +4,8 @@
  */
 package com.gmail.riley787cmplex.engine.meta.values;
 
-import com.flowpowered.math.vector.Vector4f;
 import com.flowpowered.math.imaginary.Quaternionf;
+import com.flowpowered.math.vector.Vector4f;
 
 import java.util.Map;
 import java.util.Set;

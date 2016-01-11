@@ -4,15 +4,13 @@
  */
 package com.gmail.riley787cmplex.engine.meta.key;
 
-import com.google.common.collect.BiMap;
-
+import com.gmail.riley787cmplex.engine.meta.values.Animation;
 import com.gmail.riley787cmplex.engine.meta.values.Effect;
 import com.gmail.riley787cmplex.engine.meta.values.Model;
 import com.gmail.riley787cmplex.engine.meta.values.ModelInstance;
 import com.gmail.riley787cmplex.engine.meta.values.Shader;
 import com.gmail.riley787cmplex.engine.meta.values.ShaderProgram;
-import com.gmail.riley787cmplex.engine.meta.values.Animation;
-
+import com.google.common.collect.BiMap;
 import uk.jamierocks.meta.api.key.Key;
 import uk.jamierocks.meta.api.key.KeysBase;
 import uk.jamierocks.meta.api.value.Value;

@@ -4,9 +4,8 @@
  */
 package com.gmail.riley787cmplex.engine.meta.util.impl;
 
-import com.google.common.collect.BiMap;
-
 import com.gmail.riley787cmplex.engine.meta.util.MetaBiMapInterface;
+import com.google.common.collect.BiMap;
 import uk.jamierocks.meta.api.key.Key;
 import uk.jamierocks.meta.impl.manipulator.AbstractSingularMeta;
 
