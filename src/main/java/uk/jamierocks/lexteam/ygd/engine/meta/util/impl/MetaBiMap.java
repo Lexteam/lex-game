@@ -2,10 +2,10 @@
  * Copyright (c) 2015-2016, Lexteam <https://lexteam.jamierocks.uk/>
  * All Rights Reserved.
  */
-package com.gmail.riley787cmplex.engine.meta.util.impl;
+package uk.jamierocks.lexteam.ygd.engine.meta.util.impl;
 
-import com.gmail.riley787cmplex.engine.meta.util.MetaBiMapInterface;
 import com.google.common.collect.BiMap;
+import uk.jamierocks.lexteam.ygd.engine.meta.util.MetaBiMapInterface;
 import uk.jamierocks.meta.api.key.Key;
 import uk.jamierocks.meta.impl.manipulator.AbstractSingularMeta;
 
@@ -14,7 +14,7 @@ import java.util.Set;
 /**
  * Created by ethan on 03/11/15.
  */
-public class MetaBiMap<K, V> extends AbstractSingularMeta<BiMap<K, V>> implements MetaBiMapInterface<K, V>{
+public class MetaBiMap<K, V> extends AbstractSingularMeta<BiMap<K, V>> implements MetaBiMapInterface<K, V> {
 
     public MetaBiMap(Key key, BiMap<K,V> data){
         super(key, data);

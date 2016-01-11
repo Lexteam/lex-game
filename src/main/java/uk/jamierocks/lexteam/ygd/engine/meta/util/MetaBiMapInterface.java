@@ -2,7 +2,7 @@
  * Copyright (c) 2015-2016, Lexteam <https://lexteam.jamierocks.uk/>
  * All Rights Reserved.
  */
-package com.gmail.riley787cmplex.engine.meta.util;
+package uk.jamierocks.lexteam.ygd.engine.meta.util;
 
 import com.google.common.collect.BiMap;
 import uk.jamierocks.meta.api.manipulator.MetaManipulator;

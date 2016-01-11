@@ -2,11 +2,11 @@
  * Copyright (c) 2015-2016, Lexteam <https://lexteam.jamierocks.uk/>
  * All Rights Reserved.
  */
-package com.gmail.riley787cmplex.engine.meta.values;
+package uk.jamierocks.lexteam.ygd.engine.meta.values;
 
 import com.flowpowered.math.imaginary.Quaternionf;
 import com.flowpowered.math.vector.Vector3f;
-import com.gmail.riley787cmplex.engine.meta.util.InstanceCounter;
+import uk.jamierocks.lexteam.ygd.engine.meta.util.InstanceCounter;
 
 
 public class ModelInstance extends InstanceCounter {

@@ -2,7 +2,7 @@
  * Copyright (c) 2015-2016, Lexteam <https://lexteam.jamierocks.uk/>
  * All Rights Reserved.
  */
-package com.gmail.riley787cmplex.engine.meta.key;
+package uk.jamierocks.lexteam.ygd.engine.meta.key;
 
 import uk.jamierocks.meta.api.MetaQuery;
 import uk.jamierocks.meta.api.QueriesBase;

@@ -2,15 +2,15 @@
  * Copyright (c) 2015-2016, Lexteam <https://lexteam.jamierocks.uk/>
  * All Rights Reserved.
  */
-package com.gmail.riley787cmplex.engine.meta.key;
+package uk.jamierocks.lexteam.ygd.engine.meta.key;
 
-import com.gmail.riley787cmplex.engine.meta.values.Animation;
-import com.gmail.riley787cmplex.engine.meta.values.Effect;
-import com.gmail.riley787cmplex.engine.meta.values.Model;
-import com.gmail.riley787cmplex.engine.meta.values.ModelInstance;
-import com.gmail.riley787cmplex.engine.meta.values.Shader;
-import com.gmail.riley787cmplex.engine.meta.values.ShaderProgram;
 import com.google.common.collect.BiMap;
+import uk.jamierocks.lexteam.ygd.engine.meta.values.Animation;
+import uk.jamierocks.lexteam.ygd.engine.meta.values.Effect;
+import uk.jamierocks.lexteam.ygd.engine.meta.values.Model;
+import uk.jamierocks.lexteam.ygd.engine.meta.values.ModelInstance;
+import uk.jamierocks.lexteam.ygd.engine.meta.values.Shader;
+import uk.jamierocks.lexteam.ygd.engine.meta.values.ShaderProgram;
 import uk.jamierocks.meta.api.key.Key;
 import uk.jamierocks.meta.api.key.KeysBase;
 import uk.jamierocks.meta.api.value.Value;
