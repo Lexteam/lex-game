@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2015, Jamie Mansfield <https://www.jamierocks.uk>
+ * Copyright (c) 2015, Tom Drever <https://github.com/CharlesStewart>
+ * Copyright (c) 2015, Ethan Riley <https://github.com/EthanRiley>
+ *
+ * All Rights Reserved.
+ */
+package com.gmail.riley787cmplex.engine.meta.key;
+
+import uk.jamierocks.meta.api.MetaQuery;
+import uk.jamierocks.meta.api.QueriesBase;
+
+/**
+ * Created by ethan on 31/10/15.
+ */
+public final class EngineQueries extends QueriesBase {
+
+    public static final MetaQuery EFFECTS = of("Effects");
+    public static final MetaQuery SHADERS = of("Shaders");
+    public static final MetaQuery SHADER_PROGRAMS = of("Shader_Programs");
+    public static final MetaQuery ANIMATIONS = of("Animations");
+    public static final MetaQuery MODEL_INSTANCES = of("Model_Instances");
+    public static final MetaQuery MODELS = of("Models");
+}

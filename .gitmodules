@@ -1,9 +1,7 @@
 [submodule "LexUtils"]
 	path = LexUtils
 	url = https://github.com/Lexteam/Utils.git
-[submodule "Core"]
-	path = Core
-	url = http://git.jamierocks.uk/lex-game/Core.git
-[submodule "Engine"]
-	path = Engine
-	url = http://git.jamierocks.uk/lex-game/Engine.git
+
+[submodule "Core/Meta"]
+	path = Core/Meta
+	url = https://github.com/Lexteam/Meta.git

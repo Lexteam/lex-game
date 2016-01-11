@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) 2015, Jamie Mansfield <https://www.jamierocks.uk>
+ * Copyright (c) 2015, Tom Drever <https://github.com/CharlesStewart>
+ * Copyright (c) 2015, Ethan Riley <https://github.com/EthanRiley>
+ *
+ * All Rights Reserved.
+ */
+package com.gmail.riley787cmplex.engine.meta.values;
+
+public class Shader {
+
+    public enum ShaderType{
+        VERTEX,
+        FRAGMENT,
+        GEOMETRY,
+        TESS_CONTROL,
+        TESS_EVAL
+    }
+
+
+    public void compile(){
+
+    }
+
+    private ShaderType type;
+
+}

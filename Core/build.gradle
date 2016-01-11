@@ -1,0 +1,58 @@
+buildscript {
+    repositories {
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+    dependencies {
+        classpath 'gradle.plugin.nl.javadude.gradle.plugins:license-gradle-plugin:0.12.1'
+    }
+}
+plugins {
+    id 'java'
+
+    id 'net.ellune.blossom' version '1.0.1'
+}
+apply plugin: 'com.github.hierynomus.license'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+group = 'uk.jamierocks.lexteam.ygd'
+version = '1.0-SNAPSHOT'
+
+blossom {
+    replaceToken '@project.version@',
+            project.version, 'src/main/java/uk/jamierocks/lexteam/ygd/core/Game.java'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'http://repo.jamierocks.uk/'
+    }
+}
+
+dependencies {
+    compile project('Meta')
+    compile 'uk.jamierocks:eventbus:1.1'
+    compile 'org.slf4j:slf4j-api:1.7.12'
+    compile 'com.google.guava:guava:18.0'
+    compile 'com.flowpowered:flow-math:1.0.1'
+    compile 'ninja.leaping.configurate:configurate-hocon:2.0'
+}
+
+license {
+    header file('LICENSE.txt')
+    include '**/*.java'
+    include '**/*.groovy'
+
+    strictCheck true
+    mapping {
+        java = 'SLASHSTAR_STYLE'
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.10'
+}

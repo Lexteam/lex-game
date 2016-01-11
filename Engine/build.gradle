@@ -1,0 +1,56 @@
+buildscript {
+    repositories {
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+    dependencies {
+        classpath 'gradle.plugin.nl.javadude.gradle.plugins:license-gradle-plugin:0.12.1'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.2'
+    }
+}
+plugins {
+    id 'java'
+}
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'com.github.hierynomus.license'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+group = 'uk.jamierocks.lexteam.ygd'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':Core')
+    compile 'org.lwjgl:lwjgl:3.0.0a'
+    compile 'com.flowpowered:react:1.0.0'
+}
+
+shadowJar {
+    dependencies {
+        include dependency('org.lwjgl:lwjgl')
+        include dependency('com.flowpowered:react')
+    }
+    classifier ''
+}
+assemble.dependsOn shadowJar
+
+license {
+    header file('LICENSE.txt')
+    include '**/*.java'
+    include '**/*.groovy'
+
+    strictCheck true
+    mapping {
+        java = 'SLASHSTAR_STYLE'
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.8'
+}
