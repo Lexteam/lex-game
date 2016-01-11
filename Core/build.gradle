@@ -43,7 +43,7 @@ dependencies {
 }
 
 license {
-    header file('LICENSE.txt')
+    header rootProject.file('LICENSE.txt')
     include '**/*.java'
     include '**/*.groovy'
 
@@ -51,8 +51,4 @@ license {
     mapping {
         java = 'SLASHSTAR_STYLE'
     }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.10'
 }
