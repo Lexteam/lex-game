@@ -24,16 +24,25 @@ public class ToolManipulateEvent implements ToolEvent, CancellableEvent {
         this.panel = panel;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean isCancelled() {
         return this.cancelled;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setCancelled(boolean cancelled) {
         this.cancelled = cancelled;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Tool getTool() {
         return this.tool;
@@ -45,6 +54,6 @@ public class ToolManipulateEvent implements ToolEvent, CancellableEvent {
      * @return the panel.
      */
     public Panel getPanel() {
-        return panel;
+        return this.panel;
     }
 }

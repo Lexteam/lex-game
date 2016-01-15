@@ -28,8 +28,9 @@ public interface ToolManipulator {
      * @param panel The panel.
      * @return {@code True} if can manipulate, {@code false} otherwise.
      */
-    default boolean[] getManipulateOptions(Panel panel) {
-        return new boolean[0];
+    default ToolManipulatorOptions getManipulateOptions(Panel panel) {
+        return ToolManipulatorOptions.builder()
+                .build();
     }
 
     /**
@@ -39,18 +40,10 @@ public interface ToolManipulator {
      * @return {@code True} if can manipulate, {@code false} otherwise.
      */
     default boolean canManipulate(Panel panel) {
-        boolean[] options = getManipulateOptions(panel);
-
         if (!panel.isCoolingDown() || !panel.isFixedPanel()) {
             return false;
         }
 
-        for (boolean option : options) {
-            if (!option) {
-                return false;
-            }
-        }
-
-        return true;
+        return this.getManipulateOptions(panel).canManipulate();
     }
 }

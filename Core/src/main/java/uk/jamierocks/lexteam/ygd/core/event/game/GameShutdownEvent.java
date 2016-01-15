@@ -19,6 +19,9 @@ public class GameShutdownEvent implements GameEvent {
         this.game = game;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Game getGame() {
         return this.game;
