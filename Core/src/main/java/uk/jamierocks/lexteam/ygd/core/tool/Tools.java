@@ -21,7 +21,7 @@ public final class Tools {
     /**
      * Tool that can add a new connection to a blank panel.
      */
-    public static final Tool ADD_CONNECTION = Tools.builder()
+    public static final Tool ADD_CONNECTION = Tool.builder()
             .name("add_connection")
             .manipulator(new ToolManipulator() {
                 @Override
@@ -40,11 +40,11 @@ public final class Tools {
                 }
 
                 @Override
-                public boolean[] getManipulateOptions(Panel panel) {
-                    return new boolean[]{
-                            panel.getConnection().getTo() == Direction.NONE &&
-                                    panel.getConnection().getFrom() == Direction.NONE
-                    };
+                public ToolManipulatorOptions getManipulateOptions(Panel panel) {
+                    return ToolManipulatorOptions.builder()
+                            .option(panel.getConnection().getTo() == Direction.NONE &&
+                                    panel.getConnection().getFrom() == Direction.NONE)
+                            .build();
                 }
             })
             .build();
@@ -52,7 +52,7 @@ public final class Tools {
     /**
      * Tool that clears a panel's connection.
      */
-    public static final Tool REMOVE_CONNECTION = Tools.builder()
+    public static final Tool REMOVE_CONNECTION = Tool.builder()
             .name("remove_connection")
             .manipulator(new ToolManipulator() {
                 @Override
@@ -66,11 +66,11 @@ public final class Tools {
                 }
 
                 @Override
-                public boolean[] getManipulateOptions(Panel panel) {
-                    return new boolean[]{
-                            panel.getConnection().getTo() != Direction.NONE &&
-                                    panel.getConnection().getFrom() != Direction.NONE
-                    };
+                public ToolManipulatorOptions getManipulateOptions(Panel panel) {
+                    return ToolManipulatorOptions.builder()
+                            .option(panel.getConnection().getTo() != Direction.NONE &&
+                                    panel.getConnection().getFrom() != Direction.NONE)
+                            .build();
                 }
             })
             .build();
@@ -78,7 +78,7 @@ public final class Tools {
     /**
      * Tool that reverses a panel's connection, so that the 'to' becomes the 'from', and vise versa.
      */
-    public static final Tool REVERSE_CONNECTION = Tools.builder()
+    public static final Tool REVERSE_CONNECTION = Tool.builder()
             .name("reverse_connection")
             .manipulator(new ToolManipulator() {
                 @Override
@@ -94,11 +94,11 @@ public final class Tools {
                 }
 
                 @Override
-                public boolean[] getManipulateOptions(Panel panel) {
-                    return new boolean[]{
-                            panel.getConnection().getTo() != Direction.NONE &&
-                                    panel.getConnection().getFrom() != Direction.NONE
-                    };
+                public ToolManipulatorOptions getManipulateOptions(Panel panel) {
+                    return ToolManipulatorOptions.builder()
+                            .option(panel.getConnection().getTo() != Direction.NONE &&
+                                    panel.getConnection().getFrom() != Direction.NONE)
+                            .build();
                 }
             })
             .build();
@@ -106,7 +106,7 @@ public final class Tools {
     /**
      * Tool that can change the duration of a panel's pulse.
      */
-    public static final Tool CHANGE_DURATION = Tools.builder()
+    public static final Tool CHANGE_DURATION = Tool.builder()
             .name("change_duration")
             .manipulator(new ToolManipulator() {
                 @Override
@@ -124,11 +124,11 @@ public final class Tools {
                 }
 
                 @Override
-                public boolean[] getManipulateOptions(Panel panel) {
-                    return new boolean[]{
-                            panel.getConnection().getTo() != Direction.NONE &&
-                                    panel.getConnection().getFrom() != Direction.NONE
-                    };
+                public ToolManipulatorOptions getManipulateOptions(Panel panel) {
+                    return ToolManipulatorOptions.builder()
+                            .option(panel.getConnection().getTo() != Direction.NONE &&
+                                    panel.getConnection().getFrom() != Direction.NONE)
+                            .build();
                 }
             })
             .build();
@@ -136,7 +136,7 @@ public final class Tools {
     /**
      * Tools that repairs burnt out panels. Weak and strong relate to chance to repair.
      */
-    public static final Tool WEAK_REPAIR_PANEL = Tools.builder()
+    public static final Tool WEAK_REPAIR_PANEL = Tool.builder()
             .name("weak_repair_panel")
             .cooldown(3)
             .manipulator(new ToolManipulator() {
@@ -158,7 +158,7 @@ public final class Tools {
             })
             .build();
 
-    public static final Tool STRONG_REPAIR_PANEL = Tools.builder()
+    public static final Tool STRONG_REPAIR_PANEL = Tool.builder()
             .name("strong_repair_panel")
             .cooldown(3)
             .manipulator(new ToolManipulator() {
@@ -179,70 +179,4 @@ public final class Tools {
                 }
             })
             .build();
-
-    /**
-     * Creates a blank builder to create a tool.
-     *
-     * @return A blank builder.
-     */
-    public static ToolBuilder builder() {
-        return new ToolBuilderImpl();
-    }
-
-    private static class ToolBuilderImpl implements ToolBuilder {
-
-        private String name = "";
-        private int cooldown = 1;
-        private ToolManipulator manipulator;
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public ToolBuilder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public ToolBuilder cooldown(int cooldown) {
-            this.cooldown = cooldown;
-            return this;
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public ToolBuilder manipulator(ToolManipulator manipulator) {
-            this.manipulator = manipulator;
-            return this;
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public Tool build() {
-            return new Tool() {
-                @Override
-                public String getName() {
-                    return name;
-                }
-
-                @Override
-                public int getCooldown() {
-                    return cooldown;
-                }
-
-                @Override
-                public ToolManipulator getManipulator() {
-                    return manipulator;
-                }
-            };
-        }
-    }
 }
