@@ -1,2 +1,2 @@
-Copyright (c) 2015-2016, Lexteam <https://lexteam.jamierocks.uk/>
+Copyright (c) 2015-2016, Lexteam <http://www.lexteam.xyz/>
 All Rights Reserved.
