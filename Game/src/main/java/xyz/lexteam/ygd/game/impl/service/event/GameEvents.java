@@ -4,7 +4,7 @@
  */
 package xyz.lexteam.ygd.game.impl.service.event;
 
-import uk.jamierocks.eventbus.IEventBus;
+import xyz.lexteam.eventbus.IEventBus;
 import xyz.lexteam.ygd.core.service.event.Events;
 
 import java.lang.reflect.Field;

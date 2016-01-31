@@ -19,7 +19,10 @@ allprojects {
     repositories {
         mavenCentral()
         maven {
-            url 'http://repo.jamierocks.uk/'
+            url 'http://repo.lexteam.xyz/repository/internal/'
+        }
+        maven {
+            url 'http://repo.lexteam.xyz/repository/snapshots/'
         }
     }
 }

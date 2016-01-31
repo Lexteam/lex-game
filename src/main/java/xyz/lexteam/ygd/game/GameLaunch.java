@@ -4,8 +4,8 @@
  */
 package xyz.lexteam.ygd.game;
 
-import uk.jamierocks.eventbus.IEventBus;
-import uk.jamierocks.eventbus.SimpleEventBus;
+import xyz.lexteam.eventbus.IEventBus;
+import xyz.lexteam.eventbus.SimpleEventBus;
 import xyz.lexteam.ygd.core.Game;
 import xyz.lexteam.ygd.core.service.ProviderExistsException;
 import xyz.lexteam.ygd.game.impl.LexGame;

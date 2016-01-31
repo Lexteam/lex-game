@@ -29,13 +29,13 @@ blossom {
 repositories {
     mavenCentral()
     maven {
-        url 'http://repo.jamierocks.uk/'
+        url 'http://repo.lexteam.xyz/repository/internal/'
     }
 }
 
 dependencies {
     compile project('Meta')
-    compile 'uk.jamierocks:eventbus:1.1'
+    compile 'xyz.lexteam:eventbus:1.3'
     compile 'org.slf4j:slf4j-api:1.7.12'
     compile 'com.google.guava:guava:18.0'
     compile 'com.flowpowered:flow-math:1.0.1'

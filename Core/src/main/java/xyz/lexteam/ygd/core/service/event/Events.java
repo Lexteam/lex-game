@@ -4,7 +4,7 @@
  */
 package xyz.lexteam.ygd.core.service.event;
 
-import uk.jamierocks.eventbus.IEventBus;
+import xyz.lexteam.eventbus.IEventBus;
 
 /**
  * Static access to the event bus for Core.
