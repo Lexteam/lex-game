@@ -6,11 +6,12 @@
  */
 package xyz.lexteam.ygd.game;
 
+import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
+import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import xyz.lexteam.eventbus.IEventBus;
 import xyz.lexteam.eventbus.SimpleEventBus;
 import xyz.lexteam.ygd.core.Game;
 import xyz.lexteam.ygd.core.service.ProviderExistsException;
-import xyz.lexteam.ygd.game.impl.LexGame;
 import xyz.lexteam.ygd.game.impl.meta.builder.tool.ToolAddConectionMetaBuilder;
 import xyz.lexteam.ygd.game.impl.meta.builder.tool.ToolChangeDurationMetaBuilder;
 import xyz.lexteam.ygd.game.impl.meta.processor.tool.ToolAddConnectionMetaProcessor;
@@ -23,12 +24,12 @@ import xyz.lexteam.meta.api.MetaRegistry;
 import xyz.lexteam.meta.api.builder.Builders;
 import xyz.lexteam.meta.api.value.ValueRegistry;
 
-public class GameLaunch {
+public final class GameLaunch {
 
     private static Game game;
 
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
-        game = new LexGame();
+        game = new xyz.lexteam.ygd.game.impl.LexGame();
         game.getLogger().info(String.format("lex-game version %s loading", Game.VERSION));
         try {
             registerServices();
@@ -39,6 +40,12 @@ public class GameLaunch {
         registerProcessors();
         registerManipulatorBuilders();
         registerValueProcessors();
+
+        LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+        config.title = "lex-game v" + Game.VERSION;
+        config.width = 800;
+        config.height = 480;
+        new LwjglApplication(new LexGame(), config);
     }
 
     public static Game getGame() {

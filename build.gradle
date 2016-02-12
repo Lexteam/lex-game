@@ -33,8 +33,9 @@ dependencies {
 
     compile 'org.slf4j:slf4j-jdk14:1.7.12'
 
-    compile 'org.lwjgl:lwjgl:3.0.0a'
-    compile 'com.flowpowered:react:1.0.0'
+    compile 'com.badlogicgames.gdx:gdx:1.9.2'
+    compile 'com.badlogicgames.gdx:gdx-backend-lwjgl:1.9.2'
+    compile 'com.badlogicgames.gdx:gdx-platform:1.9.2:natives-desktop'
 
     testCompile 'junit:junit:4.11'
 }
