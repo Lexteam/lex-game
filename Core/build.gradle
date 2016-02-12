@@ -10,6 +10,7 @@ buildscript {
 }
 plugins {
     id 'java'
+    id 'maven'
 
     id 'net.ellune.blossom' version '1.0.1'
 }
@@ -39,5 +40,81 @@ license {
     strictCheck true
     mapping {
         java = 'SLASHSTAR_STYLE'
+    }
+}
+
+task javadocJar(type: Jar, dependsOn: 'javadoc') {
+    from javadoc.destinationDir
+    classifier = 'javadoc'
+}
+
+task sourcesJar(type: Jar, dependsOn: 'classes') {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            // Lexteam Maven Repository
+            repository(url: 'http://lex1.lexteam.xyz:8888/repository/private-internal/') {
+                authentication(userName: lexRepoUser, password: lexRepoPass)
+            }
+
+            snapshotRepository(url: 'http://lex1.lexteam.xyz:8888/repository/private-snapshots/') {
+                authentication(userName: lexRepoUser, password: lexRepoPass)
+            }
+
+            pom {
+                artifactId = project.archivesBaseName.toLowerCase()
+
+                project {
+                    name = project.archivesBaseName
+                    packaging = 'jar'
+
+                    scm {
+                        url = 'https://git.lexteam.xyz/lex-game/Game'
+                        connection = 'scm:git:https://git.lexteam.xyz/lex-game/Game.git'
+                        developerConnection = 'scm:git:git@git.lexteam.xyz:lex-game/Game.git'
+                    }
+
+                    issueManagement {
+                        system = 'Gogs'
+                        url = 'https://git.lexteam.xyz/lex-game/Game/issues'
+                    }
+
+                    licenses {
+                        license {
+                            name = 'MIT License'
+                            url = 'http://opensource.org/licenses/MIT'
+                            distribution = 'repo'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id 'jamierocks'
+                            name 'Jamie Mansfield'
+                            email 'jamie@lexteam.xyz'
+                        }
+                        developer {
+                            id 'charlesstewart'
+                            name 'Tom Drever'
+                            email 'tom@lexteam.xyz'
+                        }
+                        developer {
+                            id 'UNKDevE'
+                            name 'Ethan Riley'
+                            email 'ethan@lexteam.xyz'
+                        }
+                    }
+                }
+            }
+        }
     }
 }
