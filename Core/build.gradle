@@ -15,22 +15,11 @@ plugins {
 }
 apply plugin: 'com.github.hierynomus.license'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-group = 'uk.jamierocks.lexteam.ygd'
-version = '1.0-SNAPSHOT'
+group = 'xyz.lexteam.ygd'
 
 blossom {
     replaceToken '@project.version@',
             project.version, 'src/main/java/uk/jamierocks/lexteam/ygd/core/Game.java'
-}
-
-repositories {
-    mavenCentral()
-    maven {
-        url 'http://repo.lexteam.xyz/repository/internal/'
-    }
 }
 
 dependencies {

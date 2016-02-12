@@ -14,15 +14,7 @@ plugins {
 }
 apply plugin: 'com.github.hierynomus.license'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-group = 'uk.jamierocks.lexteam.ygd'
-version = '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
+group = 'xyz.lexteam.ygd'
 
 dependencies {
     compile project(':Core')
