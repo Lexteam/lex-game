@@ -6,8 +6,8 @@
  */
 package xyz.lexteam.ygd.core.meta;
 
-import uk.jamierocks.meta.api.MetaQuery;
-import uk.jamierocks.meta.api.QueriesBase;
+import xyz.lexteam.meta.api.MetaQuery;
+import xyz.lexteam.meta.api.QueriesBase;
 
 public final class Queries extends QueriesBase {
 

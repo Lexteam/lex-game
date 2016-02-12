@@ -10,7 +10,7 @@ import xyz.lexteam.ygd.core.meta.manipulator.tool.ToolAddConnectionMeta;
 import xyz.lexteam.ygd.core.meta.manipulator.tool.ToolChangeDurationMeta;
 import xyz.lexteam.ygd.core.panel.Direction;
 import xyz.lexteam.ygd.core.panel.Panel;
-import uk.jamierocks.meta.api.MetaHolder;
+import xyz.lexteam.meta.api.MetaHolder;
 
 /**
  * A class containing the variety of tools within the game.

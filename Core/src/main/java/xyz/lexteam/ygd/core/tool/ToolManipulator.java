@@ -7,7 +7,7 @@
 package xyz.lexteam.ygd.core.tool;
 
 import xyz.lexteam.ygd.core.panel.Panel;
-import uk.jamierocks.meta.api.MetaHolder;
+import xyz.lexteam.meta.api.MetaHolder;
 
 /**
  * Represents the tool manipulator.

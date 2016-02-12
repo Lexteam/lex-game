@@ -9,7 +9,7 @@ package xyz.lexteam.ygd.game.impl.meta.manipulator.tool;
 import xyz.lexteam.ygd.core.meta.key.Keys;
 import xyz.lexteam.ygd.core.meta.manipulator.tool.ToolChangeDurationMeta;
 import xyz.lexteam.ygd.game.impl.meta.utils.MetaConstants;
-import uk.jamierocks.meta.impl.manipulator.AbstractSingularMeta;
+import xyz.lexteam.meta.impl.manipulator.AbstractSingularMeta;
 
 /**
  * The meta implementation of {@link ToolChangeDurationMeta}.

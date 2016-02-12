@@ -8,7 +8,7 @@ package xyz.lexteam.ygd.game.impl.meta.builder.tool;
 
 import xyz.lexteam.ygd.core.meta.manipulator.tool.ToolAddConnectionMeta;
 import xyz.lexteam.ygd.game.impl.meta.manipulator.tool.LexToolAddConnectionMeta;
-import uk.jamierocks.meta.api.builder.MetaManipulatorBuilder;
+import xyz.lexteam.meta.api.builder.MetaManipulatorBuilder;
 
 /**
  * The builder implementation for {@link ToolAddConnectionMeta}.

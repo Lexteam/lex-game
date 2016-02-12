@@ -8,7 +8,7 @@ package xyz.lexteam.ygd.core.meta.manipulator.tool;
 
 import xyz.lexteam.ygd.core.panel.Direction;
 import xyz.lexteam.ygd.core.tool.Tools;
-import uk.jamierocks.meta.api.manipulator.MetaManipulator;
+import xyz.lexteam.meta.api.manipulator.MetaManipulator;
 
 /**
  * Meta for {@link Tools#ADD_CONNECTION}.

@@ -6,8 +6,8 @@
  */
 package xyz.lexteam.ygd.engine.meta.key;
 
-import uk.jamierocks.meta.api.MetaQuery;
-import uk.jamierocks.meta.api.QueriesBase;
+import xyz.lexteam.meta.api.MetaQuery;
+import xyz.lexteam.meta.api.QueriesBase;
 
 /**
  * Created by ethan on 31/10/15.

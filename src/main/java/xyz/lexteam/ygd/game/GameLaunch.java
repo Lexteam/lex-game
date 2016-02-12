@@ -19,9 +19,9 @@ import xyz.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDirectionFromValu
 import xyz.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDirectionToValueProcessor;
 import xyz.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDurationValueProcessor;
 import xyz.lexteam.ygd.game.impl.service.event.GameEvents;
-import uk.jamierocks.meta.api.MetaRegistry;
-import uk.jamierocks.meta.api.builder.Builders;
-import uk.jamierocks.meta.api.value.ValueRegistry;
+import xyz.lexteam.meta.api.MetaRegistry;
+import xyz.lexteam.meta.api.builder.Builders;
+import xyz.lexteam.meta.api.value.ValueRegistry;
 
 public class GameLaunch {
 

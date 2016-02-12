@@ -10,9 +10,9 @@ import xyz.lexteam.ygd.core.meta.key.Keys;
 import xyz.lexteam.ygd.core.meta.manipulator.tool.ToolChangeDurationMeta;
 import xyz.lexteam.ygd.game.impl.meta.manipulator.tool.LexToolChangeDurationMeta;
 import xyz.lexteam.ygd.game.impl.tool.info.ChangeDurationInfo;
-import uk.jamierocks.meta.api.MetaContainer;
-import uk.jamierocks.meta.api.MetaHolder;
-import uk.jamierocks.meta.impl.processor.AbstractMetaProcessor;
+import xyz.lexteam.meta.api.MetaContainer;
+import xyz.lexteam.meta.api.MetaHolder;
+import xyz.lexteam.meta.impl.processor.AbstractMetaProcessor;
 
 import java.util.Optional;
 

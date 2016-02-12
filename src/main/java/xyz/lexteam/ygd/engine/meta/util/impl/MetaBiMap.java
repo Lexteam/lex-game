@@ -8,8 +8,8 @@ package xyz.lexteam.ygd.engine.meta.util.impl;
 
 import com.google.common.collect.BiMap;
 import xyz.lexteam.ygd.engine.meta.util.MetaBiMapInterface;
-import uk.jamierocks.meta.api.key.Key;
-import uk.jamierocks.meta.impl.manipulator.AbstractSingularMeta;
+import xyz.lexteam.meta.api.key.Key;
+import xyz.lexteam.meta.impl.manipulator.AbstractSingularMeta;
 
 import java.util.Set;
 

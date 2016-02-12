@@ -7,7 +7,7 @@
 package xyz.lexteam.ygd.engine.meta.util;
 
 import com.google.common.collect.BiMap;
-import uk.jamierocks.meta.api.manipulator.MetaManipulator;
+import xyz.lexteam.meta.api.manipulator.MetaManipulator;
 
 import java.util.Set;
 

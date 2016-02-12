@@ -1,4 +1,3 @@
 rootProject.name = 'lexgame'
 include 'Core', 'Game', 'LexUtils'
-include 'Core:Meta'
 

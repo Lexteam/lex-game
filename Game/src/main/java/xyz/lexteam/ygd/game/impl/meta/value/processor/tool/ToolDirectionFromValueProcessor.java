@@ -9,9 +9,9 @@ package xyz.lexteam.ygd.game.impl.meta.value.processor.tool;
 import xyz.lexteam.ygd.core.meta.key.Keys;
 import xyz.lexteam.ygd.core.panel.Direction;
 import xyz.lexteam.ygd.game.impl.tool.info.AddConnectionInfo;
-import uk.jamierocks.meta.api.value.Value;
-import uk.jamierocks.meta.api.value.ValueHolder;
-import uk.jamierocks.meta.impl.value.processor.AbstractValueProcessor;
+import xyz.lexteam.meta.api.value.Value;
+import xyz.lexteam.meta.api.value.ValueHolder;
+import xyz.lexteam.meta.impl.value.processor.AbstractValueProcessor;
 
 import java.util.Optional;
 

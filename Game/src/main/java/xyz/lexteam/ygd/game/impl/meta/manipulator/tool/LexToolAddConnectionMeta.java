@@ -11,9 +11,9 @@ import xyz.lexteam.ygd.core.meta.key.Keys;
 import xyz.lexteam.ygd.core.meta.manipulator.tool.ToolAddConnectionMeta;
 import xyz.lexteam.ygd.core.panel.Direction;
 import xyz.lexteam.ygd.game.impl.meta.utils.MetaConstants;
-import uk.jamierocks.meta.api.MetaContainer;
-import uk.jamierocks.meta.impl.LexMetaContainer;
-import uk.jamierocks.meta.impl.manipulator.AbstractMeta;
+import xyz.lexteam.meta.api.MetaContainer;
+import xyz.lexteam.meta.impl.LexMetaContainer;
+import xyz.lexteam.meta.impl.manipulator.AbstractMeta;
 
 /**
  * The meta implementation of {@link ToolAddConnectionMeta}.

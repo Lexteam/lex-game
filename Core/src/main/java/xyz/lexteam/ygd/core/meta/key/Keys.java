@@ -8,9 +8,9 @@ package xyz.lexteam.ygd.core.meta.key;
 
 import xyz.lexteam.ygd.core.meta.Queries;
 import xyz.lexteam.ygd.core.panel.Direction;
-import uk.jamierocks.meta.api.key.Key;
-import uk.jamierocks.meta.api.key.KeysBase;
-import uk.jamierocks.meta.api.value.Value;
+import xyz.lexteam.meta.api.key.Key;
+import xyz.lexteam.meta.api.key.KeysBase;
+import xyz.lexteam.meta.api.value.Value;
 
 public final class Keys extends KeysBase {
 

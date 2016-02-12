@@ -8,7 +8,7 @@ package xyz.lexteam.ygd.game.impl.meta.builder.tool;
 
 import xyz.lexteam.ygd.core.meta.manipulator.tool.ToolChangeDurationMeta;
 import xyz.lexteam.ygd.game.impl.meta.manipulator.tool.LexToolChangeDurationMeta;
-import uk.jamierocks.meta.api.builder.MetaManipulatorBuilder;
+import xyz.lexteam.meta.api.builder.MetaManipulatorBuilder;
 
 /**
  * The builder implementation for {@link ToolChangeDurationMeta}.

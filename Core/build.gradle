@@ -23,10 +23,10 @@ blossom {
 }
 
 dependencies {
-    compile project('Meta')
     compile 'xyz.lexteam:eventbus:1.3'
+    compile 'xyz.lexteam:meta:1.0.0-SNAPSHOT'
     compile 'org.slf4j:slf4j-api:1.7.12'
-    compile 'com.google.guava:guava:18.0'
+    compile 'com.google.guava:guava:19.0'
     compile 'com.flowpowered:flow-math:1.0.1'
     compile 'ninja.leaping.configurate:configurate-hocon:2.0'
 }
