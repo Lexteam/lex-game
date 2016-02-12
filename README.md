@@ -8,15 +8,15 @@ A work-in-progress puzzle game, view our [specification](SPECIFICATION.md).
 * [Source]
 * [Issues]
 * [Community Chat]: #lexteam on irc.esper.net
-* [Development Chat]: #lex-game on Lexteam Slack
+* [Development Chat]: #developers on Lexteam's Discord Server
 
 ## License
 
-lex-game is licensed All Rights Reserved.
-You can find the license [here](LICENSE.txt).
+Copyright (c) 2015-2016, Lexteam <http://www.lexteam.xyz/>
+All Rights Reserved.
 
-[Homepage]: https://gitlab.com/lexteam/lex-game
-[Source]: https://gitlab.com/lexteam/lex-game
-[Issues]: https://gitlab.com/lexteam/lex-game/issues
+[Homepage]: https://git.lexteam.xyz/lex-game/Game
+[Source]: https://git.lexteam.xyz/lex-game/Game
+[Issues]: https://git.lexteam.xyz/lex-game/Game/issues
 [Community Chat]: https://kiwiirc.com/client/irc.esper.net/?#lexteam
-[Development Chat]: https://lexteamdevs.slack.com/messages/lex-game/
+[Development Chat]: https://discordapp.com/channels/120647928820924418/129376424992702464

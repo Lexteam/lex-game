@@ -32,7 +32,7 @@ dependencies {
 }
 
 license {
-    header rootProject.file('LICENSE.txt')
+    header rootProject.file('HEADER.txt')
     include '**/*.java'
     include '**/*.groovy'
 

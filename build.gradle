@@ -49,7 +49,7 @@ shadowJar {
 }
 
 license {
-    header file('LICENSE.txt')
+    header file('HEADER.txt')
     include '**/*.java'
     include '**/*.groovy'
 
