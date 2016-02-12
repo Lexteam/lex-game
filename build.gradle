@@ -4,11 +4,14 @@ plugins {
     id 'idea'
     id 'eclipse'
 
+    id 'net.ltgt.errorprone' version '0.0.8'
+
     id 'com.github.johnrengelman.shadow' version '1.2.3'
     id 'com.github.hierynomus.license' version '0.12.1'
 }
-
 defaultTasks 'licenseFormat'
+
+group = 'xyz.lexteam.ygd'
 
 allprojects {
     version = '1.0.0-SNAPSHOT'
@@ -57,6 +60,10 @@ license {
     mapping {
         java = 'SLASHSTAR_STYLE'
     }
+}
+
+configurations.errorprone {
+    resolutionStrategy.force 'com.google.errorprone:error_prone_core:2.0.8'
 }
 
 artifacts {
