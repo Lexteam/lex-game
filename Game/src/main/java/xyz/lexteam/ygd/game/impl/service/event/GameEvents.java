@@ -12,7 +12,7 @@ import xyz.lexteam.ygd.core.service.event.Events;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-public class GameEvents {
+public final class GameEvents {
 
     public static void initialise(IEventBus eventBus) throws NoSuchFieldException, IllegalAccessException {
         Field field = Events.class.getDeclaredField("EVENT_BUS");
