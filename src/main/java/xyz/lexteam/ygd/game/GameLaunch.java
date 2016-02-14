@@ -12,6 +12,7 @@ import xyz.lexteam.eventbus.IEventBus;
 import xyz.lexteam.eventbus.SimpleEventBus;
 import xyz.lexteam.ygd.core.Game;
 import xyz.lexteam.ygd.core.service.ProviderExistsException;
+import xyz.lexteam.ygd.core.service.event.Events;
 import xyz.lexteam.ygd.game.impl.meta.builder.tool.ToolAddConectionMetaBuilder;
 import xyz.lexteam.ygd.game.impl.meta.builder.tool.ToolChangeDurationMetaBuilder;
 import xyz.lexteam.ygd.game.impl.meta.processor.tool.ToolAddConnectionMetaProcessor;
@@ -23,6 +24,9 @@ import xyz.lexteam.ygd.game.impl.service.event.GameEvents;
 import xyz.lexteam.meta.api.MetaRegistry;
 import xyz.lexteam.meta.api.builder.Builders;
 import xyz.lexteam.meta.api.value.ValueRegistry;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 
 public final class GameLaunch {
 
@@ -40,6 +44,7 @@ public final class GameLaunch {
         registerProcessors();
         registerManipulatorBuilders();
         registerValueProcessors();
+        initialiseLexGame();
 
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         config.title = "lex-game v" + Game.VERSION;
@@ -50,6 +55,17 @@ public final class GameLaunch {
 
     public static Game getGame() {
         return game;
+    }
+
+    public static void initialiseLexGame() throws IllegalAccessException, NoSuchFieldException {
+        Field field = xyz.lexteam.ygd.core.LexGame.class.getDeclaredField("GAME");
+        field.setAccessible(true);
+
+        Field modifiersField = Field.class.getDeclaredField("modifiers");
+        modifiersField.setAccessible(true);
+        modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
+
+        field.set(null, game);
     }
 
     private static void registerServices() throws ProviderExistsException {
