@@ -6,6 +6,7 @@
  */
 package xyz.lexteam.ygd.core;
 
+import com.google.common.base.Preconditions;
 import org.slf4j.Logger;
 import xyz.lexteam.ygd.core.service.ServiceManager;
 
@@ -21,6 +22,7 @@ public class LexGame {
     private static final Game GAME = null;
 
     public static Game getGame() {
+        Preconditions.checkNotNull(GAME, "Game not yet initialised!");
         return GAME;
     }
 

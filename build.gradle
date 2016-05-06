@@ -22,7 +22,7 @@ allprojects {
     repositories {
         mavenCentral()
         maven {
-            url 'http://repo.lexteam.xyz/repository/public/'
+            url 'http://repo.lexteam.xyz/maven/'
         }
     }
 }
@@ -72,5 +72,5 @@ artifacts {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.11'
+    gradleVersion = '2.13'
 }
