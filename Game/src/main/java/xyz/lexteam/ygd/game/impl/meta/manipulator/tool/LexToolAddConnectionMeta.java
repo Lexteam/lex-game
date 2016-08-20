@@ -19,7 +19,7 @@ import xyz.lexteam.ygd.core.meta.Queries;
 import xyz.lexteam.ygd.core.meta.key.Keys;
 import xyz.lexteam.ygd.core.meta.manipulator.tool.ToolAddConnectionMeta;
 import xyz.lexteam.ygd.core.panel.Direction;
-import xyz.lexteam.ygd.game.impl.meta.utils.MetaConstants;
+import xyz.lexteam.ygd.game.impl.meta.util.MetaConstants;
 import xyz.lexteam.meta.api.MetaContainer;
 import xyz.lexteam.meta.impl.LexMetaContainer;
 import xyz.lexteam.meta.impl.manipulator.AbstractMeta;

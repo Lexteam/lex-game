@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package xyz.lexteam.ygd.game.impl.meta.utils;
+package xyz.lexteam.ygd.game.impl.meta.util;
 
 import xyz.lexteam.ygd.core.panel.Direction;
 

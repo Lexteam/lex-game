@@ -17,20 +17,24 @@ package xyz.lexteam.ygd.game.impl.service.event;
 
 import xyz.lexteam.eventbus.IEventBus;
 import xyz.lexteam.ygd.core.service.event.Events;
+import xyz.lexteam.ygd.game.impl.util.ReflectionHelper;
+import xyz.lexteam.ygd.game.impl.util.ReflectionHelperException;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-
+/**
+ * Implementation utilities pertaining to events
+ *
+ * @author Jamie Mansfield
+ */
 public final class GameEvents {
 
-    public static void initialise(IEventBus eventBus) throws NoSuchFieldException, IllegalAccessException {
-        Field field = Events.class.getDeclaredField("EVENT_BUS");
-        field.setAccessible(true);
-
-        Field modifiersField = Field.class.getDeclaredField("modifiers");
-        modifiersField.setAccessible(true);
-        modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
-
-        field.set(null, eventBus);
+    /**
+     * Initialises the EVENT_BUS <code>static final</code> variable in {@link Events}.
+     *
+     * @param eventBus The event bus instance
+     * @throws ReflectionHelperException If there is an issue setting the variable
+     */
+    public static void initialise(IEventBus eventBus) throws ReflectionHelperException {
+        ReflectionHelper.setStaticFinal(Events.class, "EVENT_BUS", eventBus);
     }
+
 }

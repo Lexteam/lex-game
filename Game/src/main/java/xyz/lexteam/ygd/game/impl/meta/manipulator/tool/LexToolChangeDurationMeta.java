@@ -17,7 +17,7 @@ package xyz.lexteam.ygd.game.impl.meta.manipulator.tool;
 
 import xyz.lexteam.ygd.core.meta.key.Keys;
 import xyz.lexteam.ygd.core.meta.manipulator.tool.ToolChangeDurationMeta;
-import xyz.lexteam.ygd.game.impl.meta.utils.MetaConstants;
+import xyz.lexteam.ygd.game.impl.meta.util.MetaConstants;
 import xyz.lexteam.meta.impl.manipulator.AbstractSingularMeta;
 
 /**

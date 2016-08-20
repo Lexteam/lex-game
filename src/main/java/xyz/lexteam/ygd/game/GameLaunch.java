@@ -19,9 +19,11 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import xyz.lexteam.eventbus.IEventBus;
 import xyz.lexteam.eventbus.SimpleEventBus;
+import xyz.lexteam.meta.api.MetaRegistry;
+import xyz.lexteam.meta.api.builder.Builders;
+import xyz.lexteam.meta.api.value.ValueRegistry;
 import xyz.lexteam.ygd.core.Game;
 import xyz.lexteam.ygd.core.service.ProviderExistsException;
-import xyz.lexteam.ygd.core.service.event.Events;
 import xyz.lexteam.ygd.game.impl.meta.builder.tool.ToolAddConectionMetaBuilder;
 import xyz.lexteam.ygd.game.impl.meta.builder.tool.ToolChangeDurationMetaBuilder;
 import xyz.lexteam.ygd.game.impl.meta.processor.tool.ToolAddConnectionMetaProcessor;
@@ -30,18 +32,14 @@ import xyz.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDirectionFromValu
 import xyz.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDirectionToValueProcessor;
 import xyz.lexteam.ygd.game.impl.meta.value.processor.tool.ToolDurationValueProcessor;
 import xyz.lexteam.ygd.game.impl.service.event.GameEvents;
-import xyz.lexteam.meta.api.MetaRegistry;
-import xyz.lexteam.meta.api.builder.Builders;
-import xyz.lexteam.meta.api.value.ValueRegistry;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import xyz.lexteam.ygd.game.impl.util.ReflectionHelper;
+import xyz.lexteam.ygd.game.impl.util.ReflectionHelperException;
 
 public final class GameLaunch {
 
     private static Game game;
 
-    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+    public static void main(String[] args) throws ReflectionHelperException {
         game = new xyz.lexteam.ygd.game.impl.LexGame();
         game.getLogger().info(String.format("lex-game version %s loading", Game.VERSION));
         try {
@@ -66,15 +64,8 @@ public final class GameLaunch {
         return game;
     }
 
-    public static void initialiseLexGame() throws IllegalAccessException, NoSuchFieldException {
-        Field field = xyz.lexteam.ygd.core.LexGame.class.getDeclaredField("GAME");
-        field.setAccessible(true);
-
-        Field modifiersField = Field.class.getDeclaredField("modifiers");
-        modifiersField.setAccessible(true);
-        modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
-
-        field.set(null, game);
+    public static void initialiseLexGame() throws ReflectionHelperException {
+        ReflectionHelper.setStaticFinal(xyz.lexteam.ygd.core.LexGame.class, "GAME", game);
     }
 
     private static void registerServices() throws ProviderExistsException {
